@@ -1,0 +1,13 @@
+Warning: KiotaBuilder OpenAPI warning: #/ - A servers entry (v3) or host + basePath + schemes properties (v2) was not present in the OpenAPI description. The root URL will need to be set manually with the request adapter.
+Warning: KiotaBuilder OpenAPI warning: #/paths/~1videos~1{videoId}~1audio-tracks/post - The operation #/paths/~1videos~1{videoId}~1audio-tracks/post has a request body which is not an object type. This is not supported by Kiota and serialization will fail.
+Warning: KiotaBuilder OpenAPI warning: #/paths/~1videos~1{videoId}~1audio-tracks~1{lang_code}/put - The operation #/paths/~1videos~1{videoId}~1audio-tracks~1{lang_code}/put has a request body which is not an object type. This is not supported by Kiota and serialization will fail.
+Warning: KiotaBuilder OpenAPI warning: #/paths/~1videos~1{videoId}~1subtitles/post - The operation #/paths/~1videos~1{videoId}~1subtitles/post has a request body which is not an object type. This is not supported by Kiota and serialization will fail.
+Warning: KiotaBuilder OpenAPI warning: #/paths/~1videos~1{videoId}~1subtitles~1{lang_code}/put - The operation #/paths/~1videos~1{videoId}~1subtitles~1{lang_code}/put has a request body which is not an object type. This is not supported by Kiota and serialization will fail.
+Warning: KiotaBuilder OpenAPI warning: #/paths/~1videos~1{videoId}~1thumbnail/put - The operation #/paths/~1videos~1{videoId}~1thumbnail/put has a request body which is not an object type. This is not supported by Kiota and serialization will fail.
+Error: KiotaBuilder OpenAPI error:  - host is not a valid property at #/
+Error: KiotaBuilder OpenAPI error:  - schemes is not a valid property at #/
+Error: KiotaBuilder OpenAPI error:  - basePath is not a valid property at #/
+Error: KiotaBuilder OpenAPI error: #/paths//videos/{videoId}/audio-tracks/{trackId} - The path signature '/videos/{}/audio-tracks/{}' MUST be unique.
+Error: KiotaBuilder OpenAPI error: #/paths//videos/{videoId}/subtitles/{subtitleId} - The path signature '/videos/{}/subtitles/{}' MUST be unique.
+Warning: KiotaBuilder Duplicate operation DELETE in path default
+Warning: KiotaBuilder Duplicate operation DELETE in path default
