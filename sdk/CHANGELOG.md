@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/rixlhq/rixl-csharp/compare/v0.1.1...v0.1.2) (2026-05-05)
+
+
+### Bug Fixes
+
+* correct error namespace in README ([1922059](https://github.com/rixlhq/rixl-csharp/commit/1922059fd044c2c86a90ca1d7911c4317895a4e9))
+
 ## [0.1.1](https://github.com/rixlhq/rixl-csharp/compare/v0.1.0...v0.1.1) (2026-05-04)
 
 
