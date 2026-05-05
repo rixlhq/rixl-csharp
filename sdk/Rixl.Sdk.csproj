@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
 
     <PackageId>Rixl.Sdk</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Authors>RIXL</Authors>
     <Company>RIXL</Company>
     <Description>C# client for the RIXL API.</Description>
