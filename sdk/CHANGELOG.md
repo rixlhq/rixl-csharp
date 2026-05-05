@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/rixlhq/rixl-csharp/compare/v0.1.3...v0.1.4) (2026-05-05)
+
+
+### Bug Fixes
+
+* ship debug symbols and SourceLink for step-into debugging ([1f69bb0](https://github.com/rixlhq/rixl-csharp/commit/1f69bb0a50745608cd6fa12cf97445ba3461866e))
+
 ## [0.1.3](https://github.com/rixlhq/rixl-csharp/compare/v0.1.2...v0.1.3) (2026-05-05)
 
 
