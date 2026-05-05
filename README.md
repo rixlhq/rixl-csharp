@@ -50,7 +50,7 @@ Upload (init → PUT bytes to presigned URL → complete) follows the same patte
 
 ## Errors
 
-API errors (400/401/403/404/500) are thrown as `Rixl.Sdk.Models.GithubComRixlhqApiInternalErrors.ErrorResponse` exceptions; catch and inspect `Code` / `Error`.
+API errors (400/401/403/404/500) are thrown as `Rixl.Sdk.Models.Github_com_rixlhq_api_internal_errors.ErrorResponse` exceptions; catch and inspect `Code` / `Error`.
 
 ## Support
 
