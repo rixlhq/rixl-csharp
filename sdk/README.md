@@ -17,11 +17,11 @@ Targets `.NET 8`. Brings in `Microsoft.Kiota.Bundle` (HTTP transport, serializer
 ```csharp
 using Rixl.Sdk;
 using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
+using Microsoft.Kiota.Bundle;
 
 var auth = new ApiKeyAuthenticationProvider(
     "YOUR_RIXL_API_KEY", "X-API-Key", ApiKeyLocation.Header);
-var adapter = new HttpClientRequestAdapter(auth);
+var adapter = new DefaultRequestAdapter(auth);
 var client = new RixlClient(adapter);
 
 var image = await client.Images["PS5IMKoFLm"].GetAsync();
