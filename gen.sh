@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Regenerate the C# SDK from the upstream RIXL OpenAPI spec.
+# Regenerate the SDK from the upstream RIXL OpenAPI spec.
 set -euo pipefail
 
 kiota generate \
@@ -7,6 +7,6 @@ kiota generate \
     -c RixlClient \
     -n Rixl.Sdk \
     -d https://raw.githubusercontent.com/rixlhq/openapi/refs/heads/main/openapi.yaml \
-    -o "$(dirname "$0")/sdk" \
+    -o "./sdk" \
     --clean-output \
     --exclude-backward-compatible
