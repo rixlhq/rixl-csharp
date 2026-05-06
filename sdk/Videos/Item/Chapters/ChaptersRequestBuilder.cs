@@ -67,7 +67,7 @@ namespace Rixl.Sdk.Videos.Item.Chapters
         /// Replace all chapters for a video (atomic PUT operation) using API key authentication
         /// </summary>
         /// <returns>A <see cref="global::Rixl.Sdk.Models.UpdateChaptersResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Chapters array</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Rixl.Sdk.Models.Github_com_rixlhq_api_internal_errors.ErrorResponse">When receiving a 400 status code</exception>
@@ -119,7 +119,7 @@ namespace Rixl.Sdk.Videos.Item.Chapters
         /// Replace all chapters for a video (atomic PUT operation) using API key authentication
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">Chapters array</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
