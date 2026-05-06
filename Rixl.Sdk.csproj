@@ -28,7 +28,13 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="sdk/**/*.cs"/>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.22.1"/>
@@ -37,7 +43,7 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\"/>
-    <None Include="..\LICENSE" Pack="true" PackagePath="\"/>
+    <None Include="LICENSE" Pack="true" PackagePath="\"/>
   </ItemGroup>
 
 </Project>

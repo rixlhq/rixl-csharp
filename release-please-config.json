@@ -3,7 +3,7 @@
     "bump-minor-pre-major": false,
     "bump-patch-for-minor-pre-major": true,
     "packages": {
-        "sdk": {
+        ".": {
             "release-type": "simple",
             "package-name": "Rixl.Sdk",
             "include-component-in-tag": false,
