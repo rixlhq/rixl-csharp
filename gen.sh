@@ -2,17 +2,11 @@
 # Regenerate the C# SDK from the upstream RIXL OpenAPI spec.
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SDK_DIR="${SCRIPT_DIR}/sdk"
-
-rm -rf "${SDK_DIR}"
-mkdir -p "${SDK_DIR}"
-
 kiota generate \
     -l csharp \
     -c RixlClient \
     -n Rixl.Sdk \
     -d https://raw.githubusercontent.com/rixlhq/openapi/refs/heads/main/openapi.yaml \
-    -o "${SDK_DIR}" \
+    -o "$(dirname "$0")/sdk" \
     --clean-output \
     --exclude-backward-compatible
