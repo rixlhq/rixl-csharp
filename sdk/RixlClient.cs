@@ -51,7 +51,7 @@ namespace Rixl.Sdk
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
             if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
             {
-                RequestAdapter.BaseUrl = "https://raw.githubusercontent.com";
+                RequestAdapter.BaseUrl = "https://api.rixl.com";
             }
             PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }
