@@ -6,9 +6,7 @@ using Microsoft.Kiota.Serialization.Form;
 using Microsoft.Kiota.Serialization.Json;
 using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
-using Rixl.Sdk.Feeds;
-using Rixl.Sdk.Images;
-using Rixl.Sdk.Videos;
+using Rixl.Sdk.Media;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -21,20 +19,10 @@ namespace Rixl.Sdk
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RixlClient : BaseRequestBuilder
     {
-        /// <summary>The feeds property</summary>
-        public global::Rixl.Sdk.Feeds.FeedsRequestBuilder Feeds
+        /// <summary>The media property</summary>
+        public global::Rixl.Sdk.Media.MediaRequestBuilder Media
         {
-            get => new global::Rixl.Sdk.Feeds.FeedsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The images property</summary>
-        public global::Rixl.Sdk.Images.ImagesRequestBuilder Images
-        {
-            get => new global::Rixl.Sdk.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The videos property</summary>
-        public global::Rixl.Sdk.Videos.VideosRequestBuilder Videos
-        {
-            get => new global::Rixl.Sdk.Videos.VideosRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.RixlClient"/> and sets the default values.
