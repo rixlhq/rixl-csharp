@@ -2,9 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Media.Feeds;
-using Rixl.Sdk.Media.Images;
-using Rixl.Sdk.Media.Videos;
+using Rixl.Sdk.Media.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -17,20 +15,10 @@ namespace Rixl.Sdk.Media
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MediaRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The feeds property</summary>
-        public global::Rixl.Sdk.Media.Feeds.FeedsRequestBuilder Feeds
+        /// <summary>The v1 property</summary>
+        public global::Rixl.Sdk.Media.V1.V1RequestBuilder V1
         {
-            get => new global::Rixl.Sdk.Media.Feeds.FeedsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The images property</summary>
-        public global::Rixl.Sdk.Media.Images.ImagesRequestBuilder Images
-        {
-            get => new global::Rixl.Sdk.Media.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The videos property</summary>
-        public global::Rixl.Sdk.Media.Videos.VideosRequestBuilder Videos
-        {
-            get => new global::Rixl.Sdk.Media.Videos.VideosRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Media.V1.V1RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Media.MediaRequestBuilder"/> and sets the default values.
