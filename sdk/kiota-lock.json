@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "857F704A29899C5AFE94DC2EF19F38DC3F33BDB71A75596B122D248E51FC37AE5C3C8B8E139C04B9DDB0591949C61867C7C1FCD3C60008EB384BA6E1CED6B610",
+  "descriptionHash": "4D530C4AFD0170D51689158BAF233671067E1927A5B3475E1995E7BF3E9E3B064024ADF82073110D1B114A2BB5E7D105E3617C8A5DBA58687A25BFA318954D01",
   "descriptionLocation": "https://raw.githubusercontent.com/rixlhq/openapi/refs/heads/main/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.32.4",
+  "kiotaVersion": "1.32.5",
   "clientClassName": "RixlClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Rixl.Sdk",
@@ -30,5 +30,6 @@
   ],
   "includePatterns": [],
   "excludePatterns": [],
-  "disabledValidationRules": []
+  "disabledValidationRules": [],
+  "allowedExternalOrigins": []
 }

@@ -22,6 +22,14 @@ namespace Rixl.Sdk.Models.Authv1
 #endif
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>authentication lists the 2FA methods the user has configured whenstatus is &quot;2fa_required&quot;. The public API renders these as lowercasestrings: &quot;passkey&quot;, &quot;totp&quot;.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? Authentication { get; set; }
+#nullable restore
+#else
+        public List<int?> Authentication { get; set; }
+#endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -32,6 +40,14 @@ namespace Rixl.Sdk.Models.Authv1
 #endif
         /// <summary>The expires_in property</summary>
         public int? ExpiresIn { get; set; }
+        /// <summary>passkey_options is the WebAuthn PublicKeyCredentialRequestOptions as JSON,present only when &quot;passkey&quot; is one of the authentication methods.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<int?>? PasskeyOptions { get; set; }
+#nullable restore
+#else
+        public List<int?> PasskeyOptions { get; set; }
+#endif
         /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -56,7 +72,7 @@ namespace Rixl.Sdk.Models.Authv1
 #else
         public string SessionId { get; set; }
 #endif
-        /// <summary>&quot;ok&quot; | &quot;otp_required&quot; | &quot;email_not_verified&quot;</summary>
+        /// <summary>&quot;ok&quot; | &quot;2fa_required&quot; | &quot;email_not_verified&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
@@ -98,8 +114,10 @@ namespace Rixl.Sdk.Models.Authv1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
+                { "authentication", n => { Authentication = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetIntValue(); } },
+                { "passkey_options", n => { PasskeyOptions = n.GetCollectionOfPrimitiveValues<int?>()?.AsList(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
                 { "session_id", n => { SessionId = n.GetStringValue(); } },
@@ -115,8 +133,10 @@ namespace Rixl.Sdk.Models.Authv1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_token", AccessToken);
+            writer.WriteCollectionOfPrimitiveValues<int?>("authentication", Authentication);
             writer.WriteStringValue("email", Email);
             writer.WriteIntValue("expires_in", ExpiresIn);
+            writer.WriteCollectionOfPrimitiveValues<int?>("passkey_options", PasskeyOptions);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("requires_action", RequiresAction);
             writer.WriteStringValue("session_id", SessionId);

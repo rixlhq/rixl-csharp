@@ -16,6 +16,7 @@ using Rixl.Sdk.Auth.V1.Register;
 using Rixl.Sdk.Auth.V1.Token;
 using Rixl.Sdk.Auth.V1.Userinfo;
 using Rixl.Sdk.Auth.V1.Users;
+using Rixl.Sdk.Auth.V1.VerifyPasskey;
 using Rixl.Sdk.Auth.V1.VerifyTotp;
 using System.Collections.Generic;
 using System.IO;
@@ -98,6 +99,11 @@ namespace Rixl.Sdk.Auth.V1
         public global::Rixl.Sdk.Auth.V1.Users.UsersRequestBuilder Users
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.UsersRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The verifyPasskey property</summary>
+        public global::Rixl.Sdk.Auth.V1.VerifyPasskey.VerifyPasskeyRequestBuilder VerifyPasskey
+        {
+            get => new global::Rixl.Sdk.Auth.V1.VerifyPasskey.VerifyPasskeyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The verifyTotp property</summary>
         public global::Rixl.Sdk.Auth.V1.VerifyTotp.VerifyTotpRequestBuilder VerifyTotp
