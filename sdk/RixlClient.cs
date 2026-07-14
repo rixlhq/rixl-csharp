@@ -9,11 +9,12 @@ using Microsoft.Kiota.Serialization.Text;
 using Rixl.Sdk.Analytics;
 using Rixl.Sdk.Auth;
 using Rixl.Sdk.Billing;
+using Rixl.Sdk.Feeds;
+using Rixl.Sdk.Internal;
 using Rixl.Sdk.Media;
-using Rixl.Sdk.Organization;
+using Rixl.Sdk.Organizations;
 using Rixl.Sdk.Platform;
 using Rixl.Sdk.Posts;
-using Rixl.Sdk.Projects;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -41,15 +42,25 @@ namespace Rixl.Sdk
         {
             get => new global::Rixl.Sdk.Billing.BillingRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The feeds property</summary>
+        public global::Rixl.Sdk.Feeds.FeedsRequestBuilder Feeds
+        {
+            get => new global::Rixl.Sdk.Feeds.FeedsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The internal property</summary>
+        public global::Rixl.Sdk.Internal.InternalRequestBuilder Internal
+        {
+            get => new global::Rixl.Sdk.Internal.InternalRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The media property</summary>
         public global::Rixl.Sdk.Media.MediaRequestBuilder Media
         {
             get => new global::Rixl.Sdk.Media.MediaRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The organization property</summary>
-        public global::Rixl.Sdk.Organization.OrganizationRequestBuilder Organization
+        /// <summary>The organizations property</summary>
+        public global::Rixl.Sdk.Organizations.OrganizationsRequestBuilder Organizations
         {
-            get => new global::Rixl.Sdk.Organization.OrganizationRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The platform property</summary>
         public global::Rixl.Sdk.Platform.PlatformRequestBuilder Platform
@@ -60,11 +71,6 @@ namespace Rixl.Sdk
         public global::Rixl.Sdk.Posts.PostsRequestBuilder Posts
         {
             get => new global::Rixl.Sdk.Posts.PostsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The projects property</summary>
-        public global::Rixl.Sdk.Projects.ProjectsRequestBuilder Projects
-        {
-            get => new global::Rixl.Sdk.Projects.ProjectsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.RixlClient"/> and sets the default values.
@@ -79,11 +85,6 @@ namespace Rixl.Sdk
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
-            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
-            {
-                RequestAdapter.BaseUrl = "https://raw.githubusercontent.com";
-            }
-            PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }
     }
 }

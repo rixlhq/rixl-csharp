@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Auth.V1.Invitations
     public partial class InvitationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.invitations.item collection</summary>
-        /// <param name="position">Invitation token</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Invitations.Item.WithTokenItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Invitations.Item.WithTokenItemRequestBuilder this[string position]
         {

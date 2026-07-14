@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,38 +34,38 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails.Change
         {
         }
         /// <summary>
-        /// Starts changing the authenticated account&apos;s email address. A verificationcode is sent to the new address; the change is applied only after the codeis confirmed via `POST /auth/v1/email/verify`. Subject to rate limiting per account.
+        /// InitiateEmailChange
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.VerificationSentResponse"/></returns>
-        /// <param name="body">New email address</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.VerificationSentResponse?> PutAsync(global::Rixl.Sdk.Models.Gateway.ChangeEmailBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse?> PutAsync(global::Rixl.Sdk.Models.Auth.V1.InitiateEmailChangeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.VerificationSentResponse> PutAsync(global::Rixl.Sdk.Models.Gateway.ChangeEmailBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse> PutAsync(global::Rixl.Sdk.Models.Auth.V1.InitiateEmailChangeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.VerificationSentResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.VerificationSentResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Starts changing the authenticated account&apos;s email address. A verificationcode is sent to the new address; the change is applied only after the codeis confirmed via `POST /auth/v1/email/verify`. Subject to rate limiting per account.
+        /// InitiateEmailChange
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">New email address</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.ChangeEmailBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Auth.V1.InitiateEmailChangeRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.ChangeEmailBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Auth.V1.InitiateEmailChangeRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

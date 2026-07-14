@@ -16,15 +16,15 @@ namespace Rixl.Sdk.Media.V1.Images
     public partial class ImagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.images.item collection</summary>
-        /// <param name="position">Image ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Images.Item.WithImageItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Images.Item.WithImageItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Images.Item.WithImage_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Images.Item.WithImage_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("imageId", position);
-                return new global::Rixl.Sdk.Media.V1.Images.Item.WithImageItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("image_id", position);
+                return new global::Rixl.Sdk.Media.V1.Images.Item.WithImage_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Analyticsv1;
+using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Analytics.V1.Top.Videos
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VideosRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/videos{?end*,limit*,start*}", pathParameters)
+        public VideosRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/videos{?limit*,range%2Eend*,range%2Estart*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,29 +30,29 @@ namespace Rixl.Sdk.Analytics.V1.Top.Videos
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public VideosRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/videos{?end*,limit*,start*}", rawUrl)
+        public VideosRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/videos{?limit*,range%2Eend*,range%2Estart*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the top videos over a date range
+        /// GetTopVideos
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analyticsv1.TopVideosResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.TopVideosResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Analyticsv1.TopVideosResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Top.Videos.VideosRequestBuilder.VideosRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.TopVideosResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Top.Videos.VideosRequestBuilder.VideosRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Analyticsv1.TopVideosResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Top.Videos.VideosRequestBuilder.VideosRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.TopVideosResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Top.Videos.VideosRequestBuilder.VideosRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analyticsv1.TopVideosResponse>(requestInfo, global::Rixl.Sdk.Models.Analyticsv1.TopVideosResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.TopVideosResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.TopVideosResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the top videos over a date range
+        /// GetTopVideos
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,40 +80,30 @@ namespace Rixl.Sdk.Analytics.V1.Top.Videos
             return new global::Rixl.Sdk.Analytics.V1.Top.Videos.VideosRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the top videos over a date range
+        /// GetTopVideos
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class VideosRequestBuilderGetQueryParameters 
         {
-            /// <summary>End date (inclusive)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("end")]
-            public string? End { get; set; }
-#nullable restore
-#else
-            [QueryParameter("end")]
-            public string End { get; set; }
-#endif
-            /// <summary>Maximum number of results</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
             [QueryParameter("limit")]
-            public string? Limit { get; set; }
-#nullable restore
-#else
-            [QueryParameter("limit")]
-            public string Limit { get; set; }
-#endif
-            /// <summary>Start date (inclusive)</summary>
+            public int? Limit { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("start")]
-            public string? Start { get; set; }
+            [QueryParameter("range%2Eend")]
+            public string? RangeEnd { get; set; }
 #nullable restore
 #else
-            [QueryParameter("start")]
-            public string Start { get; set; }
+            [QueryParameter("range%2Eend")]
+            public string RangeEnd { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("range%2Estart")]
+            public string? RangeStart { get; set; }
+#nullable restore
+#else
+            [QueryParameter("range%2Estart")]
+            public string RangeStart { get; set; }
 #endif
         }
     }

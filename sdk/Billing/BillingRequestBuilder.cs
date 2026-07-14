@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1;
-using Rixl.Sdk.Billing.Webhooks;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -20,11 +19,6 @@ namespace Rixl.Sdk.Billing
         public global::Rixl.Sdk.Billing.V1.V1RequestBuilder V1
         {
             get => new global::Rixl.Sdk.Billing.V1.V1RequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The webhooks property</summary>
-        public global::Rixl.Sdk.Billing.Webhooks.WebhooksRequestBuilder Webhooks
-        {
-            get => new global::Rixl.Sdk.Billing.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Billing.BillingRequestBuilder"/> and sets the default values.

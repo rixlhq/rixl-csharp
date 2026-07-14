@@ -6,8 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent;
 using Rixl.Sdk.Billing.V1.PaymentMethods.FromSetupIntent;
 using Rixl.Sdk.Billing.V1.PaymentMethods.Item;
-using Rixl.Sdk.Models.Billingv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Billing.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -32,15 +31,15 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
             get => new global::Rixl.Sdk.Billing.V1.PaymentMethods.FromSetupIntent.FromSetupIntentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.billing.v1.paymentMethods.item collection</summary>
-        /// <param name="position">Payment method ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPaymentMethodItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPaymentMethodItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPayment_method_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPayment_method_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("paymentMethodId", position);
-                return new global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPaymentMethodItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("payment_method_id", position);
+                return new global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPayment_method_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -48,7 +47,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PaymentMethodsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods", pathParameters)
+        public PaymentMethodsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?orgId*,refresh*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,59 +55,59 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PaymentMethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods", rawUrl)
+        public PaymentMethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?orgId*,refresh*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the organization&apos;s payment methods.
+        /// ListPaymentMethods
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.ListPaymentMethodsResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListPaymentMethodsResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder.PaymentMethodsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListPaymentMethodsResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder.PaymentMethodsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.ListPaymentMethodsResponse>(requestInfo, global::Rixl.Sdk.Models.Billingv1.ListPaymentMethodsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Attach a payment method to the organization
+        /// UpsertPaymentMethod
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.PaymentMethodDetails"/></returns>
-        /// <param name="body">Payment method request</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.PaymentMethodDetails?> PostAsync(global::Rixl.Sdk.Models.Gateway.UpsertPaymentMethodBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails?> PutAsync(global::Rixl.Sdk.Models.Billing.V1.UpsertPaymentMethodRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.PaymentMethodDetails> PostAsync(global::Rixl.Sdk.Models.Gateway.UpsertPaymentMethodBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails> PutAsync(global::Rixl.Sdk.Models.Billing.V1.UpsertPaymentMethodRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.PaymentMethodDetails>(requestInfo, global::Rixl.Sdk.Models.Billingv1.PaymentMethodDetails.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the organization&apos;s payment methods.
+        /// ListPaymentMethods
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder.PaymentMethodsRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder.PaymentMethodsRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -117,22 +116,22 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
             return requestInfo;
         }
         /// <summary>
-        /// Attach a payment method to the organization
+        /// UpsertPaymentMethod
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Payment method request</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.UpsertPaymentMethodBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Billing.V1.UpsertPaymentMethodRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.UpsertPaymentMethodBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Billing.V1.UpsertPaymentMethodRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -146,6 +145,24 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         public global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListPaymentMethods
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PaymentMethodsRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("orgId")]
+            public string? OrgId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("orgId")]
+            public string OrgId { get; set; }
+#endif
+            [QueryParameter("refresh")]
+            public bool? Refresh { get; set; }
         }
     }
 }

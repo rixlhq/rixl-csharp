@@ -16,15 +16,15 @@ namespace Rixl.Sdk.Posts.V1.Feeds
     public partial class FeedsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.feeds.item collection</summary>
-        /// <param name="position">Feed ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeedItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeedItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeed_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeed_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("feedId", position);
-                return new global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeedItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("feed_id", position);
+                return new global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeed_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

@@ -3,9 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -14,21 +14,26 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\policies
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\policies
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PoliciesRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The attachments property</summary>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.AttachmentsRequestBuilder Attachments
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.AttachmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.policies.item collection</summary>
-        /// <param name="position">Policy ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicyItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicyItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicy_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicy_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("policyId", position);
-                return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicyItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("policy_id", position);
+                return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.WithPolicy_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -36,7 +41,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/policies", pathParameters)
+        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies{?userId*}", pathParameters)
         {
         }
         /// <summary>
@@ -44,59 +49,59 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/policies", rawUrl)
+        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies{?userId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns all authorization policies defined in the organization.
+        /// ListPolicies
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.ListPoliciesResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListPoliciesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListPoliciesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListPoliciesResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListPoliciesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListPoliciesResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.ListPoliciesResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.ListPoliciesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListPoliciesResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListPoliciesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Creates a new authorization policy in the organization with the given name, description, and permissions.
+        /// CreatePolicy
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.Policy"/></returns>
-        /// <param name="body">Policy</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.Policy"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.Policy?> PostAsync(global::Rixl.Sdk.Models.Gateway.PolicyBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.Policy?> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.Policy> PostAsync(global::Rixl.Sdk.Models.Gateway.PolicyBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.Policy> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.Policy>(requestInfo, global::Rixl.Sdk.Models.Authv1.Policy.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.Policy>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.Policy.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all authorization policies defined in the organization.
+        /// ListPolicies
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder.PoliciesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -105,18 +110,18 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
             return requestInfo;
         }
         /// <summary>
-        /// Creates a new authorization policy in the organization with the given name, description, and permissions.
+        /// CreatePolicy
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Policy</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.PolicyBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.PolicyBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -134,6 +139,22 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListPolicies
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PoliciesRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

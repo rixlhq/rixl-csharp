@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.Tax.Calculate;
+using Rixl.Sdk.Billing.V1.Tax.CalculateGeneric;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace Rixl.Sdk.Billing.V1.Tax
         public global::Rixl.Sdk.Billing.V1.Tax.Calculate.CalculateRequestBuilder Calculate
         {
             get => new global::Rixl.Sdk.Billing.V1.Tax.Calculate.CalculateRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The calculateGeneric property</summary>
+        public global::Rixl.Sdk.Billing.V1.Tax.CalculateGeneric.CalculateGenericRequestBuilder CalculateGeneric
+        {
+            get => new global::Rixl.Sdk.Billing.V1.Tax.CalculateGeneric.CalculateGenericRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Billing.V1.Tax.TaxRequestBuilder"/> and sets the default values.

@@ -4,9 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin;
-using Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verification;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verify;
+using Rixl.Sdk.Models.Auth.V1;
+using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\domain
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\domain
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DomainRequestBuilder : BaseRequestBuilder
@@ -25,17 +25,17 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
         {
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The verification property</summary>
-        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verification.VerificationRequestBuilder Verification
+        /// <summary>The verify property</summary>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verify.VerifyRequestBuilder Verify
         {
-            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verification.VerificationRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/domain", pathParameters)
+        public DomainRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/domain{?userId*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,94 +43,96 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/domain", rawUrl)
+        public DomainRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/domain{?userId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Removes the custom domain from the organization and clears its verification.
+        /// RemoveDomain
         /// </summary>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            await RequestAdapter.SendNoContentAsync(requestInfo, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the current custom domain and its verification status for the organization.
+        /// GetDomainStatus
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.DomainResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.DomainResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.DomainResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.DomainResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.DomainResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.DomainResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.DomainResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.DomainResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.DomainResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.DomainResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Registers a custom domain for the organization and issues verification details to prove ownership.
+        /// CreateDomainVerification
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.DomainResponse"/></returns>
-        /// <param name="body">Domain</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.DomainResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.DomainResponse?> PostAsync(global::Rixl.Sdk.Models.Gateway.CreateDomainBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.DomainResponse?> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.DomainResponse> PostAsync(global::Rixl.Sdk.Models.Gateway.CreateDomainBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.DomainResponse> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.DomainResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.DomainResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.DomainResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.DomainResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Removes the custom domain from the organization and clears its verification.
+        /// RemoveDomain
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;
         }
         /// <summary>
-        /// Returns the current custom domain and its verification status for the organization.
+        /// GetDomainStatus
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder.DomainRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -139,18 +141,18 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
             return requestInfo;
         }
         /// <summary>
-        /// Registers a custom domain for the organization and issues verification details to prove ownership.
+        /// CreateDomainVerification
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Domain</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreateDomainBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreateDomainBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -168,6 +170,38 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// RemoveDomain
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class DomainRequestBuilderDeleteQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
+        }
+        /// <summary>
+        /// GetDomainStatus
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class DomainRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

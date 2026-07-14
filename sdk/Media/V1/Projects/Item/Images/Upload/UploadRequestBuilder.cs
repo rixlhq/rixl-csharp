@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Gateway;
-using Rixl.Sdk.Models.Imagesv1;
+using Rixl.Sdk.Models.Images.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\images\upload
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\images\upload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UploadRequestBuilder : BaseRequestBuilder
@@ -23,7 +22,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images/upload", pathParameters)
+        public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images/upload", pathParameters)
         {
         }
         /// <summary>
@@ -31,42 +30,42 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images/upload", rawUrl)
+        public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images/upload", rawUrl)
         {
         }
         /// <summary>
-        /// Initiates an image upload and returns upload details.
+        /// CreateImageUpload
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Imagesv1.ImageUploadInit"/></returns>
-        /// <param name="body">Image upload details</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Images.V1.ImageUploadInit"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Imagesv1.ImageUploadInit?> PostAsync(global::Rixl.Sdk.Models.Gateway.CreateImageUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Images.V1.ImageUploadInit?> PostAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Imagesv1.ImageUploadInit> PostAsync(global::Rixl.Sdk.Models.Gateway.CreateImageUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Images.V1.ImageUploadInit> PostAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Imagesv1.ImageUploadInit>(requestInfo, global::Rixl.Sdk.Models.Imagesv1.ImageUploadInit.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Images.V1.ImageUploadInit>(requestInfo, global::Rixl.Sdk.Models.Images.V1.ImageUploadInit.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Initiates an image upload and returns upload details.
+        /// CreateImageUpload
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Image upload details</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreateImageUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreateImageUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

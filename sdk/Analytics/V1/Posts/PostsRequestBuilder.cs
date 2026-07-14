@@ -16,15 +16,15 @@ namespace Rixl.Sdk.Analytics.V1.Posts
     public partial class PostsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.analytics.v1.posts.item collection</summary>
-        /// <param name="position">Post ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPostItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPostItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPost_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPost_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("postId", position);
-                return new global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPostItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("post_id", position);
+                return new global::Rixl.Sdk.Analytics.V1.Posts.Item.WithPost_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

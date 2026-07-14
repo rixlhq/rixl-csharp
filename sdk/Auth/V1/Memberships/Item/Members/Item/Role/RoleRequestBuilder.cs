@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\members\{userId}\role
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\members\{member_-id}\role
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RoleRequestBuilder : BaseRequestBuilder
@@ -23,7 +22,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoleRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/members/{userId}/role", pathParameters)
+        public RoleRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}/role", pathParameters)
         {
         }
         /// <summary>
@@ -31,46 +30,46 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public RoleRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/members/{userId}/role", rawUrl)
+        public RoleRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}/role", rawUrl)
         {
         }
         /// <summary>
-        /// Updates the specified member&apos;s role within the organization.
+        /// UpdateMemberRole
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.MembershipMutation"/></returns>
-        /// <param name="body">Role</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.MembershipMutation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.MembershipMutation?> PutAsync(global::Rixl.Sdk.Models.Gateway.UpdateRoleBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation?> PatchAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.MembershipMutation> PutAsync(global::Rixl.Sdk.Models.Gateway.UpdateRoleBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation> PatchAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.MembershipMutation>(requestInfo, global::Rixl.Sdk.Models.Authv1.MembershipMutation.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipMutation.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Updates the specified member&apos;s role within the organization.
+        /// UpdateMemberRole
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Role</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.UpdateRoleBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.UpdateRoleBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

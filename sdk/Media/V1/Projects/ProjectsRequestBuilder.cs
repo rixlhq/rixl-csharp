@@ -16,15 +16,15 @@ namespace Rixl.Sdk.Media.V1.Projects
     public partial class ProjectsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item collection</summary>
-        /// <param name="position">Project ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.WithProjectItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.WithProjectItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.WithProject_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Projects.Item.WithProject_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("projectId", position);
-                return new global::Rixl.Sdk.Media.V1.Projects.Item.WithProjectItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("project_id", position);
+                return new global::Rixl.Sdk.Media.V1.Projects.Item.WithProject_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

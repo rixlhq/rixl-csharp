@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Images.Item;
 using Rixl.Sdk.Media.V1.Projects.Item.Images.Upload;
-using Rixl.Sdk.Models.Imagesv1;
+using Rixl.Sdk.Models.Images.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -14,7 +14,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Images
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\images
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\images
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ImagesRequestBuilder : BaseRequestBuilder
@@ -25,15 +25,15 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.images.item collection</summary>
-        /// <param name="position">Image ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImageItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImageItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImage_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImage_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("imageId", position);
-                return new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImageItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("image_id", position);
+                return new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImage_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -41,7 +41,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images", pathParameters)
+        public ImagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sortDirection*,sortField*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,39 +49,39 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images", rawUrl)
+        public ImagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sortDirection*,sortField*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the images in a project.
+        /// ListImages
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Imagesv1.ListImagesResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Images.V1.ListImagesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Imagesv1.ListImagesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Imagesv1.ListImagesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Imagesv1.ListImagesResponse>(requestInfo, global::Rixl.Sdk.Models.Imagesv1.ListImagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse>(requestInfo, global::Rixl.Sdk.Models.Images.V1.ListImagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the images in a project.
+        /// ListImages
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -97,6 +97,37 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         public global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListImages
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class ImagesRequestBuilderGetQueryParameters 
+        {
+            /// <summary>Maximum number of items to return.</summary>
+            [QueryParameter("pagination%2Elimit")]
+            public int? PaginationLimit { get; set; }
+            /// <summary>Number of items to skip before collecting the result set.</summary>
+            [QueryParameter("pagination%2Eoffset")]
+            public int? PaginationOffset { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("sortDirection")]
+            public string? SortDirection { get; set; }
+#nullable restore
+#else
+            [QueryParameter("sortDirection")]
+            public string SortDirection { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("sortField")]
+            public string? SortField { get; set; }
+#nullable restore
+#else
+            [QueryParameter("sortField")]
+            public string SortField { get; set; }
+#endif
         }
     }
 }

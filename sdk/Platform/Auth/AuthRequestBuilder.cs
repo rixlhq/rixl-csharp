@@ -2,8 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Platform.Auth.Refresh;
-using Rixl.Sdk.Platform.Auth.Token;
+using Rixl.Sdk.Platform.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,15 +15,10 @@ namespace Rixl.Sdk.Platform.Auth
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuthRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The refresh property</summary>
-        public global::Rixl.Sdk.Platform.Auth.Refresh.RefreshRequestBuilder Refresh
+        /// <summary>The v1 property</summary>
+        public global::Rixl.Sdk.Platform.Auth.V1.V1RequestBuilder V1
         {
-            get => new global::Rixl.Sdk.Platform.Auth.Refresh.RefreshRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The token property</summary>
-        public global::Rixl.Sdk.Platform.Auth.Token.TokenRequestBuilder Token
-        {
-            get => new global::Rixl.Sdk.Platform.Auth.Token.TokenRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Platform.Auth.V1.V1RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Platform.Auth.AuthRequestBuilder"/> and sets the default values.

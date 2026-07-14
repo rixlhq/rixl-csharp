@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Analyticsv1;
+using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?end_time={end_time}&interval={interval}&start_time={start_time}", pathParameters)
+        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?timeEnd={timeEnd}&timeStart={timeStart}{&interval*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,29 +30,29 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?end_time={end_time}&interval={interval}&start_time={start_time}", rawUrl)
+        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?timeEnd={timeEnd}&timeStart={timeStart}{&interval*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns time-bucketed dashboard statistics
+        /// GetDashboardStats
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analyticsv1.DashboardStatsResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.DashboardStatsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Analyticsv1.DashboardStatsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder.DashboardRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.DashboardStatsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder.DashboardRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Analyticsv1.DashboardStatsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder.DashboardRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.DashboardStatsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder.DashboardRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analyticsv1.DashboardStatsResponse>(requestInfo, global::Rixl.Sdk.Models.Analyticsv1.DashboardStatsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.DashboardStatsResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.DashboardStatsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns time-bucketed dashboard statistics
+        /// GetDashboardStats
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,22 +80,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
             return new global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns time-bucketed dashboard statistics
+        /// GetDashboardStats
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DashboardRequestBuilderGetQueryParameters 
         {
-            /// <summary>End time (RFC3339)</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            [QueryParameter("end_time")]
-            public string? EndTime { get; set; }
-#nullable restore
-#else
-            [QueryParameter("end_time")]
-            public string EndTime { get; set; }
-#endif
-            /// <summary>Bucket interval (1m, 1h, 1d)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("interval")]
@@ -105,15 +94,23 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
             [QueryParameter("interval")]
             public string Interval { get; set; }
 #endif
-            /// <summary>Start time (RFC3339)</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("start_time")]
-            public string? StartTime { get; set; }
+            [QueryParameter("timeEnd")]
+            public string? TimeEnd { get; set; }
 #nullable restore
 #else
-            [QueryParameter("start_time")]
-            public string StartTime { get; set; }
+            [QueryParameter("timeEnd")]
+            public string TimeEnd { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("timeStart")]
+            public string? TimeStart { get; set; }
+#nullable restore
+#else
+            [QueryParameter("timeStart")]
+            public string TimeStart { get; set; }
 #endif
         }
     }

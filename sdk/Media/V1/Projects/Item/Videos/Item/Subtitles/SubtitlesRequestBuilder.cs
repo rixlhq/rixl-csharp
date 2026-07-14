@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload;
-using Rixl.Sdk.Models.Videosv1;
+using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\videos\{videoId}\subtitles
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\videos\{video_id}\subtitles
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubtitlesRequestBuilder : BaseRequestBuilder
@@ -31,15 +31,15 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.subtitles.item collection</summary>
-        /// <param name="position">Subtitle ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitleItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitleItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitle_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitle_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("subtitleId", position);
-                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitleItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("subtitle_id", position);
+                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitle_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SubtitlesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/subtitles", pathParameters)
+        public SubtitlesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/subtitles", pathParameters)
         {
         }
         /// <summary>
@@ -55,47 +55,29 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public SubtitlesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/subtitles", rawUrl)
+        public SubtitlesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/subtitles", rawUrl)
         {
         }
         /// <summary>
-        /// Deletes all subtitles for a video.
+        /// DeleteAllSubtitles
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videosv1.DeleteResult"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Videosv1.DeleteResult?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Videosv1.DeleteResult> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videosv1.DeleteResult>(requestInfo, global::Rixl.Sdk.Models.Videosv1.DeleteResult.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a video&apos;s subtitles within a project, including for private media. Requires project access.
-        /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videosv1.ListSubtitlesResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Rixl.Sdk.Models.Videosv1.ListSubtitlesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Rixl.Sdk.Models.Videosv1.ListSubtitlesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videosv1.ListSubtitlesResponse>(requestInfo, global::Rixl.Sdk.Models.Videosv1.ListSubtitlesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Deletes all subtitles for a video.
+        /// DeleteAllSubtitles
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,25 +91,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
-        }
-        /// <summary>
-        /// Returns a video&apos;s subtitles within a project, including for private media. Requires project access.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

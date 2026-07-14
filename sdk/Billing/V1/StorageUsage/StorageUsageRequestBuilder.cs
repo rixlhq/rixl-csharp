@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.StorageUsage.History;
 using Rixl.Sdk.Billing.V1.StorageUsage.Refresh;
-using Rixl.Sdk.Models.Billingv1;
+using Rixl.Sdk.Models.Billing.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -34,7 +34,7 @@ namespace Rixl.Sdk.Billing.V1.StorageUsage
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StorageUsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/storage-usage", pathParameters)
+        public StorageUsageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/storage-usage{?orgId*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,39 +42,39 @@ namespace Rixl.Sdk.Billing.V1.StorageUsage
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public StorageUsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/storage-usage", rawUrl)
+        public StorageUsageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/storage-usage{?orgId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the organization&apos;s storage usage.
+        /// GetStorageUsage
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.StorageUsage"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.StorageUsage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.StorageUsage?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.StorageUsage?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder.StorageUsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.StorageUsage> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.StorageUsage> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder.StorageUsageRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.StorageUsage>(requestInfo, global::Rixl.Sdk.Models.Billingv1.StorageUsage.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.StorageUsage>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.StorageUsage.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the organization&apos;s storage usage.
+        /// GetStorageUsage
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder.StorageUsageRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder.StorageUsageRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -90,6 +90,22 @@ namespace Rixl.Sdk.Billing.V1.StorageUsage
         public global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Billing.V1.StorageUsage.StorageUsageRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// GetStorageUsage
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class StorageUsageRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("orgId")]
+            public string? OrgId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("orgId")]
+            public string OrgId { get; set; }
+#endif
         }
     }
 }

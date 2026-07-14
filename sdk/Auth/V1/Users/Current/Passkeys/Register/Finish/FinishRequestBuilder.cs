@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -35,38 +34,38 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register.Finish
         {
         }
         /// <summary>
-        /// Completes passkey registration by verifying the signed WebAuthn credential and storing it under the given name for the authenticated user.
+        /// PasskeyRegisterFinish
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.PasskeyRegisterFinishResponse"/></returns>
-        /// <param name="body">session_id, name and WebAuthn credential</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.PasskeyRegisterFinishResponse?> PostAsync(global::Rixl.Sdk.Models.Gateway.PasskeyRegisterFinishBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishResponse?> PostAsync(global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.PasskeyRegisterFinishResponse> PostAsync(global::Rixl.Sdk.Models.Gateway.PasskeyRegisterFinishBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishResponse> PostAsync(global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.PasskeyRegisterFinishResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.PasskeyRegisterFinishResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Completes passkey registration by verifying the signed WebAuthn credential and storing it under the given name for the authenticated user.
+        /// PasskeyRegisterFinish
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">session_id, name and WebAuthn credential</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.PasskeyRegisterFinishBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.PasskeyRegisterFinishBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Auth.V1.PasskeyRegisterFinishRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

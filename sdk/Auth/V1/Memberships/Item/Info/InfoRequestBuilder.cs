@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\info
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\info
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InfoRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InfoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/info", pathParameters)
+        public InfoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?userId*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,39 +30,39 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InfoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/info", rawUrl)
+        public InfoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?userId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the authenticated user&apos;s membership info (email) for an organization, with permission-denied when not a member.
+        /// GetInternalMembershipInfo
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.GetInternalMembershipInfoResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.GetInternalMembershipInfoResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.GetInternalMembershipInfoResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.GetInternalMembershipInfoResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder.InfoRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.GetInternalMembershipInfoResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.GetInternalMembershipInfoResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder.InfoRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.GetInternalMembershipInfoResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.GetInternalMembershipInfoResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.GetInternalMembershipInfoResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.GetInternalMembershipInfoResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the authenticated user&apos;s membership info (email) for an organization, with permission-denied when not a member.
+        /// GetInternalMembershipInfo
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder.InfoRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder.InfoRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -78,6 +78,22 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Info.InfoRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// GetInternalMembershipInfo
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class InfoRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

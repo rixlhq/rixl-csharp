@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Platform.ApiKeys;
 using Rixl.Sdk.Platform.Auth;
 using Rixl.Sdk.Platform.Clientauth;
 using System.Collections.Generic;
@@ -17,11 +16,6 @@ namespace Rixl.Sdk.Platform
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PlatformRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The apiKeys property</summary>
-        public global::Rixl.Sdk.Platform.ApiKeys.ApiKeysRequestBuilder ApiKeys
-        {
-            get => new global::Rixl.Sdk.Platform.ApiKeys.ApiKeysRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The auth property</summary>
         public global::Rixl.Sdk.Platform.Auth.AuthRequestBuilder Auth
         {

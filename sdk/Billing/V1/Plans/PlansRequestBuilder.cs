@@ -4,7 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.Plans.Item;
-using Rixl.Sdk.Models.Billingv1;
+using Rixl.Sdk.Models.Billing.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,15 +19,15 @@ namespace Rixl.Sdk.Billing.V1.Plans
     public partial class PlansRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.billing.v1.plans.item collection</summary>
-        /// <param name="position">Plan ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlanItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlanItemRequestBuilder this[string position]
+        /// <param name="position">string.prefix = &quot;price_&quot;</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlan_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlan_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("planId", position);
-                return new global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlanItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("plan_id", position);
+                return new global::Rixl.Sdk.Billing.V1.Plans.Item.WithPlan_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Billing.V1.Plans
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PlansRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/plans", pathParameters)
+        public PlansRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/plans{?currency*,free*,interval*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,39 +43,39 @@ namespace Rixl.Sdk.Billing.V1.Plans
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PlansRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/plans", rawUrl)
+        public PlansRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/plans{?currency*,free*,interval*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the available billing plans.
+        /// ListPlans
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.ListPlansResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListPlansResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder.PlansRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListPlansResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder.PlansRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.ListPlansResponse>(requestInfo, global::Rixl.Sdk.Models.Billingv1.ListPlansResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the available billing plans.
+        /// ListPlans
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder.PlansRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder.PlansRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,6 +91,40 @@ namespace Rixl.Sdk.Billing.V1.Plans
         public global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListPlans
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PlansRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("currency")]
+            public string? Currency { get; set; }
+#nullable restore
+#else
+            [QueryParameter("currency")]
+            public string Currency { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("free")]
+            public string? Free { get; set; }
+#nullable restore
+#else
+            [QueryParameter("free")]
+            public string Free { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("interval")]
+            public string? Interval { get; set; }
+#nullable restore
+#else
+            [QueryParameter("interval")]
+            public string Interval { get; set; }
+#endif
         }
     }
 }

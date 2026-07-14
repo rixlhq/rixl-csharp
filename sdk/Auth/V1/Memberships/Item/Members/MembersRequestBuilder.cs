@@ -3,9 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Invite;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item;
-using Rixl.Sdk.Models.Authv1;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -14,26 +13,21 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\members
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\members
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembersRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The invite property</summary>
-        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Invite.InviteRequestBuilder Invite
-        {
-            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Invite.InviteRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.members.item collection</summary>
-        /// <param name="position">Member user ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.WithUserItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.WithUserItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("userId", position);
-                return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.WithUserItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("member_%2Did", position);
+                return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -41,7 +35,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/members{?limit*,offset*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*,user%2EuserId*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,29 +43,29 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/members{?limit*,offset*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*,user%2EuserId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a paginated list of the members belonging to the specified organization.
+        /// ListOrganizationMembers
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.ListOrgMembersResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListOrgMembersResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListOrgMembersResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListOrgMembersResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListOrgMembersResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListOrgMembersResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.MembersRequestBuilder.MembersRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.ListOrgMembersResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.ListOrgMembersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListOrgMembersResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListOrgMembersResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of the members belonging to the specified organization.
+        /// ListOrganizationMembers
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -99,17 +93,24 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.MembersRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns a paginated list of the members belonging to the specified organization.
+        /// ListOrganizationMembers
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 
         {
-            /// <summary>Limit</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>Offset</summary>
             [QueryParameter("offset")]
             public int? Offset { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user%2EuserId")]
+            public string? UserUserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("user%2EuserId")]
+            public string UserUserId { get; set; }
+#endif
         }
     }
 }

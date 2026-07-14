@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
-using Rixl.Sdk.Models.Gateway;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\memberships\{orgId}\domain\auto-join
+    /// Builds and executes requests for operations under \auth\v1\memberships\{org_-id}\domain\auto-join
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AutoJoinRequestBuilder : BaseRequestBuilder
@@ -23,7 +22,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AutoJoinRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/domain/auto-join", pathParameters)
+        public AutoJoinRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/domain/auto-join{?userId*}", pathParameters)
         {
         }
         /// <summary>
@@ -31,59 +30,59 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AutoJoinRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{orgId}/domain/auto-join", rawUrl)
+        public AutoJoinRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/domain/auto-join{?userId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns whether users with a matching verified domain email are automatically added to the organization.
+        /// GetDomainAutoJoin
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.AutoJoinSetting"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder.AutoJoinRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder.AutoJoinRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting>(requestInfo, global::Rixl.Sdk.Models.Authv1.AutoJoinSetting.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Enables or disables automatically adding users with a matching verified domain email to the organization.
+        /// SetDomainAutoJoin
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.AutoJoinSetting"/></returns>
-        /// <param name="body">Auto-join enabled</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting?> PutAsync(global::Rixl.Sdk.Models.Gateway.AutoJoinBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting?> PutAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting> PutAsync(global::Rixl.Sdk.Models.Gateway.AutoJoinBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting> PutAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.AutoJoinSetting>(requestInfo, global::Rixl.Sdk.Models.Authv1.AutoJoinSetting.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.AutoJoinSetting.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns whether users with a matching verified domain email are automatically added to the organization.
+        /// GetDomainAutoJoin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder.AutoJoinRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder.AutoJoinRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -92,18 +91,18 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
             return requestInfo;
         }
         /// <summary>
-        /// Enables or disables automatically adding users with a matching verified domain email to the organization.
+        /// SetDomainAutoJoin
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Auto-join enabled</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.AutoJoinBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Models.Gateway.AutoJoinBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -121,6 +120,22 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// GetDomainAutoJoin
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class AutoJoinRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

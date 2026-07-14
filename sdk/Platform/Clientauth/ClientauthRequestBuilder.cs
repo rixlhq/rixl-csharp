@@ -2,8 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Platform.Clientauth.Credentials;
-using Rixl.Sdk.Platform.Clientauth.Token;
+using Rixl.Sdk.Platform.Clientauth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -16,15 +15,10 @@ namespace Rixl.Sdk.Platform.Clientauth
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ClientauthRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The credentials property</summary>
-        public global::Rixl.Sdk.Platform.Clientauth.Credentials.CredentialsRequestBuilder Credentials
+        /// <summary>The v1 property</summary>
+        public global::Rixl.Sdk.Platform.Clientauth.V1.V1RequestBuilder V1
         {
-            get => new global::Rixl.Sdk.Platform.Clientauth.Credentials.CredentialsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The token property</summary>
-        public global::Rixl.Sdk.Platform.Clientauth.Token.TokenRequestBuilder Token
-        {
-            get => new global::Rixl.Sdk.Platform.Clientauth.Token.TokenRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Platform.Clientauth.V1.V1RequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Platform.Clientauth.ClientauthRequestBuilder"/> and sets the default values.

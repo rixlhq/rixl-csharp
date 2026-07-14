@@ -10,21 +10,21 @@ using System;
 namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds
 {
     /// <summary>
-    /// Builds and executes requests for operations under \posts\v1\projects\{projectId}\feeds
+    /// Builds and executes requests for operations under \posts\v1\projects\{project_id}\feeds
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class FeedsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.feeds.item collection</summary>
-        /// <param name="position">Feed ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeedItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeedItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeed_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeed_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("feedId", position);
-                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeedItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("feed_id", position);
+                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.WithFeed_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FeedsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds", pathParameters)
+        public FeedsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FeedsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds", rawUrl)
+        public FeedsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds", rawUrl)
         {
         }
     }

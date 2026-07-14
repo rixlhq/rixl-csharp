@@ -16,15 +16,15 @@ namespace Rixl.Sdk.Media.V1.Videos
     public partial class VideosRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.videos.item collection</summary>
-        /// <param name="position">Video ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Videos.Item.WithVideoItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Videos.Item.WithVideoItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Videos.Item.WithVideo_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Videos.Item.WithVideo_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("videoId", position);
-                return new global::Rixl.Sdk.Media.V1.Videos.Item.WithVideoItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("video_id", position);
+                return new global::Rixl.Sdk.Media.V1.Videos.Item.WithVideo_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

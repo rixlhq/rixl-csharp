@@ -4,7 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.Invoices.Item;
-using Rixl.Sdk.Models.Billingv1;
+using Rixl.Sdk.Models.Billing.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,15 +19,15 @@ namespace Rixl.Sdk.Billing.V1.Invoices
     public partial class InvoicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.billing.v1.invoices.item collection</summary>
-        /// <param name="position">Invoice ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoiceItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoiceItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoice_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoice_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("invoiceId", position);
-                return new global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoiceItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("invoice_id", position);
+                return new global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoice_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Billing.V1.Invoices
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvoicesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/invoices", pathParameters)
+        public InvoicesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/invoices{?orgId*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,39 +43,39 @@ namespace Rixl.Sdk.Billing.V1.Invoices
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvoicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/invoices", rawUrl)
+        public InvoicesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/invoices{?orgId*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the organization&apos;s invoices.
+        /// ListInvoices
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.ListInvoicesResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.ListInvoicesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListInvoicesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListInvoicesResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.ListInvoicesResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.ListInvoicesResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.ListInvoicesResponse>(requestInfo, global::Rixl.Sdk.Models.Billingv1.ListInvoicesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListInvoicesResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListInvoicesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the organization&apos;s invoices.
+        /// ListInvoices
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder.InvoicesRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -91,6 +91,28 @@ namespace Rixl.Sdk.Billing.V1.Invoices
         public global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListInvoices
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class InvoicesRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("orgId")]
+            public string? OrgId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("orgId")]
+            public string OrgId { get; set; }
+#endif
+            /// <summary>Maximum number of items to return.</summary>
+            [QueryParameter("pagination%2Elimit")]
+            public int? PaginationLimit { get; set; }
+            /// <summary>Number of items to skip before collecting the result set.</summary>
+            [QueryParameter("pagination%2Eoffset")]
+            public int? PaginationOffset { get; set; }
         }
     }
 }

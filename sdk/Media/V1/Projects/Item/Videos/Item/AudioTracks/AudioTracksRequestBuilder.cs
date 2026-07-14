@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Language;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload;
-using Rixl.Sdk.Models.Videosv1;
+using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\videos\{videoId}\audio-tracks
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\videos\{video_id}\audio-tracks
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AudioTracksRequestBuilder : BaseRequestBuilder
@@ -31,15 +31,15 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.audioTracks.item collection</summary>
-        /// <param name="position">Audio track ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrackItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrackItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("trackId", position);
-                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrackItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("track_id", position);
+                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudioTracksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/audio-tracks", pathParameters)
+        public AudioTracksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/audio-tracks", pathParameters)
         {
         }
         /// <summary>
@@ -55,47 +55,29 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AudioTracksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/audio-tracks", rawUrl)
+        public AudioTracksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/audio-tracks", rawUrl)
         {
         }
         /// <summary>
-        /// Deletes all audio tracks for a video.
+        /// DeleteAllAudioTracks
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videosv1.DeleteResult"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Videosv1.DeleteResult?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Videosv1.DeleteResult> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videosv1.DeleteResult>(requestInfo, global::Rixl.Sdk.Models.Videosv1.DeleteResult.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a video&apos;s audio tracks within a project, including for private media. Requires project access.
-        /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videosv1.ListAudioTracksResponse"/></returns>
-        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public async Task<global::Rixl.Sdk.Models.Videosv1.ListAudioTracksResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#nullable restore
-#else
-        public async Task<global::Rixl.Sdk.Models.Videosv1.ListAudioTracksResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
-        {
-#endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videosv1.ListAudioTracksResponse>(requestInfo, global::Rixl.Sdk.Models.Videosv1.ListAudioTracksResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
-        }
-        /// <summary>
-        /// Deletes all audio tracks for a video.
+        /// DeleteAllAudioTracks
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,25 +91,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
-            requestInfo.Configure(requestConfiguration);
-            requestInfo.Headers.TryAdd("Accept", "application/json");
-            return requestInfo;
-        }
-        /// <summary>
-        /// Returns a video&apos;s audio tracks within a project, including for private media. Requires project access.
-        /// </summary>
-        /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
-        {
-#nullable restore
-#else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
-        {
-#endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
             return requestInfo;

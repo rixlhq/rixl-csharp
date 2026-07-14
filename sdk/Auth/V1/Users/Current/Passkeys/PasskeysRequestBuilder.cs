@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register;
-using Rixl.Sdk.Models.Authv1;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register.RegisterRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.users.current.passkeys.item collection</summary>
-        /// <param name="position">Passkey ID</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder this[string position]
         {
@@ -41,7 +41,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PasskeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys", pathParameters)
+        public PasskeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?userId*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,39 +49,39 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PasskeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys", rawUrl)
+        public PasskeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?userId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns all passkeys registered to the authenticated user.
+        /// ListPasskeys
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.ListPasskeysResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListPasskeysResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder.PasskeysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListPasskeysResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder.PasskeysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.ListPasskeysResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.ListPasskeysResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns all passkeys registered to the authenticated user.
+        /// ListPasskeys
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder.PasskeysRequestBuilderGetQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder.PasskeysRequestBuilderGetQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
@@ -97,6 +97,22 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         public global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// ListPasskeys
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class PasskeysRequestBuilderGetQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("userId")]
+            public string? UserId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("userId")]
+            public string UserId { get; set; }
+#endif
         }
     }
 }

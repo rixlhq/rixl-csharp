@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Gateway;
-using Rixl.Sdk.Models.Postsv1;
+using Rixl.Sdk.Models.Posts.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -13,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
 {
     /// <summary>
-    /// Builds and executes requests for operations under \posts\v1\projects\{projectId}\feeds\{feedId}\posts\upload\complete
+    /// Builds and executes requests for operations under \posts\v1\projects\{project_id}\feeds\{feed_id}\posts\upload\complete
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompleteRequestBuilder : BaseRequestBuilder
@@ -23,7 +22,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts/upload/complete", pathParameters)
+        public CompleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts/upload/complete", pathParameters)
         {
         }
         /// <summary>
@@ -31,42 +30,42 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts/upload/complete", rawUrl)
+        public CompleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts/upload/complete", rawUrl)
         {
         }
         /// <summary>
-        /// Finalize a media upload and publish the post
+        /// CompletePostUpload
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Postsv1.Post"/></returns>
-        /// <param name="body">Upload completion request</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.Post"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Postsv1.Post?> PostAsync(global::Rixl.Sdk.Models.Gateway.CompleteUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.Post?> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Postsv1.Post> PostAsync(global::Rixl.Sdk.Models.Gateway.CompleteUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.Post> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Postsv1.Post>(requestInfo, global::Rixl.Sdk.Models.Postsv1.Post.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.Post>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.Post.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Finalize a media upload and publish the post
+        /// CompletePostUpload
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Upload completion request</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CompleteUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CompleteUploadBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Blog.Broadcast;
 using Rixl.Sdk.Auth.V1.Blog.Subscribe;
 using Rixl.Sdk.Auth.V1.Blog.Subscription;
 using Rixl.Sdk.Auth.V1.Blog.Unsubscribe;
@@ -17,6 +18,11 @@ namespace Rixl.Sdk.Auth.V1.Blog
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BlogRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The broadcast property</summary>
+        public global::Rixl.Sdk.Auth.V1.Blog.Broadcast.BroadcastRequestBuilder Broadcast
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Blog.Broadcast.BroadcastRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The subscribe property</summary>
         public global::Rixl.Sdk.Auth.V1.Blog.Subscribe.SubscribeRequestBuilder Subscribe
         {

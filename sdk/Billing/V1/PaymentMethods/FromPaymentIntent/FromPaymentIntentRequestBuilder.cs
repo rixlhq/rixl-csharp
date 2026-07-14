@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Billingv1;
+using Rixl.Sdk.Models.Billing.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FromPaymentIntentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent?payment_intent_id={payment_intent_id}", pathParameters)
+        public FromPaymentIntentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?paymentIntentId*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,29 +30,29 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FromPaymentIntentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent?payment_intent_id={payment_intent_id}", rawUrl)
+        public FromPaymentIntentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?paymentIntentId*}", rawUrl)
         {
         }
         /// <summary>
-        /// Returns the payment method ID associated with a payment intent
+        /// GetPaymentMethodFromPaymentIntent
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billingv1.PaymentMethodIdResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.PaymentMethodIdResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Billingv1.PaymentMethodIdResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent.FromPaymentIntentRequestBuilder.FromPaymentIntentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodIdResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent.FromPaymentIntentRequestBuilder.FromPaymentIntentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Billingv1.PaymentMethodIdResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent.FromPaymentIntentRequestBuilder.FromPaymentIntentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodIdResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent.FromPaymentIntentRequestBuilder.FromPaymentIntentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billingv1.PaymentMethodIdResponse>(requestInfo, global::Rixl.Sdk.Models.Billingv1.PaymentMethodIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodIdResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.PaymentMethodIdResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns the payment method ID associated with a payment intent
+        /// GetPaymentMethodFromPaymentIntent
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -80,19 +80,18 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
             return new global::Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent.FromPaymentIntentRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Returns the payment method ID associated with a payment intent
+        /// GetPaymentMethodFromPaymentIntent
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class FromPaymentIntentRequestBuilderGetQueryParameters 
         {
-            /// <summary>Payment intent ID</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("payment_intent_id")]
+            [QueryParameter("paymentIntentId")]
             public string? PaymentIntentId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("payment_intent_id")]
+            [QueryParameter("paymentIntentId")]
             public string PaymentIntentId { get; set; }
 #endif
         }

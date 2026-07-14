@@ -10,21 +10,21 @@ using System;
 namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators
 {
     /// <summary>
-    /// Builds and executes requests for operations under \posts\v1\projects\{projectId}\feeds\{feedId}\posts\creators
+    /// Builds and executes requests for operations under \posts\v1\projects\{project_id}\feeds\{feed_id}\posts\creators
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CreatorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.feeds.item.posts.creators.item collection</summary>
-        /// <param name="position">Creator ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreatorItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreatorItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreator_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreator_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("creatorId", position);
-                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreatorItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("creator_id", position);
+                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreator_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CreatorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts/creators", pathParameters)
+        public CreatorsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts/creators", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CreatorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts/creators", rawUrl)
+        public CreatorsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts/creators", rawUrl)
         {
         }
     }

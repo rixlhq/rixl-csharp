@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Videosv1;
+using Rixl.Sdk.Models.Videos.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,7 +12,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\videos\{videoId}\upload\complete
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\videos\{video_id}\upload\complete
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CompleteRequestBuilder : BaseRequestBuilder
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/upload/complete", pathParameters)
+        public CompleteRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/upload/complete", pathParameters)
         {
         }
         /// <summary>
@@ -30,44 +30,49 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CompleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/upload/complete", rawUrl)
+        public CompleteRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/upload/complete", rawUrl)
         {
         }
         /// <summary>
-        /// Finalizes a previously initiated video upload.
+        /// CompleteVideoUpload
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videosv1.GetVideoResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.GetVideoResponse"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Videosv1.GetVideoResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Videos.V1.GetVideoResponse?> PostAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Videosv1.GetVideoResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Videos.V1.GetVideoResponse> PostAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToPostRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videosv1.GetVideoResponse>(requestInfo, global::Rixl.Sdk.Models.Videosv1.GetVideoResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPostRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.GetVideoResponse>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.GetVideoResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Finalizes a previously initiated video upload.
+        /// CompleteVideoUpload
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.Complete.CompletePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>

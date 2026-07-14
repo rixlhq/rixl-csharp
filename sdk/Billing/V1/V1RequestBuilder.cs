@@ -7,7 +7,6 @@ using Rixl.Sdk.Billing.V1.BandwidthUsage;
 using Rixl.Sdk.Billing.V1.Checkout;
 using Rixl.Sdk.Billing.V1.ContactSales;
 using Rixl.Sdk.Billing.V1.Invoices;
-using Rixl.Sdk.Billing.V1.Jobs;
 using Rixl.Sdk.Billing.V1.PaymentMethods;
 using Rixl.Sdk.Billing.V1.Plans;
 using Rixl.Sdk.Billing.V1.SetupIntent;
@@ -50,11 +49,6 @@ namespace Rixl.Sdk.Billing.V1
         public global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder Invoices
         {
             get => new global::Rixl.Sdk.Billing.V1.Invoices.InvoicesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The jobs property</summary>
-        public global::Rixl.Sdk.Billing.V1.Jobs.JobsRequestBuilder Jobs
-        {
-            get => new global::Rixl.Sdk.Billing.V1.Jobs.JobsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The paymentMethods property</summary>
         public global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder PaymentMethods

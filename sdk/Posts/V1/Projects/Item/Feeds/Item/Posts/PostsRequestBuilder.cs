@@ -3,8 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Gateway;
-using Rixl.Sdk.Models.Postsv1;
+using Rixl.Sdk.Models.Posts.V1;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload;
@@ -16,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
 {
     /// <summary>
-    /// Builds and executes requests for operations under \posts\v1\projects\{projectId}\feeds\{feedId}\posts
+    /// Builds and executes requests for operations under \posts\v1\projects\{project_id}\feeds\{feed_id}\posts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PostsRequestBuilder : BaseRequestBuilder
@@ -32,15 +31,15 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             get => new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.feeds.item.posts.item collection</summary>
-        /// <param name="position">Post ID</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPostItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPostItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPost_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPost_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("postId", position);
-                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPostItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("post_id", position);
+                return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPost_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -48,7 +47,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts{?limit*,offset*}", pathParameters)
+        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,49 +55,49 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{projectId}/feeds/{feedId}/posts{?limit*,offset*}", rawUrl)
+        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
         {
         }
         /// <summary>
-        /// List posts in a feed
+        /// ListPosts
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Postsv1.ListPostsResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Postsv1.ListPostsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Postsv1.ListPostsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Postsv1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Postsv1.ListPostsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Create a new post in a feed
+        /// CreatePost
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Postsv1.Post"/></returns>
-        /// <param name="body">Post to create</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.Post"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Postsv1.Post?> PostAsync(global::Rixl.Sdk.Models.Gateway.CreatePostBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.Post?> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Postsv1.Post> PostAsync(global::Rixl.Sdk.Models.Gateway.CreatePostBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.Post> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Postsv1.Post>(requestInfo, global::Rixl.Sdk.Models.Postsv1.Post.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.Post>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.Post.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// List posts in a feed
+        /// ListPosts
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -117,18 +116,18 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             return requestInfo;
         }
         /// <summary>
-        /// Create a new post in a feed
+        /// CreatePost
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">Post to create</param>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreatePostBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Models.Gateway.CreatePostBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -148,17 +147,26 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// List posts in a feed
+        /// ListPosts
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PostsRequestBuilderGetQueryParameters 
         {
-            /// <summary>Page size</summary>
-            [QueryParameter("limit")]
-            public int? Limit { get; set; }
-            /// <summary>Page offset</summary>
-            [QueryParameter("offset")]
-            public int? Offset { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("creatorId")]
+            public string? CreatorId { get; set; }
+#nullable restore
+#else
+            [QueryParameter("creatorId")]
+            public string CreatorId { get; set; }
+#endif
+            /// <summary>Maximum number of items to return.</summary>
+            [QueryParameter("pagination%2Elimit")]
+            public int? PaginationLimit { get; set; }
+            /// <summary>Number of items to skip before collecting the result set.</summary>
+            [QueryParameter("pagination%2Eoffset")]
+            public int? PaginationOffset { get; set; }
         }
     }
 }

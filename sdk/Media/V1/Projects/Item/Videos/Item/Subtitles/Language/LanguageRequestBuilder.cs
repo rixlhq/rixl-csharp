@@ -10,21 +10,21 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\videos\{videoId}\subtitles\language
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\videos\{video_id}\subtitles\language
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LanguageRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.subtitles.language.item collection</summary>
-        /// <param name="position">Language code</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLangItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLangItemRequestBuilder this[string position]
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLanguage_codeItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLanguage_codeItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("lang", position);
-                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLangItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("language_code", position);
+                return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language.Item.WithLanguage_codeItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LanguageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/subtitles/language", pathParameters)
+        public LanguageRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/subtitles/language", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Language
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public LanguageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/videos/{videoId}/subtitles/language", rawUrl)
+        public LanguageRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/subtitles/language", rawUrl)
         {
         }
     }

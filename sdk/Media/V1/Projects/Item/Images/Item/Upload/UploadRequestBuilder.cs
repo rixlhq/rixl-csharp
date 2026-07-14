@@ -10,7 +10,7 @@ using System;
 namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload
 {
     /// <summary>
-    /// Builds and executes requests for operations under \media\v1\projects\{projectId}\images\{imageId}\upload
+    /// Builds and executes requests for operations under \media\v1\projects\{project_id}\images\{image_id}\upload
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UploadRequestBuilder : BaseRequestBuilder
@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images/{imageId}/upload", pathParameters)
+        public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images/{image_id}/upload", pathParameters)
         {
         }
         /// <summary>
@@ -33,7 +33,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{projectId}/images/{imageId}/upload", rawUrl)
+        public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images/{image_id}/upload", rawUrl)
         {
         }
     }

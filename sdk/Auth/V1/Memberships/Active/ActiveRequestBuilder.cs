@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Authv1;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Active
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActiveRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/active{?limit*,offset*}", pathParameters)
+        public ActiveRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/active", pathParameters)
         {
         }
         /// <summary>
@@ -30,44 +30,49 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Active
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ActiveRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/active{?limit*,offset*}", rawUrl)
+        public ActiveRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/active", rawUrl)
         {
         }
         /// <summary>
-        /// Returns a paginated list of the organizations in which the authenticated user holds an active membership.
+        /// UpdateActiveMembership
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Authv1.ListMembershipsResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.MembershipMutation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListMembershipsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder.ActiveRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation?> PatchAsync(global::Rixl.Sdk.Models.Auth.V1.UpdateActiveMembershipRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Authv1.ListMembershipsResponse> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder.ActiveRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation> PatchAsync(global::Rixl.Sdk.Models.Auth.V1.UpdateActiveMembershipRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
-            var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Authv1.ListMembershipsResponse>(requestInfo, global::Rixl.Sdk.Models.Authv1.ListMembershipsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipMutation.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// Returns a paginated list of the organizations in which the authenticated user holds an active membership.
+        /// UpdateActiveMembership
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder.ActiveRequestBuilderGetQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Models.Auth.V1.UpdateActiveMembershipRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder.ActiveRequestBuilderGetQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Models.Auth.V1.UpdateActiveMembershipRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
-            var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PATCH, UrlTemplate, PathParameters);
             requestInfo.Configure(requestConfiguration);
             requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
             return requestInfo;
         }
         /// <summary>
@@ -78,19 +83,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Active
         public global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Returns a paginated list of the organizations in which the authenticated user holds an active membership.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class ActiveRequestBuilderGetQueryParameters 
-        {
-            /// <summary>Limit</summary>
-            [QueryParameter("limit")]
-            public int? Limit { get; set; }
-            /// <summary>Offset</summary>
-            [QueryParameter("offset")]
-            public int? Offset { get; set; }
         }
     }
 }
