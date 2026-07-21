@@ -2,7 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Common.V1;
+using Rixl.Sdk.Models.Analyticscommon.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -26,7 +26,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public UntypedNode Completions { get; set; }
 #endif
         /// <summary>The contentType property</summary>
-        public global::Rixl.Sdk.Models.Common.V1.MediaType? ContentType { get; set; }
+        public global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType? ContentType { get; set; }
         /// <summary>The feedId property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,7 +104,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "avgWatchTimeMs", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
                 { "completionRate", n => { CompletionRate = n.GetDoubleValue(); } },
                 { "completions", n => { Completions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "contentType", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>(); } },
+                { "contentType", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>(); } },
                 { "feedId", n => { FeedId = n.GetStringValue(); } },
                 { "postId", n => { PostId = n.GetStringValue(); } },
                 { "starts", n => { Starts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
@@ -124,7 +124,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteDoubleValue("avgWatchTimeMs", AvgWatchTimeMs);
             writer.WriteDoubleValue("completionRate", CompletionRate);
             writer.WriteObjectValue<UntypedNode>("completions", Completions);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>("contentType", ContentType);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>("contentType", ContentType);
             writer.WriteStringValue("feedId", FeedId);
             writer.WriteStringValue("postId", PostId);
             writer.WriteObjectValue<UntypedNode>("starts", Starts);
