@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
 #else
         public string Alg { get; set; }
 #endif
-        /// <summary>The clientId property</summary>
+        /// <summary>The client_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientId { get; set; }
@@ -77,11 +77,11 @@ namespace Rixl.Sdk.Models.Clientauth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "alg", n => { Alg = n.GetStringValue(); } },
-                { "clientId", n => { ClientId = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "client_id", n => { ClientId = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kid", n => { Kid = n.GetStringValue(); } },
-                { "lastUsedAt", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
+                { "last_used_at", n => { LastUsedAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Clientauth.V1.ClientCredentialStatus>(); } },
             };
@@ -94,11 +94,11 @@ namespace Rixl.Sdk.Models.Clientauth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("alg", Alg);
-            writer.WriteStringValue("clientId", ClientId);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteStringValue("client_id", ClientId);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("kid", Kid);
-            writer.WriteDateTimeOffsetValue("lastUsedAt", LastUsedAt);
+            writer.WriteDateTimeOffsetValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Clientauth.V1.ClientCredentialStatus>("status", Status);
         }

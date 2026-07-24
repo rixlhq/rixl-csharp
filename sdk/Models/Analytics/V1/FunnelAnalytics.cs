@@ -12,11 +12,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class FunnelAnalytics : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The averageTimeHours property</summary>
+        /// <summary>The average_time_hours property</summary>
         public double? AverageTimeHours { get; set; }
-        /// <summary>The completedUsers property</summary>
+        /// <summary>The completed_users property</summary>
         public int? CompletedUsers { get; set; }
-        /// <summary>The completionRate property</summary>
+        /// <summary>The completion_rate property</summary>
         public double? CompletionRate { get; set; }
         /// <summary>The steps property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -26,7 +26,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public List<global::Rixl.Sdk.Models.Analytics.V1.FunnelStepResult> Steps { get; set; }
 #endif
-        /// <summary>The totalUsers property</summary>
+        /// <summary>The total_users property</summary>
         public int? TotalUsers { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,11 +46,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "averageTimeHours", n => { AverageTimeHours = n.GetDoubleValue(); } },
-                { "completedUsers", n => { CompletedUsers = n.GetIntValue(); } },
-                { "completionRate", n => { CompletionRate = n.GetDoubleValue(); } },
+                { "average_time_hours", n => { AverageTimeHours = n.GetDoubleValue(); } },
+                { "completed_users", n => { CompletedUsers = n.GetIntValue(); } },
+                { "completion_rate", n => { CompletionRate = n.GetDoubleValue(); } },
                 { "steps", n => { Steps = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.FunnelStepResult>(global::Rixl.Sdk.Models.Analytics.V1.FunnelStepResult.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "totalUsers", n => { TotalUsers = n.GetIntValue(); } },
+                { "total_users", n => { TotalUsers = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -60,11 +60,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("averageTimeHours", AverageTimeHours);
-            writer.WriteIntValue("completedUsers", CompletedUsers);
-            writer.WriteDoubleValue("completionRate", CompletionRate);
+            writer.WriteDoubleValue("average_time_hours", AverageTimeHours);
+            writer.WriteIntValue("completed_users", CompletedUsers);
+            writer.WriteDoubleValue("completion_rate", CompletionRate);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.FunnelStepResult>("steps", Steps);
-            writer.WriteIntValue("totalUsers", TotalUsers);
+            writer.WriteIntValue("total_users", TotalUsers);
         }
     }
 }

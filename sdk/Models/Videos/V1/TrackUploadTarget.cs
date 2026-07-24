@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The languageCode property</summary>
+        /// <summary>The language_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LanguageCode { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string LanguageCode { get; set; }
 #endif
-        /// <summary>The objectKey property</summary>
+        /// <summary>The object_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ObjectKey { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string ObjectKey { get; set; }
 #endif
-        /// <summary>The uploadUrl property</summary>
+        /// <summary>The upload_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UploadUrl { get; set; }
@@ -63,9 +63,9 @@ namespace Rixl.Sdk.Models.Videos.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "languageCode", n => { LanguageCode = n.GetStringValue(); } },
-                { "objectKey", n => { ObjectKey = n.GetStringValue(); } },
-                { "uploadUrl", n => { UploadUrl = n.GetStringValue(); } },
+                { "language_code", n => { LanguageCode = n.GetStringValue(); } },
+                { "object_key", n => { ObjectKey = n.GetStringValue(); } },
+                { "upload_url", n => { UploadUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -76,9 +76,9 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("languageCode", LanguageCode);
-            writer.WriteStringValue("objectKey", ObjectKey);
-            writer.WriteStringValue("uploadUrl", UploadUrl);
+            writer.WriteStringValue("language_code", LanguageCode);
+            writer.WriteStringValue("object_key", ObjectKey);
+            writer.WriteStringValue("upload_url", UploadUrl);
         }
     }
 }

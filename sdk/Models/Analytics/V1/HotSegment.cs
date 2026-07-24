@@ -12,11 +12,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class HotSegment : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The endSecond property</summary>
+        /// <summary>The end_second property</summary>
         public int? EndSecond { get; set; }
         /// <summary>The multiplier property</summary>
         public double? Multiplier { get; set; }
-        /// <summary>The startSecond property</summary>
+        /// <summary>The start_second property</summary>
         public int? StartSecond { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -36,9 +36,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "endSecond", n => { EndSecond = n.GetIntValue(); } },
+                { "end_second", n => { EndSecond = n.GetIntValue(); } },
                 { "multiplier", n => { Multiplier = n.GetDoubleValue(); } },
-                { "startSecond", n => { StartSecond = n.GetIntValue(); } },
+                { "start_second", n => { StartSecond = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -48,9 +48,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("endSecond", EndSecond);
+            writer.WriteIntValue("end_second", EndSecond);
             writer.WriteDoubleValue("multiplier", Multiplier);
-            writer.WriteIntValue("startSecond", StartSecond);
+            writer.WriteIntValue("start_second", StartSecond);
         }
     }
 }

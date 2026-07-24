@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The firstName property</summary>
+        /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The jobTitle property</summary>
+        /// <summary>The job_title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobTitle { get; set; }
@@ -54,7 +54,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string JobTitle { get; set; }
 #endif
-        /// <summary>The lastName property</summary>
+        /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -70,7 +70,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -88,7 +88,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #endif
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.SalesLeadStatus? Status { get; set; }
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -123,17 +123,17 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "company", n => { Company = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "firstName", n => { FirstName = n.GetStringValue(); } },
+                { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
-                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "job_title", n => { JobTitle = n.GetStringValue(); } },
+                { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.SalesLeadStatus>(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },
             };
         }
@@ -145,17 +145,17 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("company", Company);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("email", Email);
-            writer.WriteStringValue("firstName", FirstName);
+            writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("jobTitle", JobTitle);
-            writer.WriteStringValue("lastName", LastName);
+            writer.WriteStringValue("job_title", JobTitle);
+            writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("phone", Phone);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.SalesLeadStatus>("status", Status);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("website", Website);
         }
     }

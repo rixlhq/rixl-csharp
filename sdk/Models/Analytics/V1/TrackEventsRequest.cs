@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public List<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent> Events { get; set; }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent>(global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("country", Country);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent>("events", Events);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

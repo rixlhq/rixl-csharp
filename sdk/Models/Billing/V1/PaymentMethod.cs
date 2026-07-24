@@ -30,9 +30,9 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The isDefault property</summary>
+        /// <summary>The is_default property</summary>
         public bool? IsDefault { get; set; }
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -74,11 +74,11 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "details", n => { Details = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -90,11 +90,11 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("details", Details);
             writer.WriteStringValue("id", Id);
-            writer.WriteBoolValue("isDefault", IsDefault);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteBoolValue("is_default", IsDefault);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("provider", Provider);
             writer.WriteStringValue("type", Type);
         }

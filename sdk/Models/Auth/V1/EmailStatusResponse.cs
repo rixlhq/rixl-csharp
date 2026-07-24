@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The hasEmail property</summary>
+        /// <summary>The has_email property</summary>
         public bool? HasEmail { get; set; }
         /// <summary>The verified property</summary>
         public bool? Verified { get; set; }
@@ -43,7 +43,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "hasEmail", n => { HasEmail = n.GetBoolValue(); } },
+                { "has_email", n => { HasEmail = n.GetBoolValue(); } },
                 { "verified", n => { Verified = n.GetBoolValue(); } },
             };
         }
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteBoolValue("hasEmail", HasEmail);
+            writer.WriteBoolValue("has_email", HasEmail);
             writer.WriteBoolValue("verified", Verified);
         }
     }

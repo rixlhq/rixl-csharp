@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
     public partial class ExchangeAPIKeyRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The apiKey property</summary>
+        /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ApiKey { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apiKey", n => { ApiKey = n.GetStringValue(); } },
+                { "api_key", n => { ApiKey = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("apiKey", ApiKey);
+            writer.WriteStringValue("api_key", ApiKey);
         }
     }
 }

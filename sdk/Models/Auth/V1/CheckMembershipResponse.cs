@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class CheckMembershipResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The isMember property</summary>
+        /// <summary>The is_member property</summary>
         public bool? IsMember { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "isMember", n => { IsMember = n.GetBoolValue(); } },
+                { "is_member", n => { IsMember = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("isMember", IsMember);
+            writer.WriteBoolValue("is_member", IsMember);
         }
     }
 }

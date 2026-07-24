@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class VerificationSentResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The canResendAt property</summary>
+        /// <summary>The can_resend_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CanResendAt { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string CanResendAt { get; set; }
 #endif
-        /// <summary>The codeSent property</summary>
+        /// <summary>The code_sent property</summary>
         public bool? CodeSent { get; set; }
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The verificationId property</summary>
+        /// <summary>The verification_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VerificationId { get; set; }
@@ -56,10 +56,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "canResendAt", n => { CanResendAt = n.GetStringValue(); } },
-                { "codeSent", n => { CodeSent = n.GetBoolValue(); } },
+                { "can_resend_at", n => { CanResendAt = n.GetStringValue(); } },
+                { "code_sent", n => { CodeSent = n.GetBoolValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "verificationId", n => { VerificationId = n.GetStringValue(); } },
+                { "verification_id", n => { VerificationId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,10 +69,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("canResendAt", CanResendAt);
-            writer.WriteBoolValue("codeSent", CodeSent);
+            writer.WriteStringValue("can_resend_at", CanResendAt);
+            writer.WriteBoolValue("code_sent", CodeSent);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("verificationId", VerificationId);
+            writer.WriteStringValue("verification_id", VerificationId);
         }
     }
 }

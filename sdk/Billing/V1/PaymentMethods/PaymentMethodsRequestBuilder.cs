@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PaymentMethodsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?orgId*,refresh*}", pathParameters)
+        public PaymentMethodsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?org_id*,refresh*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PaymentMethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?orgId*,refresh*}", rawUrl)
+        public PaymentMethodsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods{?org_id*,refresh*}", rawUrl)
         {
         }
         /// <summary>
@@ -154,11 +154,11 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string? OrgId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string OrgId { get; set; }
 #endif
             [QueryParameter("refresh")]

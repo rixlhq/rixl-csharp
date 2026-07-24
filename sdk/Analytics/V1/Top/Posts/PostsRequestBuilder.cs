@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Analytics.V1.Top.Posts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/posts{?feedId*,limit*,range%2Eend*,range%2Estart*}", pathParameters)
+        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/posts{?feed_id*,limit*,range%2Eend*,range%2Estart*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Analytics.V1.Top.Posts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/posts{?feedId*,limit*,range%2Eend*,range%2Estart*}", rawUrl)
+        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/top/posts{?feed_id*,limit*,range%2Eend*,range%2Estart*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Analytics.V1.Top.Posts
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string? FeedId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string FeedId { get; set; }
 #endif
             [QueryParameter("limit")]

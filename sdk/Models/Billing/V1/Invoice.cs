@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -60,7 +60,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         public DateTimeOffset? PaidAt { get; set; }
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus? Status { get; set; }
-        /// <summary>The subscriptionId property</summary>
+        /// <summary>The subscription_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SubscriptionId { get; set; }
@@ -87,15 +87,15 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "dueDate", n => { DueDate = n.GetDateTimeOffsetValue(); } },
+                { "due_date", n => { DueDate = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "paidAt", n => { PaidAt = n.GetDateTimeOffsetValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "paid_at", n => { PaidAt = n.GetDateTimeOffsetValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus>(); } },
-                { "subscriptionId", n => { SubscriptionId = n.GetStringValue(); } },
+                { "subscription_id", n => { SubscriptionId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -106,15 +106,15 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("amount", Amount);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("description", Description);
-            writer.WriteDateTimeOffsetValue("dueDate", DueDate);
+            writer.WriteDateTimeOffsetValue("due_date", DueDate);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteDateTimeOffsetValue("paidAt", PaidAt);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteDateTimeOffsetValue("paid_at", PaidAt);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus>("status", Status);
-            writer.WriteStringValue("subscriptionId", SubscriptionId);
+            writer.WriteStringValue("subscription_id", SubscriptionId);
         }
     }
 }

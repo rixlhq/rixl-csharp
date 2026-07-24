@@ -22,7 +22,15 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The projectId property</summary>
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -48,9 +56,10 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expiringAt", n => { ExpiringAt = n.GetDateTimeOffsetValue(); } },
+                { "expiring_at", n => { ExpiringAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "projectId", n => { ProjectId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,9 +69,10 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("expiringAt", ExpiringAt);
+            writer.WriteDateTimeOffsetValue("expiring_at", ExpiringAt);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("projectId", ProjectId);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2EactorId*}", pathParameters)
+        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2Eactor_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -42,7 +42,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2EactorId*}", rawUrl)
+        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2Eactor_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -99,11 +99,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("user%2EactorId")]
+            [QueryParameter("user%2Eactor_id")]
             public string? UserActorId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("user%2EactorId")]
+            [QueryParameter("user%2Eactor_id")]
             public string UserActorId { get; set; }
 #endif
         }

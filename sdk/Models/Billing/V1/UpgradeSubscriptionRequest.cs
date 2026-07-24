@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class UpgradeSubscriptionRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The stripePriceId property</summary>
+        /// <summary>The stripe_price_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StripePriceId { get; set; }
@@ -46,8 +46,8 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "stripePriceId", n => { StripePriceId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "stripe_price_id", n => { StripePriceId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("stripePriceId", StripePriceId);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("stripe_price_id", StripePriceId);
         }
     }
 }

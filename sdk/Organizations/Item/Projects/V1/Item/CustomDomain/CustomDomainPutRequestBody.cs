@@ -12,13 +12,29 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.CustomDomain
     public partial class CustomDomainPutRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The customDomain property</summary>
+        /// <summary>The custom_domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CustomDomain { get; set; }
 #nullable restore
 #else
         public string CustomDomain { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,7 +54,9 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.CustomDomain
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "customDomain", n => { CustomDomain = n.GetStringValue(); } },
+                { "custom_domain", n => { CustomDomain = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +66,9 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.CustomDomain
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("customDomain", CustomDomain);
+            writer.WriteStringValue("custom_domain", CustomDomain);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

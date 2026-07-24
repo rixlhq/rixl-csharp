@@ -20,9 +20,9 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The emailVerified property</summary>
+        /// <summary>The email_verified property</summary>
         public bool? EmailVerified { get; set; }
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -49,8 +49,8 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "emailVerified", n => { EmailVerified = n.GetBoolValue(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -61,8 +61,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
-            writer.WriteBoolValue("emailVerified", EmailVerified);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteBoolValue("email_verified", EmailVerified);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

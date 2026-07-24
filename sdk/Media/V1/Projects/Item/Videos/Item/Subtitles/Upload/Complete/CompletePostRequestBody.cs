@@ -21,6 +21,22 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload.Complete
 #else
         public List<global::Rixl.Sdk.Models.Videos.V1.CompleteTrackUploadItem> Items { get; set; }
 #endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
+        /// <summary>The video_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VideoId { get; set; }
+#nullable restore
+#else
+        public string VideoId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -40,6 +56,8 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload.Complete
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.CompleteTrackUploadItem>(global::Rixl.Sdk.Models.Videos.V1.CompleteTrackUploadItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -50,6 +68,8 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload.Complete
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.CompleteTrackUploadItem>("items", Items);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("video_id", VideoId);
         }
     }
 }

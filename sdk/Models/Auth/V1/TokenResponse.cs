@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class TokenResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The accessToken property</summary>
+        /// <summary>The access_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? AccessToken { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string AccessToken { get; set; }
 #endif
-        /// <summary>The expiresIn property</summary>
+        /// <summary>The expires_in property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ExpiresIn { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public UntypedNode ExpiresIn { get; set; }
 #endif
-        /// <summary>The refreshToken property</summary>
+        /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefreshToken { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string RefreshToken { get; set; }
 #endif
-        /// <summary>The requiresAction property</summary>
+        /// <summary>The requires_action property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RequiresAction { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string RequiresAction { get; set; }
 #endif
-        /// <summary>The tokenType property</summary>
+        /// <summary>The token_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TokenType { get; set; }
@@ -70,11 +70,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "accessToken", n => { AccessToken = n.GetStringValue(); } },
-                { "expiresIn", n => { ExpiresIn = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "refreshToken", n => { RefreshToken = n.GetStringValue(); } },
-                { "requiresAction", n => { RequiresAction = n.GetStringValue(); } },
-                { "tokenType", n => { TokenType = n.GetStringValue(); } },
+                { "access_token", n => { AccessToken = n.GetStringValue(); } },
+                { "expires_in", n => { ExpiresIn = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
+                { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
+                { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -84,11 +84,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("accessToken", AccessToken);
-            writer.WriteObjectValue<UntypedNode>("expiresIn", ExpiresIn);
-            writer.WriteStringValue("refreshToken", RefreshToken);
-            writer.WriteStringValue("requiresAction", RequiresAction);
-            writer.WriteStringValue("tokenType", TokenType);
+            writer.WriteStringValue("access_token", AccessToken);
+            writer.WriteObjectValue<UntypedNode>("expires_in", ExpiresIn);
+            writer.WriteStringValue("refresh_token", RefreshToken);
+            writer.WriteStringValue("requires_action", RequiresAction);
+            writer.WriteStringValue("token_type", TokenType);
         }
     }
 }

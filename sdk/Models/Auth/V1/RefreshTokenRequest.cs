@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class RefreshTokenRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The countryCode property</summary>
+        /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Origin { get; set; }
 #endif
-        /// <summary>The refreshToken property</summary>
+        /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefreshToken { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string RefreshToken { get; set; }
 #endif
-        /// <summary>The tokenType property</summary>
+        /// <summary>The token_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TokenType { get; set; }
@@ -62,10 +62,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
-                { "refreshToken", n => { RefreshToken = n.GetStringValue(); } },
-                { "tokenType", n => { TokenType = n.GetStringValue(); } },
+                { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
+                { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("origin", Origin);
-            writer.WriteStringValue("refreshToken", RefreshToken);
-            writer.WriteStringValue("tokenType", TokenType);
+            writer.WriteStringValue("refresh_token", RefreshToken);
+            writer.WriteStringValue("token_type", TokenType);
         }
     }
 }

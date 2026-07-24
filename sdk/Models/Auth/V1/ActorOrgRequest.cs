@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class ActorOrgRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The actorId property</summary>
+        /// <summary>The actor_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActorId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string ActorId { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -46,8 +46,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "actorId", n => { ActorId = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "actor_id", n => { ActorId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("actorId", ActorId);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("actor_id", ActorId);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }

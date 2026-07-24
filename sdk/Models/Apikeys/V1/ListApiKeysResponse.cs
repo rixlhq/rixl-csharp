@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
     public partial class ListApiKeysResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The apiKeys property</summary>
+        /// <summary>The api_keys property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>? ApiKeys { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apiKeys", n => { ApiKeys = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>(global::Rixl.Sdk.Models.Apikeys.V1.ApiKey.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "api_keys", n => { ApiKeys = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>(global::Rixl.Sdk.Models.Apikeys.V1.ApiKey.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total", n => { Total = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>("apiKeys", ApiKeys);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>("api_keys", ApiKeys);
             writer.WriteObjectValue<UntypedNode>("total", Total);
         }
     }

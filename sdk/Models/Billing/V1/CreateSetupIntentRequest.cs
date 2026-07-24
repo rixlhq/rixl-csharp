@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class CreateSetupIntentRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public List<double?> Data { get; set; }
 #endif
-        /// <summary>The totalDurationMs property</summary>
+        /// <summary>The total_duration_ms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalDurationMs { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalDurationMs { get; set; }
 #endif
-        /// <summary>The videoId property</summary>
+        /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VideoId { get; set; }
@@ -55,8 +55,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "totalDurationMs", n => { TotalDurationMs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "videoId", n => { VideoId = n.GetStringValue(); } },
+                { "total_duration_ms", n => { TotalDurationMs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +67,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<double?>("data", Data);
-            writer.WriteObjectValue<UntypedNode>("totalDurationMs", TotalDurationMs);
-            writer.WriteStringValue("videoId", VideoId);
+            writer.WriteObjectValue<UntypedNode>("total_duration_ms", TotalDurationMs);
+            writer.WriteStringValue("video_id", VideoId);
         }
     }
 }

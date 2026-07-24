@@ -34,7 +34,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -42,7 +42,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The projectId property</summary>
+        /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -50,7 +50,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>The projectName property</summary>
+        /// <summary>The project_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectName { get; set; }
@@ -84,14 +84,14 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "expiringAt", n => { ExpiringAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "expiring_at", n => { ExpiringAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "lastUsed", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
+                { "last_used", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "projectId", n => { ProjectId = n.GetStringValue(); } },
-                { "projectName", n => { ProjectName = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "project_name", n => { ProjectName = n.GetStringValue(); } },
                 { "secret", n => { Secret = n.GetStringValue(); } },
             };
         }
@@ -102,14 +102,14 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
-            writer.WriteDateTimeOffsetValue("expiringAt", ExpiringAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("expiring_at", ExpiringAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteDateTimeOffsetValue("lastUsed", LastUsed);
+            writer.WriteDateTimeOffsetValue("last_used", LastUsed);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("projectId", ProjectId);
-            writer.WriteStringValue("projectName", ProjectName);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("project_name", ProjectName);
             writer.WriteStringValue("secret", Secret);
         }
     }

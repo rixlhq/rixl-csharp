@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>The sessionId property</summary>
+        /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionId { get; set; }
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string SessionId { get; set; }
 #endif
-        /// <summary>The sessionUrl property</summary>
+        /// <summary>The session_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionUrl { get; set; }
@@ -58,8 +58,8 @@ namespace Rixl.Sdk.Models.Billing.V1
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "sessionId", n => { SessionId = n.GetStringValue(); } },
-                { "sessionUrl", n => { SessionUrl = n.GetStringValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
+                { "session_url", n => { SessionUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Rixl.Sdk.Models.Billing.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("amount", Amount);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteStringValue("sessionId", SessionId);
-            writer.WriteStringValue("sessionUrl", SessionUrl);
+            writer.WriteStringValue("session_id", SessionId);
+            writer.WriteStringValue("session_url", SessionUrl);
         }
     }
 }

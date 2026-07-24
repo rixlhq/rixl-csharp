@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public UntypedNode Amount { get; set; }
 #endif
-        /// <summary>The billingAddress property</summary>
+        /// <summary>The billing_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Billing.V1.BillingAddress? BillingAddress { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>The lineItems property</summary>
+        /// <summary>The line_items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>? LineItems { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public List<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem> LineItems { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -71,10 +71,10 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "billingAddress", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
+                { "billing_address", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "lineItems", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "line_items", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -85,10 +85,10 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("amount", Amount);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billingAddress", BillingAddress);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billing_address", BillingAddress);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("lineItems", LineItems);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("line_items", LineItems);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }

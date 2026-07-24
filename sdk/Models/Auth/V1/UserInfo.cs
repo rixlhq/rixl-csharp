@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class UserInfo : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The activeOrgId property</summary>
+        /// <summary>The active_org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ActiveOrgId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string ActiveOrgId { get; set; }
 #endif
-        /// <summary>The countryCode property</summary>
+        /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }
@@ -36,9 +36,9 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The emailVerified property</summary>
+        /// <summary>The email_verified property</summary>
         public bool? EmailVerified { get; set; }
-        /// <summary>The firstName property</summary>
+        /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -54,7 +54,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The imageUrl property</summary>
+        /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ImageUrl { get; set; }
@@ -62,7 +62,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string ImageUrl { get; set; }
 #endif
-        /// <summary>The languageCode property</summary>
+        /// <summary>The language_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LanguageCode { get; set; }
@@ -70,7 +70,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string LanguageCode { get; set; }
 #endif
-        /// <summary>The lastName property</summary>
+        /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -104,15 +104,15 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activeOrgId", n => { ActiveOrgId = n.GetStringValue(); } },
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "active_org_id", n => { ActiveOrgId = n.GetStringValue(); } },
+                { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "emailVerified", n => { EmailVerified = n.GetBoolValue(); } },
-                { "firstName", n => { FirstName = n.GetStringValue(); } },
+                { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
+                { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
-                { "languageCode", n => { LanguageCode = n.GetStringValue(); } },
-                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "image_url", n => { ImageUrl = n.GetStringValue(); } },
+                { "language_code", n => { LanguageCode = n.GetStringValue(); } },
+                { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -123,15 +123,15 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("activeOrgId", ActiveOrgId);
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteStringValue("active_org_id", ActiveOrgId);
+            writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("email", Email);
-            writer.WriteBoolValue("emailVerified", EmailVerified);
-            writer.WriteStringValue("firstName", FirstName);
+            writer.WriteBoolValue("email_verified", EmailVerified);
+            writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("imageUrl", ImageUrl);
-            writer.WriteStringValue("languageCode", LanguageCode);
-            writer.WriteStringValue("lastName", LastName);
+            writer.WriteStringValue("image_url", ImageUrl);
+            writer.WriteStringValue("language_code", LanguageCode);
+            writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("username", Username);
         }
     }

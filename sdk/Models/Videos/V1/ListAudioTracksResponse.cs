@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Videos.V1
     public partial class ListAudioTracksResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The audioTracks property</summary>
+        /// <summary>The audio_tracks property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Videos.V1.AudioTrack>? AudioTracks { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "audioTracks", n => { AudioTracks = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.AudioTrack>(global::Rixl.Sdk.Models.Videos.V1.AudioTrack.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "audio_tracks", n => { AudioTracks = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.AudioTrack>(global::Rixl.Sdk.Models.Videos.V1.AudioTrack.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.AudioTrack>("audioTracks", AudioTracks);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.AudioTrack>("audio_tracks", AudioTracks);
         }
     }
 }

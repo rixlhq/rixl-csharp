@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Videos.V1
     public partial class TrackUploadItem : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The fileName property</summary>
+        /// <summary>The file_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileName { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Label { get; set; }
 #endif
-        /// <summary>The languageCode property</summary>
+        /// <summary>The language_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LanguageCode { get; set; }
@@ -70,10 +70,10 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fileName", n => { FileName = n.GetStringValue(); } },
+                { "file_name", n => { FileName = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "languageCode", n => { LanguageCode = n.GetStringValue(); } },
+                { "language_code", n => { LanguageCode = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -84,10 +84,10 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("fileName", FileName);
+            writer.WriteStringValue("file_name", FileName);
             writer.WriteStringValue("format", Format);
             writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("languageCode", LanguageCode);
+            writer.WriteStringValue("language_code", LanguageCode);
             writer.WriteObjectValue<UntypedNode>("size", Size);
         }
     }

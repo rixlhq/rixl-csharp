@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class CreateCheckoutSessionRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The cancelUrl property</summary>
+        /// <summary>The cancel_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CancelUrl { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string CancelUrl { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The stripePriceId property</summary>
+        /// <summary>The stripe_price_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StripePriceId { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string StripePriceId { get; set; }
 #endif
-        /// <summary>The successUrl property</summary>
+        /// <summary>The success_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SuccessUrl { get; set; }
@@ -62,10 +62,10 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cancelUrl", n => { CancelUrl = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "stripePriceId", n => { StripePriceId = n.GetStringValue(); } },
-                { "successUrl", n => { SuccessUrl = n.GetStringValue(); } },
+                { "cancel_url", n => { CancelUrl = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "stripe_price_id", n => { StripePriceId = n.GetStringValue(); } },
+                { "success_url", n => { SuccessUrl = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("cancelUrl", CancelUrl);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("stripePriceId", StripePriceId);
-            writer.WriteStringValue("successUrl", SuccessUrl);
+            writer.WriteStringValue("cancel_url", CancelUrl);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("stripe_price_id", StripePriceId);
+            writer.WriteStringValue("success_url", SuccessUrl);
         }
     }
 }

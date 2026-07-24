@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class RecentEvent : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The contentId property</summary>
+        /// <summary>The content_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string ContentId { get; set; }
 #endif
-        /// <summary>The eventType property</summary>
+        /// <summary>The event_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EventType { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -62,10 +62,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "contentId", n => { ContentId = n.GetStringValue(); } },
-                { "eventType", n => { EventType = n.GetStringValue(); } },
+                { "content_id", n => { ContentId = n.GetStringValue(); } },
+                { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("contentId", ContentId);
-            writer.WriteStringValue("eventType", EventType);
+            writer.WriteStringValue("content_id", ContentId);
+            writer.WriteStringValue("event_type", EventType);
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

@@ -37,7 +37,7 @@ namespace Rixl.Sdk.Models.Images.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The projectId property</summary>
+        /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -45,7 +45,7 @@ namespace Rixl.Sdk.Models.Images.V1
 #else
         public string ProjectId { get; set; }
 #endif
-        /// <summary>The s3Path property</summary>
+        /// <summary>The s3_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? S3Path { get; set; }
@@ -84,8 +84,8 @@ namespace Rixl.Sdk.Models.Images.V1
                 { "format", n => { Format = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "projectId", n => { ProjectId = n.GetStringValue(); } },
-                { "s3Path", n => { S3Path = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "s3_path", n => { S3Path = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.FileStatus>(); } },
             };
@@ -100,8 +100,8 @@ namespace Rixl.Sdk.Models.Images.V1
             writer.WriteStringValue("format", Format);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("projectId", ProjectId);
-            writer.WriteStringValue("s3Path", S3Path);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("s3_path", S3Path);
             writer.WriteObjectValue<UntypedNode>("size", Size);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.FileStatus>("status", Status);
         }

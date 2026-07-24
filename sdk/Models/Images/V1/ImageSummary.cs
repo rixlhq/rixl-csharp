@@ -81,7 +81,7 @@ namespace Rixl.Sdk.Models.Images.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>(); } },
                 { "height", n => { Height = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -100,7 +100,7 @@ namespace Rixl.Sdk.Models.Images.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>("format", Format);
             writer.WriteIntValue("height", Height);
             writer.WriteStringValue("id", Id);

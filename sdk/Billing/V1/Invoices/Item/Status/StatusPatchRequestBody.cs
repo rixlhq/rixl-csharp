@@ -13,6 +13,14 @@ namespace Rixl.Sdk.Billing.V1.Invoices.Item.Status
     public partial class StatusPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The invoice_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? InvoiceId { get; set; }
+#nullable restore
+#else
+        public string InvoiceId { get; set; }
+#endif
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus? Status { get; set; }
         /// <summary>
@@ -33,6 +41,7 @@ namespace Rixl.Sdk.Billing.V1.Invoices.Item.Status
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "invoice_id", n => { InvoiceId = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus>(); } },
             };
         }
@@ -43,6 +52,7 @@ namespace Rixl.Sdk.Billing.V1.Invoices.Item.Status
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("invoice_id", InvoiceId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus>("status", Status);
         }
     }

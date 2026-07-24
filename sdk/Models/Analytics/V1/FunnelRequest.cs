@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public List<global::Rixl.Sdk.Models.Analytics.V1.FunnelStep> Steps { get; set; }
 #endif
-        /// <summary>The timeWindow property</summary>
+        /// <summary>The time_window property</summary>
         public int? TimeWindow { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,7 +50,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "range", n => { Range = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.DateRange>(global::Rixl.Sdk.Models.Analytics.V1.DateRange.CreateFromDiscriminatorValue); } },
                 { "steps", n => { Steps = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.FunnelStep>(global::Rixl.Sdk.Models.Analytics.V1.FunnelStep.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "timeWindow", n => { TimeWindow = n.GetIntValue(); } },
+                { "time_window", n => { TimeWindow = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.DateRange>("range", Range);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.FunnelStep>("steps", Steps);
-            writer.WriteIntValue("timeWindow", TimeWindow);
+            writer.WriteIntValue("time_window", TimeWindow);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class PaymentMethodIdResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The paymentMethodId property</summary>
+        /// <summary>The payment_method_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PaymentMethodId { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
+                { "payment_method_id", n => { PaymentMethodId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("paymentMethodId", PaymentMethodId);
+            writer.WriteStringValue("payment_method_id", PaymentMethodId);
         }
     }
 }

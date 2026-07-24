@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>The uniqueUsers property</summary>
+        /// <summary>The unique_users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? UniqueUsers { get; set; }
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "uniqueUsers", n => { UniqueUsers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "unique_users", n => { UniqueUsers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "views", n => { Views = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteObjectValue<UntypedNode>("uniqueUsers", UniqueUsers);
+            writer.WriteObjectValue<UntypedNode>("unique_users", UniqueUsers);
             writer.WriteObjectValue<UntypedNode>("views", Views);
         }
     }

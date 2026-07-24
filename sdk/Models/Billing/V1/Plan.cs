@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Interval { get; set; }
 #endif
-        /// <summary>The intervalCount property</summary>
+        /// <summary>The interval_count property</summary>
         public int? IntervalCount { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,7 +54,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The planType property</summary>
+        /// <summary>The plan_type property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.PlanType? PlanType { get; set; }
         /// <summary>The price property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -64,7 +64,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Price { get; set; }
 #endif
-        /// <summary>The sortOrder property</summary>
+        /// <summary>The sort_order property</summary>
         public int? SortOrder { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -88,11 +88,11 @@ namespace Rixl.Sdk.Models.Billing.V1
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "interval", n => { Interval = n.GetStringValue(); } },
-                { "intervalCount", n => { IntervalCount = n.GetIntValue(); } },
+                { "interval_count", n => { IntervalCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "planType", n => { PlanType = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>(); } },
+                { "plan_type", n => { PlanType = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>(); } },
                 { "price", n => { Price = n.GetStringValue(); } },
-                { "sortOrder", n => { SortOrder = n.GetIntValue(); } },
+                { "sort_order", n => { SortOrder = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -106,11 +106,11 @@ namespace Rixl.Sdk.Models.Billing.V1
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("interval", Interval);
-            writer.WriteIntValue("intervalCount", IntervalCount);
+            writer.WriteIntValue("interval_count", IntervalCount);
             writer.WriteStringValue("name", Name);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>("planType", PlanType);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>("plan_type", PlanType);
             writer.WriteStringValue("price", Price);
-            writer.WriteIntValue("sortOrder", SortOrder);
+            writer.WriteIntValue("sort_order", SortOrder);
         }
     }
 }

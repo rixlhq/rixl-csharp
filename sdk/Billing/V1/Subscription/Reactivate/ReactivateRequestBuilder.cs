@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Billing.V1.Subscription.Reactivate
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReactivateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/reactivate{?orgId*}", pathParameters)
+        public ReactivateRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/reactivate{?org_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Billing.V1.Subscription.Reactivate
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ReactivateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/reactivate{?orgId*}", rawUrl)
+        public ReactivateRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/reactivate{?org_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Billing.V1.Subscription.Reactivate
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string? OrgId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string OrgId { get; set; }
 #endif
         }

@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Code { get; set; }
 #endif
-        /// <summary>The verificationId property</summary>
+        /// <summary>The verification_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VerificationId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "verificationId", n => { VerificationId = n.GetStringValue(); } },
+                { "verification_id", n => { VerificationId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code", Code);
-            writer.WriteStringValue("verificationId", VerificationId);
+            writer.WriteStringValue("verification_id", VerificationId);
         }
     }
 }

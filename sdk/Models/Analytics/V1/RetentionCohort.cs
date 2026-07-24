@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class RetentionCohort : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The cohortDate property</summary>
+        /// <summary>The cohort_date property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CohortDate { get; set; }
@@ -20,9 +20,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string CohortDate { get; set; }
 #endif
-        /// <summary>The cohortSize property</summary>
+        /// <summary>The cohort_size property</summary>
         public int? CohortSize { get; set; }
-        /// <summary>The retentionData property</summary>
+        /// <summary>The retention_data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<double?>? RetentionData { get; set; }
@@ -48,9 +48,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "cohortDate", n => { CohortDate = n.GetStringValue(); } },
-                { "cohortSize", n => { CohortSize = n.GetIntValue(); } },
-                { "retentionData", n => { RetentionData = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
+                { "cohort_date", n => { CohortDate = n.GetStringValue(); } },
+                { "cohort_size", n => { CohortSize = n.GetIntValue(); } },
+                { "retention_data", n => { RetentionData = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("cohortDate", CohortDate);
-            writer.WriteIntValue("cohortSize", CohortSize);
-            writer.WriteCollectionOfPrimitiveValues<double?>("retentionData", RetentionData);
+            writer.WriteStringValue("cohort_date", CohortDate);
+            writer.WriteIntValue("cohort_size", CohortSize);
+            writer.WriteCollectionOfPrimitiveValues<double?>("retention_data", RetentionData);
         }
     }
 }

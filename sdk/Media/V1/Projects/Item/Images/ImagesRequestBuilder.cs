@@ -41,7 +41,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sortDirection*,sortField*}", pathParameters)
+        public ImagesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sort_direction*,sort_field*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ImagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sortDirection*,sortField*}", rawUrl)
+        public ImagesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/images{?pagination%2Elimit*,pagination%2Eoffset*,sort_direction*,sort_field*}", rawUrl)
         {
         }
         /// <summary>
@@ -112,20 +112,20 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
             public int? PaginationOffset { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("sortDirection")]
+            [QueryParameter("sort_direction")]
             public string? SortDirection { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sortDirection")]
+            [QueryParameter("sort_direction")]
             public string SortDirection { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("sortField")]
+            [QueryParameter("sort_field")]
             public string? SortField { get; set; }
 #nullable restore
 #else
-            [QueryParameter("sortField")]
+            [QueryParameter("sort_field")]
             public string SortField { get; set; }
 #endif
         }

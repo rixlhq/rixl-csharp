@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public global::Rixl.Sdk.Models.Billing.V1.BillingAddress Address { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "address", n => { Address = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("address", Address);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
     public partial class MintClientTokenRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The clientId property</summary>
+        /// <summary>The client_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
 #else
         public string ClientId { get; set; }
 #endif
-        /// <summary>The clientSecret property</summary>
+        /// <summary>The client_secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
 #else
         public string ClientSecret { get; set; }
 #endif
-        /// <summary>The projectId property</summary>
+        /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ProjectId { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
 #else
         public string Subject { get; set; }
 #endif
-        /// <summary>The ttlMinutes property</summary>
+        /// <summary>The ttl_minutes property</summary>
         public int? TtlMinutes { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -64,11 +64,11 @@ namespace Rixl.Sdk.Models.Clientauth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "clientId", n => { ClientId = n.GetStringValue(); } },
-                { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
-                { "projectId", n => { ProjectId = n.GetStringValue(); } },
+                { "client_id", n => { ClientId = n.GetStringValue(); } },
+                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "subject", n => { Subject = n.GetStringValue(); } },
-                { "ttlMinutes", n => { TtlMinutes = n.GetIntValue(); } },
+                { "ttl_minutes", n => { TtlMinutes = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -78,11 +78,11 @@ namespace Rixl.Sdk.Models.Clientauth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("clientId", ClientId);
-            writer.WriteStringValue("clientSecret", ClientSecret);
-            writer.WriteStringValue("projectId", ProjectId);
+            writer.WriteStringValue("client_id", ClientId);
+            writer.WriteStringValue("client_secret", ClientSecret);
+            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("subject", Subject);
-            writer.WriteIntValue("ttlMinutes", TtlMinutes);
+            writer.WriteIntValue("ttl_minutes", TtlMinutes);
         }
     }
 }

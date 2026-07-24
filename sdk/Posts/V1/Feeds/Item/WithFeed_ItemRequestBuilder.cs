@@ -41,7 +41,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithFeed_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*,projectId*}", pathParameters)
+        public WithFeed_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}{?creator_id*,pagination%2Elimit*,pagination%2Eoffset*,project_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithFeed_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*,projectId*}", rawUrl)
+        public WithFeed_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}{?creator_id*,pagination%2Elimit*,pagination%2Eoffset*,project_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,11 +106,11 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("creatorId")]
+            [QueryParameter("creator_id")]
             public string? CreatorId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("creatorId")]
+            [QueryParameter("creator_id")]
             public string CreatorId { get; set; }
 #endif
             /// <summary>Maximum number of items to return.</summary>
@@ -121,11 +121,11 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item
             public int? PaginationOffset { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("projectId")]
+            [QueryParameter("project_id")]
             public string? ProjectId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("projectId")]
+            [QueryParameter("project_id")]
             public string ProjectId { get; set; }
 #endif
         }

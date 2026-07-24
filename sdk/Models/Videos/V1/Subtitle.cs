@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Label { get; set; }
 #endif
-        /// <summary>The languageCode property</summary>
+        /// <summary>The language_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LanguageCode { get; set; }
@@ -39,7 +39,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string LanguageCode { get; set; }
 #endif
-        /// <summary>The videoId property</summary>
+        /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VideoId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string VideoId { get; set; }
 #endif
-        /// <summary>The vttPath property</summary>
+        /// <summary>The vtt_path property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VttPath { get; set; }
@@ -76,9 +76,9 @@ namespace Rixl.Sdk.Models.Videos.V1
                 { "format", n => { Format = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.SubtitleFormat>(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "languageCode", n => { LanguageCode = n.GetStringValue(); } },
-                { "videoId", n => { VideoId = n.GetStringValue(); } },
-                { "vttPath", n => { VttPath = n.GetStringValue(); } },
+                { "language_code", n => { LanguageCode = n.GetStringValue(); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
+                { "vtt_path", n => { VttPath = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -91,9 +91,9 @@ namespace Rixl.Sdk.Models.Videos.V1
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.SubtitleFormat>("format", Format);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("label", Label);
-            writer.WriteStringValue("languageCode", LanguageCode);
-            writer.WriteStringValue("videoId", VideoId);
-            writer.WriteStringValue("vttPath", VttPath);
+            writer.WriteStringValue("language_code", LanguageCode);
+            writer.WriteStringValue("video_id", VideoId);
+            writer.WriteStringValue("vtt_path", VttPath);
         }
     }
 }

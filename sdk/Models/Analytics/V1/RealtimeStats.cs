@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class RealtimeStats : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The activeUsers property</summary>
+        /// <summary>The active_users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ActiveUsers { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode ActiveUsers { get; set; }
 #endif
-        /// <summary>The eventsPerMinute property</summary>
+        /// <summary>The events_per_minute property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? EventsPerMinute { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode EventsPerMinute { get; set; }
 #endif
-        /// <summary>The recentEvents property</summary>
+        /// <summary>The recent_events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>? RecentEvents { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string Timestamp { get; set; }
 #endif
-        /// <summary>The topCountries property</summary>
+        /// <summary>The top_countries property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>? TopCountries { get; set; }
@@ -52,7 +52,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public List<global::Rixl.Sdk.Models.Analytics.V1.CountryCount> TopCountries { get; set; }
 #endif
-        /// <summary>The topEvents property</summary>
+        /// <summary>The top_events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Analytics.V1.EventCount>? TopEvents { get; set; }
@@ -78,12 +78,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "activeUsers", n => { ActiveUsers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "eventsPerMinute", n => { EventsPerMinute = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "recentEvents", n => { RecentEvents = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>(global::Rixl.Sdk.Models.Analytics.V1.RecentEvent.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "active_users", n => { ActiveUsers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "events_per_minute", n => { EventsPerMinute = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "recent_events", n => { RecentEvents = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>(global::Rixl.Sdk.Models.Analytics.V1.RecentEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "topCountries", n => { TopCountries = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>(global::Rixl.Sdk.Models.Analytics.V1.CountryCount.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "topEvents", n => { TopEvents = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.EventCount>(global::Rixl.Sdk.Models.Analytics.V1.EventCount.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "top_countries", n => { TopCountries = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>(global::Rixl.Sdk.Models.Analytics.V1.CountryCount.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "top_events", n => { TopEvents = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.EventCount>(global::Rixl.Sdk.Models.Analytics.V1.EventCount.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -93,12 +93,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("activeUsers", ActiveUsers);
-            writer.WriteObjectValue<UntypedNode>("eventsPerMinute", EventsPerMinute);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>("recentEvents", RecentEvents);
+            writer.WriteObjectValue<UntypedNode>("active_users", ActiveUsers);
+            writer.WriteObjectValue<UntypedNode>("events_per_minute", EventsPerMinute);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>("recent_events", RecentEvents);
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>("topCountries", TopCountries);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.EventCount>("topEvents", TopEvents);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>("top_countries", TopCountries);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.EventCount>("top_events", TopEvents);
         }
     }
 }

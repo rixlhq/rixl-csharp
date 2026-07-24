@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The sessionId property</summary>
+        /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionId { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string SessionId { get; set; }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -64,8 +64,8 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "credential", n => { Credential = n.GetByteArrayValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "sessionId", n => { SessionId = n.GetStringValue(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -77,8 +77,8 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteByteArrayValue("credential", Credential);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("sessionId", SessionId);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteStringValue("session_id", SessionId);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

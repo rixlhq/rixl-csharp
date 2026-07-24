@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -50,7 +50,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
             {
                 { "alg", n => { Alg = n.GetEnumValue<global::Rixl.Sdk.Models.Clientauth.V1.CreateClientCredentialRequest_alg>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -62,7 +62,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Clientauth.V1.CreateClientCredentialRequest_alg>("alg", Alg);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }

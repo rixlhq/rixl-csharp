@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "subscribed", n => { Subscribed = n.GetBoolValue(); } },
-                { "subscribedAt", n => { SubscribedAt = n.GetDateTimeOffsetValue(); } },
+                { "subscribed_at", n => { SubscribedAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("subscribed", Subscribed);
-            writer.WriteDateTimeOffsetValue("subscribedAt", SubscribedAt);
+            writer.WriteDateTimeOffsetValue("subscribed_at", SubscribedAt);
         }
     }
 }

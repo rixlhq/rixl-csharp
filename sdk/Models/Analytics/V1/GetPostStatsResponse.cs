@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class GetPostStatsResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The postId property</summary>
+        /// <summary>The post_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string PostId { get; set; }
 #endif
-        /// <summary>The totalViews property</summary>
+        /// <summary>The total_views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalViews { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalViews { get; set; }
 #endif
-        /// <summary>The uniqueViewers property</summary>
+        /// <summary>The unique_viewers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? UniqueViewers { get; set; }
@@ -54,9 +54,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "postId", n => { PostId = n.GetStringValue(); } },
-                { "totalViews", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "uniqueViewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "post_id", n => { PostId = n.GetStringValue(); } },
+                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,9 +66,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("postId", PostId);
-            writer.WriteObjectValue<UntypedNode>("totalViews", TotalViews);
-            writer.WriteObjectValue<UntypedNode>("uniqueViewers", UniqueViewers);
+            writer.WriteStringValue("post_id", PostId);
+            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
+            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
         }
     }
 }

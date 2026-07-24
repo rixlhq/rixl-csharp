@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Models.Images.V1
     public partial class GetImageResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The attachedToVideo property</summary>
+        /// <summary>The attached_to_video property</summary>
         public bool? AttachedToVideo { get; set; }
         /// <summary>The file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -63,7 +63,7 @@ namespace Rixl.Sdk.Models.Images.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attachedToVideo", n => { AttachedToVideo = n.GetBoolValue(); } },
+                { "attached_to_video", n => { AttachedToVideo = n.GetBoolValue(); } },
                 { "file", n => { File = n.GetObjectValue<global::Rixl.Sdk.Models.Images.V1.ImageFile>(global::Rixl.Sdk.Models.Images.V1.ImageFile.CreateFromDiscriminatorValue); } },
                 { "height", n => { Height = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -79,7 +79,7 @@ namespace Rixl.Sdk.Models.Images.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("attachedToVideo", AttachedToVideo);
+            writer.WriteBoolValue("attached_to_video", AttachedToVideo);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Images.V1.ImageFile>("file", File);
             writer.WriteIntValue("height", Height);
             writer.WriteStringValue("id", Id);

@@ -12,7 +12,15 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
     public partial class CompletePostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The orgId property</summary>
+        /// <summary>The feed_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FeedId { get; set; }
+#nullable restore
+#else
+        public string FeedId { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -20,13 +28,21 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The postId property</summary>
+        /// <summary>The post_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostId { get; set; }
 #nullable restore
 #else
         public string PostId { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,8 +62,10 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "postId", n => { PostId = n.GetStringValue(); } },
+                { "feed_id", n => { FeedId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "post_id", n => { PostId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +75,10 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Complete
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("postId", PostId);
+            writer.WriteStringValue("feed_id", FeedId);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("post_id", PostId);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
     public partial class NamePatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The fullName property</summary>
+        /// <summary>The full_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FullName { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fullName", n => { FullName = n.GetStringValue(); } },
+                { "full_name", n => { FullName = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("fullName", FullName);
+            writer.WriteStringValue("full_name", FullName);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>("user", User);
         }
     }

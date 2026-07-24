@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InfoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?userId*}", pathParameters)
+        public InfoRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InfoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?userId*}", rawUrl)
+        public InfoRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/info{?user_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Info
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("userId")]
+            [QueryParameter("user_id")]
             public string? UserId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("userId")]
+            [QueryParameter("user_id")]
             public string UserId { get; set; }
 #endif
         }

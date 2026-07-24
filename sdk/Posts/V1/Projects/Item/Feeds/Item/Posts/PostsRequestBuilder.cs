@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
+        public PostsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creator_id*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
         {
         }
         /// <summary>
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creatorId*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
+        public PostsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/feeds/{feed_id}/posts{?creator_id*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
         {
         }
         /// <summary>
@@ -154,11 +154,11 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("creatorId")]
+            [QueryParameter("creator_id")]
             public string? CreatorId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("creatorId")]
+            [QueryParameter("creator_id")]
             public string CreatorId { get; set; }
 #endif
             /// <summary>Maximum number of items to return.</summary>

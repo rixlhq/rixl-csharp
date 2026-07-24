@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?timeEnd={timeEnd}&timeStart={timeStart}{&interval*}", pathParameters)
+        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&interval*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?timeEnd={timeEnd}&timeStart={timeStart}{&interval*}", rawUrl)
+        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&interval*}", rawUrl)
         {
         }
         /// <summary>
@@ -96,20 +96,20 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("timeEnd")]
+            [QueryParameter("time_end")]
             public string? TimeEnd { get; set; }
 #nullable restore
 #else
-            [QueryParameter("timeEnd")]
+            [QueryParameter("time_end")]
             public string TimeEnd { get; set; }
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("timeStart")]
+            [QueryParameter("time_start")]
             public string? TimeStart { get; set; }
 #nullable restore
 #else
-            [QueryParameter("timeStart")]
+            [QueryParameter("time_start")]
             public string TimeStart { get; set; }
 #endif
         }

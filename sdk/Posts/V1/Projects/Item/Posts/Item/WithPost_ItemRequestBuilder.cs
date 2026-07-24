@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPost_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/posts/{post_id}{?feedId*}", pathParameters)
+        public WithPost_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/posts/{post_id}{?feed_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPost_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/posts/{post_id}{?feedId*}", rawUrl)
+        public WithPost_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/projects/{project_id}/posts/{post_id}{?feed_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -126,11 +126,11 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item
             /// <summary>feed_id is accepted from the feed-scoped delete path but not used by the backend (deletion is keyed by post_id).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string? FeedId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string FeedId { get; set; }
 #endif
         }
@@ -143,11 +143,11 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item
             /// <summary>Populated from feed-scoped routes; the handler resolves by post_id, so this is used only for path binding / optional validation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string? FeedId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("feedId")]
+            [QueryParameter("feed_id")]
             public string FeedId { get; set; }
 #endif
         }

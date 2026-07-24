@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class RegisterRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The countryCode property</summary>
+        /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CountryCode { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Password { get; set; }
 #endif
-        /// <summary>The subscribeToBlog property</summary>
+        /// <summary>The subscribe_to_blog property</summary>
         public bool? SubscribeToBlog { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,10 +56,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "countryCode", n => { CountryCode = n.GetStringValue(); } },
+                { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "password", n => { Password = n.GetStringValue(); } },
-                { "subscribeToBlog", n => { SubscribeToBlog = n.GetBoolValue(); } },
+                { "subscribe_to_blog", n => { SubscribeToBlog = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -69,10 +69,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("countryCode", CountryCode);
+            writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("password", Password);
-            writer.WriteBoolValue("subscribeToBlog", SubscribeToBlog);
+            writer.WriteBoolValue("subscribe_to_blog", SubscribeToBlog);
         }
     }
 }

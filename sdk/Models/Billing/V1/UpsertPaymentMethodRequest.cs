@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class UpsertPaymentMethodRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The paymentMethodId property</summary>
+        /// <summary>The payment_method_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PaymentMethodId { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string PaymentMethodId { get; set; }
 #endif
-        /// <summary>The setAsDefault property</summary>
+        /// <summary>The set_as_default property</summary>
         public bool? SetAsDefault { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,9 +48,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "paymentMethodId", n => { PaymentMethodId = n.GetStringValue(); } },
-                { "setAsDefault", n => { SetAsDefault = n.GetBoolValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "payment_method_id", n => { PaymentMethodId = n.GetStringValue(); } },
+                { "set_as_default", n => { SetAsDefault = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -60,9 +60,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("paymentMethodId", PaymentMethodId);
-            writer.WriteBoolValue("setAsDefault", SetAsDefault);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("payment_method_id", PaymentMethodId);
+            writer.WriteBoolValue("set_as_default", SetAsDefault);
         }
     }
 }

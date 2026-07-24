@@ -13,6 +13,22 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility
     public partial class VisibilityPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
+        /// <summary>The video_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VideoId { get; set; }
+#nullable restore
+#else
+        public string VideoId { get; set; }
+#endif
         /// <summary>The visibility property</summary>
         public global::Rixl.Sdk.Models.Common.V1.Visibility? Visibility { get; set; }
         /// <summary>
@@ -33,6 +49,8 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>(); } },
             };
         }
@@ -43,6 +61,8 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteStringValue("video_id", VideoId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>("visibility", Visibility);
         }
     }

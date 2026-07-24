@@ -37,6 +37,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
 #else
         public List<string> Permissions { get; set; }
 #endif
+        /// <summary>The policy_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? PolicyId { get; set; }
+#nullable restore
+#else
+        public string PolicyId { get; set; }
+#endif
         /// <summary>The user property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +74,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "policy_id", n => { PolicyId = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
@@ -79,6 +88,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteStringValue("policy_id", PolicyId);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
         }
     }

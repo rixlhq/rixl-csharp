@@ -12,9 +12,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class VideoStats : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The avgWatchTimeMs property</summary>
+        /// <summary>The avg_watch_time_ms property</summary>
         public double? AvgWatchTimeMs { get; set; }
-        /// <summary>The completionRate property</summary>
+        /// <summary>The completion_rate property</summary>
         public double? CompletionRate { get; set; }
         /// <summary>The completions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode Starts { get; set; }
 #endif
-        /// <summary>The totalViews property</summary>
+        /// <summary>The total_views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalViews { get; set; }
@@ -40,9 +40,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalViews { get; set; }
 #endif
-        /// <summary>The totalWatchTimeMs property</summary>
+        /// <summary>The total_watch_time_ms property</summary>
         public double? TotalWatchTimeMs { get; set; }
-        /// <summary>The uniqueViewers property</summary>
+        /// <summary>The unique_viewers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? UniqueViewers { get; set; }
@@ -50,7 +50,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode UniqueViewers { get; set; }
 #endif
-        /// <summary>The videoId property</summary>
+        /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VideoId { get; set; }
@@ -84,14 +84,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "avgWatchTimeMs", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
-                { "completionRate", n => { CompletionRate = n.GetDoubleValue(); } },
+                { "avg_watch_time_ms", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
+                { "completion_rate", n => { CompletionRate = n.GetDoubleValue(); } },
                 { "completions", n => { Completions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "starts", n => { Starts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalViews", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalWatchTimeMs", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
-                { "uniqueViewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "videoId", n => { VideoId = n.GetStringValue(); } },
+                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
                 { "watches", n => { Watches = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -102,14 +102,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("avgWatchTimeMs", AvgWatchTimeMs);
-            writer.WriteDoubleValue("completionRate", CompletionRate);
+            writer.WriteDoubleValue("avg_watch_time_ms", AvgWatchTimeMs);
+            writer.WriteDoubleValue("completion_rate", CompletionRate);
             writer.WriteObjectValue<UntypedNode>("completions", Completions);
             writer.WriteObjectValue<UntypedNode>("starts", Starts);
-            writer.WriteObjectValue<UntypedNode>("totalViews", TotalViews);
-            writer.WriteDoubleValue("totalWatchTimeMs", TotalWatchTimeMs);
-            writer.WriteObjectValue<UntypedNode>("uniqueViewers", UniqueViewers);
-            writer.WriteStringValue("videoId", VideoId);
+            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
+            writer.WriteDoubleValue("total_watch_time_ms", TotalWatchTimeMs);
+            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
+            writer.WriteStringValue("video_id", VideoId);
             writer.WriteObjectValue<UntypedNode>("watches", Watches);
         }
     }

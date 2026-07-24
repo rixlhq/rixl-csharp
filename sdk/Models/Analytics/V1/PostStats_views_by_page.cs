@@ -9,27 +9,27 @@ namespace Rixl.Sdk.Models.Analytics.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PostStats_viewsByPage : IAdditionalDataHolder, IParsable
+    public partial class PostStats_views_by_page : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page"/> and sets the default values.
         /// </summary>
-        public PostStats_viewsByPage()
+        public PostStats_views_by_page()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage();
+            return new global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page();
         }
         /// <summary>
         /// The deserialization information for the current model

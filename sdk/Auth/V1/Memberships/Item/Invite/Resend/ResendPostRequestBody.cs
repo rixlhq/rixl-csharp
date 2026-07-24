@@ -21,7 +21,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
 #else
         public global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest User { get; set; }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest.CreateFromDiscriminatorValue); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -59,7 +59,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>("user", User);
-            writer.WriteStringValue("userId", UserId);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

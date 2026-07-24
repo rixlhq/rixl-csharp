@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPost_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}/{post_id}{?projectId*}", pathParameters)
+        public WithPost_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}/{post_id}{?project_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPost_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}/{post_id}{?projectId*}", rawUrl)
+        public WithPost_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/posts/v1/feeds/{feed_id}/{post_id}{?project_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("projectId")]
+            [QueryParameter("project_id")]
             public string? ProjectId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("projectId")]
+            [QueryParameter("project_id")]
             public string ProjectId { get; set; }
 #endif
         }

@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
     public partial class UploadPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The imageFormat property</summary>
+        /// <summary>The image_format property</summary>
         public global::Rixl.Sdk.Models.Common.V1.ImageFormat? ImageFormat { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -31,7 +31,15 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The videoQuality property</summary>
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
+        /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -51,10 +59,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "imageFormat", n => { ImageFormat = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>(); } },
+                { "image_format", n => { ImageFormat = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "videoQuality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "video_quality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
             };
         }
         /// <summary>
@@ -64,10 +73,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>("imageFormat", ImageFormat);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>("image_format", ImageFormat);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("videoQuality", VideoQuality);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("video_quality", VideoQuality);
         }
     }
 }

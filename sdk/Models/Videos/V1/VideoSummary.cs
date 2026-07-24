@@ -74,7 +74,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "codec", n => { Codec = n.GetStringValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "duration", n => { Duration = n.GetTimeSpanValue(); } },
                 { "height", n => { Height = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
@@ -92,7 +92,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("codec", Codec);
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteTimeSpanValue("duration", Duration);
             writer.WriteIntValue("height", Height);
             writer.WriteStringValue("id", Id);

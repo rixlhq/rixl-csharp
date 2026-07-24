@@ -41,7 +41,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PasskeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?userId*}", pathParameters)
+        public PasskeysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -49,7 +49,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PasskeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?userId*}", rawUrl)
+        public PasskeysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/users/current/passkeys{?user_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -106,11 +106,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("userId")]
+            [QueryParameter("user_id")]
             public string? UserId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("userId")]
+            [QueryParameter("user_id")]
             public string UserId { get; set; }
 #endif
         }

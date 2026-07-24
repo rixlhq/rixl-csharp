@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class ConnectedProvider : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The emailAddress property</summary>
+        /// <summary>The email_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EmailAddress { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string EmailAddress { get; set; }
 #endif
-        /// <summary>The firstName property</summary>
+        /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string FirstName { get; set; }
 #endif
-        /// <summary>The imageUrl property</summary>
+        /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ImageUrl { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string ImageUrl { get; set; }
 #endif
-        /// <summary>The lastName property</summary>
+        /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -72,10 +72,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "emailAddress", n => { EmailAddress = n.GetStringValue(); } },
-                { "firstName", n => { FirstName = n.GetStringValue(); } },
-                { "imageUrl", n => { ImageUrl = n.GetStringValue(); } },
-                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "email_address", n => { EmailAddress = n.GetStringValue(); } },
+                { "first_name", n => { FirstName = n.GetStringValue(); } },
+                { "image_url", n => { ImageUrl = n.GetStringValue(); } },
+                { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.ExternalAccountProvider>(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
@@ -87,10 +87,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("emailAddress", EmailAddress);
-            writer.WriteStringValue("firstName", FirstName);
-            writer.WriteStringValue("imageUrl", ImageUrl);
-            writer.WriteStringValue("lastName", LastName);
+            writer.WriteStringValue("email_address", EmailAddress);
+            writer.WriteStringValue("first_name", FirstName);
+            writer.WriteStringValue("image_url", ImageUrl);
+            writer.WriteStringValue("last_name", LastName);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.ExternalAccountProvider>("provider", Provider);
             writer.WriteStringValue("username", Username);
         }

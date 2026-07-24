@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class RegisterResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The emailVerificationSent property</summary>
+        /// <summary>The email_verification_sent property</summary>
         public bool? EmailVerificationSent { get; set; }
         /// <summary>The message property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The userId property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? UserId { get; set; }
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>The verificationId property</summary>
+        /// <summary>The verification_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VerificationId { get; set; }
@@ -56,10 +56,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "emailVerificationSent", n => { EmailVerificationSent = n.GetBoolValue(); } },
+                { "email_verification_sent", n => { EmailVerificationSent = n.GetBoolValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "userId", n => { UserId = n.GetStringValue(); } },
-                { "verificationId", n => { VerificationId = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
+                { "verification_id", n => { VerificationId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -69,10 +69,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("emailVerificationSent", EmailVerificationSent);
+            writer.WriteBoolValue("email_verification_sent", EmailVerificationSent);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("userId", UserId);
-            writer.WriteStringValue("verificationId", VerificationId);
+            writer.WriteStringValue("user_id", UserId);
+            writer.WriteStringValue("verification_id", VerificationId);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public List<global::Rixl.Sdk.Models.Videos.V1.Chapter> Chapters { get; set; }
 #endif
-        /// <summary>The videoId property</summary>
+        /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? VideoId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "chapters", n => { Chapters = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Chapter>(global::Rixl.Sdk.Models.Videos.V1.Chapter.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "videoId", n => { VideoId = n.GetStringValue(); } },
+                { "video_id", n => { VideoId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Chapter>("chapters", Chapters);
-            writer.WriteStringValue("videoId", VideoId);
+            writer.WriteStringValue("video_id", VideoId);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Videos.V1
     public partial class Chapter : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The startTimeSec property</summary>
+        /// <summary>The start_time_sec property</summary>
         public double? StartTimeSec { get; set; }
         /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "startTimeSec", n => { StartTimeSec = n.GetDoubleValue(); } },
+                { "start_time_sec", n => { StartTimeSec = n.GetDoubleValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("startTimeSec", StartTimeSec);
+            writer.WriteDoubleValue("start_time_sec", StartTimeSec);
             writer.WriteStringValue("title", Title);
         }
     }

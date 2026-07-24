@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Reference { get; set; }
 #endif
-        /// <summary>The taxCode property</summary>
+        /// <summary>The tax_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TaxCode { get; set; }
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Models.Billing.V1
             {
                 { "amount", n => { Amount = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "reference", n => { Reference = n.GetStringValue(); } },
-                { "taxCode", n => { TaxCode = n.GetStringValue(); } },
+                { "tax_code", n => { TaxCode = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -68,7 +68,7 @@ namespace Rixl.Sdk.Models.Billing.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<UntypedNode>("amount", Amount);
             writer.WriteStringValue("reference", Reference);
-            writer.WriteStringValue("taxCode", TaxCode);
+            writer.WriteStringValue("tax_code", TaxCode);
         }
     }
 }

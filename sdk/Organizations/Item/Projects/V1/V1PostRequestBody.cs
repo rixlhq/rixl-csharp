@@ -21,6 +21,14 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1
 #else
         public string Name { get; set; }
 #endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
+#endif
         /// <summary>The regions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -29,7 +37,7 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1
 #else
         public List<string> Regions { get; set; }
 #endif
-        /// <summary>The videoQuality property</summary>
+        /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -50,8 +58,9 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "regions", n => { Regions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "videoQuality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
+                { "video_quality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
             };
         }
         /// <summary>
@@ -62,8 +71,9 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteCollectionOfPrimitiveValues<string>("regions", Regions);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("videoQuality", VideoQuality);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("video_quality", VideoQuality);
         }
     }
 }

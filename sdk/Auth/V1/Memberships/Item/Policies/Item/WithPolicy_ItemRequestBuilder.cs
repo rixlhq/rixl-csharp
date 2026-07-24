@@ -29,7 +29,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPolicy_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/{policy_id}{?user%2EuserId*}", pathParameters)
+        public WithPolicy_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/{policy_id}{?user%2Euser_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithPolicy_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/{policy_id}{?user%2EuserId*}", rawUrl)
+        public WithPolicy_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/{policy_id}{?user%2Euser_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -173,11 +173,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("user%2EuserId")]
+            [QueryParameter("user%2Euser_id")]
             public string? UserUserId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("user%2EuserId")]
+            [QueryParameter("user%2Euser_id")]
             public string UserUserId { get; set; }
 #endif
         }
@@ -189,11 +189,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("user%2EuserId")]
+            [QueryParameter("user%2Euser_id")]
             public string? UserUserId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("user%2EuserId")]
+            [QueryParameter("user%2Euser_id")]
             public string UserUserId { get; set; }
 #endif
         }

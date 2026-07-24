@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class ListPaymentMethodsResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The paymentMethods property</summary>
+        /// <summary>The payment_methods property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Billing.V1.PaymentMethod>? PaymentMethods { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "paymentMethods", n => { PaymentMethods = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.PaymentMethod>(global::Rixl.Sdk.Models.Billing.V1.PaymentMethod.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "payment_methods", n => { PaymentMethods = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.PaymentMethod>(global::Rixl.Sdk.Models.Billing.V1.PaymentMethod.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.PaymentMethod>("paymentMethods", PaymentMethods);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.PaymentMethod>("payment_methods", PaymentMethods);
         }
     }
 }

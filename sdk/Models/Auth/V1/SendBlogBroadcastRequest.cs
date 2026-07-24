@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Category { get; set; }
 #endif
-        /// <summary>The commitSha property</summary>
+        /// <summary>The commit_sha property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CommitSha { get; set; }
@@ -81,9 +81,9 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "category", n => { Category = n.GetStringValue(); } },
-                { "commitSha", n => { CommitSha = n.GetStringValue(); } },
+                { "commit_sha", n => { CommitSha = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "publishedAt", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
+                { "published_at", n => { PublishedAt = n.GetDateTimeOffsetValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
@@ -97,9 +97,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("category", Category);
-            writer.WriteStringValue("commitSha", CommitSha);
+            writer.WriteStringValue("commit_sha", CommitSha);
             writer.WriteStringValue("description", Description);
-            writer.WriteDateTimeOffsetValue("publishedAt", PublishedAt);
+            writer.WriteDateTimeOffsetValue("published_at", PublishedAt);
             writer.WriteStringValue("slug", Slug);
             writer.WriteStringValue("title", Title);
             writer.WriteStringValue("url", Url);

@@ -12,9 +12,9 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class StorageUsage : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The imageFileCount property</summary>
+        /// <summary>The image_file_count property</summary>
         public int? ImageFileCount { get; set; }
-        /// <summary>The imageStorageBytes property</summary>
+        /// <summary>The image_storage_bytes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ImageStorageBytes { get; set; }
@@ -24,13 +24,13 @@ namespace Rixl.Sdk.Models.Billing.V1
 #endif
         /// <summary>A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one. All minutes are 60 seconds long. Leap seconds are &quot;smeared&quot; so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear). The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings. # Examples Example 1: Compute Timestamp from POSIX `time()`.     Timestamp timestamp;     timestamp.set_seconds(time(NULL));     timestamp.set_nanos(0); Example 2: Compute Timestamp from POSIX `gettimeofday()`.     struct timeval tv;     gettimeofday(&amp;tv, NULL);     Timestamp timestamp;     timestamp.set_seconds(tv.tv_sec);     timestamp.set_nanos(tv.tv_usec * 1000); Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.     FILETIME ft;     GetSystemTimeAsFileTime(&amp;ft);     UINT64 ticks = (((UINT64)ft.dwHighDateTime) &lt;&lt; 32) | ft.dwLowDateTime;     // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z     // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.     Timestamp timestamp;     timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));     timestamp.set_nanos((INT32) ((ticks % 10000000) * 100)); Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.     long millis = System.currentTimeMillis();     Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)         .setNanos((int) ((millis % 1000) * 1000000)).build(); Example 5: Compute Timestamp from Java `Instant.now()`.     Instant now = Instant.now();     Timestamp timestamp =         Timestamp.newBuilder().setSeconds(now.getEpochSecond())             .setNanos(now.getNano()).build(); Example 6: Compute Timestamp from current time in Python.     timestamp = Timestamp()     timestamp.GetCurrentTime() # JSON Mapping In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is &quot;{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z&quot; where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The &quot;Z&quot; suffix indicates the timezone (&quot;UTC&quot;); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by &quot;Z&quot;) when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset). For example, &quot;2017-01-15T01:30:15.01Z&quot; encodes 15.01 seconds past 01:30 UTC on January 15, 2017. In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec &apos;%Y-%m-%dT%H:%M:%S.%fZ&apos;. Likewise, in Java, one can use the Joda Time&apos;s [`ISODateTimeFormat.dateTime()`]( http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime() ) to obtain a formatter capable of generating timestamps in this format.</summary>
         public DateTimeOffset? LastUpdated { get; set; }
-        /// <summary>The maxImageCount property</summary>
+        /// <summary>The max_image_count property</summary>
         public int? MaxImageCount { get; set; }
-        /// <summary>The maxProjectCount property</summary>
+        /// <summary>The max_project_count property</summary>
         public int? MaxProjectCount { get; set; }
-        /// <summary>The maxVideoCount property</summary>
+        /// <summary>The max_video_count property</summary>
         public int? MaxVideoCount { get; set; }
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -38,13 +38,13 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The projectCount property</summary>
+        /// <summary>The project_count property</summary>
         public int? ProjectCount { get; set; }
         /// <summary>A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one. All minutes are 60 seconds long. Leap seconds are &quot;smeared&quot; so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear). The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings. # Examples Example 1: Compute Timestamp from POSIX `time()`.     Timestamp timestamp;     timestamp.set_seconds(time(NULL));     timestamp.set_nanos(0); Example 2: Compute Timestamp from POSIX `gettimeofday()`.     struct timeval tv;     gettimeofday(&amp;tv, NULL);     Timestamp timestamp;     timestamp.set_seconds(tv.tv_sec);     timestamp.set_nanos(tv.tv_usec * 1000); Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.     FILETIME ft;     GetSystemTimeAsFileTime(&amp;ft);     UINT64 ticks = (((UINT64)ft.dwHighDateTime) &lt;&lt; 32) | ft.dwLowDateTime;     // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z     // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.     Timestamp timestamp;     timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));     timestamp.set_nanos((INT32) ((ticks % 10000000) * 100)); Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.     long millis = System.currentTimeMillis();     Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)         .setNanos((int) ((millis % 1000) * 1000000)).build(); Example 5: Compute Timestamp from Java `Instant.now()`.     Instant now = Instant.now();     Timestamp timestamp =         Timestamp.newBuilder().setSeconds(now.getEpochSecond())             .setNanos(now.getNano()).build(); Example 6: Compute Timestamp from current time in Python.     timestamp = Timestamp()     timestamp.GetCurrentTime() # JSON Mapping In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is &quot;{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z&quot; where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The &quot;Z&quot; suffix indicates the timezone (&quot;UTC&quot;); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by &quot;Z&quot;) when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset). For example, &quot;2017-01-15T01:30:15.01Z&quot; encodes 15.01 seconds past 01:30 UTC on January 15, 2017. In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec &apos;%Y-%m-%dT%H:%M:%S.%fZ&apos;. Likewise, in Java, one can use the Joda Time&apos;s [`ISODateTimeFormat.dateTime()`]( http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime() ) to obtain a formatter capable of generating timestamps in this format.</summary>
         public DateTimeOffset? SnapshotDate { get; set; }
-        /// <summary>The totalFileCount property</summary>
+        /// <summary>The total_file_count property</summary>
         public int? TotalFileCount { get; set; }
-        /// <summary>The totalStorageBytes property</summary>
+        /// <summary>The total_storage_bytes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalStorageBytes { get; set; }
@@ -52,7 +52,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public UntypedNode TotalStorageBytes { get; set; }
 #endif
-        /// <summary>The totalVideoMinutes property</summary>
+        /// <summary>The total_video_minutes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? TotalVideoMinutes { get; set; }
@@ -60,9 +60,9 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string TotalVideoMinutes { get; set; }
 #endif
-        /// <summary>The videoFileCount property</summary>
+        /// <summary>The video_file_count property</summary>
         public int? VideoFileCount { get; set; }
-        /// <summary>The videoStorageBytes property</summary>
+        /// <summary>The video_storage_bytes property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? VideoStorageBytes { get; set; }
@@ -88,20 +88,20 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "imageFileCount", n => { ImageFileCount = n.GetIntValue(); } },
-                { "imageStorageBytes", n => { ImageStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "lastUpdated", n => { LastUpdated = n.GetDateTimeOffsetValue(); } },
-                { "maxImageCount", n => { MaxImageCount = n.GetIntValue(); } },
-                { "maxProjectCount", n => { MaxProjectCount = n.GetIntValue(); } },
-                { "maxVideoCount", n => { MaxVideoCount = n.GetIntValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "projectCount", n => { ProjectCount = n.GetIntValue(); } },
-                { "snapshotDate", n => { SnapshotDate = n.GetDateTimeOffsetValue(); } },
-                { "totalFileCount", n => { TotalFileCount = n.GetIntValue(); } },
-                { "totalStorageBytes", n => { TotalStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalVideoMinutes", n => { TotalVideoMinutes = n.GetStringValue(); } },
-                { "videoFileCount", n => { VideoFileCount = n.GetIntValue(); } },
-                { "videoStorageBytes", n => { VideoStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "image_file_count", n => { ImageFileCount = n.GetIntValue(); } },
+                { "image_storage_bytes", n => { ImageStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "last_updated", n => { LastUpdated = n.GetDateTimeOffsetValue(); } },
+                { "max_image_count", n => { MaxImageCount = n.GetIntValue(); } },
+                { "max_project_count", n => { MaxProjectCount = n.GetIntValue(); } },
+                { "max_video_count", n => { MaxVideoCount = n.GetIntValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_count", n => { ProjectCount = n.GetIntValue(); } },
+                { "snapshot_date", n => { SnapshotDate = n.GetDateTimeOffsetValue(); } },
+                { "total_file_count", n => { TotalFileCount = n.GetIntValue(); } },
+                { "total_storage_bytes", n => { TotalStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_video_minutes", n => { TotalVideoMinutes = n.GetStringValue(); } },
+                { "video_file_count", n => { VideoFileCount = n.GetIntValue(); } },
+                { "video_storage_bytes", n => { VideoStorageBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -111,20 +111,20 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("imageFileCount", ImageFileCount);
-            writer.WriteObjectValue<UntypedNode>("imageStorageBytes", ImageStorageBytes);
-            writer.WriteDateTimeOffsetValue("lastUpdated", LastUpdated);
-            writer.WriteIntValue("maxImageCount", MaxImageCount);
-            writer.WriteIntValue("maxProjectCount", MaxProjectCount);
-            writer.WriteIntValue("maxVideoCount", MaxVideoCount);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteIntValue("projectCount", ProjectCount);
-            writer.WriteDateTimeOffsetValue("snapshotDate", SnapshotDate);
-            writer.WriteIntValue("totalFileCount", TotalFileCount);
-            writer.WriteObjectValue<UntypedNode>("totalStorageBytes", TotalStorageBytes);
-            writer.WriteStringValue("totalVideoMinutes", TotalVideoMinutes);
-            writer.WriteIntValue("videoFileCount", VideoFileCount);
-            writer.WriteObjectValue<UntypedNode>("videoStorageBytes", VideoStorageBytes);
+            writer.WriteIntValue("image_file_count", ImageFileCount);
+            writer.WriteObjectValue<UntypedNode>("image_storage_bytes", ImageStorageBytes);
+            writer.WriteDateTimeOffsetValue("last_updated", LastUpdated);
+            writer.WriteIntValue("max_image_count", MaxImageCount);
+            writer.WriteIntValue("max_project_count", MaxProjectCount);
+            writer.WriteIntValue("max_video_count", MaxVideoCount);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteIntValue("project_count", ProjectCount);
+            writer.WriteDateTimeOffsetValue("snapshot_date", SnapshotDate);
+            writer.WriteIntValue("total_file_count", TotalFileCount);
+            writer.WriteObjectValue<UntypedNode>("total_storage_bytes", TotalStorageBytes);
+            writer.WriteStringValue("total_video_minutes", TotalVideoMinutes);
+            writer.WriteIntValue("video_file_count", VideoFileCount);
+            writer.WriteObjectValue<UntypedNode>("video_storage_bytes", VideoStorageBytes);
         }
     }
 }

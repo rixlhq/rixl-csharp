@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The passkeyId property</summary>
+        /// <summary>The passkey_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PasskeyId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "passkeyId", n => { PasskeyId = n.GetStringValue(); } },
+                { "passkey_id", n => { PasskeyId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("passkeyId", PasskeyId);
+            writer.WriteStringValue("passkey_id", PasskeyId);
         }
     }
 }

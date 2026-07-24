@@ -12,9 +12,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class FeedStats : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The avgTimePerVisitMs property</summary>
+        /// <summary>The avg_time_per_visit_ms property</summary>
         public double? AvgTimePerVisitMs { get; set; }
-        /// <summary>The feedId property</summary>
+        /// <summary>The feed_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FeedId { get; set; }
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string FeedId { get; set; }
 #endif
-        /// <summary>The totalPosts property</summary>
+        /// <summary>The total_posts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalPosts { get; set; }
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalPosts { get; set; }
 #endif
-        /// <summary>The totalViews property</summary>
+        /// <summary>The total_views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalViews { get; set; }
@@ -38,9 +38,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalViews { get; set; }
 #endif
-        /// <summary>The totalWatchTimeMs property</summary>
+        /// <summary>The total_watch_time_ms property</summary>
         public double? TotalWatchTimeMs { get; set; }
-        /// <summary>The uniqueViewers property</summary>
+        /// <summary>The unique_viewers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? UniqueViewers { get; set; }
@@ -66,12 +66,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "avgTimePerVisitMs", n => { AvgTimePerVisitMs = n.GetDoubleValue(); } },
-                { "feedId", n => { FeedId = n.GetStringValue(); } },
-                { "totalPosts", n => { TotalPosts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalViews", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalWatchTimeMs", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
-                { "uniqueViewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "avg_time_per_visit_ms", n => { AvgTimePerVisitMs = n.GetDoubleValue(); } },
+                { "feed_id", n => { FeedId = n.GetStringValue(); } },
+                { "total_posts", n => { TotalPosts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -81,12 +81,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("avgTimePerVisitMs", AvgTimePerVisitMs);
-            writer.WriteStringValue("feedId", FeedId);
-            writer.WriteObjectValue<UntypedNode>("totalPosts", TotalPosts);
-            writer.WriteObjectValue<UntypedNode>("totalViews", TotalViews);
-            writer.WriteDoubleValue("totalWatchTimeMs", TotalWatchTimeMs);
-            writer.WriteObjectValue<UntypedNode>("uniqueViewers", UniqueViewers);
+            writer.WriteDoubleValue("avg_time_per_visit_ms", AvgTimePerVisitMs);
+            writer.WriteStringValue("feed_id", FeedId);
+            writer.WriteObjectValue<UntypedNode>("total_posts", TotalPosts);
+            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
+            writer.WriteDoubleValue("total_watch_time_ms", TotalWatchTimeMs);
+            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
         }
     }
 }

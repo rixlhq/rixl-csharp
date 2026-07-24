@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class FunnelStep : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The eventType property</summary>
+        /// <summary>The event_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? EventType { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The pageType property</summary>
+        /// <summary>The page_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PageType { get; set; }
@@ -62,10 +62,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "eventType", n => { EventType = n.GetStringValue(); } },
+                { "event_type", n => { EventType = n.GetStringValue(); } },
                 { "filters", n => { Filters = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.FunnelStep_filters>(global::Rixl.Sdk.Models.Analytics.V1.FunnelStep_filters.CreateFromDiscriminatorValue); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "pageType", n => { PageType = n.GetStringValue(); } },
+                { "page_type", n => { PageType = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,10 +75,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("eventType", EventType);
+            writer.WriteStringValue("event_type", EventType);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.FunnelStep_filters>("filters", Filters);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("pageType", PageType);
+            writer.WriteStringValue("page_type", PageType);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class SetupOTPResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The qrCodeUrl property</summary>
+        /// <summary>The qr_code_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? QrCodeUrl { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "qrCodeUrl", n => { QrCodeUrl = n.GetStringValue(); } },
+                { "qr_code_url", n => { QrCodeUrl = n.GetStringValue(); } },
                 { "secret", n => { Secret = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("qrCodeUrl", QrCodeUrl);
+            writer.WriteStringValue("qr_code_url", QrCodeUrl);
             writer.WriteStringValue("secret", Secret);
         }
     }

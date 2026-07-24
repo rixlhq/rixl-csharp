@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "expiresAt", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "expires_at", n => { ExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "targets", n => { Targets = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.TrackUploadTarget>(global::Rixl.Sdk.Models.Videos.V1.TrackUploadTarget.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("expiresAt", ExpiresAt);
+            writer.WriteDateTimeOffsetValue("expires_at", ExpiresAt);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.TrackUploadTarget>("targets", Targets);
         }
     }

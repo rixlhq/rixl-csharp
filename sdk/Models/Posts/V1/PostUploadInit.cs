@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Posts.V1
     public partial class PostUploadInit : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The contentId property</summary>
+        /// <summary>The content_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentId { get; set; }
@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Posts.V1
 #else
         public string ContentId { get; set; }
 #endif
-        /// <summary>The contentUploadUrl property</summary>
+        /// <summary>The content_upload_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ContentUploadUrl { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Posts.V1
 #else
         public string ContentUploadUrl { get; set; }
 #endif
-        /// <summary>The posterId property</summary>
+        /// <summary>The poster_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PosterId { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Posts.V1
 #else
         public string PosterId { get; set; }
 #endif
-        /// <summary>The posterUploadUrl property</summary>
+        /// <summary>The poster_upload_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PosterUploadUrl { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Posts.V1
 #else
         public string PosterUploadUrl { get; set; }
 #endif
-        /// <summary>The postId property</summary>
+        /// <summary>The post_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostId { get; set; }
@@ -72,12 +72,12 @@ namespace Rixl.Sdk.Models.Posts.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "contentId", n => { ContentId = n.GetStringValue(); } },
-                { "contentUploadUrl", n => { ContentUploadUrl = n.GetStringValue(); } },
-                { "postId", n => { PostId = n.GetStringValue(); } },
-                { "posterId", n => { PosterId = n.GetStringValue(); } },
-                { "posterUploadUrl", n => { PosterUploadUrl = n.GetStringValue(); } },
-                { "uploadExpires", n => { UploadExpires = n.GetDateTimeOffsetValue(); } },
+                { "content_id", n => { ContentId = n.GetStringValue(); } },
+                { "content_upload_url", n => { ContentUploadUrl = n.GetStringValue(); } },
+                { "post_id", n => { PostId = n.GetStringValue(); } },
+                { "poster_id", n => { PosterId = n.GetStringValue(); } },
+                { "poster_upload_url", n => { PosterUploadUrl = n.GetStringValue(); } },
+                { "upload_expires", n => { UploadExpires = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -87,12 +87,12 @@ namespace Rixl.Sdk.Models.Posts.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("contentId", ContentId);
-            writer.WriteStringValue("contentUploadUrl", ContentUploadUrl);
-            writer.WriteStringValue("posterId", PosterId);
-            writer.WriteStringValue("posterUploadUrl", PosterUploadUrl);
-            writer.WriteStringValue("postId", PostId);
-            writer.WriteDateTimeOffsetValue("uploadExpires", UploadExpires);
+            writer.WriteStringValue("content_id", ContentId);
+            writer.WriteStringValue("content_upload_url", ContentUploadUrl);
+            writer.WriteStringValue("poster_id", PosterId);
+            writer.WriteStringValue("poster_upload_url", PosterUploadUrl);
+            writer.WriteStringValue("post_id", PostId);
+            writer.WriteDateTimeOffsetValue("upload_expires", UploadExpires);
         }
     }
 }

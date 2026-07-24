@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class UpdateActiveMembershipRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The membershipId property</summary>
+        /// <summary>The membership_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? MembershipId { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "membershipId", n => { MembershipId = n.GetStringValue(); } },
+                { "membership_id", n => { MembershipId = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("membershipId", MembershipId);
+            writer.WriteStringValue("membership_id", MembershipId);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
         }
     }

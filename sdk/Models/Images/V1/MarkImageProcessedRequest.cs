@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Images.V1
     public partial class MarkImageProcessedRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The fileId property</summary>
+        /// <summary>The file_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FileId { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Images.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "fileId", n => { FileId = n.GetStringValue(); } },
+                { "file_id", n => { FileId = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Images.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("fileId", FileId);
+            writer.WriteStringValue("file_id", FileId);
             writer.WriteObjectValue<UntypedNode>("size", Size);
         }
     }

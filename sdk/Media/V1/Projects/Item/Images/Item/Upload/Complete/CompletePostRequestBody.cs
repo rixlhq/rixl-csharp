@@ -12,15 +12,31 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload.Complete
     public partial class CompletePostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The attachedToVideo property</summary>
+        /// <summary>The attached_to_video property</summary>
         public bool? AttachedToVideo { get; set; }
-        /// <summary>The orgId property</summary>
+        /// <summary>The image_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageId { get; set; }
+#nullable restore
+#else
+        public string ImageId { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
 #nullable restore
 #else
         public string OrgId { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -40,8 +56,10 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload.Complete
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attachedToVideo", n => { AttachedToVideo = n.GetBoolValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "attached_to_video", n => { AttachedToVideo = n.GetBoolValue(); } },
+                { "image_id", n => { ImageId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -51,8 +69,10 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload.Complete
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("attachedToVideo", AttachedToVideo);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteBoolValue("attached_to_video", AttachedToVideo);
+            writer.WriteStringValue("image_id", ImageId);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

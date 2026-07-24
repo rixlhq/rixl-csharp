@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The objectKey property</summary>
+        /// <summary>The object_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ObjectKey { get; set; }
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "objectKey", n => { ObjectKey = n.GetStringValue(); } },
+                { "object_key", n => { ObjectKey = n.GetStringValue(); } },
                 { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
         }
@@ -67,7 +67,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("objectKey", ObjectKey);
+            writer.WriteStringValue("object_key", ObjectKey);
             writer.WriteObjectValue<UntypedNode>("size", Size);
         }
     }

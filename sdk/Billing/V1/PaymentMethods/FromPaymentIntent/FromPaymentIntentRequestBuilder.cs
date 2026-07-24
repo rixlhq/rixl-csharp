@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FromPaymentIntentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?paymentIntentId*}", pathParameters)
+        public FromPaymentIntentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?payment_intent_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public FromPaymentIntentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?paymentIntentId*}", rawUrl)
+        public FromPaymentIntentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/payment-methods/from-payment-intent{?payment_intent_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("paymentIntentId")]
+            [QueryParameter("payment_intent_id")]
             public string? PaymentIntentId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("paymentIntentId")]
+            [QueryParameter("payment_intent_id")]
             public string PaymentIntentId { get; set; }
 #endif
         }

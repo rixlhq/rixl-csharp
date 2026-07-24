@@ -68,7 +68,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Phone { get; set; }
 #endif
-        /// <summary>The postalCode property</summary>
+        /// <summary>The postal_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostalCode { get; set; }
@@ -109,7 +109,7 @@ namespace Rixl.Sdk.Models.Billing.V1
                 { "line2", n => { Line2 = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
-                { "postalCode", n => { PostalCode = n.GetStringValue(); } },
+                { "postal_code", n => { PostalCode = n.GetStringValue(); } },
                 { "state", n => { State = n.GetStringValue(); } },
             };
         }
@@ -127,7 +127,7 @@ namespace Rixl.Sdk.Models.Billing.V1
             writer.WriteStringValue("line2", Line2);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("phone", Phone);
-            writer.WriteStringValue("postalCode", PostalCode);
+            writer.WriteStringValue("postal_code", PostalCode);
             writer.WriteStringValue("state", State);
         }
     }

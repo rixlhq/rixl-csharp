@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The firstName property</summary>
+        /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FirstName { get; set; }
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string FirstName { get; set; }
 #endif
-        /// <summary>The jobTitle property</summary>
+        /// <summary>The job_title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? JobTitle { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string JobTitle { get; set; }
 #endif
-        /// <summary>The lastName property</summary>
+        /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastName { get; set; }
@@ -60,7 +60,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -104,11 +104,11 @@ namespace Rixl.Sdk.Models.Billing.V1
             {
                 { "company", n => { Company = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "firstName", n => { FirstName = n.GetStringValue(); } },
-                { "jobTitle", n => { JobTitle = n.GetStringValue(); } },
-                { "lastName", n => { LastName = n.GetStringValue(); } },
+                { "first_name", n => { FirstName = n.GetStringValue(); } },
+                { "job_title", n => { JobTitle = n.GetStringValue(); } },
+                { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "phone", n => { Phone = n.GetStringValue(); } },
                 { "website", n => { Website = n.GetStringValue(); } },
             };
@@ -122,11 +122,11 @@ namespace Rixl.Sdk.Models.Billing.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("company", Company);
             writer.WriteStringValue("email", Email);
-            writer.WriteStringValue("firstName", FirstName);
-            writer.WriteStringValue("jobTitle", JobTitle);
-            writer.WriteStringValue("lastName", LastName);
+            writer.WriteStringValue("first_name", FirstName);
+            writer.WriteStringValue("job_title", JobTitle);
+            writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("orgId", OrgId);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("phone", Phone);
             writer.WriteStringValue("website", Website);
         }

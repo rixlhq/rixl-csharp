@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
     public partial class RotateApiKeyResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The apiKey property</summary>
+        /// <summary>The api_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Apikeys.V1.ApiKey? ApiKey { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "apiKey", n => { ApiKey = n.GetObjectValue<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>(global::Rixl.Sdk.Models.Apikeys.V1.ApiKey.CreateFromDiscriminatorValue); } },
+                { "api_key", n => { ApiKey = n.GetObjectValue<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>(global::Rixl.Sdk.Models.Apikeys.V1.ApiKey.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Apikeys.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>("apiKey", ApiKey);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Apikeys.V1.ApiKey>("api_key", ApiKey);
         }
     }
 }

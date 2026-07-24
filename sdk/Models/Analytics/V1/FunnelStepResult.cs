@@ -12,11 +12,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class FunnelStepResult : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The conversionRate property</summary>
+        /// <summary>The conversion_rate property</summary>
         public double? ConversionRate { get; set; }
-        /// <summary>The dropoffRate property</summary>
+        /// <summary>The dropoff_rate property</summary>
         public double? DropoffRate { get; set; }
-        /// <summary>The stepName property</summary>
+        /// <summary>The step_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? StepName { get; set; }
@@ -24,7 +24,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string StepName { get; set; }
 #endif
-        /// <summary>The userCount property</summary>
+        /// <summary>The user_count property</summary>
         public int? UserCount { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -44,10 +44,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "conversionRate", n => { ConversionRate = n.GetDoubleValue(); } },
-                { "dropoffRate", n => { DropoffRate = n.GetDoubleValue(); } },
-                { "stepName", n => { StepName = n.GetStringValue(); } },
-                { "userCount", n => { UserCount = n.GetIntValue(); } },
+                { "conversion_rate", n => { ConversionRate = n.GetDoubleValue(); } },
+                { "dropoff_rate", n => { DropoffRate = n.GetDoubleValue(); } },
+                { "step_name", n => { StepName = n.GetStringValue(); } },
+                { "user_count", n => { UserCount = n.GetIntValue(); } },
             };
         }
         /// <summary>
@@ -57,10 +57,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("conversionRate", ConversionRate);
-            writer.WriteDoubleValue("dropoffRate", DropoffRate);
-            writer.WriteStringValue("stepName", StepName);
-            writer.WriteIntValue("userCount", UserCount);
+            writer.WriteDoubleValue("conversion_rate", ConversionRate);
+            writer.WriteDoubleValue("dropoff_rate", DropoffRate);
+            writer.WriteStringValue("step_name", StepName);
+            writer.WriteIntValue("user_count", UserCount);
         }
     }
 }

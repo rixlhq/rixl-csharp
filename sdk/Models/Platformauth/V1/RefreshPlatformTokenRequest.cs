@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
     public partial class RefreshPlatformTokenRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The refreshToken property</summary>
+        /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? RefreshToken { get; set; }
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "refreshToken", n => { RefreshToken = n.GetStringValue(); } },
+                { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Models.Platformauth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("refreshToken", RefreshToken);
+            writer.WriteStringValue("refresh_token", RefreshToken);
         }
     }
 }

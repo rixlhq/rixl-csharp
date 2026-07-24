@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class SendBlogBroadcastResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The broadcastId property</summary>
+        /// <summary>The broadcast_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? BroadcastId { get; set; }
@@ -42,9 +42,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "broadcastId", n => { BroadcastId = n.GetStringValue(); } },
-                { "scheduledAt", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
-                { "sentAt", n => { SentAt = n.GetDateTimeOffsetValue(); } },
+                { "broadcast_id", n => { BroadcastId = n.GetStringValue(); } },
+                { "scheduled_at", n => { ScheduledAt = n.GetDateTimeOffsetValue(); } },
+                { "sent_at", n => { SentAt = n.GetDateTimeOffsetValue(); } },
             };
         }
         /// <summary>
@@ -54,9 +54,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("broadcastId", BroadcastId);
-            writer.WriteDateTimeOffsetValue("scheduledAt", ScheduledAt);
-            writer.WriteDateTimeOffsetValue("sentAt", SentAt);
+            writer.WriteStringValue("broadcast_id", BroadcastId);
+            writer.WriteDateTimeOffsetValue("scheduled_at", ScheduledAt);
+            writer.WriteDateTimeOffsetValue("sent_at", SentAt);
         }
     }
 }

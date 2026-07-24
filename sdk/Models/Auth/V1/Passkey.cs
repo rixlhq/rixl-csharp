@@ -20,9 +20,9 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Aaguid { get; set; }
 #endif
-        /// <summary>The backupState property</summary>
+        /// <summary>The backup_state property</summary>
         public bool? BackupState { get; set; }
-        /// <summary>The createdAt property</summary>
+        /// <summary>The created_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CreatedAt { get; set; }
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string CreatedAt { get; set; }
 #endif
-        /// <summary>The credentialId property</summary>
+        /// <summary>The credential_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? CredentialId { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The lastUsedAt property</summary>
+        /// <summary>The last_used_at property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? LastUsedAt { get; set; }
@@ -89,11 +89,11 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "aaguid", n => { Aaguid = n.GetStringValue(); } },
-                { "backupState", n => { BackupState = n.GetBoolValue(); } },
-                { "createdAt", n => { CreatedAt = n.GetStringValue(); } },
-                { "credentialId", n => { CredentialId = n.GetStringValue(); } },
+                { "backup_state", n => { BackupState = n.GetBoolValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "credential_id", n => { CredentialId = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "lastUsedAt", n => { LastUsedAt = n.GetStringValue(); } },
+                { "last_used_at", n => { LastUsedAt = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "transports", n => { Transports = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
@@ -106,11 +106,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("aaguid", Aaguid);
-            writer.WriteBoolValue("backupState", BackupState);
-            writer.WriteStringValue("createdAt", CreatedAt);
-            writer.WriteStringValue("credentialId", CredentialId);
+            writer.WriteBoolValue("backup_state", BackupState);
+            writer.WriteStringValue("created_at", CreatedAt);
+            writer.WriteStringValue("credential_id", CredentialId);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("lastUsedAt", LastUsedAt);
+            writer.WriteStringValue("last_used_at", LastUsedAt);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("transports", Transports);
         }

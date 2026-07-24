@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Billing.V1.Subscription.History
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/history{?orgId*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
+        public HistoryRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/history{?org_id*,pagination%2Elimit*,pagination%2Eoffset*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Billing.V1.Subscription.History
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/history{?orgId*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
+        public HistoryRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/billing/v1/subscription/history{?org_id*,pagination%2Elimit*,pagination%2Eoffset*}", rawUrl)
         {
         }
         /// <summary>
@@ -87,11 +87,11 @@ namespace Rixl.Sdk.Billing.V1.Subscription.History
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string? OrgId { get; set; }
 #nullable restore
 #else
-            [QueryParameter("orgId")]
+            [QueryParameter("org_id")]
             public string OrgId { get; set; }
 #endif
             /// <summary>Maximum number of items to return.</summary>

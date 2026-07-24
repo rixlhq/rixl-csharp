@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
     public partial class CreateClientCredentialResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The clientSecret property</summary>
+        /// <summary>The client_secret property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ClientSecret { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "clientSecret", n => { ClientSecret = n.GetStringValue(); } },
+                { "client_secret", n => { ClientSecret = n.GetStringValue(); } },
                 { "credential", n => { Credential = n.GetObjectValue<global::Rixl.Sdk.Models.Clientauth.V1.ClientCredential>(global::Rixl.Sdk.Models.Clientauth.V1.ClientCredential.CreateFromDiscriminatorValue); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Clientauth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("clientSecret", ClientSecret);
+            writer.WriteStringValue("client_secret", ClientSecret);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Clientauth.V1.ClientCredential>("credential", Credential);
         }
     }

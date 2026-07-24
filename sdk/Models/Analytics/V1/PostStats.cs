@@ -13,9 +13,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class PostStats : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The avgWatchTimeMs property</summary>
+        /// <summary>The avg_watch_time_ms property</summary>
         public double? AvgWatchTimeMs { get; set; }
-        /// <summary>The completionRate property</summary>
+        /// <summary>The completion_rate property</summary>
         public double? CompletionRate { get; set; }
         /// <summary>The completions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -25,9 +25,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode Completions { get; set; }
 #endif
-        /// <summary>The contentType property</summary>
+        /// <summary>The content_type property</summary>
         public global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType? ContentType { get; set; }
-        /// <summary>The feedId property</summary>
+        /// <summary>The feed_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? FeedId { get; set; }
@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string FeedId { get; set; }
 #endif
-        /// <summary>The postId property</summary>
+        /// <summary>The post_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PostId { get; set; }
@@ -51,7 +51,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode Starts { get; set; }
 #endif
-        /// <summary>The totalViews property</summary>
+        /// <summary>The total_views property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalViews { get; set; }
@@ -59,7 +59,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalViews { get; set; }
 #endif
-        /// <summary>The totalWatchTimeMs property</summary>
+        /// <summary>The total_watch_time_ms property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? TotalWatchTimeMs { get; set; }
@@ -67,7 +67,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode TotalWatchTimeMs { get; set; }
 #endif
-        /// <summary>The uniqueViewers property</summary>
+        /// <summary>The unique_viewers property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? UniqueViewers { get; set; }
@@ -75,13 +75,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public UntypedNode UniqueViewers { get; set; }
 #endif
-        /// <summary>The viewsByPage property</summary>
+        /// <summary>The views_by_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage? ViewsByPage { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page? ViewsByPage { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage ViewsByPage { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page ViewsByPage { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -101,17 +101,17 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "avgWatchTimeMs", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
-                { "completionRate", n => { CompletionRate = n.GetDoubleValue(); } },
+                { "avg_watch_time_ms", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
+                { "completion_rate", n => { CompletionRate = n.GetDoubleValue(); } },
                 { "completions", n => { Completions = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "contentType", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>(); } },
-                { "feedId", n => { FeedId = n.GetStringValue(); } },
-                { "postId", n => { PostId = n.GetStringValue(); } },
+                { "content_type", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>(); } },
+                { "feed_id", n => { FeedId = n.GetStringValue(); } },
+                { "post_id", n => { PostId = n.GetStringValue(); } },
                 { "starts", n => { Starts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalViews", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "totalWatchTimeMs", n => { TotalWatchTimeMs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "uniqueViewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "viewsByPage", n => { ViewsByPage = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage>(global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage.CreateFromDiscriminatorValue); } },
+                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "views_by_page", n => { ViewsByPage = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page>(global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -121,17 +121,17 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDoubleValue("avgWatchTimeMs", AvgWatchTimeMs);
-            writer.WriteDoubleValue("completionRate", CompletionRate);
+            writer.WriteDoubleValue("avg_watch_time_ms", AvgWatchTimeMs);
+            writer.WriteDoubleValue("completion_rate", CompletionRate);
             writer.WriteObjectValue<UntypedNode>("completions", Completions);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>("contentType", ContentType);
-            writer.WriteStringValue("feedId", FeedId);
-            writer.WriteStringValue("postId", PostId);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>("content_type", ContentType);
+            writer.WriteStringValue("feed_id", FeedId);
+            writer.WriteStringValue("post_id", PostId);
             writer.WriteObjectValue<UntypedNode>("starts", Starts);
-            writer.WriteObjectValue<UntypedNode>("totalViews", TotalViews);
-            writer.WriteObjectValue<UntypedNode>("totalWatchTimeMs", TotalWatchTimeMs);
-            writer.WriteObjectValue<UntypedNode>("uniqueViewers", UniqueViewers);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_viewsByPage>("viewsByPage", ViewsByPage);
+            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
+            writer.WriteObjectValue<UntypedNode>("total_watch_time_ms", TotalWatchTimeMs);
+            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page>("views_by_page", ViewsByPage);
         }
     }
 }

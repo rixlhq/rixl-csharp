@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The identityId property</summary>
+        /// <summary>The identity_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? IdentityId { get; set; }
@@ -30,9 +30,9 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string IdentityId { get; set; }
 #endif
-        /// <summary>The identityType property</summary>
+        /// <summary>The identity_type property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType? IdentityType { get; set; }
-        /// <summary>The policyId property</summary>
+        /// <summary>The policy_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PolicyId { get; set; }
@@ -58,11 +58,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "createdAt", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "identityId", n => { IdentityId = n.GetStringValue(); } },
-                { "identityType", n => { IdentityType = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>(); } },
-                { "policyId", n => { PolicyId = n.GetStringValue(); } },
+                { "identity_id", n => { IdentityId = n.GetStringValue(); } },
+                { "identity_type", n => { IdentityType = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>(); } },
+                { "policy_id", n => { PolicyId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -72,11 +72,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteDateTimeOffsetValue("createdAt", CreatedAt);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("identityId", IdentityId);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>("identityType", IdentityType);
-            writer.WriteStringValue("policyId", PolicyId);
+            writer.WriteStringValue("identity_id", IdentityId);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>("identity_type", IdentityType);
+            writer.WriteStringValue("policy_id", PolicyId);
         }
     }
 }

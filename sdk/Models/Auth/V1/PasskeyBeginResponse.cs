@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public byte[] Options { get; set; }
 #endif
-        /// <summary>The sessionId property</summary>
+        /// <summary>The session_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? SessionId { get; set; }
@@ -47,7 +47,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "options", n => { Options = n.GetByteArrayValue(); } },
-                { "sessionId", n => { SessionId = n.GetStringValue(); } },
+                { "session_id", n => { SessionId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +58,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteByteArrayValue("options", Options);
-            writer.WriteStringValue("sessionId", SessionId);
+            writer.WriteStringValue("session_id", SessionId);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     {
         /// <summary>The amount property</summary>
         public double? Amount { get; set; }
-        /// <summary>The billingAddress property</summary>
+        /// <summary>The billing_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Billing.V1.BillingAddress? BillingAddress { get; set; }
@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public global::Rixl.Sdk.Models.Billing.V1.BillingAddress BillingAddress { get; set; }
 #endif
-        /// <summary>The billingCycle property</summary>
+        /// <summary>The billing_cycle property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.BillingCycle? BillingCycle { get; set; }
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>The intervalCount property</summary>
+        /// <summary>The interval_count property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? IntervalCount { get; set; }
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public UntypedNode IntervalCount { get; set; }
 #endif
-        /// <summary>The lineItems property</summary>
+        /// <summary>The line_items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public List<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>? LineItems { get; set; }
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata Metadata { get; set; }
 #endif
-        /// <summary>The orgId property</summary>
+        /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? OrgId { get; set; }
@@ -64,7 +64,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The planId property</summary>
+        /// <summary>The plan_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlanId { get; set; }
@@ -72,7 +72,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string PlanId { get; set; }
 #endif
-        /// <summary>The planName property</summary>
+        /// <summary>The plan_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? PlanName { get; set; }
@@ -99,15 +99,15 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "amount", n => { Amount = n.GetDoubleValue(); } },
-                { "billingAddress", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
-                { "billingCycle", n => { BillingCycle = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>(); } },
+                { "billing_address", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
+                { "billing_cycle", n => { BillingCycle = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "intervalCount", n => { IntervalCount = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "lineItems", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "interval_count", n => { IntervalCount = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "line_items", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata>(global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata.CreateFromDiscriminatorValue); } },
-                { "orgId", n => { OrgId = n.GetStringValue(); } },
-                { "planId", n => { PlanId = n.GetStringValue(); } },
-                { "planName", n => { PlanName = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "plan_id", n => { PlanId = n.GetStringValue(); } },
+                { "plan_name", n => { PlanName = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -118,15 +118,15 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("amount", Amount);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billingAddress", BillingAddress);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>("billingCycle", BillingCycle);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billing_address", BillingAddress);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>("billing_cycle", BillingCycle);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteObjectValue<UntypedNode>("intervalCount", IntervalCount);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("lineItems", LineItems);
+            writer.WriteObjectValue<UntypedNode>("interval_count", IntervalCount);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("line_items", LineItems);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata>("metadata", Metadata);
-            writer.WriteStringValue("orgId", OrgId);
-            writer.WriteStringValue("planId", PlanId);
-            writer.WriteStringValue("planName", PlanName);
+            writer.WriteStringValue("org_id", OrgId);
+            writer.WriteStringValue("plan_id", PlanId);
+            writer.WriteStringValue("plan_name", PlanName);
         }
     }
 }

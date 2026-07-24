@@ -12,9 +12,9 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
     public partial class FeedsPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The allowImages property</summary>
+        /// <summary>The allow_images property</summary>
         public bool? AllowImages { get; set; }
-        /// <summary>The allowVideos property</summary>
+        /// <summary>The allow_videos property</summary>
         public bool? AllowVideos { get; set; }
         /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,11 +24,11 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The hasComments property</summary>
+        /// <summary>The has_comments property</summary>
         public bool? HasComments { get; set; }
-        /// <summary>The hasLikes property</summary>
+        /// <summary>The has_likes property</summary>
         public bool? HasLikes { get; set; }
-        /// <summary>The hasShares property</summary>
+        /// <summary>The has_shares property</summary>
         public bool? HasShares { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -37,6 +37,14 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -56,13 +64,14 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "allowImages", n => { AllowImages = n.GetBoolValue(); } },
-                { "allowVideos", n => { AllowVideos = n.GetBoolValue(); } },
+                { "allow_images", n => { AllowImages = n.GetBoolValue(); } },
+                { "allow_videos", n => { AllowVideos = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "hasComments", n => { HasComments = n.GetBoolValue(); } },
-                { "hasLikes", n => { HasLikes = n.GetBoolValue(); } },
-                { "hasShares", n => { HasShares = n.GetBoolValue(); } },
+                { "has_comments", n => { HasComments = n.GetBoolValue(); } },
+                { "has_likes", n => { HasLikes = n.GetBoolValue(); } },
+                { "has_shares", n => { HasShares = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -72,13 +81,14 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("allowImages", AllowImages);
-            writer.WriteBoolValue("allowVideos", AllowVideos);
+            writer.WriteBoolValue("allow_images", AllowImages);
+            writer.WriteBoolValue("allow_videos", AllowVideos);
             writer.WriteStringValue("description", Description);
-            writer.WriteBoolValue("hasComments", HasComments);
-            writer.WriteBoolValue("hasLikes", HasLikes);
-            writer.WriteBoolValue("hasShares", HasShares);
+            writer.WriteBoolValue("has_comments", HasComments);
+            writer.WriteBoolValue("has_likes", HasLikes);
+            writer.WriteBoolValue("has_shares", HasShares);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

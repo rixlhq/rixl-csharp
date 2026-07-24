@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Brand { get; set; }
 #endif
-        /// <summary>The expMonth property</summary>
+        /// <summary>The exp_month property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ExpMonth { get; set; }
@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public UntypedNode ExpMonth { get; set; }
 #endif
-        /// <summary>The expYear property</summary>
+        /// <summary>The exp_year property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public UntypedNode? ExpYear { get; set; }
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The isDefault property</summary>
+        /// <summary>The is_default property</summary>
         public bool? IsDefault { get; set; }
         /// <summary>The last4 property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,10 +81,10 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "brand", n => { Brand = n.GetStringValue(); } },
-                { "expMonth", n => { ExpMonth = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "expYear", n => { ExpYear = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "exp_month", n => { ExpMonth = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "exp_year", n => { ExpYear = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "isDefault", n => { IsDefault = n.GetBoolValue(); } },
+                { "is_default", n => { IsDefault = n.GetBoolValue(); } },
                 { "last4", n => { Last4 = n.GetStringValue(); } },
                 { "type", n => { Type = n.GetStringValue(); } },
             };
@@ -97,10 +97,10 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("brand", Brand);
-            writer.WriteObjectValue<UntypedNode>("expMonth", ExpMonth);
-            writer.WriteObjectValue<UntypedNode>("expYear", ExpYear);
+            writer.WriteObjectValue<UntypedNode>("exp_month", ExpMonth);
+            writer.WriteObjectValue<UntypedNode>("exp_year", ExpYear);
             writer.WriteStringValue("id", Id);
-            writer.WriteBoolValue("isDefault", IsDefault);
+            writer.WriteBoolValue("is_default", IsDefault);
             writer.WriteStringValue("last4", Last4);
             writer.WriteStringValue("type", Type);
         }

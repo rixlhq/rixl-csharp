@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChaptersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/chapters{?chapters%2EstartTimeSec*,chapters%2Etitle*}", pathParameters)
+        public ChaptersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/chapters{?chapters%2Estart_time_sec*,chapters%2Etitle*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ChaptersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/chapters{?chapters%2EstartTimeSec*,chapters%2Etitle*}", rawUrl)
+        public ChaptersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/media/v1/projects/{project_id}/videos/{video_id}/chapters{?chapters%2Estart_time_sec*,chapters%2Etitle*}", rawUrl)
         {
         }
         /// <summary>
@@ -135,7 +135,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChaptersRequestBuilderDeleteQueryParameters 
         {
-            [QueryParameter("chapters%2EstartTimeSec")]
+            [QueryParameter("chapters%2Estart_time_sec")]
             public double? ChaptersStartTimeSec { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

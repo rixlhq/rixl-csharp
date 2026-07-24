@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class ResetPasswordRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The newPassword property</summary>
+        /// <summary>The new_password property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NewPassword { get; set; }
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "newPassword", n => { NewPassword = n.GetStringValue(); } },
+                { "new_password", n => { NewPassword = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
             };
         }
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("newPassword", NewPassword);
+            writer.WriteStringValue("new_password", NewPassword);
             writer.WriteStringValue("token", Token);
         }
     }
