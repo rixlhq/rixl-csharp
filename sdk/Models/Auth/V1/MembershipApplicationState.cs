@@ -5,28 +5,28 @@ namespace Rixl.Sdk.Models.Auth.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public enum MembershipState
+    public enum MembershipApplicationState
     #pragma warning restore CS1591
     {
-        [EnumMember(Value = "MEMBERSHIP_STATE_UNSPECIFIED")]
+        [EnumMember(Value = "MEMBERSHIP_APPLICATION_STATE_UNSPECIFIED")]
         #pragma warning disable CS1591
-        MEMBERSHIP_STATE_UNSPECIFIED,
+        MEMBERSHIP_APPLICATION_STATE_UNSPECIFIED,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_ACTIVE")]
+        [EnumMember(Value = "MEMBERSHIP_APPLICATION_STATE_PENDING")]
         #pragma warning disable CS1591
-        MEMBERSHIP_STATE_ACTIVE,
+        MEMBERSHIP_APPLICATION_STATE_PENDING,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_SUSPENDED")]
+        [EnumMember(Value = "MEMBERSHIP_APPLICATION_STATE_APPROVED")]
         #pragma warning disable CS1591
-        MEMBERSHIP_STATE_SUSPENDED,
+        MEMBERSHIP_APPLICATION_STATE_APPROVED,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_LEFT")]
+        [EnumMember(Value = "MEMBERSHIP_APPLICATION_STATE_DECLINED")]
         #pragma warning disable CS1591
-        MEMBERSHIP_STATE_LEFT,
+        MEMBERSHIP_APPLICATION_STATE_DECLINED,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_REMOVED")]
+        [EnumMember(Value = "MEMBERSHIP_APPLICATION_STATE_CANCELLED")]
         #pragma warning disable CS1591
-        MEMBERSHIP_STATE_REMOVED,
+        MEMBERSHIP_APPLICATION_STATE_CANCELLED,
         #pragma warning restore CS1591
     }
 }

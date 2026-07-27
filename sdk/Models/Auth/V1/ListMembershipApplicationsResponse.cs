@@ -2,36 +2,33 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
+namespace Rixl.Sdk.Models.Auth.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class StatePatchRequestBody : IParsable
+    public partial class ListMembershipApplicationsResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The state property</summary>
-        public global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState? State { get; set; }
-        /// <summary>The user property</summary>
+        /// <summary>The applications property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest? User { get; set; }
+        public List<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>? Applications { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest User { get; set; }
+        public List<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication> Applications { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.State.StatePatchRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListMembershipApplicationsResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Auth.V1.Memberships.Item.State.StatePatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Auth.V1.ListMembershipApplicationsResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Auth.V1.Memberships.Item.State.StatePatchRequestBody();
+            return new global::Rixl.Sdk.Models.Auth.V1.ListMembershipApplicationsResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,8 +38,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
+                { "applications", n => { Applications = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>(global::Rixl.Sdk.Models.Auth.V1.MembershipApplication.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -52,8 +48,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>("state", State);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>("applications", Applications);
         }
     }
 }

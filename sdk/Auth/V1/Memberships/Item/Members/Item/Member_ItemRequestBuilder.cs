@@ -4,7 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Policies;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Reactivate;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Suspend;
 using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
@@ -24,10 +26,20 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         {
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The reactivate property</summary>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Reactivate.ReactivateRequestBuilder Reactivate
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Reactivate.ReactivateRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The role property</summary>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RoleRequestBuilder Role
         {
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RoleRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The suspend property</summary>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Suspend.SuspendRequestBuilder Suspend
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Suspend.SuspendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder"/> and sets the default values.

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend;
 using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
@@ -23,6 +24,18 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
         {
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.invite.item collection</summary>
+        /// <param name="position">Unique identifier of the item</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("user_id", position);
+                return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InviteRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -42,22 +55,22 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
         /// <summary>
         /// InviteMember
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.MembershipMutation"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.MembershipApplication"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation?> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InvitePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication?> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InvitePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InvitePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InvitePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipMutation>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipMutation.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipApplication.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// InviteMember
