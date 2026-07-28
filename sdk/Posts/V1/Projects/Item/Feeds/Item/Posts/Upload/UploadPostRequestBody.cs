@@ -6,11 +6,11 @@ using Rixl.Sdk.Models.Common.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Init
+namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class InitPostRequestBody : IParsable
+    public partial class UploadPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content_type property</summary>
@@ -78,12 +78,12 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Init
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Init.InitPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.UploadPostRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Init.InitPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.UploadPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.Init.InitPostRequestBody();
+            return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.UploadPostRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model

@@ -9,7 +9,7 @@ namespace Rixl.Sdk.Models.Posts.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class PostUploadInit : IParsable
+    public partial class PostUpload : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The content_id property</summary>
@@ -57,12 +57,12 @@ namespace Rixl.Sdk.Models.Posts.V1
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.PostUploadInit"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.PostUpload"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Posts.V1.PostUploadInit CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Posts.V1.PostUpload CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Posts.V1.PostUploadInit();
+            return new global::Rixl.Sdk.Models.Posts.V1.PostUpload();
         }
         /// <summary>
         /// The deserialization information for the current model

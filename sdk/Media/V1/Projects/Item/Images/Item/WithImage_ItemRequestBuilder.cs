@@ -3,7 +3,6 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload;
 using Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Visibility;
 using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
@@ -19,11 +18,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithImage_ItemRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>The upload property</summary>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload.UploadRequestBuilder Upload
-        {
-            get => new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The visibility property</summary>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.Visibility.VisibilityRequestBuilder Visibility
         {

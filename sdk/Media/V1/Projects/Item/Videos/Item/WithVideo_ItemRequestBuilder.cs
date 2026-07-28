@@ -6,7 +6,6 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles;
-using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility;
 using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
@@ -36,11 +35,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.SubtitlesRequestBuilder Subtitles
         {
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.SubtitlesRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The upload property</summary>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.UploadRequestBuilder Upload
-        {
-            get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The visibility property</summary>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility.VisibilityRequestBuilder Visibility
