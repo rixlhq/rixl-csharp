@@ -4,7 +4,7 @@
 
 The official .NET client for the [Rixl](https://rixl.com) API.
 
-Rixl handles the media side of your product — uploading and delivering images
+Rixl handles the media side of your product: uploading and delivering images
 and videos, organising them into feeds and posts, and reporting on how people
 engage with them. It also covers the account layer around that: users and
 organisations, sign-in, subscriptions and invoices. This SDK gives you all of it
@@ -20,7 +20,7 @@ dotnet add package Rixl.Sdk
 ```
 
 That pulls in `Microsoft.Kiota.Bundle`, the runtime the generated code is built
-on — HTTP transport plus the JSON, form, text and multipart serializers.
+on: HTTP transport plus the JSON, form, text and multipart serializers.
 
 ## Getting started
 
@@ -49,7 +49,7 @@ foreach (var image in page!.Images!)
 }
 ```
 
-The adapter has no base URL of its own, so setting `BaseUrl` is not optional —
+The adapter has no base URL of its own, so setting `BaseUrl` is not optional.
 do it before you make a request, and point it somewhere else when you are
 testing against another environment.
 
@@ -60,7 +60,7 @@ nullable model.
 
 There are two ways to identify yourself, and they answer different questions.
 
-### API keys — your backend calling as itself
+### API keys, for your backend calling as itself
 
 An API key represents your organisation. Use it for work your own systems do:
 importing a catalogue, running a nightly report, reconciling invoices. Keep it
@@ -72,10 +72,10 @@ var auth = new ApiKeyAuthenticationProvider(
 ```
 
 The key travels as the `X-API-Key` header. Anyone holding it can do anything
-your organisation can, so it belongs on a server — never in a browser, a mobile
+your organisation can, so it belongs on a server. Never put one in a browser, a mobile
 app, or anything you ship to users.
 
-### Client credentials — acting on behalf of one of your users
+### Client credentials, for acting on behalf of your users
 
 If you are building on top of Rixl and your own users each need their own slice
 of it, use client credentials. You exchange a client ID and secret for a
@@ -98,7 +98,7 @@ Console.WriteLine(created!.Credential!.ClientId);
 Console.WriteLine(created.ClientSecret);
 ```
 
-Then mint a token per user. `Subject` is your own identifier for that person —
+Then mint a token per user. `Subject` is your own identifier for that person,
 whatever your database calls them:
 
 ```csharp
@@ -113,7 +113,7 @@ var token = await client.Platform.Clientauth.V1.Token.PostAsync(
     });
 ```
 
-Tokens last at most 15 minutes and there is no refresh token — when one expires
+Tokens last at most 15 minutes and there is no refresh token. When one expires
 you mint another. Nothing in the SDK does that for you, so wrap the mint call in
 an `IAccessTokenProvider` and let the bearer provider ask for a token whenever
 it needs one:
@@ -136,7 +136,7 @@ tokens immediately; ones already issued die within 15 minutes.
 
 ### Public endpoints
 
-Some reads need no credentials at all — fetching a public image or video,
+Some reads need no credentials at all: fetching a public image or video,
 reading a public feed, listing supported languages, and the sign-in flows under
 `/auth/v1`. Point an anonymous provider at those:
 
@@ -161,30 +161,30 @@ collection you list, upload to and delete from.
 Every area of the API is a property on the client, and the path you type mirrors
 the URL.
 
-**Media** — `client.Media.V1`. `Images` and `Videos` for public reads, and
+**Media**: `client.Media.V1`. `Images` and `Videos` for public reads, and
 `Projects[projectId]` for everything else: listing, uploading, deleting,
 visibility, plus `AudioTracks`, `Chapters` and `Subtitles` on a video.
 `Languages` lists what you can localise into.
 
-**Content** — `client.Posts.V1` for posts and feeds,
+**Content**: `client.Posts.V1` for posts and feeds,
 `client.Feeds.V1.Projects[projectId].Feeds` for feed configuration, and
 `client.Organizations[orgId].Projects` for the projects everything else hangs
 off. That is why so many calls take a project ID.
 
-**Analytics** — `client.Analytics.V1`: `Dashboard`, `Events`, `Posts`, `Videos`,
+**Analytics**: `client.Analytics.V1`: `Dashboard`, `Events`, `Posts`, `Videos`,
 `Feeds`, `Funnels`, `Retention`, `Realtime`, `Top`. Track events and read back
 engagement, playback and live activity.
 
-**Billing** — `client.Billing.V1`: `Plans`, `Subscription`, `Invoices`,
+**Billing**: `client.Billing.V1`: `Plans`, `Subscription`, `Invoices`,
 `PaymentMethods`, `Checkout`, `StorageUsage`, `BandwidthUsage`, `Tax`,
 `Address`.
 
-**Accounts** — `client.Auth.V1`: `Register`, `Login`, `Token`, `Users`,
+**Account management**: `client.Auth.V1`: `Register`, `Login`, `Token`, `Users`,
 `Passkey`, `Password`, `Providers`, `Memberships`, `Policies`, `Email`, `Blog`.
 Sign-in flows including passkeys and TOTP, organisation membership and roles,
 and transactional email.
 
-**Platform** — `client.Platform` for `Auth.V1` and `Clientauth.V1`, and
+**Platform**: `client.Platform` for `Auth.V1` and `Clientauth.V1`, and
 `client.Organizations[orgId].ApiKeys` for API keys.
 
 `client.Internal` is storage-callback plumbing that Rixl calls itself. You
@@ -215,13 +215,13 @@ var upload = await images.Upload.PostAsync(new UploadPostRequestBody
 ```
 
 Everything is nullable. A property you never set is left out of the request
-rather than sent empty, and a property the API omits comes back `null` — check
+rather than sent empty, and a property the API omits comes back `null`, so check
 before you dereference.
 
 ## Uploading files
 
 Uploads happen in two steps. You ask Rixl for a URL, then send the bytes
-straight to storage — they never pass through the API, so large files stay fast:
+straight to storage. The bytes never pass through the API, so large files stay fast:
 
 ```csharp
 var upload = await images.Upload.PostAsync(body);
@@ -235,7 +235,7 @@ response.EnsureSuccessStatusCode();
 ```
 
 Videos work the same way through `Videos.Upload`, except the response gives you
-two URLs — `VideoUploadUrl` for the file and `PosterUploadUrl` for its poster
+two URLs: `VideoUploadUrl` for the file and `PosterUploadUrl` for its poster
 image.
 
 There is no "finish" call to make. Storage tells Rixl when the object lands and
@@ -271,7 +271,7 @@ while (true)
 }
 ```
 
-Nothing pages for you — ask for the next offset yourself. Responses also carry
+Nothing pages for you. Ask for the next offset yourself. Responses also carry
 `Total`, but it deserialises as an `UntypedNode` rather than a number, so
 stopping on a short page is the simpler test.
 
@@ -322,7 +322,7 @@ var adapter = new DefaultRequestAdapter(auth, null, null, http)
 };
 ```
 
-Per call, pass a `CancellationToken` instead — every method takes one as its
+Per call, pass a `CancellationToken` instead. Every method takes one as its
 last argument. A `DelegatingHandler` on that `HttpClient` is where tracing
 headers go if you want them on every outbound request.
 
@@ -330,7 +330,7 @@ headers go if you want them on every outbound request.
 
 This package follows [SemVer](https://semver.org/spec/v2.0.0.html). New API
 resources arrive in minor releases; renamed or removed operations only in major
-ones. If an upgrade breaks you unexpectedly, please open an issue — we would
+ones. If an upgrade breaks you unexpectedly, please open an issue. We would
 rather hear about it.
 
 ## Support
