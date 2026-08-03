@@ -47,16 +47,6 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
 #else
         public string FileName { get; set; }
 #endif
-        /// <summary>The format property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Format { get; set; }
-#nullable restore
-#else
-        public string Format { get; set; }
-#endif
-        /// <summary>The image_format property</summary>
-        public global::Rixl.Sdk.Models.Common.V1.ImageFormat? ImageFormat { get; set; }
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -98,8 +88,6 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "feed_id", n => { FeedId = n.GetStringValue(); } },
                 { "file_name", n => { FileName = n.GetStringValue(); } },
-                { "format", n => { Format = n.GetStringValue(); } },
-                { "image_format", n => { ImageFormat = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "video_quality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
@@ -117,8 +105,6 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("feed_id", FeedId);
             writer.WriteStringValue("file_name", FileName);
-            writer.WriteStringValue("format", Format);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>("image_format", ImageFormat);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("video_quality", VideoQuality);

@@ -5,46 +5,30 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
+namespace Rixl.Sdk.Models.Videos.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class UploadPostRequestBody : IParsable
+    public partial class UpdateVideoVisibilityResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The name property</summary>
+        /// <summary>The video property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Rixl.Sdk.Models.Videos.V1.Video? Video { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
-#endif
-        /// <summary>The org_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrgId { get; set; }
-#nullable restore
-#else
-        public string OrgId { get; set; }
-#endif
-        /// <summary>The project_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProjectId { get; set; }
-#nullable restore
-#else
-        public string ProjectId { get; set; }
+        public global::Rixl.Sdk.Models.Videos.V1.Video Video { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.UpdateVideoVisibilityResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Videos.V1.UpdateVideoVisibilityResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadPostRequestBody();
+            return new global::Rixl.Sdk.Models.Videos.V1.UpdateVideoVisibilityResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,9 +38,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "video", n => { Video = n.GetObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>(global::Rixl.Sdk.Models.Videos.V1.Video.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,9 +48,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images.Upload
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("org_id", OrgId);
-            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>("video", Video);
         }
     }
 }

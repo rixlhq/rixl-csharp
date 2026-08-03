@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Common.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -13,38 +12,14 @@ namespace Rixl.Sdk.Models.Images.V1
     public partial class GetImageResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The attached_to_video property</summary>
-        public bool? AttachedToVideo { get; set; }
-        /// <summary>The file property</summary>
+        /// <summary>The image property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Images.V1.ImageFile? File { get; set; }
+        public global::Rixl.Sdk.Models.Images.V1.Image? Image { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Images.V1.ImageFile File { get; set; }
+        public global::Rixl.Sdk.Models.Images.V1.Image Image { get; set; }
 #endif
-        /// <summary>The height property</summary>
-        public int? Height { get; set; }
-        /// <summary>The id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
-        /// <summary>The thumbhash property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Thumbhash { get; set; }
-#nullable restore
-#else
-        public string Thumbhash { get; set; }
-#endif
-        /// <summary>The visibility property</summary>
-        public global::Rixl.Sdk.Models.Common.V1.Visibility? Visibility { get; set; }
-        /// <summary>The width property</summary>
-        public int? Width { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -63,13 +38,7 @@ namespace Rixl.Sdk.Models.Images.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "attached_to_video", n => { AttachedToVideo = n.GetBoolValue(); } },
-                { "file", n => { File = n.GetObjectValue<global::Rixl.Sdk.Models.Images.V1.ImageFile>(global::Rixl.Sdk.Models.Images.V1.ImageFile.CreateFromDiscriminatorValue); } },
-                { "height", n => { Height = n.GetIntValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "thumbhash", n => { Thumbhash = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>(); } },
-                { "width", n => { Width = n.GetIntValue(); } },
+                { "image", n => { Image = n.GetObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>(global::Rixl.Sdk.Models.Images.V1.Image.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -79,13 +48,7 @@ namespace Rixl.Sdk.Models.Images.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("attached_to_video", AttachedToVideo);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Images.V1.ImageFile>("file", File);
-            writer.WriteIntValue("height", Height);
-            writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("thumbhash", Thumbhash);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>("visibility", Visibility);
-            writer.WriteIntValue("width", Width);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>("image", Image);
         }
     }
 }

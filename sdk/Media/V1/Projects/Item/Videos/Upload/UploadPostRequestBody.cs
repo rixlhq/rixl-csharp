@@ -13,8 +13,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
     public partial class UploadPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The image_format property</summary>
-        public global::Rixl.Sdk.Models.Common.V1.ImageFormat? ImageFormat { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,7 +57,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "image_format", n => { ImageFormat = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
@@ -73,7 +70,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.ImageFormat>("image_format", ImageFormat);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("project_id", ProjectId);

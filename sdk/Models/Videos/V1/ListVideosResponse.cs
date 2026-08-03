@@ -12,13 +12,41 @@ namespace Rixl.Sdk.Models.Videos.V1
     public partial class ListVideosResponse : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Maximum number of items returned.</summary>
+        public int? Limit { get; set; }
+        /// <summary>Number of items skipped before this page.</summary>
+        public int? Offset { get; set; }
+        /// <summary>The sort_direction property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SortDirection { get; set; }
+#nullable restore
+#else
+        public string SortDirection { get; set; }
+#endif
+        /// <summary>The sort_field property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? SortField { get; set; }
+#nullable restore
+#else
+        public string SortField { get; set; }
+#endif
+        /// <summary>The total property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public UntypedNode? Total { get; set; }
+#nullable restore
+#else
+        public UntypedNode Total { get; set; }
+#endif
         /// <summary>The videos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Rixl.Sdk.Models.Videos.V1.VideoSummary>? Videos { get; set; }
+        public List<global::Rixl.Sdk.Models.Videos.V1.Video>? Videos { get; set; }
 #nullable restore
 #else
-        public List<global::Rixl.Sdk.Models.Videos.V1.VideoSummary> Videos { get; set; }
+        public List<global::Rixl.Sdk.Models.Videos.V1.Video> Videos { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -38,7 +66,12 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "videos", n => { Videos = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.VideoSummary>(global::Rixl.Sdk.Models.Videos.V1.VideoSummary.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "limit", n => { Limit = n.GetIntValue(); } },
+                { "offset", n => { Offset = n.GetIntValue(); } },
+                { "sort_direction", n => { SortDirection = n.GetStringValue(); } },
+                { "sort_field", n => { SortField = n.GetStringValue(); } },
+                { "total", n => { Total = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "videos", n => { Videos = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Video>(global::Rixl.Sdk.Models.Videos.V1.Video.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +81,12 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.VideoSummary>("videos", Videos);
+            writer.WriteIntValue("limit", Limit);
+            writer.WriteIntValue("offset", Offset);
+            writer.WriteStringValue("sort_direction", SortDirection);
+            writer.WriteStringValue("sort_field", SortField);
+            writer.WriteObjectValue<UntypedNode>("total", Total);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Video>("videos", Videos);
         }
     }
 }

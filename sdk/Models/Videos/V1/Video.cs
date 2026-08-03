@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Rixl.Sdk.Models.Common.V1;
+using Rixl.Sdk.Models.Images.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -10,9 +11,11 @@ namespace Rixl.Sdk.Models.Videos.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class VideoSummary : IParsable
+    public partial class Video : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The bitrate property</summary>
+        public int? Bitrate { get; set; }
         /// <summary>The codec property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -21,10 +24,26 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Codec { get; set; }
 #endif
-        /// <summary>A Timestamp represents a point in time independent of any time zone or local calendar, encoded as a count of seconds and fractions of seconds at nanosecond resolution. The count is relative to an epoch at UTC midnight on January 1, 1970, in the proleptic Gregorian calendar which extends the Gregorian calendar backwards to year one. All minutes are 60 seconds long. Leap seconds are &quot;smeared&quot; so that no leap second table is needed for interpretation, using a [24-hour linear smear](https://developers.google.com/time/smear). The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to that range, we ensure that we can convert to and from [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) date strings. # Examples Example 1: Compute Timestamp from POSIX `time()`.     Timestamp timestamp;     timestamp.set_seconds(time(NULL));     timestamp.set_nanos(0); Example 2: Compute Timestamp from POSIX `gettimeofday()`.     struct timeval tv;     gettimeofday(&amp;tv, NULL);     Timestamp timestamp;     timestamp.set_seconds(tv.tv_sec);     timestamp.set_nanos(tv.tv_usec * 1000); Example 3: Compute Timestamp from Win32 `GetSystemTimeAsFileTime()`.     FILETIME ft;     GetSystemTimeAsFileTime(&amp;ft);     UINT64 ticks = (((UINT64)ft.dwHighDateTime) &lt;&lt; 32) | ft.dwLowDateTime;     // A Windows tick is 100 nanoseconds. Windows epoch 1601-01-01T00:00:00Z     // is 11644473600 seconds before Unix epoch 1970-01-01T00:00:00Z.     Timestamp timestamp;     timestamp.set_seconds((INT64) ((ticks / 10000000) - 11644473600LL));     timestamp.set_nanos((INT32) ((ticks % 10000000) * 100)); Example 4: Compute Timestamp from Java `System.currentTimeMillis()`.     long millis = System.currentTimeMillis();     Timestamp timestamp = Timestamp.newBuilder().setSeconds(millis / 1000)         .setNanos((int) ((millis % 1000) * 1000000)).build(); Example 5: Compute Timestamp from Java `Instant.now()`.     Instant now = Instant.now();     Timestamp timestamp =         Timestamp.newBuilder().setSeconds(now.getEpochSecond())             .setNanos(now.getNano()).build(); Example 6: Compute Timestamp from current time in Python.     timestamp = Timestamp()     timestamp.GetCurrentTime() # JSON Mapping In JSON format, the Timestamp type is encoded as a string in the [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) format. That is, the format is &quot;{year}-{month}-{day}T{hour}:{min}:{sec}[.{frac_sec}]Z&quot; where {year} is always expressed using four digits while {month}, {day}, {hour}, {min}, and {sec} are zero-padded to two digits each. The fractional seconds, which can go up to 9 digits (i.e. up to 1 nanosecond resolution), are optional. The &quot;Z&quot; suffix indicates the timezone (&quot;UTC&quot;); the timezone is required. A proto3 JSON serializer should always use UTC (as indicated by &quot;Z&quot;) when printing the Timestamp type and a proto3 JSON parser should be able to accept both UTC and other timezones (as indicated by an offset). For example, &quot;2017-01-15T01:30:15.01Z&quot; encodes 15.01 seconds past 01:30 UTC on January 15, 2017. In JavaScript, one can convert a Date object to this format using the standard [toISOString()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString) method. In Python, a standard `datetime.datetime` object can be converted to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime) with the time format spec &apos;%Y-%m-%dT%H:%M:%S.%fZ&apos;. Likewise, in Java, one can use the Joda Time&apos;s [`ISODateTimeFormat.dateTime()`]( http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime() ) to obtain a formatter capable of generating timestamps in this format.</summary>
-        public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>A Duration represents a signed, fixed-length span of time represented as a count of seconds and fractions of seconds at nanosecond resolution. It is independent of any calendar and concepts like &quot;day&quot; or &quot;month&quot;. It is related to Timestamp in that the difference between two Timestamp values is a Duration and it can be added or subtracted from a Timestamp. Range is approximately +-10,000 years. # Examples Example 1: Compute Duration from two Timestamps in pseudo code.     Timestamp start = ...;     Timestamp end = ...;     Duration duration = ...;     duration.seconds = end.seconds - start.seconds;     duration.nanos = end.nanos - start.nanos;     if (duration.seconds &lt; 0 &amp;&amp; duration.nanos &gt; 0) {       duration.seconds += 1;       duration.nanos -= 1000000000;     } else if (duration.seconds &gt; 0 &amp;&amp; duration.nanos &lt; 0) {       duration.seconds -= 1;       duration.nanos += 1000000000;     } Example 2: Compute Timestamp from Timestamp + Duration in pseudo code.     Timestamp start = ...;     Duration duration = ...;     Timestamp end = ...;     end.seconds = start.seconds + duration.seconds;     end.nanos = start.nanos + duration.nanos;     if (end.nanos &lt; 0) {       end.seconds -= 1;       end.nanos += 1000000000;     } else if (end.nanos &gt;= 1000000000) {       end.seconds += 1;       end.nanos -= 1000000000;     } Example 3: Compute Duration from datetime.timedelta in Python.     td = datetime.timedelta(days=3, minutes=10)     duration = Duration()     duration.FromTimedelta(td) # JSON Mapping In JSON format, the Duration type is encoded as a string rather than an object, where the string ends in the suffix &quot;s&quot; (indicating seconds) and is preceded by the number of seconds, with nanoseconds expressed as fractional seconds. For example, 3 seconds with 0 nanoseconds should be encoded in JSON format as &quot;3s&quot;, while 3 seconds and 1 nanosecond should be expressed in JSON format as &quot;3.000000001s&quot;, and 3 seconds and 1 microsecond should be expressed in JSON format as &quot;3.000001s&quot;.</summary>
         public TimeSpan? Duration { get; set; }
+        /// <summary>The file property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Common.V1.FileObject? File { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Common.V1.FileObject File { get; set; }
+#endif
+        /// <summary>The framerate property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Framerate { get; set; }
+#nullable restore
+#else
+        public string Framerate { get; set; }
+#endif
+        /// <summary>The hdr property</summary>
+        public bool? Hdr { get; set; }
         /// <summary>The height property</summary>
         public int? Height { get; set; }
         /// <summary>The id property</summary>
@@ -35,21 +54,13 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The name property</summary>
+        /// <summary>The poster property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Name { get; set; }
+        public global::Rixl.Sdk.Models.Images.V1.Image? Poster { get; set; }
 #nullable restore
 #else
-        public string Name { get; set; }
-#endif
-        /// <summary>The size property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? Size { get; set; }
-#nullable restore
-#else
-        public UntypedNode Size { get; set; }
+        public global::Rixl.Sdk.Models.Images.V1.Image Poster { get; set; }
 #endif
         /// <summary>The visibility property</summary>
         public global::Rixl.Sdk.Models.Common.V1.Visibility? Visibility { get; set; }
@@ -58,12 +69,12 @@ namespace Rixl.Sdk.Models.Videos.V1
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.VideoSummary"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.Video"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Videos.V1.VideoSummary CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Videos.V1.Video CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Videos.V1.VideoSummary();
+            return new global::Rixl.Sdk.Models.Videos.V1.Video();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -73,13 +84,15 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "bitrate", n => { Bitrate = n.GetIntValue(); } },
                 { "codec", n => { Codec = n.GetStringValue(); } },
-                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "file", n => { File = n.GetObjectValue<global::Rixl.Sdk.Models.Common.V1.FileObject>(global::Rixl.Sdk.Models.Common.V1.FileObject.CreateFromDiscriminatorValue); } },
+                { "framerate", n => { Framerate = n.GetStringValue(); } },
+                { "hdr", n => { Hdr = n.GetBoolValue(); } },
                 { "height", n => { Height = n.GetIntValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "name", n => { Name = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "poster", n => { Poster = n.GetObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>(global::Rixl.Sdk.Models.Images.V1.Image.CreateFromDiscriminatorValue); } },
                 { "visibility", n => { Visibility = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>(); } },
                 { "width", n => { Width = n.GetIntValue(); } },
             };
@@ -91,13 +104,15 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("bitrate", Bitrate);
             writer.WriteStringValue("codec", Codec);
-            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteTimeSpanValue("duration", Duration);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Common.V1.FileObject>("file", File);
+            writer.WriteStringValue("framerate", Framerate);
+            writer.WriteBoolValue("hdr", Hdr);
             writer.WriteIntValue("height", Height);
             writer.WriteStringValue("id", Id);
-            writer.WriteStringValue("name", Name);
-            writer.WriteObjectValue<UntypedNode>("size", Size);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>("poster", Poster);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>("visibility", Visibility);
             writer.WriteIntValue("width", Width);
         }

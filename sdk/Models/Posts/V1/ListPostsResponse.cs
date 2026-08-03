@@ -12,6 +12,10 @@ namespace Rixl.Sdk.Models.Posts.V1
     public partial class ListPostsResponse : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>Maximum number of items returned.</summary>
+        public int? Limit { get; set; }
+        /// <summary>Number of items skipped before this page.</summary>
+        public int? Offset { get; set; }
         /// <summary>The posts property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -46,6 +50,8 @@ namespace Rixl.Sdk.Models.Posts.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "limit", n => { Limit = n.GetIntValue(); } },
+                { "offset", n => { Offset = n.GetIntValue(); } },
                 { "posts", n => { Posts = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Posts.V1.Post>(global::Rixl.Sdk.Models.Posts.V1.Post.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total", n => { Total = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
             };
@@ -57,6 +63,8 @@ namespace Rixl.Sdk.Models.Posts.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteIntValue("limit", Limit);
+            writer.WriteIntValue("offset", Offset);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Posts.V1.Post>("posts", Posts);
             writer.WriteObjectValue<UntypedNode>("total", Total);
         }

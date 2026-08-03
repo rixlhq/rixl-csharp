@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Common.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -13,42 +12,14 @@ namespace Rixl.Sdk.Models.Videos.V1
     public partial class GetVideoResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The bitrate property</summary>
-        public int? Bitrate { get; set; }
-        /// <summary>The codec property</summary>
+        /// <summary>The video property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? Codec { get; set; }
+        public global::Rixl.Sdk.Models.Videos.V1.Video? Video { get; set; }
 #nullable restore
 #else
-        public string Codec { get; set; }
+        public global::Rixl.Sdk.Models.Videos.V1.Video Video { get; set; }
 #endif
-        /// <summary>A Duration represents a signed, fixed-length span of time represented as a count of seconds and fractions of seconds at nanosecond resolution. It is independent of any calendar and concepts like &quot;day&quot; or &quot;month&quot;. It is related to Timestamp in that the difference between two Timestamp values is a Duration and it can be added or subtracted from a Timestamp. Range is approximately +-10,000 years. # Examples Example 1: Compute Duration from two Timestamps in pseudo code.     Timestamp start = ...;     Timestamp end = ...;     Duration duration = ...;     duration.seconds = end.seconds - start.seconds;     duration.nanos = end.nanos - start.nanos;     if (duration.seconds &lt; 0 &amp;&amp; duration.nanos &gt; 0) {       duration.seconds += 1;       duration.nanos -= 1000000000;     } else if (duration.seconds &gt; 0 &amp;&amp; duration.nanos &lt; 0) {       duration.seconds -= 1;       duration.nanos += 1000000000;     } Example 2: Compute Timestamp from Timestamp + Duration in pseudo code.     Timestamp start = ...;     Duration duration = ...;     Timestamp end = ...;     end.seconds = start.seconds + duration.seconds;     end.nanos = start.nanos + duration.nanos;     if (end.nanos &lt; 0) {       end.seconds -= 1;       end.nanos += 1000000000;     } else if (end.nanos &gt;= 1000000000) {       end.seconds += 1;       end.nanos -= 1000000000;     } Example 3: Compute Duration from datetime.timedelta in Python.     td = datetime.timedelta(days=3, minutes=10)     duration = Duration()     duration.FromTimedelta(td) # JSON Mapping In JSON format, the Duration type is encoded as a string rather than an object, where the string ends in the suffix &quot;s&quot; (indicating seconds) and is preceded by the number of seconds, with nanoseconds expressed as fractional seconds. For example, 3 seconds with 0 nanoseconds should be encoded in JSON format as &quot;3s&quot;, while 3 seconds and 1 nanosecond should be expressed in JSON format as &quot;3.000000001s&quot;, and 3 seconds and 1 microsecond should be expressed in JSON format as &quot;3.000001s&quot;.</summary>
-        public TimeSpan? Duration { get; set; }
-        /// <summary>The framerate property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Framerate { get; set; }
-#nullable restore
-#else
-        public string Framerate { get; set; }
-#endif
-        /// <summary>The hdr property</summary>
-        public bool? Hdr { get; set; }
-        /// <summary>The height property</summary>
-        public int? Height { get; set; }
-        /// <summary>The id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Id { get; set; }
-#nullable restore
-#else
-        public string Id { get; set; }
-#endif
-        /// <summary>The visibility property</summary>
-        public global::Rixl.Sdk.Models.Common.V1.Visibility? Visibility { get; set; }
-        /// <summary>The width property</summary>
-        public int? Width { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -67,15 +38,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "bitrate", n => { Bitrate = n.GetIntValue(); } },
-                { "codec", n => { Codec = n.GetStringValue(); } },
-                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
-                { "framerate", n => { Framerate = n.GetStringValue(); } },
-                { "hdr", n => { Hdr = n.GetBoolValue(); } },
-                { "height", n => { Height = n.GetIntValue(); } },
-                { "id", n => { Id = n.GetStringValue(); } },
-                { "visibility", n => { Visibility = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>(); } },
-                { "width", n => { Width = n.GetIntValue(); } },
+                { "video", n => { Video = n.GetObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>(global::Rixl.Sdk.Models.Videos.V1.Video.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -85,15 +48,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("bitrate", Bitrate);
-            writer.WriteStringValue("codec", Codec);
-            writer.WriteTimeSpanValue("duration", Duration);
-            writer.WriteStringValue("framerate", Framerate);
-            writer.WriteBoolValue("hdr", Hdr);
-            writer.WriteIntValue("height", Height);
-            writer.WriteStringValue("id", Id);
-            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.Visibility>("visibility", Visibility);
-            writer.WriteIntValue("width", Width);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>("video", Video);
         }
     }
 }
