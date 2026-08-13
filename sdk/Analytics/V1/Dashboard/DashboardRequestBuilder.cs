@@ -3,6 +3,9 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery;
+using Rixl.Sdk.Analytics.V1.Dashboard.Datasets;
+using Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions;
 using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -17,12 +20,27 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DashboardRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The chartQuery property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.ChartQueryRequestBuilder ChartQuery
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.ChartQueryRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The datasets property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboard.Datasets.DatasetsRequestBuilder Datasets
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboard.Datasets.DatasetsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The filterOptions property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions.FilterOptionsRequestBuilder FilterOptions
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions.FilterOptionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&interval*}", pathParameters)
+        public DashboardRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&filter%2Ebrowsers*,filter%2Ecities*,filter%2Ecountries*,filter%2Edevices*,filter%2Elanguages*,filter%2Eos*,filter%2Eos_versions*,filter%2Eregions*,interval*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +48,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&interval*}", rawUrl)
+        public DashboardRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/analytics/v1/dashboard?time_end={time_end}&time_start={time_start}{&filter%2Ebrowsers*,filter%2Ecities*,filter%2Ecountries*,filter%2Edevices*,filter%2Elanguages*,filter%2Eos*,filter%2Eos_versions*,filter%2Eregions*,interval*}", rawUrl)
         {
         }
         /// <summary>
@@ -85,6 +103,78 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DashboardRequestBuilderGetQueryParameters 
         {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Ebrowsers")]
+            public string[]? FilterBrowsers { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Ebrowsers")]
+            public string[] FilterBrowsers { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Ecities")]
+            public string[]? FilterCities { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Ecities")]
+            public string[] FilterCities { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Ecountries")]
+            public string[]? FilterCountries { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Ecountries")]
+            public string[] FilterCountries { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Edevices")]
+            public string[]? FilterDevices { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Edevices")]
+            public string[] FilterDevices { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Elanguages")]
+            public string[]? FilterLanguages { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Elanguages")]
+            public string[] FilterLanguages { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Eos")]
+            public string[]? FilterOs { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Eos")]
+            public string[] FilterOs { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Eos_versions")]
+            public string[]? FilterOsVersions { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Eos_versions")]
+            public string[] FilterOsVersions { get; set; }
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("filter%2Eregions")]
+            public string[]? FilterRegions { get; set; }
+#nullable restore
+#else
+            [QueryParameter("filter%2Eregions")]
+            public string[] FilterRegions { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
             [QueryParameter("interval")]

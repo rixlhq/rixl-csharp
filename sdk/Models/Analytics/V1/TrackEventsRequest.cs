@@ -12,6 +12,22 @@ namespace Rixl.Sdk.Models.Analytics.V1
     public partial class TrackEventsRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The browser property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Browser { get; set; }
+#nullable restore
+#else
+        public string Browser { get; set; }
+#endif
+        /// <summary>The city property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? City { get; set; }
+#nullable restore
+#else
+        public string City { get; set; }
+#endif
         /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -20,6 +36,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string Country { get; set; }
 #endif
+        /// <summary>The device property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Device { get; set; }
+#nullable restore
+#else
+        public string Device { get; set; }
+#endif
         /// <summary>The events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,6 +51,38 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #nullable restore
 #else
         public List<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent> Events { get; set; }
+#endif
+        /// <summary>The language property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Language { get; set; }
+#nullable restore
+#else
+        public string Language { get; set; }
+#endif
+        /// <summary>The os property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Os { get; set; }
+#nullable restore
+#else
+        public string Os { get; set; }
+#endif
+        /// <summary>The os_version property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OsVersion { get; set; }
+#nullable restore
+#else
+        public string OsVersion { get; set; }
+#endif
+        /// <summary>The region property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Region { get; set; }
+#nullable restore
+#else
+        public string Region { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -54,8 +110,15 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "browser", n => { Browser = n.GetStringValue(); } },
+                { "city", n => { City = n.GetStringValue(); } },
                 { "country", n => { Country = n.GetStringValue(); } },
+                { "device", n => { Device = n.GetStringValue(); } },
                 { "events", n => { Events = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent>(global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "language", n => { Language = n.GetStringValue(); } },
+                { "os", n => { Os = n.GetStringValue(); } },
+                { "os_version", n => { OsVersion = n.GetStringValue(); } },
+                { "region", n => { Region = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -66,8 +129,15 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("browser", Browser);
+            writer.WriteStringValue("city", City);
             writer.WriteStringValue("country", Country);
+            writer.WriteStringValue("device", Device);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent>("events", Events);
+            writer.WriteStringValue("language", Language);
+            writer.WriteStringValue("os", Os);
+            writer.WriteStringValue("os_version", OsVersion);
+            writer.WriteStringValue("region", Region);
             writer.WriteStringValue("user_id", UserId);
         }
     }
