@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Analytics.V1.Dashboards.Item.Default;
+using Rixl.Sdk.Analytics.V1.Dashboards.Item.Export;
 using Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout;
 using Rixl.Sdk.Analytics.V1.Dashboards.Item.Widgets;
 using Rixl.Sdk.Models.Analytics.V1;
@@ -25,6 +26,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         public global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Default.DefaultRequestBuilder Default
         {
             get => new global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Default.DefaultRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The export property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportRequestBuilder Export
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The layout property</summary>
         public global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout.LayoutRequestBuilder Layout
