@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item;
+using Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions;
 using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -23,6 +24,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.AttachmentsRequestBuilder Attachments
         {
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.AttachmentsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The permissions property</summary>
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions.PermissionsRequestBuilder Permissions
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions.PermissionsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.policies.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>

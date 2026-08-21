@@ -2,49 +2,36 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Models.Auth.V1
+namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SetupOTPResponse : IParsable
+    public partial class WidgetsPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The backup_codes property</summary>
+        /// <summary>The expected_revision property</summary>
+        public int? ExpectedRevision { get; set; }
+        /// <summary>The patch property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<string>? BackupCodes { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.WidgetPatch? Patch { get; set; }
 #nullable restore
 #else
-        public List<string> BackupCodes { get; set; }
-#endif
-        /// <summary>The qr_code_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? QrCodeUrl { get; set; }
-#nullable restore
-#else
-        public string QrCodeUrl { get; set; }
-#endif
-        /// <summary>The secret property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Secret { get; set; }
-#nullable restore
-#else
-        public string Secret { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.WidgetPatch Patch { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsPatchRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsPatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse();
+            return new global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsPatchRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -54,9 +41,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "backup_codes", n => { BackupCodes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "qr_code_url", n => { QrCodeUrl = n.GetStringValue(); } },
-                { "secret", n => { Secret = n.GetStringValue(); } },
+                { "expected_revision", n => { ExpectedRevision = n.GetIntValue(); } },
+                { "patch", n => { Patch = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.WidgetPatch>(global::Rixl.Sdk.Models.Analytics.V1.WidgetPatch.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -66,9 +52,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfPrimitiveValues<string>("backup_codes", BackupCodes);
-            writer.WriteStringValue("qr_code_url", QrCodeUrl);
-            writer.WriteStringValue("secret", Secret);
+            writer.WriteIntValue("expected_revision", ExpectedRevision);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.WidgetPatch>("patch", Patch);
         }
     }
 }

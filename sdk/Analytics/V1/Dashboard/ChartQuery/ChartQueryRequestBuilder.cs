@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.Batch;
 using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ChartQueryRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The batch property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.Batch.BatchRequestBuilder Batch
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.Batch.BatchRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery.ChartQueryRequestBuilder"/> and sets the default values.
         /// </summary>

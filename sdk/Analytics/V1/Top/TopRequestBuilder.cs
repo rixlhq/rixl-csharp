@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Analytics.V1.Top.Feeds;
+using Rixl.Sdk.Analytics.V1.Top.Images;
 using Rixl.Sdk.Analytics.V1.Top.Posts;
 using Rixl.Sdk.Analytics.V1.Top.Videos;
 using System.Collections.Generic;
@@ -21,6 +22,11 @@ namespace Rixl.Sdk.Analytics.V1.Top
         public global::Rixl.Sdk.Analytics.V1.Top.Feeds.FeedsRequestBuilder Feeds
         {
             get => new global::Rixl.Sdk.Analytics.V1.Top.Feeds.FeedsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The images property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Top.Images.ImagesRequestBuilder Images
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Top.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The posts property</summary>
         public global::Rixl.Sdk.Analytics.V1.Top.Posts.PostsRequestBuilder Posts

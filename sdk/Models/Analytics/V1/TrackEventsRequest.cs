@@ -76,6 +76,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string OsVersion { get; set; }
 #endif
+        /// <summary>Project the events belong to (Organization &gt; Project &gt; Videos/Images/Posts/Feeds). Sent alongside the other envelope-level context because a client session is scoped to one project. org_id is still derived server-side from the credential and is never taken from the body, so a wrong project_id can only mis-attribute within the caller&apos;s own organization.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
         /// <summary>The region property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -118,6 +126,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "language", n => { Language = n.GetStringValue(); } },
                 { "os", n => { Os = n.GetStringValue(); } },
                 { "os_version", n => { OsVersion = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "region", n => { Region = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
@@ -137,6 +146,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteStringValue("language", Language);
             writer.WriteStringValue("os", Os);
             writer.WriteStringValue("os_version", OsVersion);
+            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("region", Region);
             writer.WriteStringValue("user_id", UserId);
         }

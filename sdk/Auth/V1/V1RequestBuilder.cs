@@ -11,7 +11,6 @@ using Rixl.Sdk.Auth.V1.MembershipApplications;
 using Rixl.Sdk.Auth.V1.Memberships;
 using Rixl.Sdk.Auth.V1.Passkey;
 using Rixl.Sdk.Auth.V1.Password;
-using Rixl.Sdk.Auth.V1.Policies;
 using Rixl.Sdk.Auth.V1.Providers;
 using Rixl.Sdk.Auth.V1.Register;
 using Rixl.Sdk.Auth.V1.Token;
@@ -75,11 +74,6 @@ namespace Rixl.Sdk.Auth.V1
         public global::Rixl.Sdk.Auth.V1.Password.PasswordRequestBuilder Password
         {
             get => new global::Rixl.Sdk.Auth.V1.Password.PasswordRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The policies property</summary>
-        public global::Rixl.Sdk.Auth.V1.Policies.PoliciesRequestBuilder Policies
-        {
-            get => new global::Rixl.Sdk.Auth.V1.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The providers property</summary>
         public global::Rixl.Sdk.Auth.V1.Providers.ProvidersRequestBuilder Providers

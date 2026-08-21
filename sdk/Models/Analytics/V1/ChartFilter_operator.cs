@@ -36,9 +36,37 @@ namespace Rixl.Sdk.Models.Analytics.V1
         #pragma warning disable CS1591
         In,
         #pragma warning restore CS1591
+        [EnumMember(Value = "not_in")]
+        #pragma warning disable CS1591
+        Not_in,
+        #pragma warning restore CS1591
         [EnumMember(Value = "contains")]
         #pragma warning disable CS1591
         Contains,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "not_contains")]
+        #pragma warning disable CS1591
+        Not_contains,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "starts_with")]
+        #pragma warning disable CS1591
+        Starts_with,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "ends_with")]
+        #pragma warning disable CS1591
+        Ends_with,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "between")]
+        #pragma warning disable CS1591
+        Between,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "is_empty")]
+        #pragma warning disable CS1591
+        Is_empty,
+        #pragma warning restore CS1591
+        [EnumMember(Value = "is_not_empty")]
+        #pragma warning disable CS1591
+        Is_not_empty,
         #pragma warning restore CS1591
     }
 }

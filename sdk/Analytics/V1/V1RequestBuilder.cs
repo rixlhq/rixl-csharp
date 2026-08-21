@@ -3,9 +3,11 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Analytics.V1.Dashboard;
+using Rixl.Sdk.Analytics.V1.Dashboards;
 using Rixl.Sdk.Analytics.V1.Events;
 using Rixl.Sdk.Analytics.V1.Feeds;
 using Rixl.Sdk.Analytics.V1.Funnels;
+using Rixl.Sdk.Analytics.V1.Images;
 using Rixl.Sdk.Analytics.V1.Posts;
 using Rixl.Sdk.Analytics.V1.Realtime;
 using Rixl.Sdk.Analytics.V1.Retention;
@@ -28,6 +30,11 @@ namespace Rixl.Sdk.Analytics.V1
         {
             get => new global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The dashboards property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboards.DashboardsRequestBuilder Dashboards
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboards.DashboardsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The events property</summary>
         public global::Rixl.Sdk.Analytics.V1.Events.EventsRequestBuilder Events
         {
@@ -42,6 +49,11 @@ namespace Rixl.Sdk.Analytics.V1
         public global::Rixl.Sdk.Analytics.V1.Funnels.FunnelsRequestBuilder Funnels
         {
             get => new global::Rixl.Sdk.Analytics.V1.Funnels.FunnelsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The images property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Images.ImagesRequestBuilder Images
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Images.ImagesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The posts property</summary>
         public global::Rixl.Sdk.Analytics.V1.Posts.PostsRequestBuilder Posts

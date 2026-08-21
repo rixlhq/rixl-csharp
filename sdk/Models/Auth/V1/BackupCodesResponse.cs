@@ -9,7 +9,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class SetupOTPResponse : IParsable
+    public partial class BackupCodesResponse : IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The backup_codes property</summary>
@@ -20,31 +20,15 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public List<string> BackupCodes { get; set; }
 #endif
-        /// <summary>The qr_code_url property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? QrCodeUrl { get; set; }
-#nullable restore
-#else
-        public string QrCodeUrl { get; set; }
-#endif
-        /// <summary>The secret property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Secret { get; set; }
-#nullable restore
-#else
-        public string Secret { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.BackupCodesResponse"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Auth.V1.BackupCodesResponse CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Auth.V1.SetupOTPResponse();
+            return new global::Rixl.Sdk.Models.Auth.V1.BackupCodesResponse();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -55,8 +39,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "backup_codes", n => { BackupCodes = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "qr_code_url", n => { QrCodeUrl = n.GetStringValue(); } },
-                { "secret", n => { Secret = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +49,6 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<string>("backup_codes", BackupCodes);
-            writer.WriteStringValue("qr_code_url", QrCodeUrl);
-            writer.WriteStringValue("secret", Secret);
         }
     }
 }

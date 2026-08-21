@@ -9,27 +9,23 @@ namespace Rixl.Sdk.Models.Analytics.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class GetFilterOptionsRequest : IParsable
+    public partial class GetScopeTreeRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The dataset property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Dataset { get; set; }
-#nullable restore
-#else
-        public string Dataset { get; set; }
-#endif
-        /// <summary>The field property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Field { get; set; }
-#nullable restore
-#else
-        public string Field { get; set; }
-#endif
+        /// <summary>Which level to expand. Empty returns the projects at the root.</summary>
+        public global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_level? Level { get; set; }
         /// <summary>The limit property</summary>
         public int? Limit { get; set; }
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
+#endif
+        /// <summary>The resource_type property</summary>
+        public global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_resource_type? ResourceType { get; set; }
         /// <summary>The search property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,12 +53,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.GetFilterOptionsRequest"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Analytics.V1.GetFilterOptionsRequest CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Analytics.V1.GetFilterOptionsRequest();
+            return new global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -72,9 +68,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dataset", n => { Dataset = n.GetStringValue(); } },
-                { "field", n => { Field = n.GetStringValue(); } },
+                { "level", n => { Level = n.GetEnumValue<global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_level>(); } },
                 { "limit", n => { Limit = n.GetIntValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
+                { "resource_type", n => { ResourceType = n.GetEnumValue<global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_resource_type>(); } },
                 { "search", n => { Search = n.GetStringValue(); } },
                 { "time_end", n => { TimeEnd = n.GetStringValue(); } },
                 { "time_start", n => { TimeStart = n.GetStringValue(); } },
@@ -87,9 +84,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("dataset", Dataset);
-            writer.WriteStringValue("field", Field);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_level>("level", Level);
             writer.WriteIntValue("limit", Limit);
+            writer.WriteStringValue("project_id", ProjectId);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Analytics.V1.GetScopeTreeRequest_resource_type>("resource_type", ResourceType);
             writer.WriteStringValue("search", Search);
             writer.WriteStringValue("time_end", TimeEnd);
             writer.WriteStringValue("time_start", TimeStart);

@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Analytics.V1.Dashboard.ChartQuery;
 using Rixl.Sdk.Analytics.V1.Dashboard.Datasets;
 using Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions;
+using Rixl.Sdk.Analytics.V1.Dashboard.ScopeTree;
 using Rixl.Sdk.Models.Analytics.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -34,6 +35,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         public global::Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions.FilterOptionsRequestBuilder FilterOptions
         {
             get => new global::Rixl.Sdk.Analytics.V1.Dashboard.FilterOptions.FilterOptionsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The scopeTree property</summary>
+        public global::Rixl.Sdk.Analytics.V1.Dashboard.ScopeTree.ScopeTreeRequestBuilder ScopeTree
+        {
+            get => new global::Rixl.Sdk.Analytics.V1.Dashboard.ScopeTree.ScopeTreeRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Analytics.V1.Dashboard.DashboardRequestBuilder"/> and sets the default values.
