@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Users.Current.Avatar;
 using Rixl.Sdk.Auth.V1.Users.Current.Emails;
 using Rixl.Sdk.Auth.V1.Users.Current.Name;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys;
@@ -22,6 +23,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CurrentRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The avatar property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.AvatarRequestBuilder Avatar
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.AvatarRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The emails property</summary>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder Emails
         {

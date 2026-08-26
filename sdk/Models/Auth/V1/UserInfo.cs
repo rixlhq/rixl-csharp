@@ -54,6 +54,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Id { get; set; }
 #endif
+        /// <summary>The image_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ImageId { get; set; }
+#nullable restore
+#else
+        public string ImageId { get; set; }
+#endif
         /// <summary>The image_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -110,6 +118,7 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "image_id", n => { ImageId = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
@@ -129,6 +138,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteBoolValue("email_verified", EmailVerified);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("id", Id);
+            writer.WriteStringValue("image_id", ImageId);
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteStringValue("language_code", LanguageCode);
             writer.WriteStringValue("last_name", LastName);
