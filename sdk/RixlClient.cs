@@ -15,6 +15,7 @@ using Rixl.Sdk.Media;
 using Rixl.Sdk.Organizations;
 using Rixl.Sdk.Platform;
 using Rixl.Sdk.Posts;
+using Rixl.Sdk.Support;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -71,6 +72,11 @@ namespace Rixl.Sdk
         public global::Rixl.Sdk.Posts.PostsRequestBuilder Posts
         {
             get => new global::Rixl.Sdk.Posts.PostsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The support property</summary>
+        public global::Rixl.Sdk.Support.SupportRequestBuilder Support
+        {
+            get => new global::Rixl.Sdk.Support.SupportRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.RixlClient"/> and sets the default values.

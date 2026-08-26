@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -12,6 +13,8 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class Plan : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The active property</summary>
+        public bool? Active { get; set; }
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,6 +30,14 @@ namespace Rixl.Sdk.Models.Billing.V1
 #nullable restore
 #else
         public string Description { get; set; }
+#endif
+        /// <summary>`Struct` represents a structured data value, consisting of fields which map to dynamically typed values. In some languages, `Struct` might be supported by a native representation. For example, in scripting languages like JS a struct is represented as an object. The details of that representation are described together with the proto support for the language. The JSON representation for `Struct` is JSON object.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Google.Protobuf.Struct? Features { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Google.Protobuf.Struct Features { get; set; }
 #endif
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,6 +57,8 @@ namespace Rixl.Sdk.Models.Billing.V1
 #endif
         /// <summary>The interval_count property</summary>
         public int? IntervalCount { get; set; }
+        /// <summary>The is_public property</summary>
+        public bool? IsPublic { get; set; }
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -66,6 +79,22 @@ namespace Rixl.Sdk.Models.Billing.V1
 #endif
         /// <summary>The sort_order property</summary>
         public int? SortOrder { get; set; }
+        /// <summary>The stripe_price_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StripePriceId { get; set; }
+#nullable restore
+#else
+        public string StripePriceId { get; set; }
+#endif
+        /// <summary>The stripe_product_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StripeProductId { get; set; }
+#nullable restore
+#else
+        public string StripeProductId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -84,15 +113,20 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "active", n => { Active = n.GetBoolValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "features", n => { Features = n.GetObjectValue<global::Rixl.Sdk.Models.Google.Protobuf.Struct>(global::Rixl.Sdk.Models.Google.Protobuf.Struct.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "interval", n => { Interval = n.GetStringValue(); } },
                 { "interval_count", n => { IntervalCount = n.GetIntValue(); } },
+                { "is_public", n => { IsPublic = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "plan_type", n => { PlanType = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>(); } },
                 { "price", n => { Price = n.GetStringValue(); } },
                 { "sort_order", n => { SortOrder = n.GetIntValue(); } },
+                { "stripe_price_id", n => { StripePriceId = n.GetStringValue(); } },
+                { "stripe_product_id", n => { StripeProductId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -102,15 +136,20 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("active", Active);
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("description", Description);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Google.Protobuf.Struct>("features", Features);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("interval", Interval);
             writer.WriteIntValue("interval_count", IntervalCount);
+            writer.WriteBoolValue("is_public", IsPublic);
             writer.WriteStringValue("name", Name);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.PlanType>("plan_type", PlanType);
             writer.WriteStringValue("price", Price);
             writer.WriteIntValue("sort_order", SortOrder);
+            writer.WriteStringValue("stripe_price_id", StripePriceId);
+            writer.WriteStringValue("stripe_product_id", StripeProductId);
         }
     }
 }

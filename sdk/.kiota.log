@@ -1,4 +1,5 @@
 Warning: KiotaBuilder OpenAPI warning: #/ - A servers entry (v3) or host + basePath + schemes properties (v2) was not present in the OpenAPI description. The root URL will need to be set manually with the request adapter.
+Warning: KiotaBuilder OpenAPI warning: #/ - The schema google.protobuf.Value is a polymorphic type but does not define a discriminator. This will result in serialization errors.
 Warning: KiotaBuilder OpenAPI warning: #/paths/~1media~1v1~1projects~1{project_id}~1videos~1{video_id}~1chapters~1{start_time_sec}/delete/parameters/2/schema - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.CountryCount/properties/count - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.DashboardPoint/properties/views - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
@@ -69,6 +70,7 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/images.v1.Unprocesse
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/images.v1.UpdateProcessedImageDataRequest/properties/size - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/platformauth.v1.TokenResponse/properties/expires_in - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/posts.v1.ListPostsResponse/properties/total - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/support.v1.ListTicketsResponse/properties/total - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/upload.v1.ReceiveStorageEventRequest/properties/object_size - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.DeleteVideoChapterRequest/properties/start_time_sec - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.File/properties/size - The format int64 is not supported by Kiota for the type Integer, String and the string type will be used.
