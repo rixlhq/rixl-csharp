@@ -86,6 +86,22 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string LastName { get; set; }
 #endif
+        /// <summary>The permissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Permissions { get; set; }
+#nullable restore
+#else
+        public List<string> Permissions { get; set; }
+#endif
+        /// <summary>The policies property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Rixl.Sdk.Models.Auth.V1.Policy>? Policies { get; set; }
+#nullable restore
+#else
+        public List<global::Rixl.Sdk.Models.Auth.V1.Policy> Policies { get; set; }
+#endif
         /// <summary>The username property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -122,6 +138,8 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "policies", n => { Policies = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>(global::Rixl.Sdk.Models.Auth.V1.Policy.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
             };
         }
@@ -142,6 +160,8 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteStringValue("language_code", LanguageCode);
             writer.WriteStringValue("last_name", LastName);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>("policies", Policies);
             writer.WriteStringValue("username", Username);
         }
     }
