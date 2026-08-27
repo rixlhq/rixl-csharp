@@ -12,6 +12,8 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class CheckMembershipResponse : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The is_internal_org property</summary>
+        public bool? IsInternalOrg { get; set; }
         /// <summary>The is_member property</summary>
         public bool? IsMember { get; set; }
         /// <summary>
@@ -32,6 +34,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "is_internal_org", n => { IsInternalOrg = n.GetBoolValue(); } },
                 { "is_member", n => { IsMember = n.GetBoolValue(); } },
             };
         }
@@ -42,6 +45,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteBoolValue("is_internal_org", IsInternalOrg);
             writer.WriteBoolValue("is_member", IsMember);
         }
     }
