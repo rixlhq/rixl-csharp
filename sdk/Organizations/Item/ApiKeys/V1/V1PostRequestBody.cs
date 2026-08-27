@@ -30,6 +30,14 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
 #else
         public string OrgId { get; set; }
 #endif
+        /// <summary>The policy_ids property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PolicyIds { get; set; }
+#nullable restore
+#else
+        public List<string> PolicyIds { get; set; }
+#endif
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -59,6 +67,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
                 { "expiring_at", n => { ExpiringAt = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "policy_ids", n => { PolicyIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
@@ -72,6 +81,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
             writer.WriteDateTimeOffsetValue("expiring_at", ExpiringAt);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
+            writer.WriteCollectionOfPrimitiveValues<string>("policy_ids", PolicyIds);
             writer.WriteStringValue("project_id", ProjectId);
         }
     }

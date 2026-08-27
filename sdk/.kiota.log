@@ -81,3 +81,4 @@ Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id
 Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1domain~1auto-join - The path signature '/auth/v1/memberships/{}/domain/auto-join' MUST be unique.
 Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1policies - The path signature '/auth/v1/memberships/{}/policies' MUST be unique.
 Warning: KiotaBuilder No server url found in the OpenAPI document. The base url will need to be set when using the client.
+Warning: KiotaBuilder Discriminator google.protobuf.Timestamp is not inherited from Timestamp.

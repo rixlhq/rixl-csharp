@@ -42,6 +42,22 @@ namespace Rixl.Sdk.Models.Apikeys.V1
 #else
         public string OrgId { get; set; }
 #endif
+        /// <summary>The permissions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? Permissions { get; set; }
+#nullable restore
+#else
+        public List<string> Permissions { get; set; }
+#endif
+        /// <summary>The policy_ids property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<string>? PolicyIds { get; set; }
+#nullable restore
+#else
+        public List<string> PolicyIds { get; set; }
+#endif
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -90,6 +106,8 @@ namespace Rixl.Sdk.Models.Apikeys.V1
                 { "last_used", n => { LastUsed = n.GetDateTimeOffsetValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "policy_ids", n => { PolicyIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "project_name", n => { ProjectName = n.GetStringValue(); } },
                 { "secret", n => { Secret = n.GetStringValue(); } },
@@ -108,6 +126,8 @@ namespace Rixl.Sdk.Models.Apikeys.V1
             writer.WriteDateTimeOffsetValue("last_used", LastUsed);
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("org_id", OrgId);
+            writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteCollectionOfPrimitiveValues<string>("policy_ids", PolicyIds);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("project_name", ProjectName);
             writer.WriteStringValue("secret", Secret);
