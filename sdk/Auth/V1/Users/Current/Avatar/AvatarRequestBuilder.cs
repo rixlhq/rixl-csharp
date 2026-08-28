@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Users.Current.Avatar.Upload;
 using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Avatar
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AvatarRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The upload property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.Upload.UploadRequestBuilder Upload
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.AvatarRequestBuilder"/> and sets the default values.
         /// </summary>
