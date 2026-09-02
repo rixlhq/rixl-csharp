@@ -15,6 +15,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
     {
         /// <summary>The state property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState? State { get; set; }
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest User { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -34,6 +42,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>(); } },
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -44,6 +53,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.State
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>("state", State);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
         }
     }
 }

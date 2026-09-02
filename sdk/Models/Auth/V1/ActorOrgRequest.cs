@@ -2,36 +2,41 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
+namespace Rixl.Sdk.Models.Auth.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AutoJoinPutRequestBody : IParsable
+    public partial class ActorOrgRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The enabled property</summary>
-        public bool? Enabled { get; set; }
-        /// <summary>The user property</summary>
+        /// <summary>The actor_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest? User { get; set; }
+        public string? ActorId { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest User { get; set; }
+        public string ActorId { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin.AutoJoinPutRequestBody();
+            return new global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -41,8 +46,8 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
+                { "actor_id", n => { ActorId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -52,8 +57,8 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
+            writer.WriteStringValue("actor_id", ActorId);
+            writer.WriteStringValue("org_id", OrgId);
         }
     }
 }
