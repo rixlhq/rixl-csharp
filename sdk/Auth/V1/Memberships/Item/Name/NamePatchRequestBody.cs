@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -20,14 +19,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
 #nullable restore
 #else
         public string FullName { get; set; }
-#endif
-        /// <summary>The user property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest? User { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest User { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -48,7 +39,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "full_name", n => { FullName = n.GetStringValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -59,7 +49,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Name
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("full_name", FullName);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.ActorOrgRequest>("user", User);
         }
     }
 }
