@@ -21,21 +21,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string Brand { get; set; }
 #endif
         /// <summary>The exp_month property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ExpMonth { get; set; }
-#nullable restore
-#else
-        public UntypedNode ExpMonth { get; set; }
-#endif
+        public long? ExpMonth { get; set; }
         /// <summary>The exp_year property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ExpYear { get; set; }
-#nullable restore
-#else
-        public UntypedNode ExpYear { get; set; }
-#endif
+        public long? ExpYear { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -81,8 +69,8 @@ namespace Rixl.Sdk.Models.Billing.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "brand", n => { Brand = n.GetStringValue(); } },
-                { "exp_month", n => { ExpMonth = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "exp_year", n => { ExpYear = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "exp_month", n => { ExpMonth = n.GetLongValue(); } },
+                { "exp_year", n => { ExpYear = n.GetLongValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_default", n => { IsDefault = n.GetBoolValue(); } },
                 { "last4", n => { Last4 = n.GetStringValue(); } },
@@ -97,8 +85,8 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("brand", Brand);
-            writer.WriteObjectValue<UntypedNode>("exp_month", ExpMonth);
-            writer.WriteObjectValue<UntypedNode>("exp_year", ExpYear);
+            writer.WriteLongValue("exp_month", ExpMonth);
+            writer.WriteLongValue("exp_year", ExpYear);
             writer.WriteStringValue("id", Id);
             writer.WriteBoolValue("is_default", IsDefault);
             writer.WriteStringValue("last4", Last4);

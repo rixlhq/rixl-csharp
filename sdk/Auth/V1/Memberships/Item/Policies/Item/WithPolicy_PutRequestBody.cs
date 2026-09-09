@@ -36,14 +36,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
 #else
         public List<string> Permissions { get; set; }
 #endif
-        /// <summary>The policy_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? PolicyId { get; set; }
-#nullable restore
-#else
-        public string PolicyId { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,7 +57,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "policy_id", n => { PolicyId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,7 +69,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
-            writer.WriteStringValue("policy_id", PolicyId);
         }
     }
 }

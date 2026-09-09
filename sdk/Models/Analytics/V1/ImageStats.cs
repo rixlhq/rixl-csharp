@@ -15,13 +15,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>Dwell time; images have no playback.</summary>
         public double? AvgViewDurationMs { get; set; }
         /// <summary>The feed_views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? FeedViews { get; set; }
-#nullable restore
-#else
-        public UntypedNode FeedViews { get; set; }
-#endif
+        public long? FeedViews { get; set; }
         /// <summary>The image_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -31,31 +25,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string ImageId { get; set; }
 #endif
         /// <summary>The standalone_views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? StandaloneViews { get; set; }
-#nullable restore
-#else
-        public UntypedNode StandaloneViews { get; set; }
-#endif
+        public long? StandaloneViews { get; set; }
         /// <summary>The total_view_duration_ms property</summary>
         public double? TotalViewDurationMs { get; set; }
         /// <summary>The total_views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalViews { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalViews { get; set; }
-#endif
+        public long? TotalViews { get; set; }
         /// <summary>The unique_viewers property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? UniqueViewers { get; set; }
-#nullable restore
-#else
-        public UntypedNode UniqueViewers { get; set; }
-#endif
+        public long? UniqueViewers { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -75,12 +51,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "avg_view_duration_ms", n => { AvgViewDurationMs = n.GetDoubleValue(); } },
-                { "feed_views", n => { FeedViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "feed_views", n => { FeedViews = n.GetLongValue(); } },
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
-                { "standalone_views", n => { StandaloneViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "standalone_views", n => { StandaloneViews = n.GetLongValue(); } },
                 { "total_view_duration_ms", n => { TotalViewDurationMs = n.GetDoubleValue(); } },
-                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_views", n => { TotalViews = n.GetLongValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -91,12 +67,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("avg_view_duration_ms", AvgViewDurationMs);
-            writer.WriteObjectValue<UntypedNode>("feed_views", FeedViews);
+            writer.WriteLongValue("feed_views", FeedViews);
             writer.WriteStringValue("image_id", ImageId);
-            writer.WriteObjectValue<UntypedNode>("standalone_views", StandaloneViews);
+            writer.WriteLongValue("standalone_views", StandaloneViews);
             writer.WriteDoubleValue("total_view_duration_ms", TotalViewDurationMs);
-            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
-            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
+            writer.WriteLongValue("total_views", TotalViews);
+            writer.WriteLongValue("unique_viewers", UniqueViewers);
         }
     }
 }

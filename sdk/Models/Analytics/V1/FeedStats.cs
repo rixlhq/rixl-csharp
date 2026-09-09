@@ -23,31 +23,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string FeedId { get; set; }
 #endif
         /// <summary>The total_posts property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalPosts { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalPosts { get; set; }
-#endif
+        public long? TotalPosts { get; set; }
         /// <summary>The total_views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalViews { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalViews { get; set; }
-#endif
+        public long? TotalViews { get; set; }
         /// <summary>The total_watch_time_ms property</summary>
         public double? TotalWatchTimeMs { get; set; }
         /// <summary>The unique_viewers property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? UniqueViewers { get; set; }
-#nullable restore
-#else
-        public UntypedNode UniqueViewers { get; set; }
-#endif
+        public long? UniqueViewers { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -68,10 +50,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "avg_time_per_visit_ms", n => { AvgTimePerVisitMs = n.GetDoubleValue(); } },
                 { "feed_id", n => { FeedId = n.GetStringValue(); } },
-                { "total_posts", n => { TotalPosts = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_posts", n => { TotalPosts = n.GetLongValue(); } },
+                { "total_views", n => { TotalViews = n.GetLongValue(); } },
                 { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -83,10 +65,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("avg_time_per_visit_ms", AvgTimePerVisitMs);
             writer.WriteStringValue("feed_id", FeedId);
-            writer.WriteObjectValue<UntypedNode>("total_posts", TotalPosts);
-            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
+            writer.WriteLongValue("total_posts", TotalPosts);
+            writer.WriteLongValue("total_views", TotalViews);
             writer.WriteDoubleValue("total_watch_time_ms", TotalWatchTimeMs);
-            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
+            writer.WriteLongValue("unique_viewers", UniqueViewers);
         }
     }
 }

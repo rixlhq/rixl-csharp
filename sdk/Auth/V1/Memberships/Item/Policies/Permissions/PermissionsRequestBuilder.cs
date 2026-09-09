@@ -85,18 +85,26 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PermissionsRequestBuilderGetQueryParameters 
         {
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("offset")]
             public int? Offset { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("types")]
             public string[]? Types { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("types")]
             public string[] Types { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

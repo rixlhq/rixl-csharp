@@ -2,33 +2,34 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Rixl.Sdk.Models.Videos.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
+namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ClosePostRequestBody : IParsable
+    public partial class ChaptersPutRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ticket_id property</summary>
+        /// <summary>The chapters property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TicketId { get; set; }
+        public List<global::Rixl.Sdk.Models.Videos.V1.Chapter>? Chapters { get; set; }
 #nullable restore
 #else
-        public string TicketId { get; set; }
+        public List<global::Rixl.Sdk.Models.Videos.V1.Chapter> Chapters { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody();
+            return new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +39,7 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ticket_id", n => { TicketId = n.GetStringValue(); } },
+                { "chapters", n => { Chapters = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Chapter>(global::Rixl.Sdk.Models.Videos.V1.Chapter.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
         /// <summary>
@@ -48,7 +49,7 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("ticket_id", TicketId);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Chapter>("chapters", Chapters);
         }
     }
 }

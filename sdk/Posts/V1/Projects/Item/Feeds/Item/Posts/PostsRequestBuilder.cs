@@ -154,12 +154,16 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("creator_id")]
             public string? CreatorId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("creator_id")]
             public string CreatorId { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Maximum number of items to return.</summary>
             [QueryParameter("pagination%2Elimit")]

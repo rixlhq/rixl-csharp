@@ -13,22 +13,6 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.VideoQuality
     public partial class VideoQualityPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The org_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrgId { get; set; }
-#nullable restore
-#else
-        public string OrgId { get; set; }
-#endif
-        /// <summary>The project_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProjectId { get; set; }
-#nullable restore
-#else
-        public string ProjectId { get; set; }
-#endif
         /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }
         /// <summary>
@@ -49,8 +33,6 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.VideoQuality
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "video_quality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
             };
         }
@@ -61,8 +43,6 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.VideoQuality
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("org_id", OrgId);
-            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("video_quality", VideoQuality);
         }
     }

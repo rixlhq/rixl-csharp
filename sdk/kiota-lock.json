@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "71A6C3FA48CCF3E0E70DDDCF076A484866990C2AA3A1A847AA0D6B53F4BBBD8E2710D692911A51DB5B2AA9C339BC7AD034BF47C21DEDF16656EC20A661D1387C",
+  "descriptionHash": "B9119C870FA61D5F34D5B05A4FF988D939650265979AB9E2692AFC5F5118466023DCB00A62EF8E4FA41F3F2641BC30DF7FE5FAA590CF6A285E4EA1D5404B3FC7",
   "descriptionLocation": "https://raw.githubusercontent.com/rixlhq/openapi/refs/heads/main/openapi.yaml",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.34.1",
+  "kiotaVersion": "1.35.0",
   "clientClassName": "RixlClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "Rixl.Sdk",

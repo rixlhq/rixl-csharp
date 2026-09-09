@@ -21,13 +21,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public string AccessToken { get; set; }
 #endif
         /// <summary>The expires_in property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ExpiresIn { get; set; }
-#nullable restore
-#else
-        public UntypedNode ExpiresIn { get; set; }
-#endif
+        public long? ExpiresIn { get; set; }
         /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -71,7 +65,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
-                { "expires_in", n => { ExpiresIn = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "expires_in", n => { ExpiresIn = n.GetLongValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
                 { "token_type", n => { TokenType = n.GetStringValue(); } },
@@ -85,7 +79,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_token", AccessToken);
-            writer.WriteObjectValue<UntypedNode>("expires_in", ExpiresIn);
+            writer.WriteLongValue("expires_in", ExpiresIn);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("requires_action", RequiresAction);
             writer.WriteStringValue("token_type", TokenType);

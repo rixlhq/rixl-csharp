@@ -21,21 +21,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string PostId { get; set; }
 #endif
         /// <summary>The total_views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalViews { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalViews { get; set; }
-#endif
+        public long? TotalViews { get; set; }
         /// <summary>The unique_viewers property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? UniqueViewers { get; set; }
-#nullable restore
-#else
-        public UntypedNode UniqueViewers { get; set; }
-#endif
+        public long? UniqueViewers { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -55,8 +43,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "post_id", n => { PostId = n.GetStringValue(); } },
-                { "total_views", n => { TotalViews = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_views", n => { TotalViews = n.GetLongValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -67,8 +55,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("post_id", PostId);
-            writer.WriteObjectValue<UntypedNode>("total_views", TotalViews);
-            writer.WriteObjectValue<UntypedNode>("unique_viewers", UniqueViewers);
+            writer.WriteLongValue("total_views", TotalViews);
+            writer.WriteLongValue("unique_viewers", UniqueViewers);
         }
     }
 }

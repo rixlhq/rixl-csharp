@@ -25,13 +25,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>The page_size property</summary>
         public int? PageSize { get; set; }
         /// <summary>The total property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? Total { get; set; }
-#nullable restore
-#else
-        public UntypedNode Total { get; set; }
-#endif
+        public long? Total { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -53,7 +47,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "dashboards", n => { Dashboards = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "total", n => { Total = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total", n => { Total = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -66,7 +60,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>("dashboards", Dashboards);
             writer.WriteIntValue("page", Page);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteObjectValue<UntypedNode>("total", Total);
+            writer.WriteLongValue("total", Total);
         }
     }
 }

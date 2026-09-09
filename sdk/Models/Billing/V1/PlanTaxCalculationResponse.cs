@@ -13,21 +13,9 @@ namespace Rixl.Sdk.Models.Billing.V1
     #pragma warning restore CS1591
     {
         /// <summary>The amount_total property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? AmountTotal { get; set; }
-#nullable restore
-#else
-        public UntypedNode AmountTotal { get; set; }
-#endif
+        public long? AmountTotal { get; set; }
         /// <summary>The base_amount property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? BaseAmount { get; set; }
-#nullable restore
-#else
-        public UntypedNode BaseAmount { get; set; }
-#endif
+        public long? BaseAmount { get; set; }
         /// <summary>The billing_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,21 +61,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string PlanName { get; set; }
 #endif
         /// <summary>The tax_amount_exclusive property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TaxAmountExclusive { get; set; }
-#nullable restore
-#else
-        public UntypedNode TaxAmountExclusive { get; set; }
-#endif
+        public long? TaxAmountExclusive { get; set; }
         /// <summary>The tax_amount_inclusive property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TaxAmountInclusive { get; set; }
-#nullable restore
-#else
-        public UntypedNode TaxAmountInclusive { get; set; }
-#endif
+        public long? TaxAmountInclusive { get; set; }
         /// <summary>The tax_percentage property</summary>
         public double? TaxPercentage { get; set; }
         /// <summary>
@@ -108,8 +84,8 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount_total", n => { AmountTotal = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "base_amount", n => { BaseAmount = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "amount_total", n => { AmountTotal = n.GetLongValue(); } },
+                { "base_amount", n => { BaseAmount = n.GetLongValue(); } },
                 { "billing_address", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
                 { "billing_cycle", n => { BillingCycle = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>(); } },
                 { "calculated_at", n => { CalculatedAt = n.GetDateTimeOffsetValue(); } },
@@ -117,8 +93,8 @@ namespace Rixl.Sdk.Models.Billing.V1
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "plan_id", n => { PlanId = n.GetStringValue(); } },
                 { "plan_name", n => { PlanName = n.GetStringValue(); } },
-                { "tax_amount_exclusive", n => { TaxAmountExclusive = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "tax_amount_inclusive", n => { TaxAmountInclusive = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "tax_amount_exclusive", n => { TaxAmountExclusive = n.GetLongValue(); } },
+                { "tax_amount_inclusive", n => { TaxAmountInclusive = n.GetLongValue(); } },
                 { "tax_percentage", n => { TaxPercentage = n.GetDoubleValue(); } },
             };
         }
@@ -129,8 +105,8 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("amount_total", AmountTotal);
-            writer.WriteObjectValue<UntypedNode>("base_amount", BaseAmount);
+            writer.WriteLongValue("amount_total", AmountTotal);
+            writer.WriteLongValue("base_amount", BaseAmount);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billing_address", BillingAddress);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>("billing_cycle", BillingCycle);
             writer.WriteDateTimeOffsetValue("calculated_at", CalculatedAt);
@@ -138,8 +114,8 @@ namespace Rixl.Sdk.Models.Billing.V1
             writer.WriteStringValue("currency", Currency);
             writer.WriteStringValue("plan_id", PlanId);
             writer.WriteStringValue("plan_name", PlanName);
-            writer.WriteObjectValue<UntypedNode>("tax_amount_exclusive", TaxAmountExclusive);
-            writer.WriteObjectValue<UntypedNode>("tax_amount_inclusive", TaxAmountInclusive);
+            writer.WriteLongValue("tax_amount_exclusive", TaxAmountExclusive);
+            writer.WriteLongValue("tax_amount_inclusive", TaxAmountInclusive);
             writer.WriteDoubleValue("tax_percentage", TaxPercentage);
         }
     }

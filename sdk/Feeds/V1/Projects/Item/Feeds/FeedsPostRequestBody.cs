@@ -38,14 +38,6 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
 #else
         public string Name { get; set; }
 #endif
-        /// <summary>The project_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProjectId { get; set; }
-#nullable restore
-#else
-        public string ProjectId { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -71,7 +63,6 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
                 { "has_likes", n => { HasLikes = n.GetBoolValue(); } },
                 { "has_shares", n => { HasShares = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -88,7 +79,6 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds
             writer.WriteBoolValue("has_likes", HasLikes);
             writer.WriteBoolValue("has_shares", HasShares);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

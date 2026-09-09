@@ -13,21 +13,9 @@ namespace Rixl.Sdk.Models.Analytics.V1
     #pragma warning restore CS1591
     {
         /// <summary>The active_users property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ActiveUsers { get; set; }
-#nullable restore
-#else
-        public UntypedNode ActiveUsers { get; set; }
-#endif
+        public long? ActiveUsers { get; set; }
         /// <summary>The events_per_minute property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? EventsPerMinute { get; set; }
-#nullable restore
-#else
-        public UntypedNode EventsPerMinute { get; set; }
-#endif
+        public long? EventsPerMinute { get; set; }
         /// <summary>The recent_events property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,8 +66,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "active_users", n => { ActiveUsers = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "events_per_minute", n => { EventsPerMinute = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "active_users", n => { ActiveUsers = n.GetLongValue(); } },
+                { "events_per_minute", n => { EventsPerMinute = n.GetLongValue(); } },
                 { "recent_events", n => { RecentEvents = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>(global::Rixl.Sdk.Models.Analytics.V1.RecentEvent.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
                 { "top_countries", n => { TopCountries = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>(global::Rixl.Sdk.Models.Analytics.V1.CountryCount.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -93,8 +81,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<UntypedNode>("active_users", ActiveUsers);
-            writer.WriteObjectValue<UntypedNode>("events_per_minute", EventsPerMinute);
+            writer.WriteLongValue("active_users", ActiveUsers);
+            writer.WriteLongValue("events_per_minute", EventsPerMinute);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.RecentEvent>("recent_events", RecentEvents);
             writer.WriteStringValue("timestamp", Timestamp);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.CountryCount>("top_countries", TopCountries);

@@ -21,13 +21,7 @@ namespace Rixl.Sdk.Models.Images.V1
         public string FileId { get; set; }
 #endif
         /// <summary>The size property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? Size { get; set; }
-#nullable restore
-#else
-        public UntypedNode Size { get; set; }
-#endif
+        public long? Size { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,7 +41,7 @@ namespace Rixl.Sdk.Models.Images.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_id", n => { FileId = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "size", n => { Size = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +52,7 @@ namespace Rixl.Sdk.Models.Images.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("file_id", FileId);
-            writer.WriteObjectValue<UntypedNode>("size", Size);
+            writer.WriteLongValue("size", Size);
         }
     }
 }

@@ -15,14 +15,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
     {
         /// <summary>The role property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.MembershipRole? Role { get; set; }
-        /// <summary>The user_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserId { get; set; }
-#nullable restore
-#else
-        public string UserId { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +34,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "role", n => { Role = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>(); } },
-                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -53,7 +44,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>("role", Role);
-            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

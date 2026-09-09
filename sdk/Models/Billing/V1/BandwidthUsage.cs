@@ -23,21 +23,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string DataSource { get; set; }
 #endif
         /// <summary>The image_bandwidth_bytes property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ImageBandwidthBytes { get; set; }
-#nullable restore
-#else
-        public UntypedNode ImageBandwidthBytes { get; set; }
-#endif
+        public long? ImageBandwidthBytes { get; set; }
         /// <summary>The image_requests property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? ImageRequests { get; set; }
-#nullable restore
-#else
-        public UntypedNode ImageRequests { get; set; }
-#endif
+        public long? ImageRequests { get; set; }
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -57,45 +45,15 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string SnapshotType { get; set; }
 #endif
         /// <summary>The total_bandwidth_bytes property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalBandwidthBytes { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalBandwidthBytes { get; set; }
-#endif
+        public long? TotalBandwidthBytes { get; set; }
         /// <summary>The total_requests property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? TotalRequests { get; set; }
-#nullable restore
-#else
-        public UntypedNode TotalRequests { get; set; }
-#endif
+        public long? TotalRequests { get; set; }
         /// <summary>The unique_visitors property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? UniqueVisitors { get; set; }
-#nullable restore
-#else
-        public UntypedNode UniqueVisitors { get; set; }
-#endif
+        public long? UniqueVisitors { get; set; }
         /// <summary>The video_bandwidth_bytes property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? VideoBandwidthBytes { get; set; }
-#nullable restore
-#else
-        public UntypedNode VideoBandwidthBytes { get; set; }
-#endif
+        public long? VideoBandwidthBytes { get; set; }
         /// <summary>The video_requests property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? VideoRequests { get; set; }
-#nullable restore
-#else
-        public UntypedNode VideoRequests { get; set; }
-#endif
+        public long? VideoRequests { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -116,16 +74,16 @@ namespace Rixl.Sdk.Models.Billing.V1
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "data_source", n => { DataSource = n.GetStringValue(); } },
-                { "image_bandwidth_bytes", n => { ImageBandwidthBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "image_requests", n => { ImageRequests = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "image_bandwidth_bytes", n => { ImageBandwidthBytes = n.GetLongValue(); } },
+                { "image_requests", n => { ImageRequests = n.GetLongValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "snapshot_date", n => { SnapshotDate = n.GetDateTimeOffsetValue(); } },
                 { "snapshot_type", n => { SnapshotType = n.GetStringValue(); } },
-                { "total_bandwidth_bytes", n => { TotalBandwidthBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "total_requests", n => { TotalRequests = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "unique_visitors", n => { UniqueVisitors = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "video_bandwidth_bytes", n => { VideoBandwidthBytes = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
-                { "video_requests", n => { VideoRequests = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "total_bandwidth_bytes", n => { TotalBandwidthBytes = n.GetLongValue(); } },
+                { "total_requests", n => { TotalRequests = n.GetLongValue(); } },
+                { "unique_visitors", n => { UniqueVisitors = n.GetLongValue(); } },
+                { "video_bandwidth_bytes", n => { VideoBandwidthBytes = n.GetLongValue(); } },
+                { "video_requests", n => { VideoRequests = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -137,16 +95,16 @@ namespace Rixl.Sdk.Models.Billing.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
             writer.WriteStringValue("data_source", DataSource);
-            writer.WriteObjectValue<UntypedNode>("image_bandwidth_bytes", ImageBandwidthBytes);
-            writer.WriteObjectValue<UntypedNode>("image_requests", ImageRequests);
+            writer.WriteLongValue("image_bandwidth_bytes", ImageBandwidthBytes);
+            writer.WriteLongValue("image_requests", ImageRequests);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteDateTimeOffsetValue("snapshot_date", SnapshotDate);
             writer.WriteStringValue("snapshot_type", SnapshotType);
-            writer.WriteObjectValue<UntypedNode>("total_bandwidth_bytes", TotalBandwidthBytes);
-            writer.WriteObjectValue<UntypedNode>("total_requests", TotalRequests);
-            writer.WriteObjectValue<UntypedNode>("unique_visitors", UniqueVisitors);
-            writer.WriteObjectValue<UntypedNode>("video_bandwidth_bytes", VideoBandwidthBytes);
-            writer.WriteObjectValue<UntypedNode>("video_requests", VideoRequests);
+            writer.WriteLongValue("total_bandwidth_bytes", TotalBandwidthBytes);
+            writer.WriteLongValue("total_requests", TotalRequests);
+            writer.WriteLongValue("unique_visitors", UniqueVisitors);
+            writer.WriteLongValue("video_bandwidth_bytes", VideoBandwidthBytes);
+            writer.WriteLongValue("video_requests", VideoRequests);
         }
     }
 }

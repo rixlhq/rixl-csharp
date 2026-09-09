@@ -47,13 +47,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string Label { get; set; }
 #endif
         /// <summary>The views property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public UntypedNode? Views { get; set; }
-#nullable restore
-#else
-        public UntypedNode Views { get; set; }
-#endif
+        public long? Views { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -77,7 +71,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
-                { "views", n => { Views = n.GetObjectValue<UntypedNode>(UntypedNode.CreateFromDiscriminatorValue); } },
+                { "views", n => { Views = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -92,7 +86,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("kind", Kind);
             writer.WriteStringValue("label", Label);
-            writer.WriteObjectValue<UntypedNode>("views", Views);
+            writer.WriteLongValue("views", Views);
         }
     }
 }

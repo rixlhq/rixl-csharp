@@ -87,12 +87,16 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent
         {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("payment_intent_id")]
             public string? PaymentIntentId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("payment_intent_id")]
             public string PaymentIntentId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

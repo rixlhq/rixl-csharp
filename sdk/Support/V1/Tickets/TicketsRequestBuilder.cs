@@ -146,8 +146,10 @@ namespace Rixl.Sdk.Support.V1.Tickets
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public global::Rixl.Sdk.Models.Support.V1.TicketStatus? Status { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }
