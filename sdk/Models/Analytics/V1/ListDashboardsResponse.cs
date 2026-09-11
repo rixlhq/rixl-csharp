@@ -25,7 +25,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>The page_size property</summary>
         public int? PageSize { get; set; }
         /// <summary>The total property</summary>
-        public long? Total { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Total { get; set; }
+#nullable restore
+#else
+        public string Total { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,7 +53,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "dashboards", n => { Dashboards = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "page", n => { Page = n.GetIntValue(); } },
                 { "page_size", n => { PageSize = n.GetIntValue(); } },
-                { "total", n => { Total = n.GetLongValue(); } },
+                { "total", n => { Total = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,7 +66,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>("dashboards", Dashboards);
             writer.WriteIntValue("page", Page);
             writer.WriteIntValue("page_size", PageSize);
-            writer.WriteLongValue("total", Total);
+            writer.WriteStringValue("total", Total);
         }
     }
 }

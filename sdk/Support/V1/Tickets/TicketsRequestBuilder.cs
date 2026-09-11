@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Support.V1.Tickets
     public partial class TicketsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.support.v1.tickets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The ticket_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Tickets.Item.WithTicket_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Support.V1.Tickets.Item.WithTicket_ItemRequestBuilder this[string position]
         {
@@ -146,10 +146,16 @@ namespace Rixl.Sdk.Support.V1.Tickets
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
-            #pragma warning disable CS1591
+            /// <summary>The status query parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
             [QueryParameter("status")]
-            public global::Rixl.Sdk.Models.Support.V1.TicketStatus? Status { get; set; }
-            #pragma warning restore CS1591
+            public string? Status { get; set; }
+#nullable restore
+#else
+            [QueryParameter("status")]
+            public string Status { get; set; }
+#endif
         }
     }
 }

@@ -18,7 +18,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>The completion_rate property</summary>
         public double? CompletionRate { get; set; }
         /// <summary>The completions property</summary>
-        public long? Completions { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Completions { get; set; }
+#nullable restore
+#else
+        public string Completions { get; set; }
+#endif
         /// <summary>The content_type property</summary>
         public global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType? ContentType { get; set; }
         /// <summary>The feed_id property</summary>
@@ -38,13 +44,37 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string PostId { get; set; }
 #endif
         /// <summary>The starts property</summary>
-        public long? Starts { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Starts { get; set; }
+#nullable restore
+#else
+        public string Starts { get; set; }
+#endif
         /// <summary>The total_views property</summary>
-        public long? TotalViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotalViews { get; set; }
+#nullable restore
+#else
+        public string TotalViews { get; set; }
+#endif
         /// <summary>The total_watch_time_ms property</summary>
-        public long? TotalWatchTimeMs { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotalWatchTimeMs { get; set; }
+#nullable restore
+#else
+        public string TotalWatchTimeMs { get; set; }
+#endif
         /// <summary>The unique_viewers property</summary>
-        public long? UniqueViewers { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueViewers { get; set; }
+#nullable restore
+#else
+        public string UniqueViewers { get; set; }
+#endif
         /// <summary>The views_by_page property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -73,14 +103,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "avg_watch_time_ms", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
                 { "completion_rate", n => { CompletionRate = n.GetDoubleValue(); } },
-                { "completions", n => { Completions = n.GetLongValue(); } },
+                { "completions", n => { Completions = n.GetStringValue(); } },
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>(); } },
                 { "feed_id", n => { FeedId = n.GetStringValue(); } },
                 { "post_id", n => { PostId = n.GetStringValue(); } },
-                { "starts", n => { Starts = n.GetLongValue(); } },
-                { "total_views", n => { TotalViews = n.GetLongValue(); } },
-                { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetLongValue(); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
+                { "starts", n => { Starts = n.GetStringValue(); } },
+                { "total_views", n => { TotalViews = n.GetStringValue(); } },
+                { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetStringValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetStringValue(); } },
                 { "views_by_page", n => { ViewsByPage = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page>(global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page.CreateFromDiscriminatorValue); } },
             };
         }
@@ -93,14 +123,14 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("avg_watch_time_ms", AvgWatchTimeMs);
             writer.WriteDoubleValue("completion_rate", CompletionRate);
-            writer.WriteLongValue("completions", Completions);
+            writer.WriteStringValue("completions", Completions);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType>("content_type", ContentType);
             writer.WriteStringValue("feed_id", FeedId);
             writer.WriteStringValue("post_id", PostId);
-            writer.WriteLongValue("starts", Starts);
-            writer.WriteLongValue("total_views", TotalViews);
-            writer.WriteLongValue("total_watch_time_ms", TotalWatchTimeMs);
-            writer.WriteLongValue("unique_viewers", UniqueViewers);
+            writer.WriteStringValue("starts", Starts);
+            writer.WriteStringValue("total_views", TotalViews);
+            writer.WriteStringValue("total_watch_time_ms", TotalWatchTimeMs);
+            writer.WriteStringValue("unique_viewers", UniqueViewers);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.PostStats_views_by_page>("views_by_page", ViewsByPage);
         }
     }

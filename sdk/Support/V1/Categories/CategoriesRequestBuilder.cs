@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Support.V1.Categories
     public partial class CategoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.support.v1.categories.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The category_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Categories.Item.WithCategory_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Support.V1.Categories.Item.WithCategory_ItemRequestBuilder this[string position]
         {

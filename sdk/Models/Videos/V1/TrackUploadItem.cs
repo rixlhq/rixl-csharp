@@ -45,7 +45,13 @@ namespace Rixl.Sdk.Models.Videos.V1
         public string LanguageCode { get; set; }
 #endif
         /// <summary>The size property</summary>
-        public long? Size { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Size { get; set; }
+#nullable restore
+#else
+        public string Size { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -68,7 +74,7 @@ namespace Rixl.Sdk.Models.Videos.V1
                 { "format", n => { Format = n.GetStringValue(); } },
                 { "label", n => { Label = n.GetStringValue(); } },
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetLongValue(); } },
+                { "size", n => { Size = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -82,7 +88,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             writer.WriteStringValue("format", Format);
             writer.WriteStringValue("label", Label);
             writer.WriteStringValue("language_code", LanguageCode);
-            writer.WriteLongValue("size", Size);
+            writer.WriteStringValue("size", Size);
         }
     }
 }

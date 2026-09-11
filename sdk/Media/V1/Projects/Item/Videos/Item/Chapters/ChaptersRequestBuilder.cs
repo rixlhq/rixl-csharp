@@ -19,9 +19,9 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
     public partial class ChaptersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.chapters.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The start_time_sec path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder this[long position]
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder this[string position]
         {
             get
             {
@@ -177,22 +177,18 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChaptersRequestBuilderDeleteQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The chapters.start_time_sec query parameter.</summary>
             [QueryParameter("chapters%2Estart_time_sec")]
             public double? ChaptersStartTimeSec { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>The chapters.title query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string? ChaptersTitle { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string ChaptersTitle { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

@@ -33,7 +33,13 @@ namespace Rixl.Sdk.Models.Videos.V1
         public string SortField { get; set; }
 #endif
         /// <summary>The total property</summary>
-        public long? Total { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Total { get; set; }
+#nullable restore
+#else
+        public string Total { get; set; }
+#endif
         /// <summary>The videos property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +70,7 @@ namespace Rixl.Sdk.Models.Videos.V1
                 { "offset", n => { Offset = n.GetIntValue(); } },
                 { "sort_direction", n => { SortDirection = n.GetStringValue(); } },
                 { "sort_field", n => { SortField = n.GetStringValue(); } },
-                { "total", n => { Total = n.GetLongValue(); } },
+                { "total", n => { Total = n.GetStringValue(); } },
                 { "videos", n => { Videos = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Video>(global::Rixl.Sdk.Models.Videos.V1.Video.CreateFromDiscriminatorValue)?.AsList(); } },
             };
         }
@@ -79,7 +85,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             writer.WriteIntValue("offset", Offset);
             writer.WriteStringValue("sort_direction", SortDirection);
             writer.WriteStringValue("sort_field", SortField);
-            writer.WriteLongValue("total", Total);
+            writer.WriteStringValue("total", Total);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.Video>("videos", Videos);
         }
     }

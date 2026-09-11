@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Active.ActiveRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The org_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Org_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Org_ItemRequestBuilder this[string position]
         {
@@ -104,30 +104,31 @@ namespace Rixl.Sdk.Auth.V1.Memberships
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembershipsRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The limit query parameter.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
+            /// <summary>The offset query parameter.</summary>
             [QueryParameter("offset")]
             public int? Offset { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
-            [QueryParameter("state")]
-            public global::Rixl.Sdk.Models.Auth.V1.MembershipState? State { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>The state query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string? UserUserId { get; set; }
-            #pragma warning restore CS1591
+            [QueryParameter("state")]
+            public string? State { get; set; }
 #nullable restore
 #else
-            #pragma warning disable CS1591
+            [QueryParameter("state")]
+            public string State { get; set; }
+#endif
+            /// <summary>The user.user_id query parameter.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            [QueryParameter("user%2Euser_id")]
+            public string? UserUserId { get; set; }
+#nullable restore
+#else
             [QueryParameter("user%2Euser_id")]
             public string UserUserId { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

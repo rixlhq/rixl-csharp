@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
     public partial class MembersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.members.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The user_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder this[string position]
         {
@@ -98,14 +98,12 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The limit query parameter.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
+            /// <summary>The offset query parameter.</summary>
             [QueryParameter("offset")]
             public int? Offset { get; set; }
-            #pragma warning restore CS1591
         }
     }
 }

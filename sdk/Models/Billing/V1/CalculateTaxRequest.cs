@@ -33,7 +33,13 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string Currency { get; set; }
 #endif
         /// <summary>The interval_count property</summary>
-        public long? IntervalCount { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? IntervalCount { get; set; }
+#nullable restore
+#else
+        public string IntervalCount { get; set; }
+#endif
         /// <summary>The line_items property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -96,7 +102,7 @@ namespace Rixl.Sdk.Models.Billing.V1
                 { "billing_address", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
                 { "billing_cycle", n => { BillingCycle = n.GetEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "interval_count", n => { IntervalCount = n.GetLongValue(); } },
+                { "interval_count", n => { IntervalCount = n.GetStringValue(); } },
                 { "line_items", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "metadata", n => { Metadata = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata>(global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata.CreateFromDiscriminatorValue); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
@@ -115,7 +121,7 @@ namespace Rixl.Sdk.Models.Billing.V1
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billing_address", BillingAddress);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Billing.V1.BillingCycle>("billing_cycle", BillingCycle);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteLongValue("interval_count", IntervalCount);
+            writer.WriteStringValue("interval_count", IntervalCount);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("line_items", LineItems);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.CalculateTaxRequest_metadata>("metadata", Metadata);
             writer.WriteStringValue("org_id", OrgId);
