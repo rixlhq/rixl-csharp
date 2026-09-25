@@ -21,9 +21,21 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string Timestamp { get; set; }
 #endif
         /// <summary>The unique_users property</summary>
-        public long? UniqueUsers { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueUsers { get; set; }
+#nullable restore
+#else
+        public string UniqueUsers { get; set; }
+#endif
         /// <summary>The views property</summary>
-        public long? Views { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Views { get; set; }
+#nullable restore
+#else
+        public string Views { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,8 +55,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "timestamp", n => { Timestamp = n.GetStringValue(); } },
-                { "unique_users", n => { UniqueUsers = n.GetLongValue(); } },
-                { "views", n => { Views = n.GetLongValue(); } },
+                { "unique_users", n => { UniqueUsers = n.GetStringValue(); } },
+                { "views", n => { Views = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -55,8 +67,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("timestamp", Timestamp);
-            writer.WriteLongValue("unique_users", UniqueUsers);
-            writer.WriteLongValue("views", Views);
+            writer.WriteStringValue("unique_users", UniqueUsers);
+            writer.WriteStringValue("views", Views);
         }
     }
 }

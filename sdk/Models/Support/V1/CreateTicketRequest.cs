@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Support.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The priority property</summary>
+        /// <summary>enum.defined_only = true</summary>
         public global::Rixl.Sdk.Models.Support.V1.TicketPriority? Priority { get; set; }
         /// <summary>The project_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

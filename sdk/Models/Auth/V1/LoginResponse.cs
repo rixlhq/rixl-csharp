@@ -37,7 +37,13 @@ namespace Rixl.Sdk.Models.Auth.V1
         public string Email { get; set; }
 #endif
         /// <summary>The expires_in property</summary>
-        public long? ExpiresIn { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ExpiresIn { get; set; }
+#nullable restore
+#else
+        public string ExpiresIn { get; set; }
+#endif
         /// <summary>passkey_options is the WebAuthn PublicKeyCredentialRequestOptions as JSON, present only when &quot;passkey&quot; is one of the authentication methods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -107,7 +113,7 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
                 { "authentication", n => { Authentication = n.GetCollectionOfEnumValues<global::Rixl.Sdk.Models.Auth.V1.AuthMethod>()?.AsList(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
-                { "expires_in", n => { ExpiresIn = n.GetLongValue(); } },
+                { "expires_in", n => { ExpiresIn = n.GetStringValue(); } },
                 { "passkey_options", n => { PasskeyOptions = n.GetByteArrayValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
@@ -126,7 +132,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteStringValue("access_token", AccessToken);
             writer.WriteCollectionOfEnumValues<global::Rixl.Sdk.Models.Auth.V1.AuthMethod>("authentication", Authentication);
             writer.WriteStringValue("email", Email);
-            writer.WriteLongValue("expires_in", ExpiresIn);
+            writer.WriteStringValue("expires_in", ExpiresIn);
             writer.WriteByteArrayValue("passkey_options", PasskeyOptions);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("requires_action", RequiresAction);

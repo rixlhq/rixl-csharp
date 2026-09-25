@@ -21,7 +21,13 @@ namespace Rixl.Sdk.Models.Feeds.V1
         public List<global::Rixl.Sdk.Models.Feeds.V1.Feed> Feeds { get; set; }
 #endif
         /// <summary>The total property</summary>
-        public long? Total { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Total { get; set; }
+#nullable restore
+#else
+        public string Total { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +47,7 @@ namespace Rixl.Sdk.Models.Feeds.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "feeds", n => { Feeds = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Feeds.V1.Feed>(global::Rixl.Sdk.Models.Feeds.V1.Feed.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "total", n => { Total = n.GetLongValue(); } },
+                { "total", n => { Total = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +58,7 @@ namespace Rixl.Sdk.Models.Feeds.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Feeds.V1.Feed>("feeds", Feeds);
-            writer.WriteLongValue("total", Total);
+            writer.WriteStringValue("total", Total);
         }
     }
 }

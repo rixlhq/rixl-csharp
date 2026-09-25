@@ -2,7 +2,6 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -15,14 +14,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
     {
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
-        /// <summary>The user property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest? User { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest User { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -42,7 +33,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -53,7 +43,6 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain.AutoJoin
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
         }
     }
 }

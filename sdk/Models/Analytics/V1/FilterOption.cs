@@ -13,7 +13,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
     #pragma warning restore CS1591
     {
         /// <summary>The count property</summary>
-        public long? Count { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Count { get; set; }
+#nullable restore
+#else
+        public string Count { get; set; }
+#endif
         /// <summary>The value property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -40,7 +46,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "count", n => { Count = n.GetLongValue(); } },
+                { "count", n => { Count = n.GetStringValue(); } },
                 { "value", n => { Value = n.GetStringValue(); } },
             };
         }
@@ -51,7 +57,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("count", Count);
+            writer.WriteStringValue("count", Count);
             writer.WriteStringValue("value", Value);
         }
     }

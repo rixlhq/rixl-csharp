@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
     public partial class UploadPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The content_type property</summary>
+        /// <summary>enum.defined_only = true</summary>
         public global::Rixl.Sdk.Models.Common.V1.MediaType? ContentType { get; set; }
         /// <summary>The creator_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -31,14 +31,6 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The feed_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? FeedId { get; set; }
-#nullable restore
-#else
-        public string FeedId { get; set; }
-#endif
         /// <summary>The file_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -54,14 +46,6 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
 #nullable restore
 #else
         public string OrgId { get; set; }
-#endif
-        /// <summary>The project_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProjectId { get; set; }
-#nullable restore
-#else
-        public string ProjectId { get; set; }
 #endif
         /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }
@@ -86,10 +70,8 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
                 { "content_type", n => { ContentType = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>(); } },
                 { "creator_id", n => { CreatorId = n.GetStringValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "feed_id", n => { FeedId = n.GetStringValue(); } },
                 { "file_name", n => { FileName = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "video_quality", n => { VideoQuality = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>(); } },
             };
         }
@@ -103,10 +85,8 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>("content_type", ContentType);
             writer.WriteStringValue("creator_id", CreatorId);
             writer.WriteStringValue("description", Description);
-            writer.WriteStringValue("feed_id", FeedId);
             writer.WriteStringValue("file_name", FileName);
             writer.WriteStringValue("org_id", OrgId);
-            writer.WriteStringValue("project_id", ProjectId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.VideoQuality>("video_quality", VideoQuality);
         }
     }

@@ -13,7 +13,13 @@ namespace Rixl.Sdk.Models.Billing.V1
     #pragma warning restore CS1591
     {
         /// <summary>The amount property</summary>
-        public long? Amount { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Amount { get; set; }
+#nullable restore
+#else
+        public string Amount { get; set; }
+#endif
         /// <summary>The billing_address property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,7 +70,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount", n => { Amount = n.GetLongValue(); } },
+                { "amount", n => { Amount = n.GetStringValue(); } },
                 { "billing_address", n => { BillingAddress = n.GetObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>(global::Rixl.Sdk.Models.Billing.V1.BillingAddress.CreateFromDiscriminatorValue); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
                 { "line_items", n => { LineItems = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>(global::Rixl.Sdk.Models.Billing.V1.TaxLineItem.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -78,7 +84,7 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteLongValue("amount", Amount);
+            writer.WriteStringValue("amount", Amount);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Billing.V1.BillingAddress>("billing_address", BillingAddress);
             writer.WriteStringValue("currency", Currency);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Billing.V1.TaxLineItem>("line_items", LineItems);

@@ -85,18 +85,15 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WithPost_ItemRequestBuilderGetQueryParameters 
         {
+            /// <summary>The project_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("project_id")]
             public string? ProjectId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("project_id")]
             public string ProjectId { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

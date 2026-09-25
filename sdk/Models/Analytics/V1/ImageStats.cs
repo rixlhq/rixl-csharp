@@ -15,7 +15,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>Dwell time; images have no playback.</summary>
         public double? AvgViewDurationMs { get; set; }
         /// <summary>The feed_views property</summary>
-        public long? FeedViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FeedViews { get; set; }
+#nullable restore
+#else
+        public string FeedViews { get; set; }
+#endif
         /// <summary>The image_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -25,13 +31,31 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string ImageId { get; set; }
 #endif
         /// <summary>The standalone_views property</summary>
-        public long? StandaloneViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StandaloneViews { get; set; }
+#nullable restore
+#else
+        public string StandaloneViews { get; set; }
+#endif
         /// <summary>The total_view_duration_ms property</summary>
         public double? TotalViewDurationMs { get; set; }
         /// <summary>The total_views property</summary>
-        public long? TotalViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotalViews { get; set; }
+#nullable restore
+#else
+        public string TotalViews { get; set; }
+#endif
         /// <summary>The unique_viewers property</summary>
-        public long? UniqueViewers { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueViewers { get; set; }
+#nullable restore
+#else
+        public string UniqueViewers { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -51,12 +75,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "avg_view_duration_ms", n => { AvgViewDurationMs = n.GetDoubleValue(); } },
-                { "feed_views", n => { FeedViews = n.GetLongValue(); } },
+                { "feed_views", n => { FeedViews = n.GetStringValue(); } },
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
-                { "standalone_views", n => { StandaloneViews = n.GetLongValue(); } },
+                { "standalone_views", n => { StandaloneViews = n.GetStringValue(); } },
                 { "total_view_duration_ms", n => { TotalViewDurationMs = n.GetDoubleValue(); } },
-                { "total_views", n => { TotalViews = n.GetLongValue(); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
+                { "total_views", n => { TotalViews = n.GetStringValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -67,12 +91,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("avg_view_duration_ms", AvgViewDurationMs);
-            writer.WriteLongValue("feed_views", FeedViews);
+            writer.WriteStringValue("feed_views", FeedViews);
             writer.WriteStringValue("image_id", ImageId);
-            writer.WriteLongValue("standalone_views", StandaloneViews);
+            writer.WriteStringValue("standalone_views", StandaloneViews);
             writer.WriteDoubleValue("total_view_duration_ms", TotalViewDurationMs);
-            writer.WriteLongValue("total_views", TotalViews);
-            writer.WriteLongValue("unique_viewers", UniqueViewers);
+            writer.WriteStringValue("total_views", TotalViews);
+            writer.WriteStringValue("unique_viewers", UniqueViewers);
         }
     }
 }
