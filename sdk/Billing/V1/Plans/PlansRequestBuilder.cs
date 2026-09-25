@@ -98,35 +98,44 @@ namespace Rixl.Sdk.Billing.V1.Plans
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PlansRequestBuilderGetQueryParameters 
         {
-            /// <summary>The currency query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("currency")]
             public string? Currency { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("currency")]
             public string Currency { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The free query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("free")]
             public string? Free { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("free")]
             public string Free { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The interval query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string? Interval { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string Interval { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

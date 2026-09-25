@@ -2,6 +2,7 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -36,6 +37,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
 #else
         public List<string> Permissions { get; set; }
 #endif
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest User { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,6 +66,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>(global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,6 +79,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserOrgRequest>("user", User);
         }
     }
 }

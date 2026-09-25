@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register.RegisterRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.users.current.passkeys.item collection</summary>
-        /// <param name="position">The id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder this[string position]
         {
@@ -104,15 +104,18 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PasskeysRequestBuilderGetQueryParameters 
         {
-            /// <summary>The user_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string? UserId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string UserId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

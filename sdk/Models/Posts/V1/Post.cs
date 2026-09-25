@@ -7,28 +7,11 @@ using System.IO;
 using System;
 namespace Rixl.Sdk.Models.Posts.V1
 {
-    /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember1"/>, <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember2"/>
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Post : IComposedTypeWrapper, IParsable
+    #pragma warning disable CS1591
+    public partial class Post : IParsable
+    #pragma warning restore CS1591
     {
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember1? PostMember1 { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember1 PostMember1 { get; set; }
-#endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember2? PostMember2 { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember2 PostMember2 { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -37,10 +20,7 @@ namespace Rixl.Sdk.Models.Posts.V1
         public static global::Rixl.Sdk.Models.Posts.V1.Post CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Rixl.Sdk.Models.Posts.V1.Post();
-            result.PostMember1 = new global::Rixl.Sdk.Models.Posts.V1.PostMember1();
-            result.PostMember2 = new global::Rixl.Sdk.Models.Posts.V1.PostMember2();
-            return result;
+            return new global::Rixl.Sdk.Models.Posts.V1.Post();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +28,9 @@ namespace Rixl.Sdk.Models.Posts.V1
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PostMember1 != null || PostMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostMember1, PostMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +39,6 @@ namespace Rixl.Sdk.Models.Posts.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Posts.V1.PostMember1>(null, PostMember1, PostMember2);
         }
     }
 }

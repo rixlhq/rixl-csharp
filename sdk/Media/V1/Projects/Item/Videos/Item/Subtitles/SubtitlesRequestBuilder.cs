@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.subtitles.item collection</summary>
-        /// <param name="position">The subtitle_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitle_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Subtitles.Item.WithSubtitle_ItemRequestBuilder this[string position]
         {

@@ -24,6 +24,14 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds.Item
 #else
         public string Description { get; set; }
 #endif
+        /// <summary>The feed_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FeedId { get; set; }
+#nullable restore
+#else
+        public string FeedId { get; set; }
+#endif
         /// <summary>The has_comments property</summary>
         public bool? HasComments { get; set; }
         /// <summary>The has_likes property</summary>
@@ -37,6 +45,14 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds.Item
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>The project_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ProjectId { get; set; }
+#nullable restore
+#else
+        public string ProjectId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -59,10 +75,12 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds.Item
                 { "allow_images", n => { AllowImages = n.GetBoolValue(); } },
                 { "allow_videos", n => { AllowVideos = n.GetBoolValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
+                { "feed_id", n => { FeedId = n.GetStringValue(); } },
                 { "has_comments", n => { HasComments = n.GetBoolValue(); } },
                 { "has_likes", n => { HasLikes = n.GetBoolValue(); } },
                 { "has_shares", n => { HasShares = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "project_id", n => { ProjectId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -75,10 +93,12 @@ namespace Rixl.Sdk.Feeds.V1.Projects.Item.Feeds.Item
             writer.WriteBoolValue("allow_images", AllowImages);
             writer.WriteBoolValue("allow_videos", AllowVideos);
             writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("feed_id", FeedId);
             writer.WriteBoolValue("has_comments", HasComments);
             writer.WriteBoolValue("has_likes", HasLikes);
             writer.WriteBoolValue("has_shares", HasShares);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("project_id", ProjectId);
         }
     }
 }

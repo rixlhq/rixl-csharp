@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Language
     public partial class LanguageRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.audioTracks.language.item collection</summary>
-        /// <param name="position">The language_code path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Language.Item.WithLanguage_codeItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Language.Item.WithLanguage_codeItemRequestBuilder this[string position]
         {
