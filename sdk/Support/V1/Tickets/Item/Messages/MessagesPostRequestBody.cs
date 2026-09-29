@@ -20,6 +20,14 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Messages
 #else
         public string Body { get; set; }
 #endif
+        /// <summary>The ticket_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TicketId { get; set; }
+#nullable restore
+#else
+        public string TicketId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Messages
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "body", n => { Body = n.GetStringValue(); } },
+                { "ticket_id", n => { TicketId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Messages
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("body", Body);
+            writer.WriteStringValue("ticket_id", TicketId);
         }
     }
 }

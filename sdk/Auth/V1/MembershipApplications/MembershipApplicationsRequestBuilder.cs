@@ -85,31 +85,30 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembershipApplicationsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The limit query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>The offset query parameter.</summary>
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("offset")]
             public int? Offset { get; set; }
-            /// <summary>The state query parameter.</summary>
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
+            [QueryParameter("state")]
+            public global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState? State { get; set; }
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            [QueryParameter("state")]
-            public string? State { get; set; }
-#nullable restore
-#else
-            [QueryParameter("state")]
-            public string State { get; set; }
-#endif
-            /// <summary>The user.user_id query parameter.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("user%2Euser_id")]
             public string? UserUserId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("user%2Euser_id")]
             public string UserUserId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

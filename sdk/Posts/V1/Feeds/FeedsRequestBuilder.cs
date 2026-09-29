@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds
     public partial class FeedsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.feeds.item collection</summary>
-        /// <param name="position">The feed_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeed_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Posts.V1.Feeds.Item.WithFeed_ItemRequestBuilder this[string position]
         {

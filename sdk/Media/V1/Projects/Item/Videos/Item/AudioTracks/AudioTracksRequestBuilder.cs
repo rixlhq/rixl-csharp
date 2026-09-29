@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.audioTracks.item collection</summary>
-        /// <param name="position">The track_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder this[string position]
         {

@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators
     public partial class CreatorsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.feeds.item.posts.creators.item collection</summary>
-        /// <param name="position">The creator_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreator_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators.Item.WithCreator_ItemRequestBuilder this[string position]
         {

@@ -21,13 +21,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public List<double?> Data { get; set; }
 #endif
         /// <summary>The total_duration_ms property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TotalDurationMs { get; set; }
-#nullable restore
-#else
-        public string TotalDurationMs { get; set; }
-#endif
+        public long? TotalDurationMs { get; set; }
         /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -55,7 +49,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "data", n => { Data = n.GetCollectionOfPrimitiveValues<double?>()?.AsList(); } },
-                { "total_duration_ms", n => { TotalDurationMs = n.GetStringValue(); } },
+                { "total_duration_ms", n => { TotalDurationMs = n.GetLongValue(); } },
                 { "video_id", n => { VideoId = n.GetStringValue(); } },
             };
         }
@@ -67,7 +61,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfPrimitiveValues<double?>("data", Data);
-            writer.WriteStringValue("total_duration_ms", TotalDurationMs);
+            writer.WriteLongValue("total_duration_ms", TotalDurationMs);
             writer.WriteStringValue("video_id", VideoId);
         }
     }

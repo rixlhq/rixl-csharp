@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
     public partial class V1RequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.organizations.item.apiKeys.v1.item collection</summary>
-        /// <param name="position">The key_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item.WithKey_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item.WithKey_ItemRequestBuilder this[string position]
         {
