@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Posts
     public partial class PostsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.posts.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The post_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item.WithPost_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Posts.V1.Projects.Item.Posts.Item.WithPost_ItemRequestBuilder this[string position]
         {

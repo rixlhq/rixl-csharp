@@ -21,7 +21,13 @@ namespace Rixl.Sdk.Models.Videos.V1
         public string FileId { get; set; }
 #endif
         /// <summary>The size property</summary>
-        public long? Size { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Size { get; set; }
+#nullable restore
+#else
+        public string Size { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +47,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "file_id", n => { FileId = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetLongValue(); } },
+                { "size", n => { Size = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -52,7 +58,7 @@ namespace Rixl.Sdk.Models.Videos.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("file_id", FileId);
-            writer.WriteLongValue("size", Size);
+            writer.WriteStringValue("size", Size);
         }
     }
 }

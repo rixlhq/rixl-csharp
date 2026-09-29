@@ -25,7 +25,13 @@ namespace Rixl.Sdk.Models.Posts.V1
         public List<global::Rixl.Sdk.Models.Posts.V1.Post> Posts { get; set; }
 #endif
         /// <summary>The total property</summary>
-        public long? Total { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Total { get; set; }
+#nullable restore
+#else
+        public string Total { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -47,7 +53,7 @@ namespace Rixl.Sdk.Models.Posts.V1
                 { "limit", n => { Limit = n.GetIntValue(); } },
                 { "offset", n => { Offset = n.GetIntValue(); } },
                 { "posts", n => { Posts = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Posts.V1.Post>(global::Rixl.Sdk.Models.Posts.V1.Post.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "total", n => { Total = n.GetLongValue(); } },
+                { "total", n => { Total = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -60,7 +66,7 @@ namespace Rixl.Sdk.Models.Posts.V1
             writer.WriteIntValue("limit", Limit);
             writer.WriteIntValue("offset", Offset);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Posts.V1.Post>("posts", Posts);
-            writer.WriteLongValue("total", Total);
+            writer.WriteStringValue("total", Total);
         }
     }
 }

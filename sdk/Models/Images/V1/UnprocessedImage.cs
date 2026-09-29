@@ -54,7 +54,13 @@ namespace Rixl.Sdk.Models.Images.V1
         public string S3Path { get; set; }
 #endif
         /// <summary>The size property</summary>
-        public long? Size { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Size { get; set; }
+#nullable restore
+#else
+        public string Size { get; set; }
+#endif
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Common.V1.FileStatus? Status { get; set; }
         /// <summary>
@@ -80,7 +86,7 @@ namespace Rixl.Sdk.Models.Images.V1
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "project_id", n => { ProjectId = n.GetStringValue(); } },
                 { "s3_path", n => { S3Path = n.GetStringValue(); } },
-                { "size", n => { Size = n.GetLongValue(); } },
+                { "size", n => { Size = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.FileStatus>(); } },
             };
         }
@@ -96,7 +102,7 @@ namespace Rixl.Sdk.Models.Images.V1
             writer.WriteStringValue("name", Name);
             writer.WriteStringValue("project_id", ProjectId);
             writer.WriteStringValue("s3_path", S3Path);
-            writer.WriteLongValue("size", Size);
+            writer.WriteStringValue("size", Size);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.FileStatus>("status", Status);
         }
     }

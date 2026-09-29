@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets
     public partial class WidgetsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.analytics.v1.dashboards.widgets.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsItemRequestBuilder this[string position]
         {

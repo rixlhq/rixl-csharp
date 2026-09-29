@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments
     public partial class AttachmentsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.policies.attachments.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The attachment_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.Item.WithAttachment_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Attachments.Item.WithAttachment_ItemRequestBuilder this[string position]
         {

@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Billing.V1.Invoices
     public partial class InvoicesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.billing.v1.invoices.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The invoice_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoice_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Billing.V1.Invoices.Item.WithInvoice_ItemRequestBuilder this[string position]
         {
@@ -98,18 +98,15 @@ namespace Rixl.Sdk.Billing.V1.Invoices
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class InvoicesRequestBuilderGetQueryParameters 
         {
+            /// <summary>The org_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string? OrgId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
-            #pragma warning restore CS1591
 #endif
             /// <summary>Maximum number of items to return.</summary>
             [QueryParameter("pagination%2Elimit")]

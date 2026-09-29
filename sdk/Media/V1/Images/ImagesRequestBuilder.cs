@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Media.V1.Images
     public partial class ImagesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.images.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The image_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Images.Item.WithImage_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Images.Item.WithImage_ItemRequestBuilder this[string position]
         {

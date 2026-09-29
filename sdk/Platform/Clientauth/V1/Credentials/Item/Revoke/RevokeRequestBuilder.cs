@@ -85,18 +85,15 @@ namespace Rixl.Sdk.Platform.Clientauth.V1.Credentials.Item.Revoke
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class RevokeRequestBuilderPostQueryParameters 
         {
+            /// <summary>The org_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string? OrgId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

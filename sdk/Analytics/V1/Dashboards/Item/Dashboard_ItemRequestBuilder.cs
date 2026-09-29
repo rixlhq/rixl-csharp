@@ -189,10 +189,9 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Dashboard_ItemRequestBuilderDeleteQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The expected_revision query parameter.</summary>
             [QueryParameter("expected_revision")]
             public int? ExpectedRevision { get; set; }
-            #pragma warning restore CS1591
         }
     }
 }

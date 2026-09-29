@@ -29,22 +29,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The project_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ProjectId { get; set; }
-#nullable restore
-#else
-        public string ProjectId { get; set; }
-#endif
-        /// <summary>The video_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? VideoId { get; set; }
-#nullable restore
-#else
-        public string VideoId { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,8 +49,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload
             {
                 { "items", n => { Items = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.TrackUploadItem>(global::Rixl.Sdk.Models.Videos.V1.TrackUploadItem.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "project_id", n => { ProjectId = n.GetStringValue(); } },
-                { "video_id", n => { VideoId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -78,8 +60,6 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Videos.V1.TrackUploadItem>("items", Items);
             writer.WriteStringValue("org_id", OrgId);
-            writer.WriteStringValue("project_id", ProjectId);
-            writer.WriteStringValue("video_id", VideoId);
         }
     }
 }

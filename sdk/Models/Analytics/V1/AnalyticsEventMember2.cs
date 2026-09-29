@@ -5,30 +5,39 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
+namespace Rixl.Sdk.Models.Analytics.V1
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class ClosePostRequestBody : IParsable
+    public partial class AnalyticsEventMember2 : IAdditionalDataHolder, IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The ticket_id property</summary>
+        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+        public IDictionary<string, object> AdditionalData { get; set; }
+        /// <summary>The engagement property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? TicketId { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent? Engagement { get; set; }
 #nullable restore
 #else
-        public string TicketId { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent Engagement { get; set; }
 #endif
+        /// <summary>
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/> and sets the default values.
+        /// </summary>
+        public AnalyticsEventMember2()
+        {
+            AdditionalData = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Support.V1.Tickets.Item.Close.ClosePostRequestBody();
+            return new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -38,7 +47,7 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "ticket_id", n => { TicketId = n.GetStringValue(); } },
+                { "engagement", n => { Engagement = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent>(global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -48,7 +57,8 @@ namespace Rixl.Sdk.Support.V1.Tickets.Item.Close
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("ticket_id", TicketId);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent>("engagement", Engagement);
+            writer.WriteAdditionalData(AdditionalData);
         }
     }
 }

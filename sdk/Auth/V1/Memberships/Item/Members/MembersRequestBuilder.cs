@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
     public partial class MembersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.members.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The user_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder this[string position]
         {
@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*,user%2Euser_id*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*}", pathParameters)
         {
         }
         /// <summary>
@@ -43,7 +43,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*,user%2Euser_id*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members{?limit*,offset*}", rawUrl)
         {
         }
         /// <summary>
@@ -98,27 +98,12 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class MembersRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The limit query parameter.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
+            /// <summary>The offset query parameter.</summary>
             [QueryParameter("offset")]
             public int? Offset { get; set; }
-            #pragma warning restore CS1591
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string? UserUserId { get; set; }
-            #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string UserUserId { get; set; }
-            #pragma warning restore CS1591
-#endif
         }
     }
 }
