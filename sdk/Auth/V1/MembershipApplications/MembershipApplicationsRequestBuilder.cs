@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.MembershipApplications.Item;
 using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,18 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembershipApplicationsRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>Gets an item from the Rixl.Sdk.auth.v1.membershipApplications.item collection</summary>
+        /// <param name="position">The org_id path parameter.</param>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.MembershipApplications.Item.WithOrg_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Auth.V1.MembershipApplications.Item.WithOrg_ItemRequestBuilder this[string position]
+        {
+            get
+            {
+                var urlTplParams = new Dictionary<string, object>(PathParameters);
+                urlTplParams.Add("org_id", position);
+                return new global::Rixl.Sdk.Auth.V1.MembershipApplications.Item.WithOrg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+            }
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.MembershipApplications.MembershipApplicationsRequestBuilder"/> and sets the default values.
         /// </summary>
