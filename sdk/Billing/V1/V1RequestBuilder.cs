@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.Address;
 using Rixl.Sdk.Billing.V1.BandwidthUsage;
 using Rixl.Sdk.Billing.V1.Checkout;
+using Rixl.Sdk.Billing.V1.Config;
 using Rixl.Sdk.Billing.V1.ContactSales;
 using Rixl.Sdk.Billing.V1.Invoices;
 using Rixl.Sdk.Billing.V1.PaymentMethods;
@@ -39,6 +40,11 @@ namespace Rixl.Sdk.Billing.V1
         public global::Rixl.Sdk.Billing.V1.Checkout.CheckoutRequestBuilder Checkout
         {
             get => new global::Rixl.Sdk.Billing.V1.Checkout.CheckoutRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The config property</summary>
+        public global::Rixl.Sdk.Billing.V1.Config.ConfigRequestBuilder Config
+        {
+            get => new global::Rixl.Sdk.Billing.V1.Config.ConfigRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The contactSales property</summary>
         public global::Rixl.Sdk.Billing.V1.ContactSales.ContactSalesRequestBuilder ContactSales
