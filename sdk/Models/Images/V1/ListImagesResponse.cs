@@ -41,7 +41,13 @@ namespace Rixl.Sdk.Models.Images.V1
         public string SortField { get; set; }
 #endif
         /// <summary>The total property</summary>
-        public long? Total { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Total { get; set; }
+#nullable restore
+#else
+        public string Total { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -65,7 +71,7 @@ namespace Rixl.Sdk.Models.Images.V1
                 { "offset", n => { Offset = n.GetIntValue(); } },
                 { "sort_direction", n => { SortDirection = n.GetStringValue(); } },
                 { "sort_field", n => { SortField = n.GetStringValue(); } },
-                { "total", n => { Total = n.GetLongValue(); } },
+                { "total", n => { Total = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -80,7 +86,7 @@ namespace Rixl.Sdk.Models.Images.V1
             writer.WriteIntValue("offset", Offset);
             writer.WriteStringValue("sort_direction", SortDirection);
             writer.WriteStringValue("sort_field", SortField);
-            writer.WriteLongValue("total", Total);
+            writer.WriteStringValue("total", Total);
         }
     }
 }

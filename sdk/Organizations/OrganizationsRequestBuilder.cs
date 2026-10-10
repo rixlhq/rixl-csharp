@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Organizations
     public partial class OrganizationsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.organizations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The org_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Organizations.Item.WithOrg_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Organizations.Item.WithOrg_ItemRequestBuilder this[string position]
         {

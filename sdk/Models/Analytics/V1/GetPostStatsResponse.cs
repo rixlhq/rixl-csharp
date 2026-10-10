@@ -21,9 +21,21 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string PostId { get; set; }
 #endif
         /// <summary>The total_views property</summary>
-        public long? TotalViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotalViews { get; set; }
+#nullable restore
+#else
+        public string TotalViews { get; set; }
+#endif
         /// <summary>The unique_viewers property</summary>
-        public long? UniqueViewers { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueViewers { get; set; }
+#nullable restore
+#else
+        public string UniqueViewers { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,8 +55,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "post_id", n => { PostId = n.GetStringValue(); } },
-                { "total_views", n => { TotalViews = n.GetLongValue(); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
+                { "total_views", n => { TotalViews = n.GetStringValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -55,8 +67,8 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("post_id", PostId);
-            writer.WriteLongValue("total_views", TotalViews);
-            writer.WriteLongValue("unique_viewers", UniqueViewers);
+            writer.WriteStringValue("total_views", TotalViews);
+            writer.WriteStringValue("unique_viewers", UniqueViewers);
         }
     }
 }

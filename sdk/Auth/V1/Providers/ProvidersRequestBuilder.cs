@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Auth.V1.Providers
             get => new global::Rixl.Sdk.Auth.V1.Providers.Connect.ConnectRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.providers.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The provider path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Providers.Item.WithProviderItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Providers.Item.WithProviderItemRequestBuilder this[string position]
         {
@@ -104,18 +104,15 @@ namespace Rixl.Sdk.Auth.V1.Providers
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ProvidersRequestBuilderGetQueryParameters 
         {
+            /// <summary>The user_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string? UserId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string UserId { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

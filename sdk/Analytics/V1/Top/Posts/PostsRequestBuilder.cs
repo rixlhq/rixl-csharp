@@ -85,48 +85,38 @@ namespace Rixl.Sdk.Analytics.V1.Top.Posts
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PostsRequestBuilderGetQueryParameters 
         {
+            /// <summary>The feed_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("feed_id")]
             public string? FeedId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("feed_id")]
             public string FeedId { get; set; }
-            #pragma warning restore CS1591
 #endif
-            #pragma warning disable CS1591
+            /// <summary>The limit query parameter.</summary>
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>The range.end query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("range%2Eend")]
             public string? RangeEnd { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("range%2Eend")]
             public string RangeEnd { get; set; }
-            #pragma warning restore CS1591
 #endif
+            /// <summary>The range.start query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("range%2Estart")]
             public string? RangeStart { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("range%2Estart")]
             public string RangeStart { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

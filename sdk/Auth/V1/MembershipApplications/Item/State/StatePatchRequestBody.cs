@@ -13,14 +13,6 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications.Item.State
     public partial class StatePatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The org_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrgId { get; set; }
-#nullable restore
-#else
-        public string OrgId { get; set; }
-#endif
         /// <summary>The state property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState? State { get; set; }
         /// <summary>
@@ -41,7 +33,6 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications.Item.State
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>(); } },
             };
         }
@@ -52,7 +43,6 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications.Item.State
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("org_id", OrgId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState>("state", State);
         }
     }

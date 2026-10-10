@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>`Struct` represents a structured data value, consisting of fields which map to dynamically typed values. In some languages, `Struct` might be supported by a native representation. For example, in scripting languages like JS a struct is represented as an object. The details of that representation are described together with the proto support for the language. The JSON representation for `Struct` is JSON object.</summary>
+        /// <summary>The features property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Google.Protobuf.Struct? Features { get; set; }

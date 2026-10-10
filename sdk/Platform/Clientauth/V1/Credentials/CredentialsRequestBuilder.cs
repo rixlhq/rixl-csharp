@@ -19,7 +19,7 @@ namespace Rixl.Sdk.Platform.Clientauth.V1.Credentials
     public partial class CredentialsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.platform.clientauth.v1.credentials.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The credential_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Platform.Clientauth.V1.Credentials.Item.WithCredential_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Platform.Clientauth.V1.Credentials.Item.WithCredential_ItemRequestBuilder this[string position]
         {
@@ -140,18 +140,15 @@ namespace Rixl.Sdk.Platform.Clientauth.V1.Credentials
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CredentialsRequestBuilderGetQueryParameters 
         {
+            /// <summary>The org_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string? OrgId { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
-            #pragma warning restore CS1591
 #endif
             /// <summary>Maximum number of items to return.</summary>
             [QueryParameter("pagination%2Elimit")]

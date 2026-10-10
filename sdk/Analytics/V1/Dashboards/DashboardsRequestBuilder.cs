@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
             get => new global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.WidgetsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.analytics.v1.dashboards.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_ItemRequestBuilder this[string position]
         {
@@ -146,14 +146,12 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DashboardsRequestBuilderGetQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The page query parameter.</summary>
             [QueryParameter("page")]
             public int? Page { get; set; }
-            #pragma warning restore CS1591
-            #pragma warning disable CS1591
+            /// <summary>The page_size query parameter.</summary>
             [QueryParameter("page_size")]
             public int? PageSize { get; set; }
-            #pragma warning restore CS1591
         }
     }
 }

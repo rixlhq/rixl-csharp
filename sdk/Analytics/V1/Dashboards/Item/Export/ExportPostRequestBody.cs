@@ -13,14 +13,6 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Export
     public partial class ExportPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The dashboard_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? DashboardId { get; set; }
-#nullable restore
-#else
-        public string DashboardId { get; set; }
-#endif
         /// <summary>The format property</summary>
         public global::Rixl.Sdk.Models.Analytics.V1.ExportFormat? Format { get; set; }
         /// <summary>The time_end property</summary>
@@ -57,7 +49,6 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Export
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "dashboard_id", n => { DashboardId = n.GetStringValue(); } },
                 { "format", n => { Format = n.GetEnumValue<global::Rixl.Sdk.Models.Analytics.V1.ExportFormat>(); } },
                 { "time_end", n => { TimeEnd = n.GetStringValue(); } },
                 { "time_start", n => { TimeStart = n.GetStringValue(); } },
@@ -70,7 +61,6 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Export
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("dashboard_id", DashboardId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Analytics.V1.ExportFormat>("format", Format);
             writer.WriteStringValue("time_end", TimeEnd);
             writer.WriteStringValue("time_start", TimeStart);

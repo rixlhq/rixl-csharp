@@ -7,11 +7,52 @@ using System.IO;
 using System;
 namespace Rixl.Sdk.Models.Analytics.V1
 {
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5"/>
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class AnalyticsEvent : IParsable
-    #pragma warning restore CS1591
+    public partial class AnalyticsEvent : IComposedTypeWrapper, IParsable
     {
+        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1? AnalyticsEventMember1 { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1 AnalyticsEventMember1 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2? AnalyticsEventMember2 { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2 AnalyticsEventMember2 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3? AnalyticsEventMember3 { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3 AnalyticsEventMember3 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4? AnalyticsEventMember4 { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4 AnalyticsEventMember4 { get; set; }
+#endif
+        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5? AnalyticsEventMember5 { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5 AnalyticsEventMember5 { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -20,7 +61,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public static global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent();
+            var result = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent();
+            result.AnalyticsEventMember1 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1();
+            result.AnalyticsEventMember2 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2();
+            result.AnalyticsEventMember3 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3();
+            result.AnalyticsEventMember4 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4();
+            result.AnalyticsEventMember5 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5();
+            return result;
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -28,9 +75,11 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            return new Dictionary<string, Action<IParseNode>>
+            if(AnalyticsEventMember1 != null || AnalyticsEventMember2 != null || AnalyticsEventMember3 != null || AnalyticsEventMember4 != null || AnalyticsEventMember5 != null)
             {
-            };
+                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AnalyticsEventMember1, AnalyticsEventMember2, AnalyticsEventMember3, AnalyticsEventMember4, AnalyticsEventMember5);
+            }
+            return new Dictionary<string, Action<IParseNode>>();
         }
         /// <summary>
         /// Serializes information the current object
@@ -39,6 +88,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1>(null, AnalyticsEventMember1, AnalyticsEventMember2, AnalyticsEventMember3, AnalyticsEventMember4, AnalyticsEventMember5);
         }
     }
 }

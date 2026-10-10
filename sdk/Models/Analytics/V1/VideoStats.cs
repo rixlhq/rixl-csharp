@@ -17,15 +17,39 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <summary>The completion_rate property</summary>
         public double? CompletionRate { get; set; }
         /// <summary>The completions property</summary>
-        public long? Completions { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Completions { get; set; }
+#nullable restore
+#else
+        public string Completions { get; set; }
+#endif
         /// <summary>The starts property</summary>
-        public long? Starts { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Starts { get; set; }
+#nullable restore
+#else
+        public string Starts { get; set; }
+#endif
         /// <summary>The total_views property</summary>
-        public long? TotalViews { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? TotalViews { get; set; }
+#nullable restore
+#else
+        public string TotalViews { get; set; }
+#endif
         /// <summary>The total_watch_time_ms property</summary>
         public double? TotalWatchTimeMs { get; set; }
         /// <summary>The unique_viewers property</summary>
-        public long? UniqueViewers { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? UniqueViewers { get; set; }
+#nullable restore
+#else
+        public string UniqueViewers { get; set; }
+#endif
         /// <summary>The video_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -35,7 +59,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public string VideoId { get; set; }
 #endif
         /// <summary>The watches property</summary>
-        public long? Watches { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Watches { get; set; }
+#nullable restore
+#else
+        public string Watches { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -56,13 +86,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "avg_watch_time_ms", n => { AvgWatchTimeMs = n.GetDoubleValue(); } },
                 { "completion_rate", n => { CompletionRate = n.GetDoubleValue(); } },
-                { "completions", n => { Completions = n.GetLongValue(); } },
-                { "starts", n => { Starts = n.GetLongValue(); } },
-                { "total_views", n => { TotalViews = n.GetLongValue(); } },
+                { "completions", n => { Completions = n.GetStringValue(); } },
+                { "starts", n => { Starts = n.GetStringValue(); } },
+                { "total_views", n => { TotalViews = n.GetStringValue(); } },
                 { "total_watch_time_ms", n => { TotalWatchTimeMs = n.GetDoubleValue(); } },
-                { "unique_viewers", n => { UniqueViewers = n.GetLongValue(); } },
+                { "unique_viewers", n => { UniqueViewers = n.GetStringValue(); } },
                 { "video_id", n => { VideoId = n.GetStringValue(); } },
-                { "watches", n => { Watches = n.GetLongValue(); } },
+                { "watches", n => { Watches = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -74,13 +104,13 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDoubleValue("avg_watch_time_ms", AvgWatchTimeMs);
             writer.WriteDoubleValue("completion_rate", CompletionRate);
-            writer.WriteLongValue("completions", Completions);
-            writer.WriteLongValue("starts", Starts);
-            writer.WriteLongValue("total_views", TotalViews);
+            writer.WriteStringValue("completions", Completions);
+            writer.WriteStringValue("starts", Starts);
+            writer.WriteStringValue("total_views", TotalViews);
             writer.WriteDoubleValue("total_watch_time_ms", TotalWatchTimeMs);
-            writer.WriteLongValue("unique_viewers", UniqueViewers);
+            writer.WriteStringValue("unique_viewers", UniqueViewers);
             writer.WriteStringValue("video_id", VideoId);
-            writer.WriteLongValue("watches", Watches);
+            writer.WriteStringValue("watches", Watches);
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The video_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.WithVideo_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.WithVideo_ItemRequestBuilder this[string position]
         {
@@ -110,31 +110,25 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
+            /// <summary>The sort_direction query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("sort_direction")]
             public string? SortDirection { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("sort_direction")]
             public string SortDirection { get; set; }
-            #pragma warning restore CS1591
 #endif
+            /// <summary>The sort_field query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("sort_field")]
             public string? SortField { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("sort_field")]
             public string SortField { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }

@@ -25,7 +25,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.invite.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The user_id path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder this[string position]
         {

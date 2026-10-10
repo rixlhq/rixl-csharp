@@ -19,9 +19,9 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
     public partial class ChaptersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.chapters.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
+        /// <param name="position">The start_time_sec path parameter.</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder this[long position]
+        public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder this[string position]
         {
             get
             {
@@ -85,6 +85,26 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// <summary>
         /// UpdateVideoChapters
         /// </summary>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.VideoChapters"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public async Task<global::Rixl.Sdk.Models.Videos.V1.VideoChapters?> PutAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#nullable restore
+#else
+        public async Task<global::Rixl.Sdk.Models.Videos.V1.VideoChapters> PutAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = ToPutRequestInformation(body, requestConfiguration);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+        }
+        /// <summary>
+        /// UpdateVideoChapters
+        /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -121,6 +141,28 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
             return requestInfo;
         }
         /// <summary>
+        /// UpdateVideoChapters
+        /// </summary>
+        /// <returns>A <see cref="RequestInformation"/></returns>
+        /// <param name="body">The request body</param>
+        /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        {
+#nullable restore
+#else
+        public RequestInformation ToPutRequestInformation(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        {
+#endif
+            if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
+            var requestInfo = new RequestInformation(Method.PUT, UrlTemplate, PathParameters);
+            requestInfo.Configure(requestConfiguration);
+            requestInfo.Headers.TryAdd("Accept", "application/json");
+            requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
+            return requestInfo;
+        }
+        /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersRequestBuilder"/></returns>
@@ -135,22 +177,18 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChaptersRequestBuilderDeleteQueryParameters 
         {
-            #pragma warning disable CS1591
+            /// <summary>The chapters.start_time_sec query parameter.</summary>
             [QueryParameter("chapters%2Estart_time_sec")]
             public double? ChaptersStartTimeSec { get; set; }
-            #pragma warning restore CS1591
+            /// <summary>The chapters.title query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string? ChaptersTitle { get; set; }
-            #pragma warning restore CS1591
 #nullable restore
 #else
-            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string ChaptersTitle { get; set; }
-            #pragma warning restore CS1591
 #endif
         }
     }
