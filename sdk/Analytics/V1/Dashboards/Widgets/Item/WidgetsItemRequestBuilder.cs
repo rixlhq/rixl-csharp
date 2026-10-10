@@ -127,9 +127,10 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WidgetsItemRequestBuilderDeleteQueryParameters 
         {
-            /// <summary>The expected_revision query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("expected_revision")]
             public int? ExpectedRevision { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

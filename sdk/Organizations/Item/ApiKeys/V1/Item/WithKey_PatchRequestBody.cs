@@ -21,6 +21,14 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item
 #else
         public global::Rixl.Sdk.Models.Google.Protobuf.Timestamp ExpiringAt { get; set; }
 #endif
+        /// <summary>The key_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? KeyId { get; set; }
+#nullable restore
+#else
+        public string KeyId { get; set; }
+#endif
         /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +36,14 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item
 #nullable restore
 #else
         public string Name { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
 #endif
         /// <summary>The policy_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -58,7 +74,9 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "expiring_at", n => { ExpiringAt = n.GetObjectValue<global::Rixl.Sdk.Models.Google.Protobuf.Timestamp>(global::Rixl.Sdk.Models.Google.Protobuf.Timestamp.CreateFromDiscriminatorValue); } },
+                { "key_id", n => { KeyId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "policy_ids", n => { PolicyIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "replace_policies", n => { ReplacePolicies = n.GetBoolValue(); } },
             };
@@ -71,7 +89,9 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Google.Protobuf.Timestamp>("expiring_at", ExpiringAt);
+            writer.WriteStringValue("key_id", KeyId);
             writer.WriteStringValue("name", Name);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteCollectionOfPrimitiveValues<string>("policy_ids", PolicyIds);
             writer.WriteBoolValue("replace_policies", ReplacePolicies);
         }

@@ -13,13 +13,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     #pragma warning restore CS1591
     {
         /// <summary>The amount_total property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AmountTotal { get; set; }
-#nullable restore
-#else
-        public string AmountTotal { get; set; }
-#endif
+        public long? AmountTotal { get; set; }
         /// <summary>The calculation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -37,21 +31,9 @@ namespace Rixl.Sdk.Models.Billing.V1
         public string Currency { get; set; }
 #endif
         /// <summary>The tax_amount_exclusive property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaxAmountExclusive { get; set; }
-#nullable restore
-#else
-        public string TaxAmountExclusive { get; set; }
-#endif
+        public long? TaxAmountExclusive { get; set; }
         /// <summary>The tax_amount_inclusive property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? TaxAmountInclusive { get; set; }
-#nullable restore
-#else
-        public string TaxAmountInclusive { get; set; }
-#endif
+        public long? TaxAmountInclusive { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -70,11 +52,11 @@ namespace Rixl.Sdk.Models.Billing.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "amount_total", n => { AmountTotal = n.GetStringValue(); } },
+                { "amount_total", n => { AmountTotal = n.GetLongValue(); } },
                 { "calculation_id", n => { CalculationId = n.GetStringValue(); } },
                 { "currency", n => { Currency = n.GetStringValue(); } },
-                { "tax_amount_exclusive", n => { TaxAmountExclusive = n.GetStringValue(); } },
-                { "tax_amount_inclusive", n => { TaxAmountInclusive = n.GetStringValue(); } },
+                { "tax_amount_exclusive", n => { TaxAmountExclusive = n.GetLongValue(); } },
+                { "tax_amount_inclusive", n => { TaxAmountInclusive = n.GetLongValue(); } },
             };
         }
         /// <summary>
@@ -84,11 +66,11 @@ namespace Rixl.Sdk.Models.Billing.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("amount_total", AmountTotal);
+            writer.WriteLongValue("amount_total", AmountTotal);
             writer.WriteStringValue("calculation_id", CalculationId);
             writer.WriteStringValue("currency", Currency);
-            writer.WriteStringValue("tax_amount_exclusive", TaxAmountExclusive);
-            writer.WriteStringValue("tax_amount_inclusive", TaxAmountInclusive);
+            writer.WriteLongValue("tax_amount_exclusive", TaxAmountExclusive);
+            writer.WriteLongValue("tax_amount_inclusive", TaxAmountInclusive);
         }
     }
 }

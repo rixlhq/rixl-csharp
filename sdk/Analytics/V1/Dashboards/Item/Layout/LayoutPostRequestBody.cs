@@ -13,6 +13,14 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout
     public partial class LayoutPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The dashboard_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? DashboardId { get; set; }
+#nullable restore
+#else
+        public string DashboardId { get; set; }
+#endif
         /// <summary>The expected_revision property</summary>
         public int? ExpectedRevision { get; set; }
         /// <summary>The positions property</summary>
@@ -41,6 +49,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "dashboard_id", n => { DashboardId = n.GetStringValue(); } },
                 { "expected_revision", n => { ExpectedRevision = n.GetIntValue(); } },
                 { "positions", n => { Positions = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.WidgetPosition>(global::Rixl.Sdk.Models.Analytics.V1.WidgetPosition.CreateFromDiscriminatorValue)?.AsList(); } },
             };
@@ -52,6 +61,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("dashboard_id", DashboardId);
             writer.WriteIntValue("expected_revision", ExpectedRevision);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.WidgetPosition>("positions", Positions);
         }

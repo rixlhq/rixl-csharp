@@ -109,115 +109,148 @@ namespace Rixl.Sdk.Analytics.V1.Dashboard
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DashboardRequestBuilderGetQueryParameters 
         {
-            /// <summary>The filter.browsers query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ebrowsers")]
             public string[]? FilterBrowsers { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ebrowsers")]
             public string[] FilterBrowsers { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.cities query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ecities")]
             public string[]? FilterCities { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ecities")]
             public string[] FilterCities { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.countries query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ecountries")]
             public string[]? FilterCountries { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Ecountries")]
             public string[] FilterCountries { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.devices query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Edevices")]
             public string[]? FilterDevices { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Edevices")]
             public string[] FilterDevices { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.languages query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Elanguages")]
             public string[]? FilterLanguages { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Elanguages")]
             public string[] FilterLanguages { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.os query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eos")]
             public string[]? FilterOs { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eos")]
             public string[] FilterOs { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.os_versions query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eos_versions")]
             public string[]? FilterOsVersions { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eos_versions")]
             public string[] FilterOsVersions { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The filter.regions query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eregions")]
             public string[]? FilterRegions { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("filter%2Eregions")]
             public string[] FilterRegions { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The interval query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string? Interval { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string Interval { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The time_end query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("time_end")]
             public string? TimeEnd { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("time_end")]
             public string TimeEnd { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The time_start query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("time_start")]
             public string? TimeStart { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("time_start")]
             public string TimeStart { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }
