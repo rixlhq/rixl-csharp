@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class ConnectProviderRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The code_verifier property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CodeVerifier { get; set; }
+#nullable restore
+#else
+        public string CodeVerifier { get; set; }
+#endif
         /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -30,6 +38,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #endif
         /// <summary>The provider property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.ExternalAccountProvider? Provider { get; set; }
+        /// <summary>The redirect_uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedirectUri { get; set; }
+#nullable restore
+#else
+        public string RedirectUri { get; set; }
+#endif
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -64,9 +80,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
                 { "provider", n => { Provider = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.ExternalAccountProvider>(); } },
+                { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
                 { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserRequest>(global::Rixl.Sdk.Models.Auth.V1.UserRequest.CreateFromDiscriminatorValue); } },
             };
@@ -78,9 +96,11 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("code_verifier", CodeVerifier);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("origin", Origin);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.ExternalAccountProvider>("provider", Provider);
+            writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteStringValue("token", Token);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.UserRequest>("user", User);
         }

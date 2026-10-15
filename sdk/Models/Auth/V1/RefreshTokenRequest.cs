@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class RefreshTokenRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The code_verifier property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? CodeVerifier { get; set; }
+#nullable restore
+#else
+        public string CodeVerifier { get; set; }
+#endif
         /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,6 +35,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string Origin { get; set; }
+#endif
+        /// <summary>The redirect_uri property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RedirectUri { get; set; }
+#nullable restore
+#else
+        public string RedirectUri { get; set; }
 #endif
         /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,8 +78,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
+                { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
@@ -75,8 +93,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("code_verifier", CodeVerifier);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("origin", Origin);
+            writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("token_type", TokenType);
         }
