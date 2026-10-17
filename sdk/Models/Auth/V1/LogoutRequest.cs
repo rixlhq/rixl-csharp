@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class LogoutRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The refresh_token property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? RefreshToken { get; set; }
+#nullable restore
+#else
+        public string RefreshToken { get; set; }
+#endif
         /// <summary>The token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "token", n => { Token = n.GetStringValue(); } },
             };
         }
@@ -48,6 +57,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("token", Token);
         }
     }
