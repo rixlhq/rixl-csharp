@@ -1,7 +1,7 @@
 Warning: KiotaBuilder OpenAPI warning: #/ - A servers entry (v3) or host + basePath + schemes properties (v2) was not present in the OpenAPI description. The root URL will need to be set manually with the request adapter.
-Warning: KiotaBuilder OpenAPI warning: #/ - The schema google.protobuf.Value is a polymorphic type but does not define a discriminator. This will result in serialization errors.
-Warning: KiotaBuilder OpenAPI warning: #/ - The schema posts.v1.CreatePostRequest is a polymorphic type but does not define a discriminator. This will result in serialization errors.
+Warning: KiotaBuilder OpenAPI warning: #/ - The schema auth.v1.DomainStatus is a polymorphic type but does not define a discriminator. This will result in serialization errors.
 Warning: KiotaBuilder OpenAPI warning: #/ - The schema analytics.v1.AnalyticsEvent is a polymorphic type but does not define a discriminator. This will result in serialization errors.
+Warning: KiotaBuilder OpenAPI warning: #/ - The schema posts.v1.CreatePostRequest is a polymorphic type but does not define a discriminator. This will result in serialization errors.
 Warning: KiotaBuilder OpenAPI warning: #/ - The schema posts.v1.Post is a polymorphic type but does not define a discriminator. This will result in serialization errors.
 Warning: KiotaBuilder OpenAPI warning: #/paths/~1media~1v1~1projects~1{project_id}~1videos~1{video_id}~1chapters~1{start_time_sec}/delete/parameters/2/schema - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.CountryCount/properties/count - The format int64 is not supported by Kiota for the type String and will be ignored.
@@ -79,6 +79,9 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.File/prope
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.ListVideosResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.MarkVideoProcessedRequest/properties/size - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.TrackUploadItem/properties/size - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointAttemptsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEventsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1domain - The path signature '/auth/v1/memberships/{}/domain' MUST be unique.
 Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1domain~1auto-join - The path signature '/auth/v1/memberships/{}/domain/auto-join' MUST be unique.
 Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1policies - The path signature '/auth/v1/memberships/{}/policies' MUST be unique.

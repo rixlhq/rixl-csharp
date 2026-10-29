@@ -16,6 +16,7 @@ using Rixl.Sdk.Organizations;
 using Rixl.Sdk.Platform;
 using Rixl.Sdk.Posts;
 using Rixl.Sdk.Support;
+using Rixl.Sdk.Webhooks;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -77,6 +78,11 @@ namespace Rixl.Sdk
         public global::Rixl.Sdk.Support.SupportRequestBuilder Support
         {
             get => new global::Rixl.Sdk.Support.SupportRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The webhooks property</summary>
+        public global::Rixl.Sdk.Webhooks.WebhooksRequestBuilder Webhooks
+        {
+            get => new global::Rixl.Sdk.Webhooks.WebhooksRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.RixlClient"/> and sets the default values.
