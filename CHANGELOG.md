@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.9](https://github.com/rixlhq/rixl-csharp/compare/v0.1.8...v0.1.9) (2026-11-12)
+
+
+### Features
+
+* **sdk:** regenerate based on latest OpenAPI spec ([afa1ee0](https://github.com/rixlhq/rixl-csharp/commit/afa1ee0ac5e92cda7423b5f779e17e987d730bde))
+* **sdk:** regenerate based on latest OpenAPI spec ([c05d227](https://github.com/rixlhq/rixl-csharp/commit/c05d227651a7c27f5f647211986b0f8bf72dd87e))
+
 ## [0.1.8](https://github.com/rixlhq/rixl-csharp/compare/v0.1.7...v0.1.8) (2026-10-29)
 
 
