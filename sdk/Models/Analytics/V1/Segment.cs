@@ -29,14 +29,26 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string ChapterTitle { get; set; }
 #endif
-        /// <summary>The end_ms property</summary>
-        public TimeSpan? EndMs { get; set; }
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? EndMs { get; set; }
+#nullable restore
+#else
+        public string EndMs { get; set; }
+#endif
+        /// <summary>The quality property</summary>
         public global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality? Quality { get; set; }
         /// <summary>The speed property</summary>
         public double? Speed { get; set; }
-        /// <summary>The start_ms property</summary>
-        public TimeSpan? StartMs { get; set; }
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? StartMs { get; set; }
+#nullable restore
+#else
+        public string StartMs { get; set; }
+#endif
         /// <summary>Unset fields inherit the value the view was opened with.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -65,10 +77,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
             {
                 { "audio_language", n => { AudioLanguage = n.GetStringValue(); } },
                 { "chapter_title", n => { ChapterTitle = n.GetStringValue(); } },
-                { "end_ms", n => { EndMs = n.GetTimeSpanValue(); } },
+                { "end_ms", n => { EndMs = n.GetStringValue(); } },
                 { "quality", n => { Quality = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality>(); } },
                 { "speed", n => { Speed = n.GetDoubleValue(); } },
-                { "start_ms", n => { StartMs = n.GetTimeSpanValue(); } },
+                { "start_ms", n => { StartMs = n.GetStringValue(); } },
                 { "subtitle_language", n => { SubtitleLanguage = n.GetStringValue(); } },
             };
         }
@@ -81,10 +93,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("audio_language", AudioLanguage);
             writer.WriteStringValue("chapter_title", ChapterTitle);
-            writer.WriteTimeSpanValue("end_ms", EndMs);
+            writer.WriteStringValue("end_ms", EndMs);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality>("quality", Quality);
             writer.WriteDoubleValue("speed", Speed);
-            writer.WriteTimeSpanValue("start_ms", StartMs);
+            writer.WriteStringValue("start_ms", StartMs);
             writer.WriteStringValue("subtitle_language", SubtitleLanguage);
         }
     }

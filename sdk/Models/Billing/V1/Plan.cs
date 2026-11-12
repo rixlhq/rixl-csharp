@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The features property</summary>
+        /// <summary>A JSON object whose property values may be any JSON value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Google.Protobuf.Struct? Features { get; set; }

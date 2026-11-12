@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Posts.V1
     public partial class CreatePostResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The post property</summary>
+        /// <summary>At most one of `image`, `video` may be set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Posts.V1.Post? Post { get; set; }

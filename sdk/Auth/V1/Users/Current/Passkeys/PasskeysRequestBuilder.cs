@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register;
 using Rixl.Sdk.Models.Auth.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Register.RegisterRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.users.current.passkeys.item collection</summary>
-        /// <param name="position">The id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item.PasskeysItemRequestBuilder this[string position]
         {
@@ -58,6 +59,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.Passkeys.PasskeysRequestBuilder.PasskeysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,7 +70,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListPasskeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPasskeys
@@ -104,15 +110,18 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PasskeysRequestBuilderGetQueryParameters 
         {
-            /// <summary>The user_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string? UserId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string UserId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

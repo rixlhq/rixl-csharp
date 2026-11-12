@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string ImageStorageBytes { get; set; }
 #endif
-        /// <summary>The last_updated property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? LastUpdated { get; set; }
         /// <summary>The max_image_count property</summary>
         public int? MaxImageCount { get; set; }
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #endif
         /// <summary>The project_count property</summary>
         public int? ProjectCount { get; set; }
-        /// <summary>The snapshot_date property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? SnapshotDate { get; set; }
         /// <summary>The total_file_count property</summary>
         public int? TotalFileCount { get; set; }

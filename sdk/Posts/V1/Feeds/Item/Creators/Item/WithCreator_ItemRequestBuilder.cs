@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Posts.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -39,6 +40,7 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Creators.Item
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Feeds.Item.Creators.Item.WithCreator_ItemRequestBuilder.WithCreator_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +51,11 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Creators.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPosts
@@ -91,15 +97,18 @@ namespace Rixl.Sdk.Posts.V1.Feeds.Item.Creators.Item
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
-            /// <summary>The project_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("project_id")]
             public string? ProjectId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("project_id")]
             public string ProjectId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

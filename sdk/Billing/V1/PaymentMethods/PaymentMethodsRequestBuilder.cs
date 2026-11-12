@@ -7,6 +7,7 @@ using Rixl.Sdk.Billing.V1.PaymentMethods.FromPaymentIntent;
 using Rixl.Sdk.Billing.V1.PaymentMethods.FromSetupIntent;
 using Rixl.Sdk.Billing.V1.PaymentMethods.Item;
 using Rixl.Sdk.Models.Billing.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
             get => new global::Rixl.Sdk.Billing.V1.PaymentMethods.FromSetupIntent.FromSetupIntentRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.billing.v1.paymentMethods.item collection</summary>
-        /// <param name="position">The payment_method_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPayment_method_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Billing.V1.PaymentMethods.Item.WithPayment_method_ItemRequestBuilder this[string position]
         {
@@ -64,6 +65,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.PaymentMethods.PaymentMethodsRequestBuilder.PaymentMethodsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,7 +76,11 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPaymentMethodsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// UpsertPaymentMethod
@@ -83,6 +89,7 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails?> PutAsync(global::Rixl.Sdk.Models.Billing.V1.UpsertPaymentMethodRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -94,7 +101,11 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.PaymentMethodDetails.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPaymentMethods
@@ -152,19 +163,23 @@ namespace Rixl.Sdk.Billing.V1.PaymentMethods
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PaymentMethodsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The org_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string? OrgId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("org_id")]
             public string OrgId { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The refresh query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("refresh")]
             public bool? Refresh { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

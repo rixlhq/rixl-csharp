@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend;
 using Rixl.Sdk.Models.Auth.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
             get => new global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.memberships.item.invite.item collection</summary>
-        /// <param name="position">The user_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Item.WithUser_ItemRequestBuilder this[string position]
         {
@@ -59,6 +60,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication?> PostAsync(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.InvitePostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -70,7 +72,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipApplication.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.MembershipApplication>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.MembershipApplication.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// InviteMember

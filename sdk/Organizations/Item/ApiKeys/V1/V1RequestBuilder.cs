@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Models.Apikeys.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
     public partial class V1RequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.organizations.item.apiKeys.v1.item collection</summary>
-        /// <param name="position">The key_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item.WithKey_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.Item.WithKey_ItemRequestBuilder this[string position]
         {
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.V1RequestBuilder.V1RequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse>(requestInfo, global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse>(requestInfo, global::Rixl.Sdk.Models.Apikeys.V1.ListApiKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// CreateApiKey
@@ -71,6 +77,7 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Apikeys.V1.CreateApiKeyResponse?> PostAsync(global::Rixl.Sdk.Organizations.Item.ApiKeys.V1.V1PostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +89,11 @@ namespace Rixl.Sdk.Organizations.Item.ApiKeys.V1
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Apikeys.V1.CreateApiKeyResponse>(requestInfo, global::Rixl.Sdk.Models.Apikeys.V1.CreateApiKeyResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Apikeys.V1.CreateApiKeyResponse>(requestInfo, global::Rixl.Sdk.Models.Apikeys.V1.CreateApiKeyResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListApiKeys

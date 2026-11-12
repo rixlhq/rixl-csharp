@@ -24,8 +24,14 @@ namespace Rixl.Sdk.Models.Videos.V1
 #else
         public string Codec { get; set; }
 #endif
-        /// <summary>The duration property</summary>
-        public TimeSpan? Duration { get; set; }
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Duration { get; set; }
+#nullable restore
+#else
+        public string Duration { get; set; }
+#endif
         /// <summary>The file property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -86,7 +92,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             {
                 { "bitrate", n => { Bitrate = n.GetIntValue(); } },
                 { "codec", n => { Codec = n.GetStringValue(); } },
-                { "duration", n => { Duration = n.GetTimeSpanValue(); } },
+                { "duration", n => { Duration = n.GetStringValue(); } },
                 { "file", n => { File = n.GetObjectValue<global::Rixl.Sdk.Models.Common.V1.FileObject>(global::Rixl.Sdk.Models.Common.V1.FileObject.CreateFromDiscriminatorValue); } },
                 { "framerate", n => { Framerate = n.GetStringValue(); } },
                 { "hdr", n => { Hdr = n.GetBoolValue(); } },
@@ -106,7 +112,7 @@ namespace Rixl.Sdk.Models.Videos.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteIntValue("bitrate", Bitrate);
             writer.WriteStringValue("codec", Codec);
-            writer.WriteTimeSpanValue("duration", Duration);
+            writer.WriteStringValue("duration", Duration);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Common.V1.FileObject>("file", File);
             writer.WriteStringValue("framerate", Framerate);
             writer.WriteBoolValue("hdr", Hdr);

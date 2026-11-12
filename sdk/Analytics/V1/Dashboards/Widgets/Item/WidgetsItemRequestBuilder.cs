@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Models.Analytics.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsItemRequestBuilder.WidgetsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +51,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.DeleteWidgetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// UpdateWidget
@@ -58,6 +64,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.Widget?> PatchAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item.WidgetsPatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -69,7 +76,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Widget>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Widget.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Widget>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Widget.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// DeleteWidget
@@ -127,9 +138,10 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Widgets.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class WidgetsItemRequestBuilderDeleteQueryParameters 
         {
-            /// <summary>The expected_revision query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("expected_revision")]
             public int? ExpectedRevision { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

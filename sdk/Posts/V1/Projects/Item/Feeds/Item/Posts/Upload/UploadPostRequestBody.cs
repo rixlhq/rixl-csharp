@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload
     public partial class UploadPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The content_type property</summary>
         public global::Rixl.Sdk.Models.Common.V1.MediaType? ContentType { get; set; }
         /// <summary>The creator_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

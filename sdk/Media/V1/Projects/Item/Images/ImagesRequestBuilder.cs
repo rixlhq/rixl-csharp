@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Images.Item;
 using Rixl.Sdk.Media.V1.Projects.Item.Images.Upload;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Images.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +26,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Images.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.images.item collection</summary>
-        /// <param name="position">The image_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImage_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Images.Item.WithImage_ItemRequestBuilder this[string position]
         {
@@ -58,6 +59,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Images.V1.ListImagesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Images.ImagesRequestBuilder.ImagesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,7 +70,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse>(requestInfo, global::Rixl.Sdk.Models.Images.V1.ListImagesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Images.V1.ListImagesResponse>(requestInfo, global::Rixl.Sdk.Models.Images.V1.ListImagesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListImages
@@ -110,25 +116,31 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Images
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
-            /// <summary>The sort_direction query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_direction")]
             public string? SortDirection { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_direction")]
             public string SortDirection { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The sort_field query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("sort_field")]
             public string? SortField { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("sort_field")]
             public string SortField { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

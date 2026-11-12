@@ -22,7 +22,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public global::Rixl.Sdk.Models.Billing.V1.BillingAddress BillingAddress { get; set; }
 #endif
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The billing_cycle property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.BillingCycle? BillingCycle { get; set; }
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

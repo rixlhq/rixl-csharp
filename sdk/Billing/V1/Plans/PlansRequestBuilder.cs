@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.Plans.Item;
 using Rixl.Sdk.Models.Billing.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Billing.V1.Plans
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.Plans.PlansRequestBuilder.PlansRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Billing.V1.Plans
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.ListPlansResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPlans
@@ -98,35 +104,44 @@ namespace Rixl.Sdk.Billing.V1.Plans
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PlansRequestBuilderGetQueryParameters 
         {
-            /// <summary>The currency query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("currency")]
             public string? Currency { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("currency")]
             public string Currency { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The free query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("free")]
             public string? Free { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("free")]
             public string Free { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The interval query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string? Interval { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("interval")]
             public string Interval { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

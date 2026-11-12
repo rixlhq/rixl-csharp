@@ -8,51 +8,53 @@ using System;
 namespace Rixl.Sdk.Models.Analytics.V1
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/>, <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5"/>
+    /// At most one of `session_start`, `content_view`, `engagement`, `interaction`, `error` may be set.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class AnalyticsEvent : IComposedTypeWrapper, IParsable
+    public partial class AnalyticsEvent : IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1"/></summary>
+        /// <summary>The content_view property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1? AnalyticsEventMember1 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent? ContentView { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1 AnalyticsEventMember1 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent ContentView { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2"/></summary>
+        /// <summary>The engagement property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2? AnalyticsEventMember2 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent? Engagement { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2 AnalyticsEventMember2 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent Engagement { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3"/></summary>
+        /// <summary>The error property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3? AnalyticsEventMember3 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.ErrorEvent? Error { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3 AnalyticsEventMember3 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.ErrorEvent Error { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/></summary>
+        /// <summary>The interaction property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4? AnalyticsEventMember4 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent? Interaction { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4 AnalyticsEventMember4 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent Interaction { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5"/></summary>
+        /// <summary>The session_start property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5? AnalyticsEventMember5 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.SessionStartEvent? SessionStart { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5 AnalyticsEventMember5 { get; set; }
+        public global::Rixl.Sdk.Models.Analytics.V1.SessionStartEvent SessionStart { get; set; }
 #endif
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
+        public DateTimeOffset? Timestamp { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -61,13 +63,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public static global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent();
-            result.AnalyticsEventMember1 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1();
-            result.AnalyticsEventMember2 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember2();
-            result.AnalyticsEventMember3 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember3();
-            result.AnalyticsEventMember4 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4();
-            result.AnalyticsEventMember5 = new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember5();
-            return result;
+            return new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEvent();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -75,11 +71,15 @@ namespace Rixl.Sdk.Models.Analytics.V1
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(AnalyticsEventMember1 != null || AnalyticsEventMember2 != null || AnalyticsEventMember3 != null || AnalyticsEventMember4 != null || AnalyticsEventMember5 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(AnalyticsEventMember1, AnalyticsEventMember2, AnalyticsEventMember3, AnalyticsEventMember4, AnalyticsEventMember5);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "content_view", n => { ContentView = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent>(global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent.CreateFromDiscriminatorValue); } },
+                { "engagement", n => { Engagement = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent>(global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent.CreateFromDiscriminatorValue); } },
+                { "error", n => { Error = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.ErrorEvent>(global::Rixl.Sdk.Models.Analytics.V1.ErrorEvent.CreateFromDiscriminatorValue); } },
+                { "interaction", n => { Interaction = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent>(global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent.CreateFromDiscriminatorValue); } },
+                { "session_start", n => { SessionStart = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.SessionStartEvent>(global::Rixl.Sdk.Models.Analytics.V1.SessionStartEvent.CreateFromDiscriminatorValue); } },
+                { "timestamp", n => { Timestamp = n.GetDateTimeOffsetValue(); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -88,7 +88,12 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember1>(null, AnalyticsEventMember1, AnalyticsEventMember2, AnalyticsEventMember3, AnalyticsEventMember4, AnalyticsEventMember5);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent>("content_view", ContentView);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.EngagementEvent>("engagement", Engagement);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.ErrorEvent>("error", Error);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent>("interaction", Interaction);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.SessionStartEvent>("session_start", SessionStart);
+            writer.WriteDateTimeOffsetValue("timestamp", Timestamp);
         }
     }
 }

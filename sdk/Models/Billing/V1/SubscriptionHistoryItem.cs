@@ -14,7 +14,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     {
         /// <summary>The cancel_at_period_end property</summary>
         public bool? CancelAtPeriodEnd { get; set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,9 +24,9 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Currency { get; set; }
 #endif
-        /// <summary>The current_period_end property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CurrentPeriodEnd { get; set; }
-        /// <summary>The end_date property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? EndDate { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,7 +68,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Price { get; set; }
 #endif
-        /// <summary>The start_date property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? StartDate { get; set; }
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.SubscriptionStatus? Status { get; set; }

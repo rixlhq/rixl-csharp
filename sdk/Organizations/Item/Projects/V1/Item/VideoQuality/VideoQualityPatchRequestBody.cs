@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Organizations.Item.Projects.V1.Item.VideoQuality
     public partial class VideoQualityPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

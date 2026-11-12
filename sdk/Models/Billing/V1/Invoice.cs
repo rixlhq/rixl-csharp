@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Amount { get; set; }
 #endif
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The currency property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string Description { get; set; }
 #endif
-        /// <summary>The due_date property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? DueDate { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The paid_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? PaidAt { get; set; }
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus? Status { get; set; }

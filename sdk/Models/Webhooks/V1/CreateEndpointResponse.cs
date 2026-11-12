@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Webhooks.V1
     public partial class CreateEndpointResponse : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The endpoint property</summary>
+        /// <summary>WebhookEndpoint is a delivery target. Secrets are never returned; they are only shown once on create and rotate.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Webhooks.V1.WebhookEndpoint? Endpoint { get; set; }

@@ -14,9 +14,9 @@ namespace Rixl.Sdk.Models.Webhooks.V1
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WebhookEvent : IParsable
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The data property</summary>
+        /// <summary>A JSON object whose property values may be any JSON value.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Google.Protobuf.Struct? Data { get; set; }

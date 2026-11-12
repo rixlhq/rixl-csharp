@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class CalculateGenericTaxRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The amount property</summary>
+        /// <summary>int64.gt = 0</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Amount { get; set; }

@@ -29,7 +29,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string ContentId { get; set; }
 #endif
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The content_type property</summary>
         public global::Rixl.Sdk.Models.Analyticscommon.V1.MediaType? ContentType { get; set; }
         /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -65,7 +65,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string PostId { get; set; }
 #endif
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The quality property</summary>
         public global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality? Quality { get; set; }
         /// <summary>The segments property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -83,14 +83,32 @@ namespace Rixl.Sdk.Models.Analytics.V1
 #else
         public string SubtitleLanguage { get; set; }
 #endif
-        /// <summary>The video_position_ms property</summary>
-        public TimeSpan? VideoPositionMs { get; set; }
-        /// <summary>The video_total_duration_ms property</summary>
-        public TimeSpan? VideoTotalDurationMs { get; set; }
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VideoPositionMs { get; set; }
+#nullable restore
+#else
+        public string VideoPositionMs { get; set; }
+#endif
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VideoTotalDurationMs { get; set; }
+#nullable restore
+#else
+        public string VideoTotalDurationMs { get; set; }
+#endif
         /// <summary>The view_type property</summary>
         public global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent_view_type? ViewType { get; set; }
-        /// <summary>The watch_duration_ms property</summary>
-        public TimeSpan? WatchDurationMs { get; set; }
+        /// <summary>A signed duration in seconds, with up to nine fractional digits and an `s` suffix (for example, `3s` or `-0.001s`).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? WatchDurationMs { get; set; }
+#nullable restore
+#else
+        public string WatchDurationMs { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -120,10 +138,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
                 { "quality", n => { Quality = n.GetEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality>(); } },
                 { "segments", n => { Segments = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Segment>(global::Rixl.Sdk.Models.Analytics.V1.Segment.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "subtitle_language", n => { SubtitleLanguage = n.GetStringValue(); } },
-                { "video_position_ms", n => { VideoPositionMs = n.GetTimeSpanValue(); } },
-                { "video_total_duration_ms", n => { VideoTotalDurationMs = n.GetTimeSpanValue(); } },
+                { "video_position_ms", n => { VideoPositionMs = n.GetStringValue(); } },
+                { "video_total_duration_ms", n => { VideoTotalDurationMs = n.GetStringValue(); } },
                 { "view_type", n => { ViewType = n.GetEnumValue<global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent_view_type>(); } },
-                { "watch_duration_ms", n => { WatchDurationMs = n.GetTimeSpanValue(); } },
+                { "watch_duration_ms", n => { WatchDurationMs = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -144,10 +162,10 @@ namespace Rixl.Sdk.Models.Analytics.V1
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Analyticscommon.V1.VideoQuality>("quality", Quality);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Analytics.V1.Segment>("segments", Segments);
             writer.WriteStringValue("subtitle_language", SubtitleLanguage);
-            writer.WriteTimeSpanValue("video_position_ms", VideoPositionMs);
-            writer.WriteTimeSpanValue("video_total_duration_ms", VideoTotalDurationMs);
+            writer.WriteStringValue("video_position_ms", VideoPositionMs);
+            writer.WriteStringValue("video_total_duration_ms", VideoTotalDurationMs);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Analytics.V1.ContentViewEvent_view_type>("view_type", ViewType);
-            writer.WriteTimeSpanValue("watch_duration_ms", WatchDurationMs);
+            writer.WriteStringValue("watch_duration_ms", WatchDurationMs);
         }
     }
 }

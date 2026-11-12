@@ -14,7 +14,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     {
         /// <summary>The backup_codes_remaining property</summary>
         public int? BackupCodesRemaining { get; set; }
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The is_setup property</summary>
         public bool? IsSetup { get; set; }

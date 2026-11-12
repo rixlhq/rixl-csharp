@@ -23,6 +23,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments
 #endif
         /// <summary>The identity_type property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType? IdentityType { get; set; }
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments.AttachmentsPostRequestBody_user? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments.AttachmentsPostRequestBody_user User { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -43,6 +51,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments
             {
                 { "identity_id", n => { IdentityId = n.GetStringValue(); } },
                 { "identity_type", n => { IdentityType = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>(); } },
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments.AttachmentsPostRequestBody_user>(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments.AttachmentsPostRequestBody_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -54,6 +63,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("identity_id", IdentityId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.PolicyIdentityType>("identity_type", IdentityType);
+            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Item.Attachments.AttachmentsPostRequestBody_user>("user", User);
         }
     }
 }

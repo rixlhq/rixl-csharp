@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Videos.V1;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +20,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
     public partial class ChaptersRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.chapters.item collection</summary>
-        /// <param name="position">The start_time_sec path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.Item.WithStart_time_secItemRequestBuilder this[string position]
         {
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.VideoChapters"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Videos.V1.VideoChapters?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersRequestBuilder.ChaptersRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// GetVideoChapters
@@ -70,6 +76,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Videos.V1.VideoChapters"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Videos.V1.VideoChapters?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -80,7 +87,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// UpdateVideoChapters
@@ -89,6 +100,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Videos.V1.VideoChapters?> PutAsync(global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters.ChaptersPutRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -100,7 +112,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Videos.V1.VideoChapters>(requestInfo, global::Rixl.Sdk.Models.Videos.V1.VideoChapters.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// UpdateVideoChapters
@@ -177,18 +193,22 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Chapters
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class ChaptersRequestBuilderDeleteQueryParameters 
         {
-            /// <summary>The chapters.start_time_sec query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("chapters%2Estart_time_sec")]
             public double? ChaptersStartTimeSec { get; set; }
-            /// <summary>The chapters.title query parameter.</summary>
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string? ChaptersTitle { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("chapters%2Etitle")]
             public string ChaptersTitle { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

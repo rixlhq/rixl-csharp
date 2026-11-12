@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Support.V1;
 using Rixl.Sdk.Support.V1.Tickets.Item;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Rixl.Sdk.Support.V1.Tickets
     public partial class TicketsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.support.v1.tickets.item collection</summary>
-        /// <param name="position">The ticket_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Tickets.Item.WithTicket_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Support.V1.Tickets.Item.WithTicket_ItemRequestBuilder this[string position]
         {
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Support.V1.Tickets
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Support.V1.Tickets.TicketsRequestBuilder.TicketsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Support.V1.Tickets
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.ListTicketsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// CreateTicket
@@ -71,6 +77,7 @@ namespace Rixl.Sdk.Support.V1.Tickets
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Support.V1.CreateTicketResponse?> PostAsync(global::Rixl.Sdk.Models.Support.V1.CreateTicketRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +89,11 @@ namespace Rixl.Sdk.Support.V1.Tickets
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.CreateTicketResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.CreateTicketResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.CreateTicketResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.CreateTicketResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListTickets
@@ -146,9 +157,10 @@ namespace Rixl.Sdk.Support.V1.Tickets
             /// <summary>Number of items to skip before collecting the result set.</summary>
             [QueryParameter("pagination%2Eoffset")]
             public int? PaginationOffset { get; set; }
-            /// <summary>enum.defined_only = true</summary>
+            #pragma warning disable CS1591
             [QueryParameter("status")]
             public global::Rixl.Sdk.Models.Support.V1.TicketStatus? Status { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

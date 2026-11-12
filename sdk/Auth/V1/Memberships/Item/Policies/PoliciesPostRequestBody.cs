@@ -36,6 +36,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
 #else
         public List<string> Permissions { get; set; }
 #endif
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody_user? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody_user User { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -57,6 +65,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody_user>(global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -69,6 +78,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies
             writer.WriteStringValue("description", Description);
             writer.WriteStringValue("name", Name);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
+            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.PoliciesPostRequestBody_user>("user", User);
         }
     }
 }

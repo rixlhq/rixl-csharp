@@ -10,6 +10,7 @@ using Rixl.Sdk.Auth.V1.Users.Current.Passkeys;
 using Rixl.Sdk.Auth.V1.Users.Current.Totp;
 using Rixl.Sdk.Auth.V1.Users.Current.Username;
 using Rixl.Sdk.Models.Auth.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -75,6 +76,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.GetUserResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.GetUserResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Users.Current.CurrentRequestBuilder.CurrentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -85,7 +87,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.GetUserResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.GetUserResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.GetUserResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.GetUserResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// GetUser
@@ -121,15 +127,18 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class CurrentRequestBuilderGetQueryParameters 
         {
-            /// <summary>The user_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string? UserId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("user_id")]
             public string UserId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

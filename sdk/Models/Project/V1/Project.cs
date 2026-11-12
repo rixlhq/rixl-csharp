@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Models.Project.V1
     public partial class Project : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The custom_domain property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -55,7 +55,7 @@ namespace Rixl.Sdk.Models.Project.V1
 #else
         public List<string> Regions { get; set; }
 #endif
-        /// <summary>The updated_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The video_quality property</summary>
         public global::Rixl.Sdk.Models.Common.V1.VideoQuality? VideoQuality { get; set; }

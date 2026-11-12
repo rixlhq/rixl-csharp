@@ -14,7 +14,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     {
         /// <summary>The cancel_at_period_end property</summary>
         public bool? CancelAtPeriodEnd { get; set; }
-        /// <summary>The current_period_end property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CurrentPeriodEnd { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

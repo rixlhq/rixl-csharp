@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class Policy : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The created_by property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,7 +62,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public List<string> Permissions { get; set; }
 #endif
-        /// <summary>The updated_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

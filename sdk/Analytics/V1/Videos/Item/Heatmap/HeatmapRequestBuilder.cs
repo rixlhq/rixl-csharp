@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Models.Analytics.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ namespace Rixl.Sdk.Analytics.V1.Videos.Item.Heatmap
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Videos.Item.Heatmap.HeatmapRequestBuilder.HeatmapRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +51,11 @@ namespace Rixl.Sdk.Analytics.V1.Videos.Item.Heatmap
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.VideoHeatmap.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// GetVideoHeatmap
@@ -85,28 +91,35 @@ namespace Rixl.Sdk.Analytics.V1.Videos.Item.Heatmap
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class HeatmapRequestBuilderGetQueryParameters 
         {
-            /// <summary>The buckets query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("buckets")]
             public int? Buckets { get; set; }
-            /// <summary>The range.end query parameter.</summary>
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("range%2Eend")]
             public string? RangeEnd { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("range%2Eend")]
             public string RangeEnd { get; set; }
+            #pragma warning restore CS1591
 #endif
-            /// <summary>The range.start query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("range%2Estart")]
             public string? RangeStart { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("range%2Estart")]
             public string RangeStart { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

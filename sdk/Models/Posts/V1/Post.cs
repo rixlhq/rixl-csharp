@@ -2,32 +2,71 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Rixl.Sdk.Models.Common.V1;
+using Rixl.Sdk.Models.Images.V1;
+using Rixl.Sdk.Models.Videos.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
 namespace Rixl.Sdk.Models.Posts.V1
 {
     /// <summary>
-    /// Composed type wrapper for classes <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember1"/>, <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember2"/>
+    /// At most one of `image`, `video` may be set.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Post : IComposedTypeWrapper, IParsable
+    public partial class Post : IParsable
     {
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember1"/></summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
+        public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>The creator_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember1? PostMember1 { get; set; }
+        public string? CreatorId { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember1 PostMember1 { get; set; }
+        public string CreatorId { get; set; }
 #endif
-        /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Models.Posts.V1.PostMember2"/></summary>
+        /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember2? PostMember2 { get; set; }
+        public string? Description { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Posts.V1.PostMember2 PostMember2 { get; set; }
+        public string Description { get; set; }
+#endif
+        /// <summary>The feed_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? FeedId { get; set; }
+#nullable restore
+#else
+        public string FeedId { get; set; }
+#endif
+        /// <summary>The id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Id { get; set; }
+#nullable restore
+#else
+        public string Id { get; set; }
+#endif
+        /// <summary>The image property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Images.V1.Image? Image { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Images.V1.Image Image { get; set; }
+#endif
+        /// <summary>The type property</summary>
+        public global::Rixl.Sdk.Models.Common.V1.MediaType? Type { get; set; }
+        /// <summary>The video property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Videos.V1.Video? Video { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Videos.V1.Video Video { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -37,10 +76,7 @@ namespace Rixl.Sdk.Models.Posts.V1
         public static global::Rixl.Sdk.Models.Posts.V1.Post CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            var result = new global::Rixl.Sdk.Models.Posts.V1.Post();
-            result.PostMember1 = new global::Rixl.Sdk.Models.Posts.V1.PostMember1();
-            result.PostMember2 = new global::Rixl.Sdk.Models.Posts.V1.PostMember2();
-            return result;
+            return new global::Rixl.Sdk.Models.Posts.V1.Post();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,11 +84,17 @@ namespace Rixl.Sdk.Models.Posts.V1
         /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
         public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
         {
-            if(PostMember1 != null || PostMember2 != null)
+            return new Dictionary<string, Action<IParseNode>>
             {
-                return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostMember1, PostMember2);
-            }
-            return new Dictionary<string, Action<IParseNode>>();
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "creator_id", n => { CreatorId = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
+                { "feed_id", n => { FeedId = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
+                { "image", n => { Image = n.GetObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>(global::Rixl.Sdk.Models.Images.V1.Image.CreateFromDiscriminatorValue); } },
+                { "type", n => { Type = n.GetEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>(); } },
+                { "video", n => { Video = n.GetObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>(global::Rixl.Sdk.Models.Videos.V1.Video.CreateFromDiscriminatorValue); } },
+            };
         }
         /// <summary>
         /// Serializes information the current object
@@ -61,7 +103,14 @@ namespace Rixl.Sdk.Models.Posts.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Posts.V1.PostMember1>(null, PostMember1, PostMember2);
+            writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteStringValue("creator_id", CreatorId);
+            writer.WriteStringValue("description", Description);
+            writer.WriteStringValue("feed_id", FeedId);
+            writer.WriteStringValue("id", Id);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Images.V1.Image>("image", Image);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Common.V1.MediaType>("type", Type);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Videos.V1.Video>("video", Video);
         }
     }
 }

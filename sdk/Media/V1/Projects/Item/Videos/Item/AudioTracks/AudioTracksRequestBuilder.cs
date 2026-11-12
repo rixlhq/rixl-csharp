@@ -7,6 +7,7 @@ using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Language;
 using Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload;
 using Rixl.Sdk.Models.Google.Protobuf;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -31,7 +32,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
             get => new global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.media.v1.projects.item.videos.item.audioTracks.item collection</summary>
-        /// <param name="position">The track_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks.Item.WithTrack_ItemRequestBuilder this[string position]
         {
@@ -64,6 +65,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,7 +76,11 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.AudioTracks
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// DeleteAllAudioTracks

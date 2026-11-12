@@ -6,6 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Analytics.V1.Dashboards.Item;
 using Rixl.Sdk.Analytics.V1.Dashboards.Widgets;
 using Rixl.Sdk.Models.Analytics.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -25,7 +26,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
             get => new global::Rixl.Sdk.Analytics.V1.Dashboards.Widgets.WidgetsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.analytics.v1.dashboards.item collection</summary>
-        /// <param name="position">The id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_ItemRequestBuilder this[string position]
         {
@@ -58,6 +59,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboards.DashboardsRequestBuilder.DashboardsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -68,7 +70,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.ListDashboardsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// CreateDashboard
@@ -77,6 +83,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.Dashboard?> PostAsync(global::Rixl.Sdk.Models.Analytics.V1.CreateDashboardRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -88,7 +95,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListDashboards
@@ -146,12 +157,14 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class DashboardsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The page query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("page")]
             public int? Page { get; set; }
-            /// <summary>The page_size query parameter.</summary>
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("page_size")]
             public int? PageSize { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

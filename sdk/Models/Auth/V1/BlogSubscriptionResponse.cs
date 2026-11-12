@@ -14,7 +14,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     {
         /// <summary>The subscribed property</summary>
         public bool? Subscribed { get; set; }
-        /// <summary>The subscribed_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? SubscribedAt { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

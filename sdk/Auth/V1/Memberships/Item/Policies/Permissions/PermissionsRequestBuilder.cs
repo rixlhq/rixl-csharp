@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Models.Auth.V1;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/permissions{?limit*,offset*,types*}", pathParameters)
+        public PermissionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/permissions{?limit*,offset*,types*,user%2Euser_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -30,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/permissions{?limit*,offset*,types*}", rawUrl)
+        public PermissionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/policies/permissions{?limit*,offset*,types*,user%2Euser_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -39,6 +40,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions.PermissionsRequestBuilder.PermissionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,7 +51,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.PermissionRegistryResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPermissionRegistry
@@ -85,21 +91,39 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Policies.Permissions
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PermissionsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The limit query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("limit")]
             public int? Limit { get; set; }
-            /// <summary>The offset query parameter.</summary>
+            #pragma warning restore CS1591
+            #pragma warning disable CS1591
             [QueryParameter("offset")]
             public int? Offset { get; set; }
-            /// <summary>The types query parameter.</summary>
+            #pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("types")]
             public string[]? Types { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("types")]
             public string[] Types { get; set; }
+            #pragma warning restore CS1591
+#endif
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("user%2Euser_id")]
+            public string? UserUserId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("user%2Euser_id")]
+            public string UserUserId { get; set; }
+            #pragma warning restore CS1591
 #endif
         }
     }

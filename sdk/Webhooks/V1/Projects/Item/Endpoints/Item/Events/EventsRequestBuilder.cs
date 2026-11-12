@@ -16,7 +16,7 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item.Events
     public partial class EventsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.webhooks.v1.projects.item.endpoints.item.events.item collection</summary>
-        /// <param name="position">The event_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item.Events.Item.WithEvent_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item.Events.Item.WithEvent_ItemRequestBuilder this[string position]
         {

@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #endif
         /// <summary>The present property</summary>
         public bool? Present { get; set; }
-        /// <summary>The status property</summary>
+        /// <summary>At most one of `verified`, `pending` may be set.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public global::Rixl.Sdk.Models.Auth.V1.DomainStatus? Status { get; set; }

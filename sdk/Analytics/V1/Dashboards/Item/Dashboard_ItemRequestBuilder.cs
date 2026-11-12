@@ -9,6 +9,7 @@ using Rixl.Sdk.Analytics.V1.Dashboards.Item.Layout;
 using Rixl.Sdk.Analytics.V1.Dashboards.Item.Widgets;
 using Rixl.Sdk.Models.Analytics.V1;
 using Rixl.Sdk.Models.Google.Protobuf;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -64,6 +65,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_ItemRequestBuilder.Dashboard_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,7 +76,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// GetDashboard
@@ -82,6 +88,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.Dashboard"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.Dashboard?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -92,7 +99,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// UpdateDashboard
@@ -101,6 +112,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Analytics.V1.Dashboard?> PatchAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Dashboard_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -112,7 +124,11 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPatchRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.Dashboard>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.Dashboard.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// DeleteDashboard
@@ -189,9 +205,10 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class Dashboard_ItemRequestBuilderDeleteQueryParameters 
         {
-            /// <summary>The expected_revision query parameter.</summary>
+            #pragma warning disable CS1591
             [QueryParameter("expected_revision")]
             public int? ExpectedRevision { get; set; }
+            #pragma warning restore CS1591
         }
     }
 }

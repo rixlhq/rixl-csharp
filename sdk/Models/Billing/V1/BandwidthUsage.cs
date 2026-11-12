@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Billing.V1
     public partial class BandwidthUsage : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>The data_source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -46,7 +46,7 @@ namespace Rixl.Sdk.Models.Billing.V1
 #else
         public string OrgId { get; set; }
 #endif
-        /// <summary>The snapshot_date property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? SnapshotDate { get; set; }
         /// <summary>The snapshot_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

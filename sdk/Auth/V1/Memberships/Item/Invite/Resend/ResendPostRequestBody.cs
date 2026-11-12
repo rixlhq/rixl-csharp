@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
     public partial class ResendPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendPostRequestBody_user? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendPostRequestBody_user User { get; set; }
+#endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -38,6 +46,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendPostRequestBody_user>(global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendPostRequestBody_user.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -48,6 +57,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Invite.Resend.ResendPostRequestBody_user>("user", User);
             writer.WriteStringValue("user_id", UserId);
         }
     }

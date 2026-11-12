@@ -20,6 +20,14 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
 #else
         public string Domain { get; set; }
 #endif
+        /// <summary>The user property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody_user? User { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody_user User { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "domain", n => { Domain = n.GetStringValue(); } },
+                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody_user>(global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Domain
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("domain", Domain);
+            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Memberships.Item.Domain.DomainPostRequestBody_user>("user", User);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class MembershipApplication : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
-        /// <summary>The decided_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? DecidedAt { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -24,7 +24,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Id { get; set; }
 #endif
-        /// <summary>The invitation_expires_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? InvitationExpiresAt { get; set; }
         /// <summary>The organization_first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

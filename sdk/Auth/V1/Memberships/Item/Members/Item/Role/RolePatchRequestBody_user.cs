@@ -5,39 +5,30 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Models.Analytics.V1
+namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class AnalyticsEventMember4 : IAdditionalDataHolder, IParsable
+    public partial class RolePatchRequestBody_user : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-        public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The interaction property</summary>
+        /// <summary>The actor_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent? Interaction { get; set; }
+        public string? ActorId { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent Interaction { get; set; }
+        public string ActorId { get; set; }
 #endif
-        /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/> and sets the default values.
-        /// </summary>
-        public AnalyticsEventMember4()
-        {
-            AdditionalData = new Dictionary<string, object>();
-        }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody_user"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody_user CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Analytics.V1.AnalyticsEventMember4();
+            return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role.RolePatchRequestBody_user();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +38,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "interaction", n => { Interaction = n.GetObjectValue<global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent>(global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent.CreateFromDiscriminatorValue); } },
+                { "actor_id", n => { ActorId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +48,7 @@ namespace Rixl.Sdk.Models.Analytics.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Analytics.V1.InteractionEvent>("interaction", Interaction);
-            writer.WriteAdditionalData(AdditionalData);
+            writer.WriteStringValue("actor_id", ActorId);
         }
     }
 }

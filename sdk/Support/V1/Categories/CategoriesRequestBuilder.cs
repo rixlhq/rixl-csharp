@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Support.V1;
 using Rixl.Sdk.Support.V1.Categories.Item;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Rixl.Sdk.Support.V1.Categories
     public partial class CategoriesRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.support.v1.categories.item collection</summary>
-        /// <param name="position">The category_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Support.V1.Categories.Item.WithCategory_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Support.V1.Categories.Item.WithCategory_ItemRequestBuilder this[string position]
         {
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Support.V1.Categories
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Support.V1.Categories
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse>(requestInfo, global::Rixl.Sdk.Models.Support.V1.ListCategoriesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListCategories

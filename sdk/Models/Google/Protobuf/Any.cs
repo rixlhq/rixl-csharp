@@ -5,39 +5,40 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Models.Auth.V1
+namespace Rixl.Sdk.Models.Google.Protobuf
 {
+    /// <summary>
+    /// Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    #pragma warning disable CS1591
-    public partial class DomainStatusMember2 : IAdditionalDataHolder, IParsable
-    #pragma warning restore CS1591
+    public partial class Any : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The verified property</summary>
+        /// <summary>A URL/resource name that uniquely identifies the type of the serialized message.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain? Verified { get; set; }
+        public string? Type { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain Verified { get; set; }
+        public string Type { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Auth.V1.DomainStatusMember2"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Any"/> and sets the default values.
         /// </summary>
-        public DomainStatusMember2()
+        public Any()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.DomainStatusMember2"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Any"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Auth.V1.DomainStatusMember2 CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Google.Protobuf.Any CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Auth.V1.DomainStatusMember2();
+            return new global::Rixl.Sdk.Models.Google.Protobuf.Any();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,7 +48,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "verified", n => { Verified = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain>(global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain.CreateFromDiscriminatorValue); } },
+                { "@type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,7 +58,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain>("verified", Verified);
+            writer.WriteStringValue("@type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

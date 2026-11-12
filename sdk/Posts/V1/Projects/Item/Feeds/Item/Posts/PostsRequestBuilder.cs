@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Posts.V1;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item;
@@ -31,7 +32,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             get => new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>Gets an item from the Rixl.Sdk.posts.v1.projects.item.feeds.item.posts.item collection</summary>
-        /// <param name="position">The post_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPost_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item.WithPost_ItemRequestBuilder this[string position]
         {
@@ -64,6 +65,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -74,27 +76,36 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// CreatePost
         /// </summary>
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">At most one of `image_id`, `video_id` may be set.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse?> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse?> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListPosts
@@ -119,15 +130,15 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// CreatePost
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
-        /// <param name="body">The request body</param>
+        /// <param name="body">At most one of `image_id`, `video_id` may be set.</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -147,77 +158,23 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             return new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
-        /// Composed type wrapper for classes <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1"/>, <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember2"/>
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class PostsPostRequestBody : IComposedTypeWrapper, IParsable
-        {
-            /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1? PostsPostRequestBodyMember1 { get; set; }
-#nullable restore
-#else
-            public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1 PostsPostRequestBodyMember1 { get; set; }
-#endif
-            /// <summary>Composed type representation for type <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember2"/></summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember2? PostsPostRequestBodyMember2 { get; set; }
-#nullable restore
-#else
-            public global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember2 PostsPostRequestBodyMember2 { get; set; }
-#endif
-            /// <summary>
-            /// Creates a new instance of the appropriate class based on discriminator value
-            /// </summary>
-            /// <returns>A <see cref="global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody"/></returns>
-            /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-            public static global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
-            {
-                if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-                var result = new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsPostRequestBody();
-                result.PostsPostRequestBodyMember1 = new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1();
-                result.PostsPostRequestBodyMember2 = new global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember2();
-                return result;
-            }
-            /// <summary>
-            /// The deserialization information for the current model
-            /// </summary>
-            /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-            public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-            {
-                if(PostsPostRequestBodyMember1 != null || PostsPostRequestBodyMember2 != null)
-                {
-                    return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(PostsPostRequestBodyMember1, PostsPostRequestBodyMember2);
-                }
-                return new Dictionary<string, Action<IParseNode>>();
-            }
-            /// <summary>
-            /// Serializes information the current object
-            /// </summary>
-            /// <param name="writer">Serialization writer to use to serialize this model</param>
-            public virtual void Serialize(ISerializationWriter writer)
-            {
-                if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-                writer.WriteObjectValue<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBodyMember1>(null, PostsPostRequestBodyMember1, PostsPostRequestBodyMember2);
-            }
-        }
-        /// <summary>
         /// ListPosts
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
         public partial class PostsRequestBuilderGetQueryParameters 
         {
-            /// <summary>The creator_id query parameter.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+            #pragma warning disable CS1591
             [QueryParameter("creator_id")]
             public string? CreatorId { get; set; }
+            #pragma warning restore CS1591
 #nullable restore
 #else
+            #pragma warning disable CS1591
             [QueryParameter("creator_id")]
             public string CreatorId { get; set; }
+            #pragma warning restore CS1591
 #endif
             /// <summary>Maximum number of items to return.</summary>
             [QueryParameter("pagination%2Elimit")]

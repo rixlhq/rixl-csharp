@@ -8,6 +8,7 @@ using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Reactivate;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Role;
 using Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Suspend;
 using Rixl.Sdk.Models.Google.Protobuf;
+using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -46,7 +47,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}", pathParameters)
+        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2Eactor_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -54,7 +55,7 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}", rawUrl)
+        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/memberships/{org_%2Did}/members/{member_%2Did}{?user%2Eactor_id*}", rawUrl)
         {
         }
         /// <summary>
@@ -63,17 +64,22 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Empty"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder.Member_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder.Member_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Protobuf.Empty>(requestInfo, global::Rixl.Sdk.Models.Google.Protobuf.Empty.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RemoveMember
@@ -82,11 +88,11 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder.Member_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder.Member_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -102,6 +108,26 @@ namespace Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item
         public global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.Memberships.Item.Members.Item.Member_ItemRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
+        /// RemoveMember
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+        public partial class Member_ItemRequestBuilderDeleteQueryParameters 
+        {
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+            #pragma warning disable CS1591
+            [QueryParameter("user%2Eactor_id")]
+            public string? UserActorId { get; set; }
+            #pragma warning restore CS1591
+#nullable restore
+#else
+            #pragma warning disable CS1591
+            [QueryParameter("user%2Eactor_id")]
+            public string UserActorId { get; set; }
+            #pragma warning restore CS1591
+#endif
         }
     }
 }

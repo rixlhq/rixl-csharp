@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Billing.V1.Invoices.Item.Status
     public partial class StatusPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Billing.V1.InvoiceStatus? Status { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

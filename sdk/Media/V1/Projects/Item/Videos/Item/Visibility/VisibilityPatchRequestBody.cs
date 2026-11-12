@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Media.V1.Projects.Item.Videos.Item.Visibility
     public partial class VisibilityPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>enum.defined_only = true</summary>
+        /// <summary>The visibility property</summary>
         public global::Rixl.Sdk.Models.Common.V1.Visibility? Visibility { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value

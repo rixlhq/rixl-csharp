@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Common.V1
     public partial class FileObject : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The created_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
         /// <summary>format describes the artifact currently served at url, not the uploaded source, and is only meaningful once status is FILE_STATUS_READY. Video flips from &quot;mp4&quot; to &quot;hls&quot; when packaging completes; that is the only signal for choosing a progressive player over an HLS one. Known values: jpg, png, webp, avif, gif, mp4, hls, srt, vtt.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Models.Common.V1
 #endif
         /// <summary>The status property</summary>
         public global::Rixl.Sdk.Models.Common.V1.FileStatus? Status { get; set; }
-        /// <summary>The updated_at property</summary>
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? UpdatedAt { get; set; }
         /// <summary>The url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Webhooks.V1;
 using Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints
     public partial class EndpointsRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the Rixl.Sdk.webhooks.v1.projects.item.endpoints.item collection</summary>
-        /// <param name="position">The endpoint_id path parameter.</param>
+        /// <param name="position">Unique identifier of the item</param>
         /// <returns>A <see cref="global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item.WithEndpoint_ItemRequestBuilder"/></returns>
         public global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.Item.WithEndpoint_ItemRequestBuilder this[string position]
         {
@@ -52,6 +53,7 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.EndpointsRequestBuilder.EndpointsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -62,7 +64,11 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse>(requestInfo, global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse>(requestInfo, global::Rixl.Sdk.Models.Webhooks.V1.ListEndpointsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// CreateEndpoint registers a new HTTPS endpoint and returns its signing secret exactly once. Store it; only a rotation returns a secret again.
@@ -71,6 +77,7 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Webhooks.V1.CreateEndpointResponse?> PostAsync(global::Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints.EndpointsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -82,7 +89,11 @@ namespace Rixl.Sdk.Webhooks.V1.Projects.Item.Endpoints
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Webhooks.V1.CreateEndpointResponse>(requestInfo, global::Rixl.Sdk.Models.Webhooks.V1.CreateEndpointResponse.CreateFromDiscriminatorValue, default, cancellationToken).ConfigureAwait(false);
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+            };
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Webhooks.V1.CreateEndpointResponse>(requestInfo, global::Rixl.Sdk.Models.Webhooks.V1.CreateEndpointResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ListEndpoints
