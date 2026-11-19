@@ -32,5 +32,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         #pragma warning disable CS1591
         EXTERNAL_ACCOUNT_PROVIDER_TELEGRAM,
         #pragma warning restore CS1591
+        [EnumMember(Value = "EXTERNAL_ACCOUNT_PROVIDER_GITHUB")]
+        #pragma warning disable CS1591
+        EXTERNAL_ACCOUNT_PROVIDER_GITHUB,
+        #pragma warning restore CS1591
     }
 }
