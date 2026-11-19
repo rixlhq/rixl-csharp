@@ -10,7 +10,6 @@ using Rixl.Sdk.Analytics;
 using Rixl.Sdk.Auth;
 using Rixl.Sdk.Billing;
 using Rixl.Sdk.Feeds;
-using Rixl.Sdk.Internal;
 using Rixl.Sdk.Media;
 using Rixl.Sdk.Organizations;
 using Rixl.Sdk.Platform;
@@ -48,11 +47,6 @@ namespace Rixl.Sdk
         public global::Rixl.Sdk.Feeds.FeedsRequestBuilder Feeds
         {
             get => new global::Rixl.Sdk.Feeds.FeedsRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The internal property</summary>
-        public global::Rixl.Sdk.Internal.InternalRequestBuilder Internal
-        {
-            get => new global::Rixl.Sdk.Internal.InternalRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The media property</summary>
         public global::Rixl.Sdk.Media.MediaRequestBuilder Media
