@@ -91,6 +91,11 @@ namespace Rixl.Sdk
             ApiClientBuilder.RegisterDefaultDeserializer<JsonParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<TextParseNodeFactory>();
             ApiClientBuilder.RegisterDefaultDeserializer<FormParseNodeFactory>();
+            if (string.IsNullOrEmpty(RequestAdapter.BaseUrl))
+            {
+                RequestAdapter.BaseUrl = "https://api.rixl.com";
+            }
+            PathParameters.TryAdd("baseurl", RequestAdapter.BaseUrl);
         }
     }
 }
