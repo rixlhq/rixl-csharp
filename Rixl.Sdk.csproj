@@ -8,9 +8,9 @@
 
     <PackageId>Rixl.Sdk</PackageId>
     <Version>0.1.8</Version>
-    <Authors>RIXL</Authors>
-    <Company>RIXL</Company>
-    <Description>C# client for the RIXL API.</Description>
+    <Authors>Rixl Inc.</Authors>
+    <Company>Rixl Inc.</Company>
+    <Description>C# client for the Rixl API.</Description>
     <PackageProjectUrl>https://github.com/rixlhq/rixl-csharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/rixlhq/rixl-csharp</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
