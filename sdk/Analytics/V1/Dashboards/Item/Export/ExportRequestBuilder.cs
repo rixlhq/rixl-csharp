@@ -3,7 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Google.Api;
+using Rixl.Sdk.Models.Analytics.V1;
 using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
 using System.IO;
@@ -37,18 +37,18 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Export
         /// <summary>
         /// ExportDashboard
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Api.HttpBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Analytics.V1.ExportDashboardResponse"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
         /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Google.Api.HttpBody?> PostAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.ExportDashboardResponse?> PostAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Google.Api.HttpBody> PostAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Analytics.V1.ExportDashboardResponse> PostAsync(global::Rixl.Sdk.Analytics.V1.Dashboards.Item.Export.ExportPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -57,7 +57,7 @@ namespace Rixl.Sdk.Analytics.V1.Dashboards.Item.Export
             {
                 { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Google.Api.HttpBody>(requestInfo, global::Rixl.Sdk.Models.Google.Api.HttpBody.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Analytics.V1.ExportDashboardResponse>(requestInfo, global::Rixl.Sdk.Models.Analytics.V1.ExportDashboardResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// ExportDashboard
