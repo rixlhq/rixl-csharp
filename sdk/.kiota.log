@@ -31,6 +31,8 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.VideoSt
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.VideoStats/properties/watches - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.VideoStats/properties/completions - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/apikeys.v1.ListApiKeysResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.ApplyOrgLifecycleRequest/properties/lifecycle_version - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.GetOrganizationStateResponse/properties/lifecycle_version - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.LoginResponse/properties/expires_in - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.OrganizationAuditEvent/properties/id - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.RetentionPoint/properties/cohort - The format int64 is not supported by Kiota for the type String and will be ignored.

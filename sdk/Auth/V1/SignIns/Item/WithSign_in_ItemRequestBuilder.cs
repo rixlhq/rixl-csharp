@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.SignIns.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSign_in_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/sign-ins/{sign_in_id}{?user%2Euser_id*}", pathParameters)
+        public WithSign_in_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/sign-ins/{sign_in_id}", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.SignIns.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithSign_in_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/sign-ins/{sign_in_id}{?user%2Euser_id*}", rawUrl)
+        public WithSign_in_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/sign-ins/{sign_in_id}", rawUrl)
         {
         }
         /// <summary>
@@ -43,11 +43,11 @@ namespace Rixl.Sdk.Auth.V1.SignIns.Item
         /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder.WithSign_in_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder.WithSign_in_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Google.Protobuf.Empty> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -64,11 +64,11 @@ namespace Rixl.Sdk.Auth.V1.SignIns.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder.WithSign_in_ItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder.WithSign_in_ItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
@@ -84,26 +84,6 @@ namespace Rixl.Sdk.Auth.V1.SignIns.Item
         public global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder WithUrl(string rawUrl)
         {
             return new global::Rixl.Sdk.Auth.V1.SignIns.Item.WithSign_in_ItemRequestBuilder(rawUrl, RequestAdapter);
-        }
-        /// <summary>
-        /// Revokes one of the caller&apos;s sign-ins and invalidates its tokens.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-        public partial class WithSign_in_ItemRequestBuilderDeleteQueryParameters 
-        {
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string? UserUserId { get; set; }
-            #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string UserUserId { get; set; }
-            #pragma warning restore CS1591
-#endif
         }
     }
 }

@@ -5,11 +5,12 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Organizations.Item.AuditEvents;
 using Rixl.Sdk.Auth.V1.Organizations.Item.Avatar;
+using Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam;
 using Rixl.Sdk.Auth.V1.Organizations.Item.Domain;
-using Rixl.Sdk.Auth.V1.Organizations.Item.Invite;
+using Rixl.Sdk.Auth.V1.Organizations.Item.Invitations;
 using Rixl.Sdk.Auth.V1.Organizations.Item.Members;
-using Rixl.Sdk.Auth.V1.Organizations.Item.MembershipApplications;
 using Rixl.Sdk.Auth.V1.Organizations.Item.Policies;
+using Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership;
 using Rixl.Sdk.Models.Auth.V1;
 using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
@@ -35,30 +36,35 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         {
             get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Avatar.AvatarRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The convertToTeam property</summary>
+        public global::Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam.ConvertToTeamRequestBuilder ConvertToTeam
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam.ConvertToTeamRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The domain property</summary>
         public global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.DomainRequestBuilder Domain
         {
             get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.DomainRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The invite property</summary>
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Invite.InviteRequestBuilder Invite
+        /// <summary>The invitations property</summary>
+        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Invitations.InvitationsRequestBuilder Invitations
         {
-            get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Invite.InviteRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Invitations.InvitationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The members property</summary>
         public global::Rixl.Sdk.Auth.V1.Organizations.Item.Members.MembersRequestBuilder Members
         {
             get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Members.MembersRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The membershipApplications property</summary>
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.MembershipApplications.MembershipApplicationsRequestBuilder MembershipApplications
-        {
-            get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.MembershipApplications.MembershipApplicationsRequestBuilder(PathParameters, RequestAdapter);
-        }
         /// <summary>The policies property</summary>
         public global::Rixl.Sdk.Auth.V1.Organizations.Item.Policies.PoliciesRequestBuilder Policies
         {
             get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.Policies.PoliciesRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The transferOwnership property</summary>
+        public global::Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership.TransferOwnershipRequestBuilder TransferOwnership
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership.TransferOwnershipRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder"/> and sets the default values.

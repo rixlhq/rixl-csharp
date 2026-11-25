@@ -14,6 +14,8 @@ namespace Rixl.Sdk.Models.Auth.V1
     {
         /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? CreatedAt { get; set; }
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
+        public DateTimeOffset? DeleteTime { get; set; }
         /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -42,6 +44,8 @@ namespace Rixl.Sdk.Models.Auth.V1
 #endif
         /// <summary>The personal property</summary>
         public bool? Personal { get; set; }
+        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
+        public DateTimeOffset? PurgeTime { get; set; }
         /// <summary>The slug property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +54,8 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Slug { get; set; }
 #endif
+        /// <summary>The state property</summary>
+        public global::Rixl.Sdk.Models.Auth.V1.OrganizationState? State { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -69,12 +75,15 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "delete_time", n => { DeleteTime = n.GetDateTimeOffsetValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
                 { "internal", n => { Internal = n.GetBoolValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
                 { "personal", n => { Personal = n.GetBoolValue(); } },
+                { "purge_time", n => { PurgeTime = n.GetDateTimeOffsetValue(); } },
                 { "slug", n => { Slug = n.GetStringValue(); } },
+                { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.OrganizationState>(); } },
             };
         }
         /// <summary>
@@ -85,12 +94,15 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+            writer.WriteDateTimeOffsetValue("delete_time", DeleteTime);
             writer.WriteStringValue("id", Id);
             writer.WriteStringValue("image_id", ImageId);
             writer.WriteBoolValue("internal", Internal);
             writer.WriteStringValue("name", Name);
             writer.WriteBoolValue("personal", Personal);
+            writer.WriteDateTimeOffsetValue("purge_time", PurgeTime);
             writer.WriteStringValue("slug", Slug);
+            writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.OrganizationState>("state", State);
         }
     }
 }

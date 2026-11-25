@@ -35,7 +35,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails.Change
         {
         }
         /// <summary>
-        /// InitiateEmailChange
+        /// Requests changing the email. The account keeps its address until the new one is verified with VerifyEmailChange.
         /// </summary>
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -60,7 +60,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails.Change
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// InitiateEmailChange
+        /// Requests changing the email. The account keeps its address until the new one is verified with VerifyEmailChange.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

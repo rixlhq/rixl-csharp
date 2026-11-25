@@ -20,6 +20,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Email { get; set; }
 #endif
+        /// <summary>verification_id names the pending sign-up to resend, as returned by Register. A pending sign-up is never looked up by email alone.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? VerificationId { get; set; }
+#nullable restore
+#else
+        public string VerificationId { get; set; }
+#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -39,6 +47,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "email", n => { Email = n.GetStringValue(); } },
+                { "verification_id", n => { VerificationId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -49,6 +58,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
+            writer.WriteStringValue("verification_id", VerificationId);
         }
     }
 }

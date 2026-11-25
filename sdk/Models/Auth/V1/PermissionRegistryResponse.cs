@@ -15,10 +15,10 @@ namespace Rixl.Sdk.Models.Auth.V1
         /// <summary>The permissions property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Rixl.Sdk.Models.Auth.V1.PermissionOffset>? Permissions { get; set; }
+        public List<global::Rixl.Sdk.Models.Auth.V1.RegisteredPermission>? Permissions { get; set; }
 #nullable restore
 #else
-        public List<global::Rixl.Sdk.Models.Auth.V1.PermissionOffset> Permissions { get; set; }
+        public List<global::Rixl.Sdk.Models.Auth.V1.RegisteredPermission> Permissions { get; set; }
 #endif
         /// <summary>The total property</summary>
         public int? Total { get; set; }
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "permissions", n => { Permissions = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.PermissionOffset>(global::Rixl.Sdk.Models.Auth.V1.PermissionOffset.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "permissions", n => { Permissions = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.RegisteredPermission>(global::Rixl.Sdk.Models.Auth.V1.RegisteredPermission.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "total", n => { Total = n.GetIntValue(); } },
             };
         }
@@ -51,7 +51,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.PermissionOffset>("permissions", Permissions);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.RegisteredPermission>("permissions", Permissions);
             writer.WriteIntValue("total", Total);
         }
     }

@@ -5,6 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Users.Current.Emails.Change;
 using Rixl.Sdk.Auth.V1.Users.Current.Emails.Status;
+using Rixl.Sdk.Auth.V1.Users.Current.Emails.Verify;
 using Rixl.Sdk.Models.Auth.V1;
 using Rixl.Sdk.Models.Google.Rpc;
 using System.Collections.Generic;
@@ -30,6 +31,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Emails.Status.StatusRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The verify property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.Emails.Verify.VerifyRequestBuilder Verify
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Emails.Verify.VerifyRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder"/> and sets the default values.
         /// </summary>
@@ -47,7 +53,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails
         {
         }
         /// <summary>
-        /// AddEmail
+        /// Requests adding an email. Nothing is stored on the account until the address is verified with VerifyEmailChange.
         /// </summary>
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse"/></returns>
         /// <param name="body">The request body</param>
@@ -72,7 +78,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Emails
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.VerificationSentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// AddEmail
+        /// Requests adding an email. Nothing is stored on the account until the address is verified with VerifyEmailChange.
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -22,14 +22,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Message { get; set; }
 #endif
-        /// <summary>The user_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UserId { get; set; }
-#nullable restore
-#else
-        public string UserId { get; set; }
-#endif
         /// <summary>The verification_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,7 +50,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "email_verification_sent", n => { EmailVerificationSent = n.GetBoolValue(); } },
                 { "message", n => { Message = n.GetStringValue(); } },
-                { "user_id", n => { UserId = n.GetStringValue(); } },
                 { "verification_id", n => { VerificationId = n.GetStringValue(); } },
             };
         }
@@ -71,7 +62,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("email_verification_sent", EmailVerificationSent);
             writer.WriteStringValue("message", Message);
-            writer.WriteStringValue("user_id", UserId);
             writer.WriteStringValue("verification_id", VerificationId);
         }
     }

@@ -4,8 +4,10 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Users.Current.Avatar;
+using Rixl.Sdk.Auth.V1.Users.Current.DeletionPreview;
 using Rixl.Sdk.Auth.V1.Users.Current.DomainJoinSuggestions;
 using Rixl.Sdk.Auth.V1.Users.Current.Emails;
+using Rixl.Sdk.Auth.V1.Users.Current.Invitations;
 using Rixl.Sdk.Auth.V1.Users.Current.Memberships;
 using Rixl.Sdk.Auth.V1.Users.Current.Name;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys;
@@ -31,6 +33,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.AvatarRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The deletionPreview property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.DeletionPreview.DeletionPreviewRequestBuilder DeletionPreview
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.DeletionPreview.DeletionPreviewRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The domainJoinSuggestions property</summary>
         public global::Rixl.Sdk.Auth.V1.Users.Current.DomainJoinSuggestions.DomainJoinSuggestionsRequestBuilder DomainJoinSuggestions
         {
@@ -40,6 +47,11 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         public global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder Emails
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The invitations property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.Invitations.InvitationsRequestBuilder Invitations
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Invitations.InvitationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The memberships property</summary>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Memberships.MembershipsRequestBuilder Memberships

@@ -22,8 +22,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #endif
         /// <summary>The has_email property</summary>
         public bool? HasEmail { get; set; }
-        /// <summary>The verified property</summary>
-        public bool? Verified { get; set; }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -44,7 +42,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "has_email", n => { HasEmail = n.GetBoolValue(); } },
-                { "verified", n => { Verified = n.GetBoolValue(); } },
             };
         }
         /// <summary>
@@ -56,7 +53,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("has_email", HasEmail);
-            writer.WriteBoolValue("verified", Verified);
         }
     }
 }

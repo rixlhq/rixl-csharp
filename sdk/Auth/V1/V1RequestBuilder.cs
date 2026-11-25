@@ -7,7 +7,6 @@ using Rixl.Sdk.Auth.V1.Email;
 using Rixl.Sdk.Auth.V1.Invitations;
 using Rixl.Sdk.Auth.V1.Login;
 using Rixl.Sdk.Auth.V1.Logout;
-using Rixl.Sdk.Auth.V1.MembershipApplications;
 using Rixl.Sdk.Auth.V1.Notifications;
 using Rixl.Sdk.Auth.V1.Organizations;
 using Rixl.Sdk.Auth.V1.Passkey;
@@ -56,11 +55,6 @@ namespace Rixl.Sdk.Auth.V1
         public global::Rixl.Sdk.Auth.V1.Logout.LogoutRequestBuilder Logout
         {
             get => new global::Rixl.Sdk.Auth.V1.Logout.LogoutRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The membershipApplications property</summary>
-        public global::Rixl.Sdk.Auth.V1.MembershipApplications.MembershipApplicationsRequestBuilder MembershipApplications
-        {
-            get => new global::Rixl.Sdk.Auth.V1.MembershipApplications.MembershipApplicationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The notifications property</summary>
         public global::Rixl.Sdk.Auth.V1.Notifications.NotificationsRequestBuilder Notifications

@@ -2,7 +2,9 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Auth.V1.Invitations.Item;
+using Rixl.Sdk.Auth.V1.Invitations.Accept;
+using Rixl.Sdk.Auth.V1.Invitations.Decline;
+using Rixl.Sdk.Auth.V1.Invitations.Lookup;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -15,17 +17,20 @@ namespace Rixl.Sdk.Auth.V1.Invitations
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvitationsRequestBuilder : BaseRequestBuilder
     {
-        /// <summary>Gets an item from the Rixl.Sdk.auth.v1.invitations.item collection</summary>
-        /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Invitations.Item.WithTokenItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Auth.V1.Invitations.Item.WithTokenItemRequestBuilder this[string position]
+        /// <summary>The accept property</summary>
+        public global::Rixl.Sdk.Auth.V1.Invitations.Accept.AcceptRequestBuilder Accept
         {
-            get
-            {
-                var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("token", position);
-                return new global::Rixl.Sdk.Auth.V1.Invitations.Item.WithTokenItemRequestBuilder(urlTplParams, RequestAdapter);
-            }
+            get => new global::Rixl.Sdk.Auth.V1.Invitations.Accept.AcceptRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The decline property</summary>
+        public global::Rixl.Sdk.Auth.V1.Invitations.Decline.DeclineRequestBuilder Decline
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Invitations.Decline.DeclineRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The lookup property</summary>
+        public global::Rixl.Sdk.Auth.V1.Invitations.Lookup.LookupRequestBuilder Lookup
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Invitations.Lookup.LookupRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Invitations.InvitationsRequestBuilder"/> and sets the default values.

@@ -29,8 +29,6 @@ namespace Rixl.Sdk.Models.Auth.V1
         public string Id { get; set; }
 #endif
         /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
-        public DateTimeOffset? InvitationExpiresAt { get; set; }
-        /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? JoinedAt { get; set; }
         /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -88,7 +86,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "invitation_expires_at", n => { InvitationExpiresAt = n.GetDateTimeOffsetValue(); } },
                 { "joined_at", n => { JoinedAt = n.GetDateTimeOffsetValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
@@ -107,7 +104,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("id", Id);
-            writer.WriteDateTimeOffsetValue("invitation_expires_at", InvitationExpiresAt);
             writer.WriteDateTimeOffsetValue("joined_at", JoinedAt);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteStringValue("org_id", OrgId);

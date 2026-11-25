@@ -100,7 +100,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Role { get; set; }
 #endif
-        /// <summary>&quot;ok&quot; | &quot;2fa_required&quot; | &quot;email_not_verified&quot;</summary>
+        /// <summary>&quot;ok&quot; | &quot;2fa_required&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Status { get; set; }
