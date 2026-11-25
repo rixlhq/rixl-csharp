@@ -28,6 +28,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string CountryCode { get; set; }
 #endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
+#endif
         /// <summary>The origin property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -80,6 +88,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "code_verifier", n => { CodeVerifier = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "origin", n => { Origin = n.GetStringValue(); } },
                 { "redirect_uri", n => { RedirectUri = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
@@ -95,6 +104,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("code_verifier", CodeVerifier);
             writer.WriteStringValue("country_code", CountryCode);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("origin", Origin);
             writer.WriteStringValue("redirect_uri", RedirectUri);
             writer.WriteStringValue("refresh_token", RefreshToken);

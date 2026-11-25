@@ -32,7 +32,19 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.VideoSt
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/analytics.v1.VideoStats/properties/completions - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/apikeys.v1.ListApiKeysResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.LoginResponse/properties/expires_in - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.OrganizationAuditEvent/properties/id - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.RetentionPoint/properties/cohort - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.RetentionPoint/properties/retained - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.SignupDay/properties/count - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.TokenResponse/properties/expires_in - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/total_users - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/total_orgs - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/registered_today - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/registered_7d - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/registered_30d - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/active_24h - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/active_7d - The format int64 is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/auth.v1.UserStatsResponse/properties/active_30d - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/billing.v1.BandwidthUsage/properties/total_bandwidth_bytes - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/billing.v1.BandwidthUsage/properties/video_bandwidth_bytes - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/billing.v1.BandwidthUsage/properties/image_bandwidth_bytes - The format int64 is not supported by Kiota for the type String and will be ignored.
@@ -78,7 +90,8 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.TrackUploa
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointAttemptsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEventsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1domain - The path signature '/auth/v1/memberships/{}/domain' MUST be unique.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1domain~1auto-join - The path signature '/auth/v1/memberships/{}/domain/auto-join' MUST be unique.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1memberships~1{user.org_id}~1policies - The path signature '/auth/v1/memberships/{}/policies' MUST be unique.
+Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1domain - The path signature '/auth/v1/organizations/{}/domain' MUST be unique.
+Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1domain~1suggest-join - The path signature '/auth/v1/organizations/{}/domain/suggest-join' MUST be unique.
+Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1notifications~1{user.org_id}~1preferences - The path signature '/auth/v1/notifications/{}/preferences' MUST be unique.
+Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1policies - The path signature '/auth/v1/organizations/{}/policies' MUST be unique.
 Warning: KiotaBuilder Discriminator google.protobuf.Timestamp is not inherited from Timestamp.

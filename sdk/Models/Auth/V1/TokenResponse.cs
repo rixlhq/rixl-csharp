@@ -20,6 +20,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string AccessToken { get; set; }
 #endif
+        /// <summary>The domain_join_suggestions property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public List<global::Rixl.Sdk.Models.Auth.V1.Organization>? DomainJoinSuggestions { get; set; }
+#nullable restore
+#else
+        public List<global::Rixl.Sdk.Models.Auth.V1.Organization> DomainJoinSuggestions { get; set; }
+#endif
         /// <summary>The expires_in property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,6 +35,22 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string ExpiresIn { get; set; }
+#endif
+        /// <summary>The last_active_org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastActiveOrgId { get; set; }
+#nullable restore
+#else
+        public string LastActiveOrgId { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
 #endif
         /// <summary>The refresh_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -43,6 +67,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string RequiresAction { get; set; }
+#endif
+        /// <summary>The role property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Role { get; set; }
+#nullable restore
+#else
+        public string Role { get; set; }
 #endif
         /// <summary>The token_type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -71,9 +103,13 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
+                { "domain_join_suggestions", n => { DomainJoinSuggestions = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Organization>(global::Rixl.Sdk.Models.Auth.V1.Organization.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "expires_in", n => { ExpiresIn = n.GetStringValue(); } },
+                { "last_active_org_id", n => { LastActiveOrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
                 { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
         }
@@ -85,9 +121,13 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_token", AccessToken);
+            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Organization>("domain_join_suggestions", DomainJoinSuggestions);
             writer.WriteStringValue("expires_in", ExpiresIn);
+            writer.WriteStringValue("last_active_org_id", LastActiveOrgId);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("requires_action", RequiresAction);
+            writer.WriteStringValue("role", Role);
             writer.WriteStringValue("token_type", TokenType);
         }
     }

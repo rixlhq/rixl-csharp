@@ -4,7 +4,9 @@ using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Users.Current.Avatar;
+using Rixl.Sdk.Auth.V1.Users.Current.DomainJoinSuggestions;
 using Rixl.Sdk.Auth.V1.Users.Current.Emails;
+using Rixl.Sdk.Auth.V1.Users.Current.Memberships;
 using Rixl.Sdk.Auth.V1.Users.Current.Name;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys;
 using Rixl.Sdk.Auth.V1.Users.Current.Totp;
@@ -29,10 +31,20 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Avatar.AvatarRequestBuilder(PathParameters, RequestAdapter);
         }
+        /// <summary>The domainJoinSuggestions property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.DomainJoinSuggestions.DomainJoinSuggestionsRequestBuilder DomainJoinSuggestions
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.DomainJoinSuggestions.DomainJoinSuggestionsRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>The emails property</summary>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder Emails
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Emails.EmailsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The memberships property</summary>
+        public global::Rixl.Sdk.Auth.V1.Users.Current.Memberships.MembershipsRequestBuilder Memberships
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The name property</summary>
         public global::Rixl.Sdk.Auth.V1.Users.Current.Name.NameRequestBuilder Name

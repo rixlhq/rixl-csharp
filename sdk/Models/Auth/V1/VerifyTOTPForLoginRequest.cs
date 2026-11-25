@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class VerifyTOTPForLoginRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The challenge_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChallengeId { get; set; }
+#nullable restore
+#else
+        public string ChallengeId { get; set; }
+#endif
         /// <summary>The code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -19,14 +27,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string Code { get; set; }
-#endif
-        /// <summary>The session_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SessionId { get; set; }
-#nullable restore
-#else
-        public string SessionId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
@@ -46,8 +46,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "challenge_id", n => { ChallengeId = n.GetStringValue(); } },
                 { "code", n => { Code = n.GetStringValue(); } },
-                { "session_id", n => { SessionId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -57,8 +57,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("challenge_id", ChallengeId);
             writer.WriteStringValue("code", Code);
-            writer.WriteStringValue("session_id", SessionId);
         }
     }
 }

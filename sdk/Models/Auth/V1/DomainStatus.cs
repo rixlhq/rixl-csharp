@@ -13,8 +13,6 @@ namespace Rixl.Sdk.Models.Auth.V1
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DomainStatus : IParsable
     {
-        /// <summary>The auto_join property</summary>
-        public bool? AutoJoin { get; set; }
         /// <summary>The pending property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -23,6 +21,8 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public global::Rixl.Sdk.Models.Auth.V1.PendingDomain Pending { get; set; }
 #endif
+        /// <summary>The suggest_join property</summary>
+        public bool? SuggestJoin { get; set; }
         /// <summary>The verified property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -49,8 +49,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "auto_join", n => { AutoJoin = n.GetBoolValue(); } },
                 { "pending", n => { Pending = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.PendingDomain>(global::Rixl.Sdk.Models.Auth.V1.PendingDomain.CreateFromDiscriminatorValue); } },
+                { "suggest_join", n => { SuggestJoin = n.GetBoolValue(); } },
                 { "verified", n => { Verified = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain>(global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain.CreateFromDiscriminatorValue); } },
             };
         }
@@ -61,8 +61,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteBoolValue("auto_join", AutoJoin);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.PendingDomain>("pending", Pending);
+            writer.WriteBoolValue("suggest_join", SuggestJoin);
             writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.VerifiedDomain>("verified", Verified);
         }
     }

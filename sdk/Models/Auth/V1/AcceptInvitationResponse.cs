@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class AcceptInvitationResponse : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The organization property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public global::Rixl.Sdk.Models.Auth.V1.Organization? Organization { get; set; }
+#nullable restore
+#else
+        public global::Rixl.Sdk.Models.Auth.V1.Organization Organization { get; set; }
+#endif
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -19,14 +27,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string OrgId { get; set; }
-#endif
-        /// <summary>The org_name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrgName { get; set; }
-#nullable restore
-#else
-        public string OrgName { get; set; }
 #endif
         /// <summary>The role property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.MembershipRole? Role { get; set; }
@@ -49,7 +49,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "org_name", n => { OrgName = n.GetStringValue(); } },
+                { "organization", n => { Organization = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>(global::Rixl.Sdk.Models.Auth.V1.Organization.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>(); } },
             };
         }
@@ -60,8 +60,8 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>("organization", Organization);
             writer.WriteStringValue("org_id", OrgId);
-            writer.WriteStringValue("org_name", OrgName);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>("role", Role);
         }
     }

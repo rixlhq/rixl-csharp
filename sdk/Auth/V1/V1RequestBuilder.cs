@@ -8,11 +8,13 @@ using Rixl.Sdk.Auth.V1.Invitations;
 using Rixl.Sdk.Auth.V1.Login;
 using Rixl.Sdk.Auth.V1.Logout;
 using Rixl.Sdk.Auth.V1.MembershipApplications;
-using Rixl.Sdk.Auth.V1.Memberships;
+using Rixl.Sdk.Auth.V1.Notifications;
+using Rixl.Sdk.Auth.V1.Organizations;
 using Rixl.Sdk.Auth.V1.Passkey;
 using Rixl.Sdk.Auth.V1.Password;
 using Rixl.Sdk.Auth.V1.Providers;
 using Rixl.Sdk.Auth.V1.Register;
+using Rixl.Sdk.Auth.V1.SignIns;
 using Rixl.Sdk.Auth.V1.Token;
 using Rixl.Sdk.Auth.V1.Userinfo;
 using Rixl.Sdk.Auth.V1.Users;
@@ -60,10 +62,15 @@ namespace Rixl.Sdk.Auth.V1
         {
             get => new global::Rixl.Sdk.Auth.V1.MembershipApplications.MembershipApplicationsRequestBuilder(PathParameters, RequestAdapter);
         }
-        /// <summary>The memberships property</summary>
-        public global::Rixl.Sdk.Auth.V1.Memberships.MembershipsRequestBuilder Memberships
+        /// <summary>The notifications property</summary>
+        public global::Rixl.Sdk.Auth.V1.Notifications.NotificationsRequestBuilder Notifications
         {
-            get => new global::Rixl.Sdk.Auth.V1.Memberships.MembershipsRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::Rixl.Sdk.Auth.V1.Notifications.NotificationsRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The organizations property</summary>
+        public global::Rixl.Sdk.Auth.V1.Organizations.OrganizationsRequestBuilder Organizations
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Organizations.OrganizationsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The passkey property</summary>
         public global::Rixl.Sdk.Auth.V1.Passkey.PasskeyRequestBuilder Passkey
@@ -84,6 +91,11 @@ namespace Rixl.Sdk.Auth.V1
         public global::Rixl.Sdk.Auth.V1.Register.RegisterRequestBuilder Register
         {
             get => new global::Rixl.Sdk.Auth.V1.Register.RegisterRequestBuilder(PathParameters, RequestAdapter);
+        }
+        /// <summary>The signIns property</summary>
+        public global::Rixl.Sdk.Auth.V1.SignIns.SignInsRequestBuilder SignIns
+        {
+            get => new global::Rixl.Sdk.Auth.V1.SignIns.SignInsRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The token property</summary>
         public global::Rixl.Sdk.Auth.V1.Token.TokenRequestBuilder Token

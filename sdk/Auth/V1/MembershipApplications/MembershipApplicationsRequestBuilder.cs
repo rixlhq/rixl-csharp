@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipApplicationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/membership-applications{?limit*,offset*,state*,user%2Euser_id*}", pathParameters)
+        public MembershipApplicationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/membership-applications{?limit*,offset*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembershipApplicationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/membership-applications{?limit*,offset*,state*,user%2Euser_id*}", rawUrl)
+        public MembershipApplicationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/membership-applications{?limit*,offset*,state*}", rawUrl)
         {
         }
         /// <summary>
@@ -116,19 +116,6 @@ namespace Rixl.Sdk.Auth.V1.MembershipApplications
             [QueryParameter("state")]
             public global::Rixl.Sdk.Models.Auth.V1.MembershipApplicationState? State { get; set; }
             #pragma warning restore CS1591
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string? UserUserId { get; set; }
-            #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string UserUserId { get; set; }
-            #pragma warning restore CS1591
-#endif
         }
     }
 }

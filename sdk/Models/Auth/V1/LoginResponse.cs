@@ -28,6 +28,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public List<global::Rixl.Sdk.Models.Auth.V1.AuthMethod?> Authentication { get; set; }
 #endif
+        /// <summary>The challenge_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChallengeId { get; set; }
+#nullable restore
+#else
+        public string ChallengeId { get; set; }
+#endif
         /// <summary>The email property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -43,6 +51,22 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string ExpiresIn { get; set; }
+#endif
+        /// <summary>The last_active_org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastActiveOrgId { get; set; }
+#nullable restore
+#else
+        public string LastActiveOrgId { get; set; }
+#endif
+        /// <summary>The org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? OrgId { get; set; }
+#nullable restore
+#else
+        public string OrgId { get; set; }
 #endif
         /// <summary>passkey_options is the WebAuthn PublicKeyCredentialRequestOptions as JSON, present only when &quot;passkey&quot; is one of the authentication methods.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -68,13 +92,13 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string RequiresAction { get; set; }
 #endif
-        /// <summary>The session_id property</summary>
+        /// <summary>The role property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? SessionId { get; set; }
+        public string? Role { get; set; }
 #nullable restore
 #else
-        public string SessionId { get; set; }
+        public string Role { get; set; }
 #endif
         /// <summary>&quot;ok&quot; | &quot;2fa_required&quot; | &quot;email_not_verified&quot;</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,12 +136,15 @@ namespace Rixl.Sdk.Models.Auth.V1
             {
                 { "access_token", n => { AccessToken = n.GetStringValue(); } },
                 { "authentication", n => { Authentication = n.GetCollectionOfEnumValues<global::Rixl.Sdk.Models.Auth.V1.AuthMethod>()?.AsList(); } },
+                { "challenge_id", n => { ChallengeId = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "expires_in", n => { ExpiresIn = n.GetStringValue(); } },
+                { "last_active_org_id", n => { LastActiveOrgId = n.GetStringValue(); } },
+                { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "passkey_options", n => { PasskeyOptions = n.GetByteArrayValue(); } },
                 { "refresh_token", n => { RefreshToken = n.GetStringValue(); } },
                 { "requires_action", n => { RequiresAction = n.GetStringValue(); } },
-                { "session_id", n => { SessionId = n.GetStringValue(); } },
+                { "role", n => { Role = n.GetStringValue(); } },
                 { "status", n => { Status = n.GetStringValue(); } },
                 { "token_type", n => { TokenType = n.GetStringValue(); } },
             };
@@ -131,12 +158,15 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("access_token", AccessToken);
             writer.WriteCollectionOfEnumValues<global::Rixl.Sdk.Models.Auth.V1.AuthMethod>("authentication", Authentication);
+            writer.WriteStringValue("challenge_id", ChallengeId);
             writer.WriteStringValue("email", Email);
             writer.WriteStringValue("expires_in", ExpiresIn);
+            writer.WriteStringValue("last_active_org_id", LastActiveOrgId);
+            writer.WriteStringValue("org_id", OrgId);
             writer.WriteByteArrayValue("passkey_options", PasskeyOptions);
             writer.WriteStringValue("refresh_token", RefreshToken);
             writer.WriteStringValue("requires_action", RequiresAction);
-            writer.WriteStringValue("session_id", SessionId);
+            writer.WriteStringValue("role", Role);
             writer.WriteStringValue("status", Status);
             writer.WriteStringValue("token_type", TokenType);
         }

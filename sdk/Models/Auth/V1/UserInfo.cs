@@ -12,14 +12,6 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class UserInfo : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The active_org_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? ActiveOrgId { get; set; }
-#nullable restore
-#else
-        public string ActiveOrgId { get; set; }
-#endif
         /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -78,6 +70,14 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string LanguageCode { get; set; }
 #endif
+        /// <summary>The last_active_org_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? LastActiveOrgId { get; set; }
+#nullable restore
+#else
+        public string LastActiveOrgId { get; set; }
+#endif
         /// <summary>The last_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -128,7 +128,6 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "active_org_id", n => { ActiveOrgId = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "email", n => { Email = n.GetStringValue(); } },
                 { "email_verified", n => { EmailVerified = n.GetBoolValue(); } },
@@ -137,6 +136,7 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "image_id", n => { ImageId = n.GetStringValue(); } },
                 { "image_url", n => { ImageUrl = n.GetStringValue(); } },
                 { "language_code", n => { LanguageCode = n.GetStringValue(); } },
+                { "last_active_org_id", n => { LastActiveOrgId = n.GetStringValue(); } },
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "policies", n => { Policies = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>(global::Rixl.Sdk.Models.Auth.V1.Policy.CreateFromDiscriminatorValue)?.AsList(); } },
@@ -150,7 +150,6 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("active_org_id", ActiveOrgId);
             writer.WriteStringValue("country_code", CountryCode);
             writer.WriteStringValue("email", Email);
             writer.WriteBoolValue("email_verified", EmailVerified);
@@ -159,6 +158,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteStringValue("image_id", ImageId);
             writer.WriteStringValue("image_url", ImageUrl);
             writer.WriteStringValue("language_code", LanguageCode);
+            writer.WriteStringValue("last_active_org_id", LastActiveOrgId);
             writer.WriteStringValue("last_name", LastName);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>("policies", Policies);

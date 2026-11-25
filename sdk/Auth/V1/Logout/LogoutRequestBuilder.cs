@@ -3,6 +3,7 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
+using Rixl.Sdk.Auth.V1.Logout.All;
 using Rixl.Sdk.Models.Auth.V1;
 using Rixl.Sdk.Models.Google.Protobuf;
 using Rixl.Sdk.Models.Google.Rpc;
@@ -19,6 +20,11 @@ namespace Rixl.Sdk.Auth.V1.Logout
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class LogoutRequestBuilder : BaseRequestBuilder
     {
+        /// <summary>The all property</summary>
+        public global::Rixl.Sdk.Auth.V1.Logout.All.AllRequestBuilder All
+        {
+            get => new global::Rixl.Sdk.Auth.V1.Logout.All.AllRequestBuilder(PathParameters, RequestAdapter);
+        }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Logout.LogoutRequestBuilder"/> and sets the default values.
         /// </summary>

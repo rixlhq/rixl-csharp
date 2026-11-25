@@ -22,29 +22,13 @@ namespace Rixl.Sdk.Models.Auth.V1
 #endif
         /// <summary>A point in time in RFC 3339 format, with up to nanosecond precision. Output uses UTC (`Z`); input may use an offset from UTC.</summary>
         public DateTimeOffset? JoinedAt { get; set; }
-        /// <summary>The organization_first_name property</summary>
+        /// <summary>The organization property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? OrganizationFirstName { get; set; }
+        public global::Rixl.Sdk.Models.Auth.V1.Organization? Organization { get; set; }
 #nullable restore
 #else
-        public string OrganizationFirstName { get; set; }
-#endif
-        /// <summary>The organization_last_name property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrganizationLastName { get; set; }
-#nullable restore
-#else
-        public string OrganizationLastName { get; set; }
-#endif
-        /// <summary>The organization_username property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? OrganizationUsername { get; set; }
-#nullable restore
-#else
-        public string OrganizationUsername { get; set; }
+        public global::Rixl.Sdk.Models.Auth.V1.Organization Organization { get; set; }
 #endif
         /// <summary>The org_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -87,9 +71,7 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "joined_at", n => { JoinedAt = n.GetDateTimeOffsetValue(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
-                { "organization_first_name", n => { OrganizationFirstName = n.GetStringValue(); } },
-                { "organization_last_name", n => { OrganizationLastName = n.GetStringValue(); } },
-                { "organization_username", n => { OrganizationUsername = n.GetStringValue(); } },
+                { "organization", n => { Organization = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>(global::Rixl.Sdk.Models.Auth.V1.Organization.CreateFromDiscriminatorValue); } },
                 { "role", n => { Role = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipState>(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
@@ -104,9 +86,7 @@ namespace Rixl.Sdk.Models.Auth.V1
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("joined_at", JoinedAt);
-            writer.WriteStringValue("organization_first_name", OrganizationFirstName);
-            writer.WriteStringValue("organization_last_name", OrganizationLastName);
-            writer.WriteStringValue("organization_username", OrganizationUsername);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>("organization", Organization);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>("role", Role);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipState>("state", State);

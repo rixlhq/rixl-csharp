@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class PasskeyRegisterFinishRequest : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The challenge_id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? ChallengeId { get; set; }
+#nullable restore
+#else
+        public string ChallengeId { get; set; }
+#endif
         /// <summary>The credential property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -27,14 +35,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #nullable restore
 #else
         public string Name { get; set; }
-#endif
-        /// <summary>The session_id property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? SessionId { get; set; }
-#nullable restore
-#else
-        public string SessionId { get; set; }
 #endif
         /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -62,9 +62,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "challenge_id", n => { ChallengeId = n.GetStringValue(); } },
                 { "credential", n => { Credential = n.GetByteArrayValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "session_id", n => { SessionId = n.GetStringValue(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
@@ -75,9 +75,9 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("challenge_id", ChallengeId);
             writer.WriteByteArrayValue("credential", Credential);
             writer.WriteStringValue("name", Name);
-            writer.WriteStringValue("session_id", SessionId);
             writer.WriteStringValue("user_id", UserId);
         }
     }

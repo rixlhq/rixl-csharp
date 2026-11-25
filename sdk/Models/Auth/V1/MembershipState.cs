@@ -20,13 +20,5 @@ namespace Rixl.Sdk.Models.Auth.V1
         #pragma warning disable CS1591
         MEMBERSHIP_STATE_SUSPENDED,
         #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_LEFT")]
-        #pragma warning disable CS1591
-        MEMBERSHIP_STATE_LEFT,
-        #pragma warning restore CS1591
-        [EnumMember(Value = "MEMBERSHIP_STATE_REMOVED")]
-        #pragma warning disable CS1591
-        MEMBERSHIP_STATE_REMOVED,
-        #pragma warning restore CS1591
     }
 }
