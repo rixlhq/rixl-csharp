@@ -13,7 +13,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Current.Check
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\members\current\check
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\members\current\check
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class CheckRequestBuilder : BaseRequestBuilder
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Current.Check
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members/current/check", pathParameters)
+        public CheckRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members/current/check", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Current.Check
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public CheckRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members/current/check", rawUrl)
+        public CheckRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members/current/check", rawUrl)
         {
         }
         /// <summary>

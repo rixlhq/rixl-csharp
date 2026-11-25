@@ -13,7 +13,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.AuditEvents
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\audit-events
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\audit-events
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AuditEventsRequestBuilder : BaseRequestBuilder
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.AuditEvents
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AuditEventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/audit-events{?page_size*,page_token*}", pathParameters)
+        public AuditEventsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/audit-events{?page_size*,page_token*}", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.AuditEvents
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AuditEventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/audit-events{?page_size*,page_token*}", rawUrl)
+        public AuditEventsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/audit-events{?page_size*,page_token*}", rawUrl)
         {
         }
         /// <summary>

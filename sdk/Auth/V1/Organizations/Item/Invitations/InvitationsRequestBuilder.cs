@@ -14,7 +14,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\invitations
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\invitations
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class InvitationsRequestBuilder : BaseRequestBuilder
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvitationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/invitations{?page_size*,page_token*,state*}", pathParameters)
+        public InvitationsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/invitations{?page_size*,page_token*,state*}", pathParameters)
         {
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public InvitationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/invitations{?page_size*,page_token*,state*}", rawUrl)
+        public InvitationsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/invitations{?page_size*,page_token*,state*}", rawUrl)
         {
         }
         /// <summary>

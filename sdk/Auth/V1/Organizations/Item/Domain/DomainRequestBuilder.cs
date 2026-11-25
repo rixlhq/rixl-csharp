@@ -16,7 +16,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\domain
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\domain
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class DomainRequestBuilder : BaseRequestBuilder
@@ -36,7 +36,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/domain{?user_id*}", pathParameters)
+        public DomainRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/domain{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -44,7 +44,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public DomainRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/domain{?user_id*}", rawUrl)
+        public DomainRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/domain{?user_id*}", rawUrl)
         {
         }
         /// <summary>

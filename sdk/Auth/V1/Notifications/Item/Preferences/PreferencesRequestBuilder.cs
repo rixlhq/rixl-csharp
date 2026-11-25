@@ -13,7 +13,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\notifications\{org_id}\preferences
+    /// Builds and executes requests for operations under \auth\v1\notifications\{org_-id}\preferences
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PreferencesRequestBuilder : BaseRequestBuilder
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PreferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_id}/preferences{?user_id*}", pathParameters)
+        public PreferencesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_%2Did}/preferences{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PreferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_id}/preferences{?user_id*}", rawUrl)
+        public PreferencesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_%2Did}/preferences{?user_id*}", rawUrl)
         {
         }
         /// <summary>

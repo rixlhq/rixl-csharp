@@ -2,42 +2,33 @@
 #pragma warning disable CS0618
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
-using Rixl.Sdk.Models.Auth.V1;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Auth.V1.Organizations.Item
+namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
 {
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     #pragma warning disable CS1591
-    public partial class WithOrg_PatchRequestBody : IParsable
+    public partial class PreferencesPatchRequestBody_user : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The organization property</summary>
+        /// <summary>The user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public global::Rixl.Sdk.Models.Auth.V1.Organization? Organization { get; set; }
+        public string? UserId { get; set; }
 #nullable restore
 #else
-        public global::Rixl.Sdk.Models.Auth.V1.Organization Organization { get; set; }
-#endif
-        /// <summary>Supported paths are name, slug and image_id.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? UpdateMask { get; set; }
-#nullable restore
-#else
-        public string UpdateMask { get; set; }
+        public string UserId { get; set; }
 #endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody();
+            return new global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -47,8 +38,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "organization", n => { Organization = n.GetObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>(global::Rixl.Sdk.Models.Auth.V1.Organization.CreateFromDiscriminatorValue); } },
-                { "update_mask", n => { UpdateMask = n.GetStringValue(); } },
+                { "user_id", n => { UserId = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,8 +48,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteObjectValue<global::Rixl.Sdk.Models.Auth.V1.Organization>("organization", Organization);
-            writer.WriteStringValue("update_mask", UpdateMask);
+            writer.WriteStringValue("user_id", UserId);
         }
     }
 }

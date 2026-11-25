@@ -21,14 +21,14 @@ namespace Rixl.Sdk.Auth.V1.Organizations
     {
         /// <summary>Gets an item from the Rixl.Sdk.auth.v1.organizations.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder"/></returns>
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder this[string position]
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder"/></returns>
+        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
-                urlTplParams.Add("org_id", position);
-                return new global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder(urlTplParams, RequestAdapter);
+                urlTplParams.Add("org_%2Did", position);
+                return new global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>

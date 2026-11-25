@@ -10,10 +10,10 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Notifications.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\notifications\{org_id}
+    /// Builds and executes requests for operations under \auth\v1\notifications\{org_-id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithOrg_ItemRequestBuilder : BaseRequestBuilder
+    public partial class Org_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The preferences property</summary>
         public global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesRequestBuilder Preferences
@@ -21,19 +21,19 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item
             get => new global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Notifications.Item.WithOrg_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Notifications.Item.Org_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOrg_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_id}", pathParameters)
+        public Org_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_%2Did}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Notifications.Item.WithOrg_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Notifications.Item.Org_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithOrg_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_id}", rawUrl)
+        public Org_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/notifications/{org_%2Did}", rawUrl)
         {
         }
     }
