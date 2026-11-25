@@ -92,8 +92,4 @@ Warning: KiotaBuilder OpenAPI warning: #/components/schemas/videos.v1.TrackUploa
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointAttemptsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEndpointsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
 Warning: KiotaBuilder OpenAPI warning: #/components/schemas/webhooks.v1.ListEventsResponse/properties/total - The format int64 is not supported by Kiota for the type String and will be ignored.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1domain - The path signature '/auth/v1/organizations/{}/domain' MUST be unique.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1domain~1suggest-join - The path signature '/auth/v1/organizations/{}/domain/suggest-join' MUST be unique.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1notifications~1{user.org_id}~1preferences - The path signature '/auth/v1/notifications/{}/preferences' MUST be unique.
-Error: KiotaBuilder OpenAPI error: #/paths/~1auth~1v1~1organizations~1{user.org_id}~1policies - The path signature '/auth/v1/organizations/{}/policies' MUST be unique.
 Warning: KiotaBuilder Discriminator google.protobuf.Timestamp is not inherited from Timestamp.

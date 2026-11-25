@@ -14,14 +14,6 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin
     {
         /// <summary>The enabled property</summary>
         public bool? Enabled { get; set; }
-        /// <summary>The user property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin.SuggestJoinPutRequestBody_user? User { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin.SuggestJoinPutRequestBody_user User { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -41,7 +33,6 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin
             return new Dictionary<string, Action<IParseNode>>
             {
                 { "enabled", n => { Enabled = n.GetBoolValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin.SuggestJoinPutRequestBody_user>(global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin.SuggestJoinPutRequestBody_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -52,7 +43,6 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteBoolValue("enabled", Enabled);
-            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Organizations.Item.Domain.SuggestJoin.SuggestJoinPutRequestBody_user>("user", User);
         }
     }
 }
