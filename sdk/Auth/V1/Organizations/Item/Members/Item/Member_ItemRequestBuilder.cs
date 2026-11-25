@@ -15,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\members\{member_-id}
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\members\{member_-id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Member_ItemRequestBuilder : BaseRequestBuilder
@@ -30,7 +30,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members/{member_%2Did}", pathParameters)
+        public Member_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members/{member_%2Did}", pathParameters)
         {
         }
         /// <summary>
@@ -38,7 +38,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members/{member_%2Did}", rawUrl)
+        public Member_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members/{member_%2Did}", rawUrl)
         {
         }
         /// <summary>

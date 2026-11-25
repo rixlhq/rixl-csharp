@@ -13,7 +13,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\transfer-ownership
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\transfer-ownership
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TransferOwnershipRequestBuilder : BaseRequestBuilder
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransferOwnershipRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/transfer-ownership", pathParameters)
+        public TransferOwnershipRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/transfer-ownership", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public TransferOwnershipRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/transfer-ownership", rawUrl)
+        public TransferOwnershipRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/transfer-ownership", rawUrl)
         {
         }
         /// <summary>

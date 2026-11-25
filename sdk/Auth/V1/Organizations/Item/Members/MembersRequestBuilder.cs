@@ -15,7 +15,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\members
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\members
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MembersRequestBuilder : BaseRequestBuilder
@@ -42,7 +42,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members{?limit*,offset*,user%2Euser_id*}", pathParameters)
+        public MembersRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members{?limit*,offset*}", pathParameters)
         {
         }
         /// <summary>
@@ -50,7 +50,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/members{?limit*,offset*,user%2Euser_id*}", rawUrl)
+        public MembersRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/members{?limit*,offset*}", rawUrl)
         {
         }
         /// <summary>
@@ -118,19 +118,6 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Members
             [QueryParameter("offset")]
             public int? Offset { get; set; }
             #pragma warning restore CS1591
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string? UserUserId { get; set; }
-            #pragma warning restore CS1591
-#nullable restore
-#else
-            #pragma warning disable CS1591
-            [QueryParameter("user%2Euser_id")]
-            public string UserUserId { get; set; }
-            #pragma warning restore CS1591
-#endif
         }
     }
 }

@@ -16,7 +16,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\policies
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\policies
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class PoliciesRequestBuilder : BaseRequestBuilder
@@ -48,7 +48,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/policies{?user_id*}", pathParameters)
+        public PoliciesRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/policies{?user_id*}", pathParameters)
         {
         }
         /// <summary>
@@ -56,7 +56,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/policies{?user_id*}", rawUrl)
+        public PoliciesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/policies{?user_id*}", rawUrl)
         {
         }
         /// <summary>

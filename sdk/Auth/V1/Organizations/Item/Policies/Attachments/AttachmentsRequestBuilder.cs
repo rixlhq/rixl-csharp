@@ -10,7 +10,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies.Attachments
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\policies\attachments
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\policies\attachments
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AttachmentsRequestBuilder : BaseRequestBuilder
@@ -32,7 +32,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies.Attachments
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttachmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/policies/attachments", pathParameters)
+        public AttachmentsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/policies/attachments", pathParameters)
         {
         }
         /// <summary>
@@ -40,7 +40,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Policies.Attachments
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AttachmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/policies/attachments", rawUrl)
+        public AttachmentsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/policies/attachments", rawUrl)
         {
         }
     }

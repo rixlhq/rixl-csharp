@@ -17,14 +17,6 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
         public global::Rixl.Sdk.Models.Auth.V1.NotificationCategory? Category { get; set; }
         /// <summary>The email_enabled property</summary>
         public bool? EmailEnabled { get; set; }
-        /// <summary>The user property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user? User { get; set; }
-#nullable restore
-#else
-        public global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user User { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -45,7 +37,6 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
             {
                 { "category", n => { Category = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.NotificationCategory>(); } },
                 { "email_enabled", n => { EmailEnabled = n.GetBoolValue(); } },
-                { "user", n => { User = n.GetObjectValue<global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user>(global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user.CreateFromDiscriminatorValue); } },
             };
         }
         /// <summary>
@@ -57,7 +48,6 @@ namespace Rixl.Sdk.Auth.V1.Notifications.Item.Preferences
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.NotificationCategory>("category", Category);
             writer.WriteBoolValue("email_enabled", EmailEnabled);
-            writer.WriteObjectValue<global::Rixl.Sdk.Auth.V1.Notifications.Item.Preferences.PreferencesPatchRequestBody_user>("user", User);
         }
     }
 }

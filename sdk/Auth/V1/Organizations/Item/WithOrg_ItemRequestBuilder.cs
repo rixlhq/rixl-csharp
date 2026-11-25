@@ -21,10 +21,10 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Org_ItemRequestBuilder : BaseRequestBuilder
+    public partial class WithOrg_ItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>The auditEvents property</summary>
         public global::Rixl.Sdk.Auth.V1.Organizations.Item.AuditEvents.AuditEventsRequestBuilder AuditEvents
@@ -67,19 +67,19 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
             get => new global::Rixl.Sdk.Auth.V1.Organizations.Item.TransferOwnership.TransferOwnershipRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Org_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}", pathParameters)
+        public WithOrg_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}", pathParameters)
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public Org_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}", rawUrl)
+        public WithOrg_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}", rawUrl)
         {
         }
         /// <summary>
@@ -115,11 +115,11 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<global::Rixl.Sdk.Models.Auth.V1.Organization?> PatchAsync(global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.Organization?> PatchAsync(global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<global::Rixl.Sdk.Models.Auth.V1.Organization> PatchAsync(global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<global::Rixl.Sdk.Models.Auth.V1.Organization> PatchAsync(global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -157,11 +157,11 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPatchRequestInformation(global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_PatchRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             if(ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -174,11 +174,11 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder WithUrl(string rawUrl)
+        public global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new global::Rixl.Sdk.Auth.V1.Organizations.Item.Org_ItemRequestBuilder(rawUrl, RequestAdapter);
+            return new global::Rixl.Sdk.Auth.V1.Organizations.Item.WithOrg_ItemRequestBuilder(rawUrl, RequestAdapter);
         }
     }
 }

@@ -13,7 +13,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\convert-to-team
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\convert-to-team
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConvertToTeamRequestBuilder : BaseRequestBuilder
@@ -23,7 +23,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConvertToTeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/convert-to-team", pathParameters)
+        public ConvertToTeamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/convert-to-team", pathParameters)
         {
         }
         /// <summary>
@@ -31,7 +31,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.ConvertToTeam
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public ConvertToTeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/convert-to-team", rawUrl)
+        public ConvertToTeamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/convert-to-team", rawUrl)
         {
         }
         /// <summary>

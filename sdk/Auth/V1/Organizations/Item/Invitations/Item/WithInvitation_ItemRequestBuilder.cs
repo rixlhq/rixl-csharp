@@ -14,7 +14,7 @@ using System;
 namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations.Item
 {
     /// <summary>
-    /// Builds and executes requests for operations under \auth\v1\organizations\{org_-id}\invitations\{invitation_id}
+    /// Builds and executes requests for operations under \auth\v1\organizations\{org_id}\invitations\{invitation_id}
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithInvitation_ItemRequestBuilder : BaseRequestBuilder
@@ -29,7 +29,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations.Item
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithInvitation_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/invitations/{invitation_id}", pathParameters)
+        public WithInvitation_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/invitations/{invitation_id}", pathParameters)
         {
         }
         /// <summary>
@@ -37,7 +37,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations.Item
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public WithInvitation_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_%2Did}/invitations/{invitation_id}", rawUrl)
+        public WithInvitation_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/auth/v1/organizations/{org_id}/invitations/{invitation_id}", rawUrl)
         {
         }
         /// <summary>
