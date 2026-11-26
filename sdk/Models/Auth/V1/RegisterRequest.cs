@@ -28,7 +28,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string Email { get; set; }
 #endif
-        /// <summary>The password property</summary>
+        /// <summary>Must contain at least 8 UTF-8 bytes (not 8 characters).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Password { get; set; }

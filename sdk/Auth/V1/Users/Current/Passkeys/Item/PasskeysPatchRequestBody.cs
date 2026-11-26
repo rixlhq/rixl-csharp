@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Auth.V1.Users.Current.Passkeys.Item
     public partial class PasskeysPatchRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The name property</summary>
+        /// <summary>At most 64 UTF-8 bytes. When renaming, whitespace is trimmed before validation and the result must be nonempty.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Name { get; set; }

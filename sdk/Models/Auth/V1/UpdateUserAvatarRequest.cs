@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class UpdateUserAvatarRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The image_id property</summary>
+        /// <summary>Trimmed before validation. Empty clears the avatar; otherwise must be a valid base62 image ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? ImageId { get; set; }

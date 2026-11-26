@@ -20,7 +20,7 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>The username property</summary>
+        /// <summary>Trimmed and lowercased before validation. The normalized value may contain at most 24 Unicode characters; an empty value is allowed.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Username { get; set; }

@@ -13,7 +13,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations.Item.Invitations
     public partial class InvitationsPostRequestBody : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The email property</summary>
+        /// <summary>Trimmed and lowercased before validation as a bare email address. The normalized address must be nonempty and at most 254 UTF-8 bytes, with a local part of at most 64 bytes and a domain containing a dot that is neither leading nor trailing.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? Email { get; set; }

@@ -12,7 +12,7 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class ResetPasswordRequest : IParsable
     #pragma warning restore CS1591
     {
-        /// <summary>The new_password property</summary>
+        /// <summary>Must contain at least 8 UTF-8 bytes (not 8 characters).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public string? NewPassword { get; set; }
