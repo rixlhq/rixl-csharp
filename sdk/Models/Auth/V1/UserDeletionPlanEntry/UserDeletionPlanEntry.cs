@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry
     public partial class UserDeletionPlanEntry : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The affected member&apos;s full name.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? AffectedName { get; set; }
+#nullable restore
+#else
+        public string AffectedName { get; set; }
+#endif
         /// <summary>Set when another member will lose access to the personal org.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -19,14 +27,6 @@ namespace Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry
 #nullable restore
 #else
         public string AffectedUserId { get; set; }
-#endif
-        /// <summary>The affected_username property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? AffectedUsername { get; set; }
-#nullable restore
-#else
-        public string AffectedUsername { get; set; }
 #endif
         /// <summary>The kind property</summary>
         public global::Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry.Kind? Kind { get; set; }
@@ -64,8 +64,8 @@ namespace Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "affected_name", n => { AffectedName = n.GetStringValue(); } },
                 { "affected_user_id", n => { AffectedUserId = n.GetStringValue(); } },
-                { "affected_username", n => { AffectedUsername = n.GetStringValue(); } },
                 { "kind", n => { Kind = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry.Kind>(); } },
                 { "org_id", n => { OrgId = n.GetStringValue(); } },
                 { "org_name", n => { OrgName = n.GetStringValue(); } },
@@ -78,8 +78,8 @@ namespace Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("affected_name", AffectedName);
             writer.WriteStringValue("affected_user_id", AffectedUserId);
-            writer.WriteStringValue("affected_username", AffectedUsername);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.UserDeletionPlanEntry.Kind>("kind", Kind);
             writer.WriteStringValue("org_id", OrgId);
             writer.WriteStringValue("org_name", OrgName);

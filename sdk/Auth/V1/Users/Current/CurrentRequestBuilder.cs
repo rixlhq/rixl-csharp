@@ -12,7 +12,6 @@ using Rixl.Sdk.Auth.V1.Users.Current.Memberships;
 using Rixl.Sdk.Auth.V1.Users.Current.Name;
 using Rixl.Sdk.Auth.V1.Users.Current.Passkeys;
 using Rixl.Sdk.Auth.V1.Users.Current.Totp;
-using Rixl.Sdk.Auth.V1.Users.Current.Username;
 using Rixl.Sdk.Models.Auth.V1;
 using Rixl.Sdk.Models;
 using System.Collections.Generic;
@@ -72,11 +71,6 @@ namespace Rixl.Sdk.Auth.V1.Users.Current
         public global::Rixl.Sdk.Auth.V1.Users.Current.Totp.TotpRequestBuilder Totp
         {
             get => new global::Rixl.Sdk.Auth.V1.Users.Current.Totp.TotpRequestBuilder(PathParameters, RequestAdapter);
-        }
-        /// <summary>The username property</summary>
-        public global::Rixl.Sdk.Auth.V1.Users.Current.Username.UsernameRequestBuilder Username
-        {
-            get => new global::Rixl.Sdk.Auth.V1.Users.Current.Username.UsernameRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="global::Rixl.Sdk.Auth.V1.Users.Current.CurrentRequestBuilder"/> and sets the default values.

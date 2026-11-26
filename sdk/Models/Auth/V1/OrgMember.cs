@@ -12,6 +12,14 @@ namespace Rixl.Sdk.Models.Auth.V1
     public partial class OrgMember : IParsable
     #pragma warning restore CS1591
     {
+        /// <summary>The email property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Email { get; set; }
+#nullable restore
+#else
+        public string Email { get; set; }
+#endif
         /// <summary>The first_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -58,14 +66,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public string UserId { get; set; }
 #endif
-        /// <summary>The username property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Username { get; set; }
-#nullable restore
-#else
-        public string Username { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -84,6 +84,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         {
             return new Dictionary<string, Action<IParseNode>>
             {
+                { "email", n => { Email = n.GetStringValue(); } },
                 { "first_name", n => { FirstName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "joined_at", n => { JoinedAt = n.GetDateTimeOffsetValue(); } },
@@ -92,7 +93,6 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "role", n => { Role = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>(); } },
                 { "state", n => { State = n.GetEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipState>(); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
-                { "username", n => { Username = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -102,6 +102,7 @@ namespace Rixl.Sdk.Models.Auth.V1
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+            writer.WriteStringValue("email", Email);
             writer.WriteStringValue("first_name", FirstName);
             writer.WriteStringValue("id", Id);
             writer.WriteDateTimeOffsetValue("joined_at", JoinedAt);
@@ -110,7 +111,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipRole>("role", Role);
             writer.WriteEnumValue<global::Rixl.Sdk.Models.Auth.V1.MembershipState>("state", State);
             writer.WriteStringValue("user_id", UserId);
-            writer.WriteStringValue("username", Username);
         }
     }
 }

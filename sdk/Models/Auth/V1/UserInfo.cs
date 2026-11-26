@@ -102,14 +102,6 @@ namespace Rixl.Sdk.Models.Auth.V1
 #else
         public List<global::Rixl.Sdk.Models.Auth.V1.Policy> Policies { get; set; }
 #endif
-        /// <summary>The username property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Username { get; set; }
-#nullable restore
-#else
-        public string Username { get; set; }
-#endif
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
@@ -140,7 +132,6 @@ namespace Rixl.Sdk.Models.Auth.V1
                 { "last_name", n => { LastName = n.GetStringValue(); } },
                 { "permissions", n => { Permissions = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "policies", n => { Policies = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>(global::Rixl.Sdk.Models.Auth.V1.Policy.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "username", n => { Username = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -162,7 +153,6 @@ namespace Rixl.Sdk.Models.Auth.V1
             writer.WriteStringValue("last_name", LastName);
             writer.WriteCollectionOfPrimitiveValues<string>("permissions", Permissions);
             writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Auth.V1.Policy>("policies", Policies);
-            writer.WriteStringValue("username", Username);
         }
     }
 }
