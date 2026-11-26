@@ -5,7 +5,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Auth.V1.Organizations.Item;
 using Rixl.Sdk.Models.Auth.V1;
-using Rixl.Sdk.Models.Google.Rpc;
+using Rixl.Sdk.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -53,7 +53,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Auth.V1.ListOrganizationsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Rixl.Sdk.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.ListOrganizationsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Auth.V1.Organizations.OrganizationsRequestBuilder.OrganizationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -66,7 +66,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+                { "XXX", global::Rixl.Sdk.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.ListOrganizationsResponse>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.ListOrganizationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -77,7 +77,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Rixl.Sdk.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Auth.V1.Organization?> PostAsync(global::Rixl.Sdk.Models.Auth.V1.CreateOrganizationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -91,7 +91,7 @@ namespace Rixl.Sdk.Auth.V1.Organizations
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+                { "XXX", global::Rixl.Sdk.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Auth.V1.Organization>(requestInfo, global::Rixl.Sdk.Models.Auth.V1.Organization.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

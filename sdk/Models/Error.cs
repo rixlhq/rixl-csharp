@@ -3,56 +3,60 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Google.Protobuf;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Models.Google.Rpc
+namespace Rixl.Sdk.Models
 {
-    /// <summary>
-    /// The Status type defines a logical error model suitable for gRPC and REST APIs.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Status : ApiException, IAdditionalDataHolder, IParsable
+    #pragma warning disable CS1591
+    public partial class Error : ApiException, IAdditionalDataHolder, IParsable
+    #pragma warning restore CS1591
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>The status code, which should be an enum value of google.rpc.Code.</summary>
-        public int? Code { get; set; }
-        /// <summary>A list of messages that carry the error details.</summary>
+        /// <summary>Human-readable message. Not stable; branch on the HTTP status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public List<global::Rixl.Sdk.Models.Google.Protobuf.Any>? Details { get; set; }
+        public string? ErrorProp { get; set; }
 #nullable restore
 #else
-        public List<global::Rixl.Sdk.Models.Google.Protobuf.Any> Details { get; set; }
+        public string ErrorProp { get; set; }
 #endif
         /// <summary>The primary error message.</summary>
-        public override string Message { get => MessageEscaped ?? string.Empty; }
-        /// <summary>A developer-facing error message.</summary>
+        public override string Message { get => base.Message; }
+        /// <summary>Reason-specific details, such as `invitation_id` on `INVITATION_PENDING` or `max_age_seconds` on `STEP_UP_REQUIRED`. Absent when there is none.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public string? MessageEscaped { get; set; }
+        public global::Rixl.Sdk.Models.Error_metadata? Metadata { get; set; }
 #nullable restore
 #else
-        public string MessageEscaped { get; set; }
+        public global::Rixl.Sdk.Models.Error_metadata Metadata { get; set; }
+#endif
+        /// <summary>Machine-readable reason for some 4xx errors, such as `ORG_DELETED`, `MEMBERSHIP_SUSPENDED`, `NOT_A_MEMBER` or `STEP_UP_REQUIRED`. Absent when there is none, and always absent on 5xx.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+        public string? Reason { get; set; }
+#nullable restore
+#else
+        public string Reason { get; set; }
 #endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Google.Rpc.Status"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Error"/> and sets the default values.
         /// </summary>
-        public Status()
+        public Error()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Rpc.Status"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Error"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Google.Rpc.Status CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Error CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Google.Rpc.Status();
+            return new global::Rixl.Sdk.Models.Error();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -62,9 +66,9 @@ namespace Rixl.Sdk.Models.Google.Rpc
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "code", n => { Code = n.GetIntValue(); } },
-                { "details", n => { Details = n.GetCollectionOfObjectValues<global::Rixl.Sdk.Models.Google.Protobuf.Any>(global::Rixl.Sdk.Models.Google.Protobuf.Any.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "message", n => { MessageEscaped = n.GetStringValue(); } },
+                { "error", n => { ErrorProp = n.GetStringValue(); } },
+                { "metadata", n => { Metadata = n.GetObjectValue<global::Rixl.Sdk.Models.Error_metadata>(global::Rixl.Sdk.Models.Error_metadata.CreateFromDiscriminatorValue); } },
+                { "reason", n => { Reason = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -74,9 +78,9 @@ namespace Rixl.Sdk.Models.Google.Rpc
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteIntValue("code", Code);
-            writer.WriteCollectionOfObjectValues<global::Rixl.Sdk.Models.Google.Protobuf.Any>("details", Details);
-            writer.WriteStringValue("message", MessageEscaped);
+            writer.WriteStringValue("error", ErrorProp);
+            writer.WriteObjectValue<global::Rixl.Sdk.Models.Error_metadata>("metadata", Metadata);
+            writer.WriteStringValue("reason", Reason);
             writer.WriteAdditionalData(AdditionalData);
         }
     }

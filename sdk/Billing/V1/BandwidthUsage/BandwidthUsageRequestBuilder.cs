@@ -6,7 +6,7 @@ using Microsoft.Kiota.Abstractions;
 using Rixl.Sdk.Billing.V1.BandwidthUsage.History;
 using Rixl.Sdk.Billing.V1.BandwidthUsage.Refresh;
 using Rixl.Sdk.Models.Billing.V1;
-using Rixl.Sdk.Models.Google.Rpc;
+using Rixl.Sdk.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -52,7 +52,7 @@ namespace Rixl.Sdk.Billing.V1.BandwidthUsage
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Billing.V1.BandwidthUsage"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Rixl.Sdk.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Billing.V1.BandwidthUsage?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Billing.V1.BandwidthUsage.BandwidthUsageRequestBuilder.BandwidthUsageRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -65,7 +65,7 @@ namespace Rixl.Sdk.Billing.V1.BandwidthUsage
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+                { "XXX", global::Rixl.Sdk.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Billing.V1.BandwidthUsage>(requestInfo, global::Rixl.Sdk.Models.Billing.V1.BandwidthUsage.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

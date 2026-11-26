@@ -3,8 +3,8 @@
 using Microsoft.Kiota.Abstractions.Extensions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Kiota.Abstractions;
-using Rixl.Sdk.Models.Google.Rpc;
 using Rixl.Sdk.Models.Posts.V1;
+using Rixl.Sdk.Models;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Creators;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Item;
 using Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.Upload;
@@ -65,7 +65,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// <returns>A <see cref="global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Rixl.Sdk.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse?> GetAsync(Action<RequestConfiguration<global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsRequestBuilder.PostsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -78,7 +78,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+                { "XXX", global::Rixl.Sdk.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.ListPostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
@@ -89,7 +89,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
         /// <param name="body">At most one of `image_id`, `video_id` may be set.</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="global::Rixl.Sdk.Models.Google.Rpc.Status">When receiving a 4XX or 5XX status code</exception>
+        /// <exception cref="global::Rixl.Sdk.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse?> PostAsync(global::Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts.PostsPostRequestBody body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -103,7 +103,7 @@ namespace Rixl.Sdk.Posts.V1.Projects.Item.Feeds.Item.Posts
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                { "XXX", global::Rixl.Sdk.Models.Google.Rpc.Status.CreateFromDiscriminatorValue },
+                { "XXX", global::Rixl.Sdk.Models.Error.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendAsync<global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse>(requestInfo, global::Rixl.Sdk.Models.Posts.V1.CreatePostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }

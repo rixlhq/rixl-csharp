@@ -5,40 +5,32 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using System.Collections.Generic;
 using System.IO;
 using System;
-namespace Rixl.Sdk.Models.Google.Protobuf
+namespace Rixl.Sdk.Models
 {
     /// <summary>
-    /// Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+    /// Reason-specific details, such as `invitation_id` on `INVITATION_PENDING` or `max_age_seconds` on `STEP_UP_REQUIRED`. Absent when there is none.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class Any : IAdditionalDataHolder, IParsable
+    public partial class Error_metadata : IAdditionalDataHolder, IParsable
     {
         /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
         public IDictionary<string, object> AdditionalData { get; set; }
-        /// <summary>A URL/resource name that uniquely identifies the type of the serialized message.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-        public string? Type { get; set; }
-#nullable restore
-#else
-        public string Type { get; set; }
-#endif
         /// <summary>
-        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Any"/> and sets the default values.
+        /// Instantiates a new <see cref="global::Rixl.Sdk.Models.Error_metadata"/> and sets the default values.
         /// </summary>
-        public Any()
+        public Error_metadata()
         {
             AdditionalData = new Dictionary<string, object>();
         }
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="global::Rixl.Sdk.Models.Google.Protobuf.Any"/></returns>
+        /// <returns>A <see cref="global::Rixl.Sdk.Models.Error_metadata"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static global::Rixl.Sdk.Models.Google.Protobuf.Any CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static global::Rixl.Sdk.Models.Error_metadata CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             if(ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-            return new global::Rixl.Sdk.Models.Google.Protobuf.Any();
+            return new global::Rixl.Sdk.Models.Error_metadata();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -48,7 +40,6 @@ namespace Rixl.Sdk.Models.Google.Protobuf
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                { "@type", n => { Type = n.GetStringValue(); } },
             };
         }
         /// <summary>
@@ -58,7 +49,6 @@ namespace Rixl.Sdk.Models.Google.Protobuf
         public virtual void Serialize(ISerializationWriter writer)
         {
             if(ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-            writer.WriteStringValue("@type", Type);
             writer.WriteAdditionalData(AdditionalData);
         }
     }
